@@ -16,23 +16,6 @@ namespace flik
 {
     static const int kPieceTag = 0xF00F;
     
-    Scene* MainGameScene::createScene()
-    {
-        // 'scene' is an autorelease object
-        auto scene = Scene::createWithPhysics();
-        
-        // add layer as a child to scene
-        scene->addChild(this);
-        
-        auto physicsWorld = scene->getPhysicsWorld();
-        //physicsWorld->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_CONTACT);
-        physicsWorld->setSubsteps(2);
-        //physicsWorld->setSpeed(1.0 / 120.0);
-        
-        // return the scene
-        return scene;
-    }
-    
     void MainGameScene::setGameMode(GameMode* gameMode)
     {
         mGameMode = gameMode;
@@ -88,12 +71,15 @@ namespace flik
     // on "init" you need to initialize your instance
     bool MainGameScene::init()
     {
-        if ( !Node::init() )
+        if ( !Scene::initWithPhysics() )
         {
             return false;
         }
         
-        //auto rootNode = CSLoader::createNode("MainScene.csb");
+        auto physicsWorld = getPhysicsWorld();
+        //physicsWorld->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_CONTACT);
+        physicsWorld->setSubsteps(2);
+        //physicsWorld->setSpeed(1.0 / 120.0);
         
         auto uiSize = Director::getInstance()->getOpenGLView()->getDesignResolutionSize();
         

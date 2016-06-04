@@ -53,7 +53,7 @@ namespace flik {
              mSpawnInterval = std::max(mSpawnInterval - 1, 1);
              }*/
             
-            //spawnPieces(mSpawnCount);
+            spawnPieces(mSpawnCount);
             
         }, mSpawnInterval, CC_REPEAT_FOREVER, 0.0f, kSpawnTimerKey);
         

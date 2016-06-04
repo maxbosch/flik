@@ -56,10 +56,9 @@ namespace flik
         auto level = MainGameScene::create();
         level->setGameMode(MarathonGameMode::create());
         level->setGameHUD(MainGameHUD::create());
-        auto scene = level->createScene();
         
         // run
-        director->runWithScene(scene);
+        director->runWithScene(level);
         
         return true;
     }
