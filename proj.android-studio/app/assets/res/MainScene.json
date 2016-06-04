@@ -1,0 +1,263 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "MainScene",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {},
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PercentWidthEnable": true,
+            "PercentHeightEnable": true,
+            "PercentWidthEnabled": true,
+            "PercentHeightEnabled": true,
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 6,
+            "ActionTag": -1167533537,
+            "Size": {
+              "X": 640.0,
+              "Y": 1136.0
+            },
+            "Name": "GameBoardPanel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 101,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 20.0,
+              "Y": 568.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 127,
+              "G": 127,
+              "B": 127
+            },
+            "IconVisible": false,
+            "PositionPercentYEnabled": true,
+            "PrePosition": {
+              "X": 0.0312,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 0.9375,
+              "Y": 0.2201
+            },
+            "LeftMargin": 20.0,
+            "RightMargin": 20.0,
+            "TopMargin": 318.0,
+            "BottomMargin": 568.0,
+            "Tag": 3,
+            "Children": [
+              {
+                "FontSize": 40,
+                "LabelText": "Game Over\n",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 302.9766,
+                  "Y": 180.7932
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 0,
+                  "G": 0,
+                  "B": 0
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.505,
+                  "Y": 0.7232
+                },
+                "PreSize": {
+                  "X": 0.345,
+                  "Y": 0.36
+                },
+                "LeftMargin": 199.4766,
+                "RightMargin": 193.5234,
+                "TopMargin": 24.2068,
+                "BottomMargin": 135.7932,
+                "Tag": 4,
+                "ActionTag": -469163326,
+                "Size": {
+                  "X": 207.0,
+                  "Y": 90.0
+                },
+                "Name": "Text_1",
+                "ctype": "TextObjectData"
+              },
+              {
+                "FontSize": 30,
+                "ButtonText": "Restart",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Press.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Normal.png",
+                  "Plist": ""
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 15,
+                "Scale9OriginY": 5,
+                "Scale9Width": 16,
+                "Scale9Height": 20,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 300.0,
+                  "Y": 73.1555
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PositionPercentXEnabled": true,
+                "PrePosition": {
+                  "X": 0.5,
+                  "Y": 0.2926
+                },
+                "PreSize": {
+                  "X": 0.5828,
+                  "Y": 0.267
+                },
+                "LeftMargin": 125.154,
+                "RightMargin": 125.154,
+                "TopMargin": 143.4678,
+                "BottomMargin": 39.7787,
+                "Tag": 5,
+                "ActionTag": 583837096,
+                "Size": {
+                  "X": 349.692,
+                  "Y": 66.7535
+                },
+                "Name": "Button_1",
+                "ctype": "ButtonObjectData"
+              }
+            ],
+            "ActionTag": 729278359,
+            "Size": {
+              "X": 600.0,
+              "Y": 250.0
+            },
+            "Name": "GameOverPanel",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 640.0,
+          "Y": 1136.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Default/Button_Disable.png",
+        "Default/Button_Normal.png",
+        "Default/Button_Press.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

@@ -1,0 +1,9 @@
+cocos2d
+bin
+*.o
+*.d
+*.a
+*.so
+*.xcworkspacedata
+*.xcworkspace
+**/xcuserdata
