@@ -34,7 +34,7 @@ namespace flik
         Vec2 direction;
     };
     
-    static const auto kBoxDimens = Size(80, 190);
+    static const auto kBoxDimens = Size(120, 120);
     static const int kRailSize = 10;
     
     static const BoxDesc RedBoxDesc = { RedBox, Vec2(0, 1), kRedStartColor, kRedEndColor, Vec2(0.5, 0.5) };
