@@ -22,6 +22,11 @@ namespace flik
         
         void restartGame();
         
+        int getTopScore();
+        
+    protected:
+        void setGameState(GameState newState);
+        
     private:
         int mIterations;
         int mSpawnCount;

@@ -63,9 +63,6 @@ namespace flik
         enumeratePieces([this](Node* piece) {
             getEventDispatcher()->removeEventListenersForTarget(piece);
         });
-        
-        //mGameOverScreen->setVisible(true);
-        Player::getMainPlayer()->recordScore();
     }
     
     // on "init" you need to initialize your instance
@@ -109,12 +106,13 @@ namespace flik
     
     void MainGameScene::restartGame()
     {
-        // Remove any existing pieces
+    }
+    
+    void MainGameScene::clearPieces()
+    {
         enumeratePieces([](Node* piece) {
             piece->removeFromParent();
         });
-        
-        Player::getMainPlayer()->resetScore();
     }
     
     void MainGameScene::update(float delta)

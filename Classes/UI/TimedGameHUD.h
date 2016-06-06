@@ -6,9 +6,22 @@
 //
 //
 
-#ifndef TimedGameHUD_hpp
-#define TimedGameHUD_hpp
+#pragma once
 
-#include <stdio.h>
+#include "MainGameHUD.h"
 
-#endif /* TimedGameHUD_hpp */
+namespace flik
+{
+    class TimedGameHUD : public MainGameHUD
+    {
+    public:
+        CREATE_FUNC(TimedGameHUD);
+        
+        bool init();
+        
+        void update(float time);
+        
+    private:
+        cocos2d::ui::Text* mTimerLabel;
+    };
+}

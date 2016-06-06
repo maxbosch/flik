@@ -1,6 +1,8 @@
 #include "AppDelegate.h"
 #include "MainGameScene.h"
 #include "MarathonGameMode.h"
+#include "TimedGameMode.h"
+#include "TimedGameHUD.h"
 #include "MainGameHUD.h"
 
 USING_NS_CC;
@@ -54,8 +56,10 @@ namespace flik
         
         // create a scene. it's an autorelease object
         auto level = MainGameScene::create();
-        level->setGameMode(MarathonGameMode::create());
-        level->setGameHUD(MainGameHUD::create());
+        //level->setGameMode(MarathonGameMode::create());
+        //level->setGameHUD(MainGameHUD::create());
+        level->setGameMode(TimedGameMode::createWithTime(10));
+        level->setGameHUD(TimedGameHUD::create());
         
         // run
         director->runWithScene(level);

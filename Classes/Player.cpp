@@ -15,7 +15,7 @@ namespace flik
 {
     static Player* sPlayerInstance = nullptr;
     
-    static const char* kTopScoreKey = "key_topScore";
+    static std::string kTopScoreKey = "key_topScore";
     
     Player* Player::getMainPlayer()
     {
@@ -31,10 +31,10 @@ namespace flik
     {
     }
     
-    int Player::getTopScore()
+    int Player::getTopScore(std::string key)
     {
         auto userDefaults = UserDefault::getInstance();
-        return userDefaults->getIntegerForKey(kTopScoreKey);
+        return userDefaults->getIntegerForKey((kTopScoreKey + "_" + key).c_str());
     }
     
     void Player::resetScore()
@@ -47,11 +47,11 @@ namespace flik
         mCurrentScore += amount;
     }
     
-    void Player::recordScore()
+    void Player::recordScore(std::string key)
     {
-        int topScore = getTopScore();
+        int topScore = getTopScore(key);
         if (topScore < mCurrentScore) {
-            UserDefault::getInstance()->setIntegerForKey(kTopScoreKey, mCurrentScore);
+            UserDefault::getInstance()->setIntegerForKey((kTopScoreKey + "_" + key).c_str(), mCurrentScore);
         }
     }
 }

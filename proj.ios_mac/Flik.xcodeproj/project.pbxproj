@@ -46,6 +46,10 @@
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		5C05403BB2316A413887BF45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82184907863F3C226936A794 /* SystemConfiguration.framework */; };
+		665D99ED1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */; };
+		665D99EE1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */; };
+		665D99F11D05B80C0051A9C9 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EF1D05B80C0051A9C9 /* Util.cpp */; };
+		665D99F21D05B80C0051A9C9 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EF1D05B80C0051A9C9 /* Util.cpp */; };
 		66DB287A1D01CB1F00E1E4C9 /* TimedGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB28781D01CB1F00E1E4C9 /* TimedGameHUD.cpp */; };
 		66DB287B1D01CB1F00E1E4C9 /* TimedGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB28781D01CB1F00E1E4C9 /* TimedGameHUD.cpp */; };
 		66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
@@ -169,6 +173,10 @@
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimedGameMode.cpp; sourceTree = "<group>"; };
+		665D99EC1D05B4A40051A9C9 /* TimedGameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimedGameMode.h; sourceTree = "<group>"; };
+		665D99EF1D05B80C0051A9C9 /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
+		665D99F01D05B80C0051A9C9 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		66DB28771D01C97C00E1E4C9 /* Events.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
 		66DB28781D01CB1F00E1E4C9 /* TimedGameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimedGameHUD.cpp; sourceTree = "<group>"; };
 		66DB28791D01CB1F00E1E4C9 /* TimedGameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimedGameHUD.h; sourceTree = "<group>"; };
@@ -372,6 +380,8 @@
 				66E3A69C1D01268600A3125C /* VelocityTracker.cpp */,
 				66E3A69D1D01268600A3125C /* VelocityTracker.h */,
 				66DB28771D01C97C00E1E4C9 /* Events.h */,
+				665D99EF1D05B80C0051A9C9 /* Util.cpp */,
+				665D99F01D05B80C0051A9C9 /* Util.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -431,6 +441,8 @@
 				66E3A6B71D01C07100A3125C /* GameMode.h */,
 				66E3A6C31D01C08300A3125C /* MarathonGameMode.cpp */,
 				66E3A6C41D01C08300A3125C /* MarathonGameMode.h */,
+				665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */,
+				665D99EC1D05B4A40051A9C9 /* TimedGameMode.h */,
 			);
 			path = GameMode;
 			sourceTree = "<group>";
@@ -591,9 +603,11 @@
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				66E3A6AA1D01268600A3125C /* Player.cpp in Sources */,
+				665D99F11D05B80C0051A9C9 /* Util.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				66E3A6BF1D01C07100A3125C /* GameOverWidget.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				665D99ED1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */,
 				66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */,
 				66E3A6A41D01268600A3125C /* MainGameScene.cpp in Sources */,
 				66DB287A1D01CB1F00E1E4C9 /* TimedGameHUD.cpp in Sources */,
@@ -606,8 +620,10 @@
 			files = (
 				66E3A6C61D01C08300A3125C /* MarathonGameMode.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				665D99F21D05B80C0051A9C9 /* Util.cpp in Sources */,
 				66E3A6A71D01268600A3125C /* MainMenuScene.cpp in Sources */,
 				66E3A6C01D01C07100A3125C /* GameOverWidget.cpp in Sources */,
+				665D99EE1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */,
 				66E3A6AB1D01268600A3125C /* Player.cpp in Sources */,
 				66E3A6C21D01C07100A3125C /* MainGameHUD.cpp in Sources */,
 				66E3A6AD1D01268600A3125C /* SideRailNode.cpp in Sources */,

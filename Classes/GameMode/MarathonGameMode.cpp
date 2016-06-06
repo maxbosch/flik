@@ -8,6 +8,9 @@
 
 #include "MarathonGameMode.h"
 #include "MainGameScene.h"
+#include "Events.h"
+#include "Player.h"
+#include "Util.h"
 
 USING_NS_CC;
 
@@ -25,6 +28,11 @@ namespace flik {
             return false;
         }
         
+        auto pieceRemovedListener = EventListenerCustom::create(kPieceRemovedEvent, [](EventCustom* event) {
+            Player::getMainPlayer()->addScore(1);
+        });
+        getEventDispatcher()->addEventListenerWithSceneGraphPriority(pieceRemovedListener, this);
+        
         return true;
     }
     
@@ -36,6 +44,8 @@ namespace flik {
         mSpawnInterval = kDefaultSpawnInterval;
         mLastSpawnIteration = 0;
         mIterations = 0;
+        
+        getGameScene()->clearPieces();
         
         this->unschedule(kSpawnTimerKey);
         this->schedule([this](float time) {
@@ -59,7 +69,10 @@ namespace flik {
         
         spawnPieces(mSpawnCount);
         
+        Player::getMainPlayer()->resetScore();
+        
         setGameState(GameState::InProgress);
+        
     }
     
     void MarathonGameMode::spawnPieces(int count)
@@ -84,7 +97,7 @@ namespace flik {
             }
             
             auto spawnPosition = findOpenSpawnPosition();
-            scene->spawnPiece(spawnPosition);
+            scene->spawnPiece(Util::getRandomPositionInRect(getGameScene()->getGameBoardBounds()));
         }
     }
     
@@ -92,5 +105,19 @@ namespace flik {
     {
         auto contentSize = getGameScene()->getGameBoardBounds().size;
         return Vec2(contentSize.width * random(0.0, 1.0), contentSize.height * random(0.0, 1.0));
+    }
+    
+    void MarathonGameMode::setGameState(GameState newState)
+    {
+        GameMode::setGameState(newState);
+        
+        if (newState == GameState::Finished) {
+            Player::getMainPlayer()->recordScore("marathon");
+        }
+    }
+    
+    int MarathonGameMode::getTopScore()
+    {
+        return Player::getMainPlayer()->getTopScore("marathon");
     }
 }

@@ -33,7 +33,7 @@ namespace flik
         
         auto uiSize = Director::getInstance()->getOpenGLView()->getDesignResolutionSize();
         
-        auto scoreValueLabel = ui::Text::create("0", "HelveticaNeue", 16);
+        auto scoreValueLabel = ui::Text::create("0", "GothamRnd-Bold.otf", 16);
         scoreValueLabel->setTextColor(Color4B(255, 255, 255, 255));
         addChild(scoreValueLabel);
         auto scoreValueLabelLayout = ui::RelativeLayoutParameter::create();
@@ -43,7 +43,7 @@ namespace flik
         scoreValueLabel->setLayoutParameter(scoreValueLabelLayout);
         mScoreValueLabel = scoreValueLabel;
         
-        auto scoreLabel = ui::Text::create("Score", "HelveticaNeue", 16);
+        auto scoreLabel = ui::Text::create("Score", "GothamRnd-Bold.otf", 16);
         scoreLabel->setTextColor(Color4B(255, 255, 255, 255));
         addChild(scoreLabel);
         auto scoreLabelLayout = ui::RelativeLayoutParameter::create();
@@ -52,7 +52,7 @@ namespace flik
         scoreLabelLayout->setMargin(ui::Margin(0, 0, 10, 0));
         scoreLabel->setLayoutParameter(scoreLabelLayout);
         
-        auto topScoreValueLabel = ui::Text::create("0", "HelveticaNeue", 16);
+        auto topScoreValueLabel = ui::Text::create("0", "GothamRnd-Bold.otf", 16);
         topScoreValueLabel->setTextColor(Color4B(255, 255, 255, 255));
         addChild(topScoreValueLabel);
         auto topScoreValueLabelLayout = ui::RelativeLayoutParameter::create();
@@ -62,7 +62,7 @@ namespace flik
         topScoreValueLabel->setLayoutParameter(topScoreValueLabelLayout);
         mTopScoreValueLabel = topScoreValueLabel;
         
-        auto topScoreLabel = ui::Text::create("Top Score", "HelveticaNeue", 16);
+        auto topScoreLabel = ui::Text::create("Top Score", "GothamRnd-Bold.otf", 16);
         topScoreLabel->setTextColor(Color4B(255, 255, 255, 255));
         addChild(topScoreLabel);
         auto topScoreLabelLayout = ui::RelativeLayoutParameter::create();
@@ -86,21 +86,15 @@ namespace flik
         mGameOverScreen->setLayoutParameter(gameOverScreenLayout);
         addChild(mGameOverScreen);
         
-        auto pieceRemovedListener = EventListenerCustom::create(kPieceRemovedEvent, [](EventCustom* event) {
-            Player::getMainPlayer()->addScore(1);
-            
-        });
-        getEventDispatcher()->addEventListenerWithSceneGraphPriority(pieceRemovedListener, this);
-        
         return true;
     }
     
     void MainGameHUD::update(float time)
     {
         RelativeBox::update(time);
-        
+
         mScoreValueLabel->setString(boost::lexical_cast<std::string>(Player::getMainPlayer()->getCurrentScore()));
-        mTopScoreValueLabel->setString(boost::lexical_cast<std::string>(Player::getMainPlayer()->getTopScore()));
+        mTopScoreValueLabel->setString(boost::lexical_cast<std::string>(getGameScene()->getGameMode()->getTopScore()));
     }
     
     void MainGameHUD::setContentSize(const cocos2d::Size& size)

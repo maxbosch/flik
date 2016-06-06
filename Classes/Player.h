@@ -17,12 +17,12 @@ namespace flik
     public:
         static Player* getMainPlayer();
         
-        int getTopScore();
+        int getTopScore(std::string key);
         
         void resetScore();
         void addScore(int amount);
         int getCurrentScore() { return mCurrentScore; }
-        void recordScore();
+        void recordScore(std::string key);
         
     private:
         Player();

@@ -25,6 +25,7 @@ namespace flik
         void update(float delta);
         void requestRestart();
         void spawnPiece(const cocos2d::Vec2& position);
+        void clearPieces();
         
         void enumeratePieces(std::function<void(Node*)> callback);
         cocos2d::Rect getGameBoardBounds();

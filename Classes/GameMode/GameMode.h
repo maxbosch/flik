@@ -35,6 +35,8 @@ namespace flik
             mGameScene = gameScene;
         }
         
+        virtual int getTopScore() = 0;
+        
     protected:
         virtual void setGameState(GameState newState);
         MainGameScene* getGameScene() { return mGameScene; }
