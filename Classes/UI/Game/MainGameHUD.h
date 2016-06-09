@@ -20,6 +20,8 @@ namespace flik
     class MainGameHUD : public GameHUD
     {
     public:
+        virtual ~MainGameHUD() {}
+        
         CREATE_FUNC(MainGameHUD);
         
         bool init();

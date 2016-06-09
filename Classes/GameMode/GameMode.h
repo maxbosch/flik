@@ -25,6 +25,8 @@ namespace flik
     class GameMode : public cocos2d::Node
     {
     public:
+        virtual ~GameMode() {}
+        
         GameState getGameState() { return mGameState; }
         
         std::function<void(GameState)> onGameStateChanged;

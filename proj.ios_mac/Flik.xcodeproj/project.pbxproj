@@ -12,8 +12,6 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
-		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -33,18 +31,28 @@
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		5C05403BB2316A413887BF45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82184907863F3C226936A794 /* SystemConfiguration.framework */; };
-		663894451D08DFB20034892E /* PowerUpButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894431D08DFB20034892E /* PowerUpButton.cpp */; };
+		663894741D09AD9B0034892E /* GameOverWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6638945B1D09AD9B0034892E /* GameOverWidget.cpp */; };
+		663894751D09AD9B0034892E /* MainGameHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6638945D1D09AD9B0034892E /* MainGameHeader.cpp */; };
+		663894761D09AD9B0034892E /* MainGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6638945F1D09AD9B0034892E /* MainGameHUD.cpp */; };
+		663894771D09AD9B0034892E /* PauseButtonsWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894611D09AD9B0034892E /* PauseButtonsWidget.cpp */; };
+		663894781D09AD9B0034892E /* PauseOverlayWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894631D09AD9B0034892E /* PauseOverlayWidget.cpp */; };
+		663894791D09AD9B0034892E /* TimedGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894651D09AD9B0034892E /* TimedGameHUD.cpp */; };
+		6638947A1D09AD9B0034892E /* MainMenuButtons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894681D09AD9B0034892E /* MainMenuButtons.cpp */; };
+		6638947B1D09AD9B0034892E /* MainMenuFooter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6638946A1D09AD9B0034892E /* MainMenuFooter.cpp */; };
+		6638947C1D09AD9B0034892E /* MainMenuHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6638946C1D09AD9B0034892E /* MainMenuHeader.cpp */; };
+		6638947D1D09AD9B0034892E /* MainMenuHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6638946E1D09AD9B0034892E /* MainMenuHUD.cpp */; };
+		6638947E1D09AD9B0034892E /* PowerUpButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894721D09AD9B0034892E /* PowerUpButton.cpp */; };
+		663894991D09AEB60034892E /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894801D09AEB60034892E /* AppDelegate.cpp */; };
+		6638949A1D09AEB60034892E /* GamePiece.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894871D09AEB60034892E /* GamePiece.cpp */; };
+		6638949B1D09AEB60034892E /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894891D09AEB60034892E /* Player.cpp */; };
+		6638949C1D09AEB60034892E /* SideRailNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6638948B1D09AEB60034892E /* SideRailNode.cpp */; };
+		6638949D1D09AEB60034892E /* MainGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6638948E1D09AEB60034892E /* MainGameScene.cpp */; };
+		6638949E1D09AEB60034892E /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894901D09AEB60034892E /* MainMenuScene.cpp */; };
+		6638949F1D09AEB60034892E /* Literals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894931D09AEB60034892E /* Literals.cpp */; };
+		663894A01D09AEB60034892E /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894951D09AEB60034892E /* Util.cpp */; };
+		663894A11D09AEB60034892E /* VelocityTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894971D09AEB60034892E /* VelocityTracker.cpp */; };
 		665D99ED1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */; };
 		665D99EE1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */; };
-		665D99F11D05B80C0051A9C9 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EF1D05B80C0051A9C9 /* Util.cpp */; };
-		665D99F21D05B80C0051A9C9 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EF1D05B80C0051A9C9 /* Util.cpp */; };
-		665D99F81D0643C70051A9C9 /* MainMenuHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99F61D0643C70051A9C9 /* MainMenuHUD.cpp */; };
-		665D99FB1D0644400051A9C9 /* MainMenuHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99F91D0644400051A9C9 /* MainMenuHeader.cpp */; };
-		665D99FC1D0644400051A9C9 /* MainMenuHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99F91D0644400051A9C9 /* MainMenuHeader.cpp */; };
-		665D99FF1D064B070051A9C9 /* MainMenuButtons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99FD1D064B070051A9C9 /* MainMenuButtons.cpp */; };
-		665D9A001D064B070051A9C9 /* MainMenuButtons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99FD1D064B070051A9C9 /* MainMenuButtons.cpp */; };
-		665D9A031D07076B0051A9C9 /* Literals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D9A021D07076B0051A9C9 /* Literals.cpp */; };
-		665D9A041D07076B0051A9C9 /* Literals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D9A021D07076B0051A9C9 /* Literals.cpp */; };
 		665D9A191D070D060051A9C9 /* 1x in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A141D070D060051A9C9 /* 1x */; };
 		665D9A1A1D070D060051A9C9 /* 1x in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A141D070D060051A9C9 /* 1x */; };
 		665D9A1B1D070D060051A9C9 /* 2x in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A151D070D060051A9C9 /* 2x */; };
@@ -56,33 +64,10 @@
 		665D9A211D070D060051A9C9 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A181D070D060051A9C9 /* fonts */; };
 		665D9A221D070D060051A9C9 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A181D070D060051A9C9 /* fonts */; };
 		666106FB1D0795A9004F6263 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666106FA1D0795A9004F6263 /* Images.xcassets */; };
-		666107001D0857F3004F6263 /* PauseButtonsWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666106FE1D0857F3004F6263 /* PauseButtonsWidget.cpp */; };
-		66DB287A1D01CB1F00E1E4C9 /* TimedGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB28781D01CB1F00E1E4C9 /* TimedGameHUD.cpp */; };
-		66DB287B1D01CB1F00E1E4C9 /* TimedGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB28781D01CB1F00E1E4C9 /* TimedGameHUD.cpp */; };
 		66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
 		66DB287F1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
-		66E233B51D085C9800BC33F5 /* PauseOverlayWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E233B31D085C9800BC33F5 /* PauseOverlayWidget.cpp */; };
-		66E233B81D08649600BC33F5 /* MainGameHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E233B61D08649600BC33F5 /* MainGameHeader.cpp */; };
-		66E3A6A01D01268600A3125C /* GamePiece.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A68D1D01268600A3125C /* GamePiece.cpp */; };
-		66E3A6A11D01268600A3125C /* GamePiece.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A68D1D01268600A3125C /* GamePiece.cpp */; };
-		66E3A6A41D01268600A3125C /* MainGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6911D01268600A3125C /* MainGameScene.cpp */; };
-		66E3A6A51D01268600A3125C /* MainGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6911D01268600A3125C /* MainGameScene.cpp */; };
-		66E3A6A61D01268600A3125C /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6931D01268600A3125C /* MainMenuScene.cpp */; };
-		66E3A6A71D01268600A3125C /* MainMenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6931D01268600A3125C /* MainMenuScene.cpp */; };
-		66E3A6A81D01268600A3125C /* NodeHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6951D01268600A3125C /* NodeHelper.cpp */; };
-		66E3A6A91D01268600A3125C /* NodeHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6951D01268600A3125C /* NodeHelper.cpp */; };
-		66E3A6AA1D01268600A3125C /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6981D01268600A3125C /* Player.cpp */; };
-		66E3A6AB1D01268600A3125C /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6981D01268600A3125C /* Player.cpp */; };
-		66E3A6AC1D01268600A3125C /* SideRailNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A69A1D01268600A3125C /* SideRailNode.cpp */; };
-		66E3A6AD1D01268600A3125C /* SideRailNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A69A1D01268600A3125C /* SideRailNode.cpp */; };
-		66E3A6AE1D01268600A3125C /* VelocityTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A69C1D01268600A3125C /* VelocityTracker.cpp */; };
-		66E3A6AF1D01268600A3125C /* VelocityTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A69C1D01268600A3125C /* VelocityTracker.cpp */; };
 		66E3A6BD1D01C07100A3125C /* GameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6B61D01C07100A3125C /* GameMode.cpp */; };
 		66E3A6BE1D01C07100A3125C /* GameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6B61D01C07100A3125C /* GameMode.cpp */; };
-		66E3A6BF1D01C07100A3125C /* GameOverWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6B91D01C07100A3125C /* GameOverWidget.cpp */; };
-		66E3A6C01D01C07100A3125C /* GameOverWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6B91D01C07100A3125C /* GameOverWidget.cpp */; };
-		66E3A6C11D01C07100A3125C /* MainGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6BB1D01C07100A3125C /* MainGameHUD.cpp */; };
-		66E3A6C21D01C07100A3125C /* MainGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6BB1D01C07100A3125C /* MainGameHUD.cpp */; };
 		66E3A6C51D01C08300A3125C /* MarathonGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6C31D01C08300A3125C /* MarathonGameMode.cpp */; };
 		66E3A6C61D01C08300A3125C /* MarathonGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6C31D01C08300A3125C /* MarathonGameMode.cpp */; };
 		6E2B4283A69F3BC8F3DAFC4E /* sdkbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6142E7B2D12A44A021E034 /* sdkbox.framework */; };
@@ -138,8 +123,6 @@
 		1DB24E7B8078788493A52B3B /* PluginAchievement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PluginAchievement.framework; sourceTree = SOURCE_ROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		46880B8419C43A87006E1F66 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
-		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -175,60 +158,62 @@
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		663894431D08DFB20034892E /* PowerUpButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PowerUpButton.cpp; sourceTree = "<group>"; };
-		663894441D08DFB20034892E /* PowerUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerUpButton.h; sourceTree = "<group>"; };
-		663894461D08E08A0034892E /* Enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
+		6638945B1D09AD9B0034892E /* GameOverWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverWidget.cpp; sourceTree = "<group>"; };
+		6638945C1D09AD9B0034892E /* GameOverWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverWidget.h; sourceTree = "<group>"; };
+		6638945D1D09AD9B0034892E /* MainGameHeader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainGameHeader.cpp; sourceTree = "<group>"; };
+		6638945E1D09AD9B0034892E /* MainGameHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainGameHeader.h; sourceTree = "<group>"; };
+		6638945F1D09AD9B0034892E /* MainGameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainGameHUD.cpp; sourceTree = "<group>"; };
+		663894601D09AD9B0034892E /* MainGameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainGameHUD.h; sourceTree = "<group>"; };
+		663894611D09AD9B0034892E /* PauseButtonsWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseButtonsWidget.cpp; sourceTree = "<group>"; };
+		663894621D09AD9B0034892E /* PauseButtonsWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseButtonsWidget.h; sourceTree = "<group>"; };
+		663894631D09AD9B0034892E /* PauseOverlayWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseOverlayWidget.cpp; sourceTree = "<group>"; };
+		663894641D09AD9B0034892E /* PauseOverlayWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseOverlayWidget.h; sourceTree = "<group>"; };
+		663894651D09AD9B0034892E /* TimedGameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimedGameHUD.cpp; sourceTree = "<group>"; };
+		663894661D09AD9B0034892E /* TimedGameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimedGameHUD.h; sourceTree = "<group>"; };
+		663894681D09AD9B0034892E /* MainMenuButtons.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuButtons.cpp; sourceTree = "<group>"; };
+		663894691D09AD9B0034892E /* MainMenuButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuButtons.h; sourceTree = "<group>"; };
+		6638946A1D09AD9B0034892E /* MainMenuFooter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuFooter.cpp; sourceTree = "<group>"; };
+		6638946B1D09AD9B0034892E /* MainMenuFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuFooter.h; sourceTree = "<group>"; };
+		6638946C1D09AD9B0034892E /* MainMenuHeader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuHeader.cpp; sourceTree = "<group>"; };
+		6638946D1D09AD9B0034892E /* MainMenuHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuHeader.h; sourceTree = "<group>"; };
+		6638946E1D09AD9B0034892E /* MainMenuHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuHUD.cpp; sourceTree = "<group>"; };
+		6638946F1D09AD9B0034892E /* MainMenuHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuHUD.h; sourceTree = "<group>"; };
+		663894721D09AD9B0034892E /* PowerUpButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PowerUpButton.cpp; sourceTree = "<group>"; };
+		663894731D09AD9B0034892E /* PowerUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerUpButton.h; sourceTree = "<group>"; };
+		663894801D09AEB60034892E /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
+		663894811D09AEB60034892E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		663894821D09AEB60034892E /* Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
+		663894831D09AEB60034892E /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
+		663894841D09AEB60034892E /* Physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Physics.h; sourceTree = "<group>"; };
+		663894851D09AEB60034892E /* Styles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Styles.h; sourceTree = "<group>"; };
+		663894871D09AEB60034892E /* GamePiece.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GamePiece.cpp; sourceTree = "<group>"; };
+		663894881D09AEB60034892E /* GamePiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePiece.h; sourceTree = "<group>"; };
+		663894891D09AEB60034892E /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		6638948A1D09AEB60034892E /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		6638948B1D09AEB60034892E /* SideRailNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SideRailNode.cpp; sourceTree = "<group>"; };
+		6638948C1D09AEB60034892E /* SideRailNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideRailNode.h; sourceTree = "<group>"; };
+		6638948E1D09AEB60034892E /* MainGameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainGameScene.cpp; sourceTree = "<group>"; };
+		6638948F1D09AEB60034892E /* MainGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainGameScene.h; sourceTree = "<group>"; };
+		663894901D09AEB60034892E /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuScene.cpp; sourceTree = "<group>"; };
+		663894911D09AEB60034892E /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
+		663894931D09AEB60034892E /* Literals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Literals.cpp; sourceTree = "<group>"; };
+		663894941D09AEB60034892E /* Literals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Literals.h; sourceTree = "<group>"; };
+		663894951D09AEB60034892E /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
+		663894961D09AEB60034892E /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		663894971D09AEB60034892E /* VelocityTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VelocityTracker.cpp; sourceTree = "<group>"; };
+		663894981D09AEB60034892E /* VelocityTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityTracker.h; sourceTree = "<group>"; };
 		665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimedGameMode.cpp; sourceTree = "<group>"; };
 		665D99EC1D05B4A40051A9C9 /* TimedGameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimedGameMode.h; sourceTree = "<group>"; };
-		665D99EF1D05B80C0051A9C9 /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
-		665D99F01D05B80C0051A9C9 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
-		665D99F61D0643C70051A9C9 /* MainMenuHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuHUD.cpp; sourceTree = "<group>"; };
-		665D99F71D0643C70051A9C9 /* MainMenuHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuHUD.h; sourceTree = "<group>"; };
-		665D99F91D0644400051A9C9 /* MainMenuHeader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuHeader.cpp; sourceTree = "<group>"; };
-		665D99FA1D0644400051A9C9 /* MainMenuHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuHeader.h; sourceTree = "<group>"; };
-		665D99FD1D064B070051A9C9 /* MainMenuButtons.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuButtons.cpp; sourceTree = "<group>"; };
-		665D99FE1D064B070051A9C9 /* MainMenuButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuButtons.h; sourceTree = "<group>"; };
-		665D9A011D07053D0051A9C9 /* Literals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Literals.h; sourceTree = "<group>"; };
-		665D9A021D07076B0051A9C9 /* Literals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Literals.cpp; sourceTree = "<group>"; };
 		665D9A141D070D060051A9C9 /* 1x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 1x; sourceTree = "<group>"; };
 		665D9A151D070D060051A9C9 /* 2x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 2x; sourceTree = "<group>"; };
 		665D9A161D070D060051A9C9 /* 3x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 3x; sourceTree = "<group>"; };
 		665D9A171D070D060051A9C9 /* 4x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 4x; sourceTree = "<group>"; };
 		665D9A181D070D060051A9C9 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		666106FA1D0795A9004F6263 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Flik-mobile/Images.xcassets"; sourceTree = SOURCE_ROOT; };
-		666106FE1D0857F3004F6263 /* PauseButtonsWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseButtonsWidget.cpp; sourceTree = "<group>"; };
-		666106FF1D0857F3004F6263 /* PauseButtonsWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseButtonsWidget.h; sourceTree = "<group>"; };
-		66DB28771D01C97C00E1E4C9 /* Events.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
-		66DB28781D01CB1F00E1E4C9 /* TimedGameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimedGameHUD.cpp; sourceTree = "<group>"; };
-		66DB28791D01CB1F00E1E4C9 /* TimedGameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimedGameHUD.h; sourceTree = "<group>"; };
 		66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameHUD.cpp; sourceTree = "<group>"; };
 		66DB287D1D01CB4900E1E4C9 /* GameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHUD.h; sourceTree = "<group>"; };
-		66E233B31D085C9800BC33F5 /* PauseOverlayWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseOverlayWidget.cpp; sourceTree = "<group>"; };
-		66E233B41D085C9800BC33F5 /* PauseOverlayWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseOverlayWidget.h; sourceTree = "<group>"; };
-		66E233B61D08649600BC33F5 /* MainGameHeader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainGameHeader.cpp; sourceTree = "<group>"; };
-		66E233B71D08649600BC33F5 /* MainGameHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainGameHeader.h; sourceTree = "<group>"; };
-		66E3A68A1D01268600A3125C /* Styles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Styles.h; sourceTree = "<group>"; };
-		66E3A68D1D01268600A3125C /* GamePiece.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GamePiece.cpp; sourceTree = "<group>"; };
-		66E3A68E1D01268600A3125C /* GamePiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePiece.h; sourceTree = "<group>"; };
-		66E3A6911D01268600A3125C /* MainGameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainGameScene.cpp; sourceTree = "<group>"; };
-		66E3A6921D01268600A3125C /* MainGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainGameScene.h; sourceTree = "<group>"; };
-		66E3A6931D01268600A3125C /* MainMenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuScene.cpp; sourceTree = "<group>"; };
-		66E3A6941D01268600A3125C /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
-		66E3A6951D01268600A3125C /* NodeHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NodeHelper.cpp; sourceTree = "<group>"; };
-		66E3A6961D01268600A3125C /* NodeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeHelper.h; sourceTree = "<group>"; };
-		66E3A6971D01268600A3125C /* Physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Physics.h; sourceTree = "<group>"; };
-		66E3A6981D01268600A3125C /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
-		66E3A6991D01268600A3125C /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		66E3A69A1D01268600A3125C /* SideRailNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SideRailNode.cpp; sourceTree = "<group>"; };
-		66E3A69B1D01268600A3125C /* SideRailNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideRailNode.h; sourceTree = "<group>"; };
-		66E3A69C1D01268600A3125C /* VelocityTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VelocityTracker.cpp; sourceTree = "<group>"; };
-		66E3A69D1D01268600A3125C /* VelocityTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityTracker.h; sourceTree = "<group>"; };
 		66E3A6B61D01C07100A3125C /* GameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameMode.cpp; sourceTree = "<group>"; };
 		66E3A6B71D01C07100A3125C /* GameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMode.h; sourceTree = "<group>"; };
-		66E3A6B91D01C07100A3125C /* GameOverWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverWidget.cpp; sourceTree = "<group>"; };
-		66E3A6BA1D01C07100A3125C /* GameOverWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverWidget.h; sourceTree = "<group>"; };
-		66E3A6BB1D01C07100A3125C /* MainGameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainGameHUD.cpp; sourceTree = "<group>"; };
-		66E3A6BC1D01C07100A3125C /* MainGameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainGameHUD.h; sourceTree = "<group>"; };
 		66E3A6C31D01C08300A3125C /* MarathonGameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MarathonGameMode.cpp; sourceTree = "<group>"; };
 		66E3A6C41D01C08300A3125C /* MarathonGameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarathonGameMode.h; sourceTree = "<group>"; };
 		82184907863F3C226936A794 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
@@ -384,32 +369,12 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6638947F1D09AEB60034892E /* Core */,
+				663894861D09AEB60034892E /* Game */,
 				66E3A6B51D01C07100A3125C /* GameMode */,
+				6638948D1D09AEB60034892E /* Scene */,
 				66E3A6B81D01C07100A3125C /* UI */,
-				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
-				46880B8519C43A87006E1F66 /* AppDelegate.h */,
-				663894461D08E08A0034892E /* Enums.h */,
-				66DB28771D01C97C00E1E4C9 /* Events.h */,
-				66E3A68D1D01268600A3125C /* GamePiece.cpp */,
-				66E3A68E1D01268600A3125C /* GamePiece.h */,
-				665D9A011D07053D0051A9C9 /* Literals.h */,
-				665D9A021D07076B0051A9C9 /* Literals.cpp */,
-				66E3A6911D01268600A3125C /* MainGameScene.cpp */,
-				66E3A6921D01268600A3125C /* MainGameScene.h */,
-				66E3A6931D01268600A3125C /* MainMenuScene.cpp */,
-				66E3A6941D01268600A3125C /* MainMenuScene.h */,
-				66E3A6951D01268600A3125C /* NodeHelper.cpp */,
-				66E3A6961D01268600A3125C /* NodeHelper.h */,
-				66E3A6971D01268600A3125C /* Physics.h */,
-				66E3A6981D01268600A3125C /* Player.cpp */,
-				66E3A6991D01268600A3125C /* Player.h */,
-				66E3A69A1D01268600A3125C /* SideRailNode.cpp */,
-				66E3A69B1D01268600A3125C /* SideRailNode.h */,
-				66E3A68A1D01268600A3125C /* Styles.h */,
-				665D99EF1D05B80C0051A9C9 /* Util.cpp */,
-				665D99F01D05B80C0051A9C9 /* Util.h */,
-				66E3A69C1D01268600A3125C /* VelocityTracker.cpp */,
-				66E3A69D1D01268600A3125C /* VelocityTracker.h */,
+				663894921D09AEB60034892E /* Util */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -462,6 +427,106 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
+		6638945A1D09AD9B0034892E /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				6638945B1D09AD9B0034892E /* GameOverWidget.cpp */,
+				6638945C1D09AD9B0034892E /* GameOverWidget.h */,
+				6638945D1D09AD9B0034892E /* MainGameHeader.cpp */,
+				6638945E1D09AD9B0034892E /* MainGameHeader.h */,
+				6638945F1D09AD9B0034892E /* MainGameHUD.cpp */,
+				663894601D09AD9B0034892E /* MainGameHUD.h */,
+				663894611D09AD9B0034892E /* PauseButtonsWidget.cpp */,
+				663894621D09AD9B0034892E /* PauseButtonsWidget.h */,
+				663894631D09AD9B0034892E /* PauseOverlayWidget.cpp */,
+				663894641D09AD9B0034892E /* PauseOverlayWidget.h */,
+				663894651D09AD9B0034892E /* TimedGameHUD.cpp */,
+				663894661D09AD9B0034892E /* TimedGameHUD.h */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		663894671D09AD9B0034892E /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				663894681D09AD9B0034892E /* MainMenuButtons.cpp */,
+				663894691D09AD9B0034892E /* MainMenuButtons.h */,
+				6638946A1D09AD9B0034892E /* MainMenuFooter.cpp */,
+				6638946B1D09AD9B0034892E /* MainMenuFooter.h */,
+				6638946C1D09AD9B0034892E /* MainMenuHeader.cpp */,
+				6638946D1D09AD9B0034892E /* MainMenuHeader.h */,
+				6638946E1D09AD9B0034892E /* MainMenuHUD.cpp */,
+				6638946F1D09AD9B0034892E /* MainMenuHUD.h */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
+		};
+		663894701D09AD9B0034892E /* Store */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		663894711D09AD9B0034892E /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				663894721D09AD9B0034892E /* PowerUpButton.cpp */,
+				663894731D09AD9B0034892E /* PowerUpButton.h */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		6638947F1D09AEB60034892E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				663894801D09AEB60034892E /* AppDelegate.cpp */,
+				663894811D09AEB60034892E /* AppDelegate.h */,
+				663894821D09AEB60034892E /* Enums.h */,
+				663894831D09AEB60034892E /* Events.h */,
+				663894841D09AEB60034892E /* Physics.h */,
+				663894851D09AEB60034892E /* Styles.h */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		663894861D09AEB60034892E /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				663894871D09AEB60034892E /* GamePiece.cpp */,
+				663894881D09AEB60034892E /* GamePiece.h */,
+				663894891D09AEB60034892E /* Player.cpp */,
+				6638948A1D09AEB60034892E /* Player.h */,
+				6638948B1D09AEB60034892E /* SideRailNode.cpp */,
+				6638948C1D09AEB60034892E /* SideRailNode.h */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		6638948D1D09AEB60034892E /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				6638948E1D09AEB60034892E /* MainGameScene.cpp */,
+				6638948F1D09AEB60034892E /* MainGameScene.h */,
+				663894901D09AEB60034892E /* MainMenuScene.cpp */,
+				663894911D09AEB60034892E /* MainMenuScene.h */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		663894921D09AEB60034892E /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				663894931D09AEB60034892E /* Literals.cpp */,
+				663894941D09AEB60034892E /* Literals.h */,
+				663894951D09AEB60034892E /* Util.cpp */,
+				663894961D09AEB60034892E /* Util.h */,
+				663894971D09AEB60034892E /* VelocityTracker.cpp */,
+				663894981D09AEB60034892E /* VelocityTracker.h */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		66E3A6B51D01C07100A3125C /* GameMode */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,28 +543,12 @@
 		66E3A6B81D01C07100A3125C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				6638945A1D09AD9B0034892E /* Game */,
+				663894671D09AD9B0034892E /* MainMenu */,
+				663894701D09AD9B0034892E /* Store */,
+				663894711D09AD9B0034892E /* Widget */,
 				66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */,
 				66DB287D1D01CB4900E1E4C9 /* GameHUD.h */,
-				66E3A6B91D01C07100A3125C /* GameOverWidget.cpp */,
-				66E3A6BA1D01C07100A3125C /* GameOverWidget.h */,
-				66E233B61D08649600BC33F5 /* MainGameHeader.cpp */,
-				66E233B71D08649600BC33F5 /* MainGameHeader.h */,
-				66E3A6BB1D01C07100A3125C /* MainGameHUD.cpp */,
-				66E3A6BC1D01C07100A3125C /* MainGameHUD.h */,
-				665D99FD1D064B070051A9C9 /* MainMenuButtons.cpp */,
-				665D99FE1D064B070051A9C9 /* MainMenuButtons.h */,
-				665D99F91D0644400051A9C9 /* MainMenuHeader.cpp */,
-				665D99FA1D0644400051A9C9 /* MainMenuHeader.h */,
-				665D99F61D0643C70051A9C9 /* MainMenuHUD.cpp */,
-				665D99F71D0643C70051A9C9 /* MainMenuHUD.h */,
-				666106FE1D0857F3004F6263 /* PauseButtonsWidget.cpp */,
-				666106FF1D0857F3004F6263 /* PauseButtonsWidget.h */,
-				66E233B31D085C9800BC33F5 /* PauseOverlayWidget.cpp */,
-				66E233B41D085C9800BC33F5 /* PauseOverlayWidget.h */,
-				663894431D08DFB20034892E /* PowerUpButton.cpp */,
-				663894441D08DFB20034892E /* PowerUpButton.h */,
-				66DB28781D01CB1F00E1E4C9 /* TimedGameHUD.cpp */,
-				66DB28791D01CB1F00E1E4C9 /* TimedGameHUD.h */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -631,33 +680,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				666107001D0857F3004F6263 /* PauseButtonsWidget.cpp in Sources */,
-				665D9A031D07076B0051A9C9 /* Literals.cpp in Sources */,
-				66E3A6AC1D01268600A3125C /* SideRailNode.cpp in Sources */,
+				663894781D09AD9B0034892E /* PauseOverlayWidget.cpp in Sources */,
+				663894771D09AD9B0034892E /* PauseButtonsWidget.cpp in Sources */,
+				663894741D09AD9B0034892E /* GameOverWidget.cpp in Sources */,
+				663894A01D09AEB60034892E /* Util.cpp in Sources */,
+				6638947C1D09AD9B0034892E /* MainMenuHeader.cpp in Sources */,
+				663894751D09AD9B0034892E /* MainGameHeader.cpp in Sources */,
+				6638947D1D09AD9B0034892E /* MainMenuHUD.cpp in Sources */,
+				6638947A1D09AD9B0034892E /* MainMenuButtons.cpp in Sources */,
+				663894761D09AD9B0034892E /* MainGameHUD.cpp in Sources */,
+				6638949B1D09AEB60034892E /* Player.cpp in Sources */,
+				6638949D1D09AEB60034892E /* MainGameScene.cpp in Sources */,
+				6638949F1D09AEB60034892E /* Literals.cpp in Sources */,
+				6638949E1D09AEB60034892E /* MainMenuScene.cpp in Sources */,
 				66E3A6C51D01C08300A3125C /* MarathonGameMode.cpp in Sources */,
-				66E3A6AE1D01268600A3125C /* VelocityTracker.cpp in Sources */,
-				66E3A6A01D01268600A3125C /* GamePiece.cpp in Sources */,
-				66E3A6A81D01268600A3125C /* NodeHelper.cpp in Sources */,
-				66E233B51D085C9800BC33F5 /* PauseOverlayWidget.cpp in Sources */,
-				665D99FB1D0644400051A9C9 /* MainMenuHeader.cpp in Sources */,
+				663894791D09AD9B0034892E /* TimedGameHUD.cpp in Sources */,
+				663894991D09AEB60034892E /* AppDelegate.cpp in Sources */,
+				6638949C1D09AEB60034892E /* SideRailNode.cpp in Sources */,
 				66E3A6BD1D01C07100A3125C /* GameMode.cpp in Sources */,
-				66E3A6A61D01268600A3125C /* MainMenuScene.cpp in Sources */,
-				66E3A6C11D01C07100A3125C /* MainGameHUD.cpp in Sources */,
-				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
-				66E3A6AA1D01268600A3125C /* Player.cpp in Sources */,
-				665D99F81D0643C70051A9C9 /* MainMenuHUD.cpp in Sources */,
-				665D99F11D05B80C0051A9C9 /* Util.cpp in Sources */,
+				663894A11D09AEB60034892E /* VelocityTracker.cpp in Sources */,
+				6638947E1D09AD9B0034892E /* PowerUpButton.cpp in Sources */,
+				6638949A1D09AEB60034892E /* GamePiece.cpp in Sources */,
+				6638947B1D09AD9B0034892E /* MainMenuFooter.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
-				66E3A6BF1D01C07100A3125C /* GameOverWidget.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
-				665D99FF1D064B070051A9C9 /* MainMenuButtons.cpp in Sources */,
-				663894451D08DFB20034892E /* PowerUpButton.cpp in Sources */,
 				665D99ED1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */,
 				66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */,
-				66E3A6A41D01268600A3125C /* MainGameScene.cpp in Sources */,
-				66DB287A1D01CB1F00E1E4C9 /* TimedGameHUD.cpp in Sources */,
-				66E233B81D08649600BC33F5 /* MainGameHeader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,24 +715,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				66E3A6C61D01C08300A3125C /* MarathonGameMode.cpp in Sources */,
-				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
-				665D99F21D05B80C0051A9C9 /* Util.cpp in Sources */,
-				66E3A6A71D01268600A3125C /* MainMenuScene.cpp in Sources */,
-				66E3A6C01D01C07100A3125C /* GameOverWidget.cpp in Sources */,
-				665D9A041D07076B0051A9C9 /* Literals.cpp in Sources */,
 				665D99EE1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */,
-				66E3A6AB1D01268600A3125C /* Player.cpp in Sources */,
-				66E3A6C21D01C07100A3125C /* MainGameHUD.cpp in Sources */,
-				66E3A6AD1D01268600A3125C /* SideRailNode.cpp in Sources */,
 				66DB287F1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */,
-				665D9A001D064B070051A9C9 /* MainMenuButtons.cpp in Sources */,
-				66E3A6A11D01268600A3125C /* GamePiece.cpp in Sources */,
-				66E3A6A51D01268600A3125C /* MainGameScene.cpp in Sources */,
 				66E3A6BE1D01C07100A3125C /* GameMode.cpp in Sources */,
-				66E3A6AF1D01268600A3125C /* VelocityTracker.cpp in Sources */,
-				665D99FC1D0644400051A9C9 /* MainMenuHeader.cpp in Sources */,
-				66DB287B1D01CB1F00E1E4C9 /* TimedGameHUD.cpp in Sources */,
-				66E3A6A91D01268600A3125C /* NodeHelper.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

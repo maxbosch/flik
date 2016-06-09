@@ -19,6 +19,8 @@ namespace flik
     class GameHUD : public cocos2d::ui::RelativeBox
     {
     public:
+        virtual ~GameHUD() {}
+        
         virtual void onGameStateChanged(GameState newState) {}
         
         void setGameScene(MainGameScene* gameScene) { mGameScene = gameScene; }

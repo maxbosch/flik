@@ -19,8 +19,11 @@ namespace flik
     public:
         CREATE_FUNC(MainMenuHUD);
         
+        virtual ~MainMenuHUD();
+        
         bool init();
         
         std::function<void(GameModeType type)> onGameModeSelected;
+        std::function<void()> onShowStoreTapped;
     };
 }

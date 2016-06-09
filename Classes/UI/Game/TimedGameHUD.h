@@ -17,6 +17,8 @@ namespace flik
     public:
         CREATE_FUNC(TimedGameHUD);
         
+        ~TimedGameHUD() {}
+        
         bool init();
         
         void update(float time);

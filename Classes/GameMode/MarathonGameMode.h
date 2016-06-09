@@ -18,6 +18,8 @@ namespace flik
     public:
         CREATE_FUNC(MarathonGameMode);
         
+        ~MarathonGameMode() {}
+        
         bool init();
         
         void restartGame();

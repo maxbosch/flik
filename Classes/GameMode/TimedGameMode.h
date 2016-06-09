@@ -18,6 +18,8 @@ namespace flik
     public:
         CREATE_FUNC(TimedGameMode);
         
+        ~TimedGameMode() {}
+        
         static TimedGameMode* createWithTime(float seconds);
         
         void setGameTime(float seconds) { mGameTime = seconds; }

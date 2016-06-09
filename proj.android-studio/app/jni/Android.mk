@@ -12,22 +12,18 @@ LOCAL_MODULE := cocos2dcpp_shared
 
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../../Classes/**/*.cpp)
+FILE_LIST += $(wildcard $(LOCAL_PATH)/../../../Classes/*.cpp)
+#echo $FILE_LIST
+#LOCAL_SRC_FILES := $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
 LOCAL_SRC_FILES := hellocpp/main.cpp \
-../../../Classes/AppDelegate.cpp \
-../../../Classes/GameOverWidget.cpp \
-../../../Classes/GamePiece.cpp \
-../../../Classes/MainGameHUD.cpp \
-../../../Classes/MainGameScene.cpp \
-../../../Classes/MainMenuScene.cpp \
-../../../Classes/NodeHelpercpp \
-../../../Classes/Player.cpp \
-../../../Classes/SideRailNode.cpp \
-../../../Classes/VelocityTracker.cpp
+$(FILE_LIST:$(LOCAL_PATH)/%=%)
 
 LOCAL_CPPFLAGS := -DSDKBOX_ENABLED
 LOCAL_LDLIBS := -landroid \
 -llog
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../../Classes
+LOCAL_C_INCLUDES := ${shell find $(LOCAL_PATH)/../../../Classes/ -type d}
 LOCAL_C_INCLUDES += /usr/local/include
 LOCAL_WHOLE_STATIC_LIBRARIES := PluginAchievement \
 sdkbox \

@@ -28,6 +28,9 @@ namespace flik
         
         auto hud = MainMenuHUD::create();
         hud->onGameModeSelected = CC_CALLBACK_1(MainMenuScene::onGameModeSelected, this);
+        hud->onShowStoreTapped = []() {
+            
+        };
         addChild(hud);
         
         return true;

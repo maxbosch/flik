@@ -9,6 +9,7 @@
 #include "MainMenuHUD.h"
 #include "MainMenuHeader.h"
 #include "MainMenuButtons.h"
+#include "MainMenuFooter.h"
 #include "Literals.h"
 
 USING_NS_CC;
@@ -16,6 +17,10 @@ USING_NS_CC;
 namespace flik
 {
     using RelativeAlign = ui::RelativeLayoutParameter::RelativeAlign;
+    
+    MainMenuHUD::~MainMenuHUD()
+    {
+    }
     
     bool MainMenuHUD::init()
     {
@@ -32,7 +37,7 @@ namespace flik
         double footerHeight = 75.0_dp;
         
         auto header = MainMenuHeader::create();
-        header->setContentSize(Size(uiSize.width, 55.0_dp));
+        header->setContentSize(Size(uiSize.width, headerHeight));
         auto headerLayout = ui::RelativeLayoutParameter::create();
         headerLayout->setRelativeName("header");
         headerLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
@@ -51,6 +56,18 @@ namespace flik
             }
         };
         addChild(buttons);
+        
+        auto footer = MainMenuFooter::create();
+        footer->setContentSize(Size(uiSize.width, footerHeight));
+        auto footerLayout = ui::RelativeLayoutParameter::create();
+        footerLayout->setAlign(RelativeAlign::PARENT_LEFT_BOTTOM);
+        footer->setLayoutParameter(footerLayout);
+        footer->onShowStoreTapped = [this]() {
+            if (onShowStoreTapped) {
+                onShowStoreTapped();
+            }
+        };
+        addChild(footer);
         
         return true;
     }
