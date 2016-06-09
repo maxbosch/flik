@@ -87,6 +87,7 @@ namespace flik
             Director::getInstance()->popToRootScene();
         };
         pauseOverlay->onRestartTapped = [this]() {
+            getGameScene()->unpauseGame();
             getGameScene()->requestRestart();
         };
         pauseOverlay->setVisible(false);

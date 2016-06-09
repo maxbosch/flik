@@ -110,9 +110,7 @@ namespace flik
     
     void MainGameScene::requestRestart()
     {
-        if (mGameMode->getGameState() == GameState::Finished) {
-            mGameMode->restartGame();
-        }
+        mGameMode->restartGame();
     }
     
     void MainGameScene::restartGame()
