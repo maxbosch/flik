@@ -8,6 +8,7 @@
 
 #include "PauseOverlayWidget.h"
 #include "PauseButtonsWidget.h"
+#include "Literals.h"
 
 USING_NS_CC;
 
@@ -32,9 +33,9 @@ namespace flik
         auto pauseButtonsLayout = ui::RelativeLayoutParameter::create();
         pauseButtonsLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
         pauseButtons->setLayoutParameter(pauseButtonsLayout);
-        pauseButtons->onBackTapped = [this]() {
-            if (onBackTapped) {
-                onBackTapped();
+        pauseButtons->onRestartTapped = [this]() {
+            if (onRestartTapped) {
+                onRestartTapped();
             }
         };
         pauseButtons->onSettingsTapped = [this]() {
@@ -53,6 +54,18 @@ namespace flik
             }
         };
         addChild(pauseButtons);
+        
+        auto restartButton = ui::Button::create("arrow_up.png");
+        auto restartButtonLayout = ui::RelativeLayoutParameter::create();
+        restartButtonLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
+        restartButtonLayout->setMargin(ui::Margin(0, 20.0_dp, 0, 0));
+        restartButton->setLayoutParameter(restartButtonLayout);
+        restartButton->addTouchEventListener([this](Ref* sender, TouchEventType type) {
+            if (type == TouchEventType::ENDED && onBackTapped) {
+                onBackTapped();
+            }
+        });
+        addChild(restartButton);
         
         return true;
     }

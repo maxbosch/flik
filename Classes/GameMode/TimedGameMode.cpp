@@ -66,13 +66,15 @@ namespace flik
     {
         GameMode::update(seconds);
         
-        mTimeRemaining -= seconds;
+        if (getGameState() == GameState::InProgress) {
+            mTimeRemaining -= seconds;
         
-        if (mTimeRemaining <= 0) {
-            mTimeRemaining = 0;
-            setGameState(GameState::Finished);
-            
-            unscheduleUpdate();
+            if (mTimeRemaining <= 0) {
+                mTimeRemaining = 0;
+                setGameState(GameState::Finished);
+                
+                unscheduleUpdate();
+            }
         }
     }
     

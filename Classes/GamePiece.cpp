@@ -21,7 +21,7 @@ namespace flik
     static std::string PieceSprites[] = {
         "piece_red.png",
         "piece_blue.png",
-        "piece_green.png",
+        "piece_pink.png",
         "piece_yellow.png"
     };
     
@@ -54,7 +54,6 @@ namespace flik
         
         auto randomId = cocos2d::random(0, 3);
         auto sprite = Sprite::create(PieceSprites[randomId]);
-        sprite->setScale(0.5, 0.5);
         sprite->setAnchorPoint(Vec2(0, 0));
         //sprite->setGlobalZOrder(0);
         
@@ -98,7 +97,7 @@ namespace flik
         
         auto visibleBounds = Rect(Vec2(), Director::getInstance()->getOpenGLView()->getDesignResolutionSize());
         auto localBounds = getBoundingBox();
-        if (!visibleBounds.intersectsRect(localBounds)) {
+        if (!getParent()->getBoundingBox().intersectsRect(localBounds)) {
             EventCustom eventObj(kPieceRemovedEvent);
             eventObj.setUserData(this);
             

@@ -23,6 +23,6 @@ namespace flik
         std::function<void()> onHomeTapped;
         std::function<void()> onAchievementsTapped;
         std::function<void()> onSettingsTapped;
-        std::function<void()> onBackTapped;
+        std::function<void()> onRestartTapped;
     };
 }

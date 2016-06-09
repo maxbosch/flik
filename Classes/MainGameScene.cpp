@@ -184,12 +184,12 @@ namespace flik
     
     void MainGameScene::pauseGame()
     {
-        mGameMode->pause();
+        mGameMode->pauseGame();
     }
     
     void MainGameScene::unpauseGame()
     {
-        mGameMode->resume();
+        mGameMode->resumeGame();
     }
 }
 

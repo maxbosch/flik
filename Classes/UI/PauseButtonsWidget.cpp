@@ -24,16 +24,16 @@ namespace flik
         
         setContentSize(Size(227.0_dp, 227.0_dp));
         
-        auto backButton = ui::Button::create("pause_back.png");
-        auto backButtonLayout = ui::RelativeLayoutParameter::create();
-        backButtonLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
-        backButton->setLayoutParameter(backButtonLayout);
-        backButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
-            if (type == ui::Widget::TouchEventType::ENDED && onBackTapped) {
-                onBackTapped();
+        auto restartButton = ui::Button::create("pause_restart.png");
+        auto restartButtonLayout = ui::RelativeLayoutParameter::create();
+        restartButtonLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
+        restartButton->setLayoutParameter(restartButtonLayout);
+        restartButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
+            if (type == ui::Widget::TouchEventType::ENDED && onRestartTapped) {
+                onRestartTapped();
             }
         });
-        addChild(backButton);
+        addChild(restartButton);
         
         auto homeButton = ui::Button::create("pause_home.png");
         auto homeButtonLayout = ui::RelativeLayoutParameter::create();

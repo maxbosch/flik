@@ -86,6 +86,9 @@ namespace flik
         pauseOverlay->onHomeTapped = [this]() {
             Director::getInstance()->popToRootScene();
         };
+        pauseOverlay->onRestartTapped = [this]() {
+            getGameScene()->requestRestart();
+        };
         pauseOverlay->setVisible(false);
         
         addChild(pauseOverlay, 3);
@@ -114,6 +117,7 @@ namespace flik
                 break;
             case GameState::Paused:
                 mPauseOverlay->setVisible(true);
+                break;
             default:
                 mGameOverScreen->setVisible(false);
                 mPauseOverlay->setVisible(false);
