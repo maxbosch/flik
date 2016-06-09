@@ -37,6 +37,15 @@ namespace flik
         if (mGameMode) {
             mGameHUD->onGameStateChanged(mGameMode->getGameState());
         }
+        
+        mGameBoard = mGameHUD->getGameBoard();
+       
+        auto sideRailNode = SideRailNode::create(mGameBoard->getContentSize());
+        sideRailNode->setPosition(0, 0);
+        sideRailNode->setAnchorPoint(Vec2(0, 0));
+        mSideRails = sideRailNode;
+        
+        mGameBoard->addChild(mSideRails);
     }
     
     void MainGameScene::onGameStateChanged(GameState newState)
@@ -65,8 +74,20 @@ namespace flik
         });
     }
     
+    MainGameScene* MainGameScene::create(const LevelParams& params)
+    {
+        MainGameScene* obj = new (std::nothrow) MainGameScene();
+        if (obj && obj->init(params))
+        {
+            obj->autorelease();
+            return obj;
+        }
+        CC_SAFE_DELETE(obj);
+        return nullptr;
+    }
+    
     // on "init" you need to initialize your instance
-    bool MainGameScene::init()
+    bool MainGameScene::init(const LevelParams& params)
     {
         if ( !Scene::initWithPhysics() )
         {
@@ -78,19 +99,9 @@ namespace flik
         physicsWorld->setSubsteps(2);
         //physicsWorld->setSpeed(1.0 / 120.0);
         
-        auto uiSize = Director::getInstance()->getOpenGLView()->getDesignResolutionSize();
+        setGameHUD(params.hud);
         
-        auto sideRailNode = SideRailNode::create();
-        sideRailNode->setContentSize(Director::getInstance()->getVisibleSize());
-        sideRailNode->setPosition(0, 0);
-        sideRailNode->setAnchorPoint(Vec2(0, 0));
-        mSideRails = sideRailNode;
-        
-        mGameBoard = Node::create();
-        mGameBoard->setContentSize(getContentSize());
-        mGameBoard->setColor(Color3B(255, 255, 255));
-        mGameBoard->addChild(mSideRails);
-        addChild(mGameBoard);
+        setGameMode(params.mode);
         
         this->scheduleUpdate();
 
@@ -131,10 +142,12 @@ namespace flik
     
     void MainGameScene::spawnPiece(const Vec2& position)
     {
-        auto piece = GamePiece::create(position);
-        piece->setGameScene(this);
-        piece->setTag(kPieceTag);
-        mGameBoard->addChild(piece);
+        if (mGameBoard) {
+            auto piece = GamePiece::create(position);
+            piece->setGameScene(this);
+            piece->setTag(kPieceTag);
+            mGameBoard->addChild(piece);
+        }
     }
     
     void MainGameScene::constrainPieceToGameBounds(GamePiece* piece)
@@ -159,12 +172,24 @@ namespace flik
     }
     
     void MainGameScene::enumeratePieces(std::function<void(Node*)> callback) {
-        auto children = mGameBoard->getChildren();
-        for (auto child : children) {
-            if (child->getTag() == kPieceTag) {
-                callback(child);
+        if (mGameBoard) {
+            auto children = mGameBoard->getChildren();
+            for (auto child : children) {
+                if (child->getTag() == kPieceTag) {
+                    callback(child);
+                }
             }
         }
+    }
+    
+    void MainGameScene::pauseGame()
+    {
+        mGameMode->pause();
+    }
+    
+    void MainGameScene::unpauseGame()
+    {
+        mGameMode->resume();
     }
 }
 

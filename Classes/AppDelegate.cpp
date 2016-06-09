@@ -4,6 +4,7 @@
 #include "TimedGameMode.h"
 #include "TimedGameHUD.h"
 #include "MainGameHUD.h"
+#include "MainMenuScene.h"
 
 USING_NS_CC;
 
@@ -32,34 +33,56 @@ namespace flik
         // initialize director
         auto director = Director::getInstance();
         auto size = director->getVisibleSize();
-        auto aspect = size.height / size.width;
-        //auto designSize = Size(640, 1136);
-        auto designSize = Size(320, 320 * aspect);
+
         auto glview = director->getOpenGLView();
         if(!glview) {
             glview = GLViewImpl::createWithRect("Fling", Rect(0, 0, size.width, size.height));
             director->setOpenGLView(glview);
         }
-        
-        director->getOpenGLView()->setDesignResolutionSize(designSize.width, designSize.height, ResolutionPolicy::EXACT_FIT);
-        
-        //auto contentScale = Size(size.width / designSize.width, size.height / designSize.height);
-        //director->getOpenGLView()->setContentScaleFactor(contentScale.width);
-        
+
+        auto contentScale = Device::getDPI() / 160.0;
         // turn on display FPS
-        director->setDisplayStats(true);
+        //director->setDisplayStats(true);
         
         // set FPS. the default value is 1.0/60 if you don't call this
         director->setAnimationInterval(1.0 / 60);
+        //director->getOpenGLView()->setDesignResolutionSize(size.width, size.height, ResolutionPolicy::EXACT_FIT);
+        //director->setContentScaleFactor(1);
         
-        FileUtils::getInstance()->addSearchPath("res");
+        std::vector<std::string> resFolders;
+        if (contentScale >= 4.1) {
+            resFolders.push_back("4x");
+            resFolders.push_back("3x");
+            resFolders.push_back("2x");
+            resFolders.push_back("1x");
+        } else if (contentScale >= 3.1) {
+            resFolders.push_back("3x");
+            resFolders.push_back("4x");
+            resFolders.push_back("2x");
+            resFolders.push_back("1x");
+        } else if (contentScale >= 2.1) {
+            resFolders.push_back("2x");
+            resFolders.push_back("3x");
+            resFolders.push_back("4x");
+            resFolders.push_back("1x");
+        } else {
+            resFolders.push_back("1x");
+            resFolders.push_back("2x");
+            resFolders.push_back("3x");
+            resFolders.push_back("4x");
+        }
+        
+        FileUtils::getInstance()->setSearchResolutionsOrder(resFolders);
         
         // create a scene. it's an autorelease object
-        auto level = MainGameScene::create();
-        //level->setGameMode(MarathonGameMode::create());
-        //level->setGameHUD(MainGameHUD::create());
-        level->setGameMode(TimedGameMode::createWithTime(10));
-        level->setGameHUD(TimedGameHUD::create());
+//        auto level = MainGameScene::create();
+//        level->setGameMode(MarathonGameMode::create());
+//        level->setGameHUD(MainGameHUD::create());
+        //level->setGameMode(TimedGameMode::createWithTime(10));
+        //level->setGameHUD(TimedGameHUD::create());
+        
+        auto level = MainMenuScene::create();
+        
         
         // run
         director->runWithScene(level);

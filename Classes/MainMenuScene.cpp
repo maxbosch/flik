@@ -7,39 +7,55 @@
 //
 
 #include "MainMenuScene.h"
-#include "Colors.h"
+#include "Styles.h"
+#include "MainMenuHUD.h"
+#include "MainGameScene.h"
+#include "TimedGameMode.h"
+#include "TimedGameHUD.h"
+#include "MarathonGameMode.h"
+#include "TimedGameMode.h"
 
 USING_NS_CC;
 
 namespace flik
 {
-    cocos2d::Scene* MainMenuScene::createScene()
-    {
-        auto scene = Scene::create();
-        
-        // 'layer' is an autorelease object
-        auto self = MainMenuScene::create();
-        
-        // add layer as a child to scene
-        scene->addChild(self);
-
-        // return the scene
-        return scene;
-    }
-    
     bool MainMenuScene::init()
     {
-        if (!Layer::init())
+        if (!Scene::init())
         {
             return false;
         }
         
-        auto uiSize = Director::getInstance()->getOpenGLView()->getDesignResolutionSize();
-        
-        auto menuFrame = cocos2d::ui::RelativeBox::create(uiSize);
-        menuFrame->setBackGroundColor(kBlackColor);
-        menuFrame->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
+        auto hud = MainMenuHUD::create();
+        hud->onGameModeSelected = CC_CALLBACK_1(MainMenuScene::onGameModeSelected, this);
+        addChild(hud);
         
         return true;
+    }
+    
+    void MainMenuScene::onGameModeSelected(GameModeType type)
+    {
+        MainGameScene* gameScene = nullptr;
+        
+        switch (type) {
+            case GameModeType::Timed:
+            {
+                auto gameMode = TimedGameMode::create();
+                gameMode->setGameTime(60);
+                gameScene = MainGameScene::create({gameMode, TimedGameHUD::create()});
+                break;
+            }
+                
+            case GameModeType::Unlimited:
+                gameScene = MainGameScene::create({MarathonGameMode::create(), MainGameHUD::create()});
+                break;
+                
+            default:
+                break;
+        }
+        
+        if (gameScene) {
+            Director::getInstance()->pushScene(gameScene);
+        }
     }
 }

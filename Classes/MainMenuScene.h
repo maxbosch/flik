@@ -10,16 +10,18 @@
 
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
+#include "Enums.h"
 
 namespace flik
 {
-    class MainMenuScene : public cocos2d::Layer
+    class MainMenuScene : public cocos2d::Scene
     {
     public:
-        static cocos2d::Scene* createScene();
-        
         CREATE_FUNC(MainMenuScene);
     
         bool init();
+        
+    private:
+        void onGameModeSelected(GameModeType type);
     };
 }

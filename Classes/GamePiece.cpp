@@ -12,6 +12,7 @@
 #include "Physics.h"
 #include "Player.h"
 #include "Events.h"
+#include "Literals.h"
 
 USING_NS_CC;
 
@@ -23,8 +24,6 @@ namespace flik
         "piece_green.png",
         "piece_yellow.png"
     };
-    
-    static const int kPieceSize = 50;
     
     static const float kVelocityDamping = 0.7;
     
@@ -48,14 +47,16 @@ namespace flik
             return false;
         }
         
-        setContentSize(Size(kPieceSize, kPieceSize));
+        //setGlobalZOrder(0);
+        setContentSize(Size(50.0_dp, 50.0_dp));
         setAnchorPoint(Vec2(0.5, 0.5));
         ignoreAnchorPointForPosition(false);
         
         auto randomId = cocos2d::random(0, 3);
         auto sprite = Sprite::create(PieceSprites[randomId]);
-        sprite->setScale(0.35, 0.35);
+        sprite->setScale(0.5, 0.5);
         sprite->setAnchorPoint(Vec2(0, 0));
+        //sprite->setGlobalZOrder(0);
         
         addChild(sprite);
         
@@ -123,7 +124,7 @@ namespace flik
     bool GamePiece::onTouchBegan(Touch *touch, Event *unused_event)
     {
         auto bb = getBoundingBox();
-        int padding = 20;
+        double padding = 20.0_dp;
         bb.setRect(bb.origin.x - padding, bb.origin.y - padding, bb.size.width + (padding * 2), bb.size.height + (padding * 2));
         mPressed = bb.containsPoint(touch->getLocation());
         

@@ -17,4 +17,15 @@ namespace flik {
             onGameStateChanged(newState);
         }
     }
+    
+    void GameMode::pauseGame()
+    {
+        mPausedState = mGameState;
+        setGameState(GameState::Paused);
+    }
+    
+    void GameMode::resumeGame()
+    {
+        setGameState(mPausedState);
+    }
 }

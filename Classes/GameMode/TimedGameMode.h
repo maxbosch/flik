@@ -29,6 +29,7 @@ namespace flik
         void update(float seconds);
         
         float getTimeRemaining() { return mTimeRemaining; }
+        float getGameTime() { return mGameTime; }
         
         int getTopScore();
         

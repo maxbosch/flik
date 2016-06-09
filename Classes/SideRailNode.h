@@ -18,23 +18,23 @@ namespace flik
     {
         RedBox,
         BlueBox,
-        GreenBox,
+        PinkBox,
         YellowBox
     };
     
     static const int ColorBoxMasks[] = {
         1 << 1, // Red
         1 << 2, // Blue
-        1 << 3, // Green
+        1 << 3, // Pink
         1 << 4  // Yellow
     };
     
     class SideRailNode : public cocos2d::Node
     {
     public:
-        bool init();
+        bool init(const cocos2d::Size& gameBoardSize);
     
-        CREATE_FUNC(SideRailNode);
+        static SideRailNode* create(const cocos2d::Size& gameBoardSize);
         
         cocos2d::Rect getInnerBoundingBox() { return mInnerBox->getBoundingBox(); }
         
@@ -44,5 +44,7 @@ namespace flik
         std::map<SideRailBox, cocos2d::LayerColor *> mBoxes;
         cocos2d::LayerColor* mOuterBox;
         cocos2d::LayerColor* mInnerBox;
+        cocos2d::Size mBoxDimens;
+        double mRailSize;
     };
 }

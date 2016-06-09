@@ -7,8 +7,9 @@
 //
 
 #include "SideRailNode.h"
-#include "Colors.h"
+#include "Styles.h"
 #include "Physics.h"
+#include "Literals.h"
 
 #include <boost/geometry.hpp>
 #include <boost/geometry/geometries/geometries.hpp>
@@ -29,33 +30,31 @@ namespace flik
     {
         SideRailBox type;
         Vec2 anchor;
-        Color3B startColor;
-        Color3B endColor;
+        Color3B color;
         Vec2 direction;
     };
     
-    static const auto kBoxDimens = Size(120, 120);
-    static const int kRailSize = 10;
+    static const BoxDesc RedBoxDesc = { RedBox, Vec2(0, 1), kRedColor, Vec2(0.5, 0.5) };
+    static const BoxDesc BlueBoxDesc = { BlueBox, Vec2(1, 1), kBlueColor, Vec2(-0.5, 0.5) };
+    static const BoxDesc PinkBoxDesc = { PinkBox, Vec2(0, 0), kPinkColor, Vec2(0.5, -0.5) };
+    static const BoxDesc YellowBoxDesc = { YellowBox, Vec2(1, 0), kYellowColor, Vec2(-0.5, -0.5) };
     
-    static const BoxDesc RedBoxDesc = { RedBox, Vec2(0, 1), kRedStartColor, kRedEndColor, Vec2(0.5, 0.5) };
-    static const BoxDesc BlueBoxDesc = { BlueBox, Vec2(1, 1), kBlueStartColor, kBlueEndColor, Vec2(-0.5, 0.5) };
-    static const BoxDesc GreenBoxDesc = { GreenBox, Vec2(0, 0), kGreenStartColor, kGreenEndColor, Vec2(0.5, -0.5) };
-    static const BoxDesc YellowBoxDesc = { YellowBox, Vec2(1, 0), kYellowStartColor, kYellowEndColor, Vec2(-0.5, -0.5) };
-    
-    static const BoxDesc Boxes[] = { RedBoxDesc, BlueBoxDesc, GreenBoxDesc, YellowBoxDesc };
+    static const BoxDesc Boxes[] = { RedBoxDesc, BlueBoxDesc, PinkBoxDesc, YellowBoxDesc };
     static const int kNumBoxes = 4;
     
-    bool SideRailNode::init()
+    bool SideRailNode::init(const Size& gameBoardSize)
     {
         if (!Node::init())
         {
             return false;
         }
         
-        auto visibleSize = Director::getInstance()->getVisibleSize();
+        mBoxDimens = Size(100.0_dp, 100.0_dp);
+        mRailSize = 10.0_dp;
+    
         //auto contentScale = Director::getInstance()->getContentScaleFactor();
         
-        auto outerBox = LayerColor::create(Color4B(kBlackColor), visibleSize.width, visibleSize.height);
+        auto outerBox = LayerColor::create(Color4B(kBlackColor), gameBoardSize.width, gameBoardSize.height);
         outerBox->setPosition(Vec2(0, 0));
         outerBox->setAnchorPoint(Vec2(0, 0));
         addChild(outerBox);
@@ -64,9 +63,9 @@ namespace flik
         for (int i = 0; i < kNumBoxes; i++) {
             auto& box = Boxes[i];
             
-            auto layer = LayerGradient::create(Color4B(box.startColor), Color4B(box.endColor), box.direction);
-            layer->setContentSize(kBoxDimens);
-            layer->setPosition(Vec2(box.anchor.x * visibleSize.width, box.anchor.y * visibleSize.height));
+            auto layer = LayerColor::create(Color4B(box.color));
+            layer->setContentSize(mBoxDimens);
+            layer->setPosition(Vec2(box.anchor.x * gameBoardSize.width, box.anchor.y * gameBoardSize.height));
             layer->setAnchorPoint(box.anchor);
             layer->ignoreAnchorPointForPosition(false);
             
@@ -75,8 +74,8 @@ namespace flik
             mBoxes[box.type] = layer;
         }
         
-        auto innerBox = LayerColor::create(Color4B(kBlackColor), visibleSize.width - (kRailSize * 2), visibleSize.height - (kRailSize * 2));
-        innerBox->setPosition(kRailSize, kRailSize);
+        auto innerBox = LayerColor::create(Color4B(kBlackColor), gameBoardSize.width - (mRailSize * 2), gameBoardSize.height - (mRailSize * 2));
+        innerBox->setPosition(mRailSize, mRailSize);
         innerBox->setAnchorPoint(Vec2(0, 0));
         addChild(innerBox);
         mInnerBox = innerBox;
@@ -86,21 +85,33 @@ namespace flik
         return true;
     }
     
+    SideRailNode* SideRailNode::create(const Size& gameBoardSize)
+    {
+        SideRailNode* obj = new (std::nothrow) SideRailNode();
+        if (obj && obj->init(gameBoardSize))
+        {
+            obj->autorelease();
+            return obj;
+        }
+        CC_SAFE_DELETE(obj);
+        return nullptr;
+    }
+    
     void SideRailNode::calculateRails()
     {
         auto red = mBoxes[RedBox];
         auto blue = mBoxes[BlueBox];
-        auto green = mBoxes[GreenBox];
+        auto pink = mBoxes[PinkBox];
         auto yellow = mBoxes[YellowBox];
         
         auto redBounds = red->getBoundingBox();
         auto blueBounds = blue->getBoundingBox();
-        auto greenBounds = green->getBoundingBox();
+        auto pinkBounds = pink->getBoundingBox();
         auto yellowBounds = yellow->getBoundingBox();
         
         double left, right, top, bottom;
         
-        float buffer = 100;
+        float buffer = 100.0_dp;
         
         auto getBoxGeo = [](LayerColor* box, GeoPolygon& output) {
             auto bounds = box->getBoundingBox();
@@ -138,7 +149,7 @@ namespace flik
             left = redBounds.getMaxX();
             right = blueBounds.getMinX();
             top = redBounds.getMaxY() + buffer;
-            bottom = top - kRailSize - buffer;
+            bottom = top - mRailSize - buffer;
             
             createRailNode(left, bottom, right, top, collision::BlackRail, collision::All, collision::All);
         }
@@ -146,7 +157,7 @@ namespace flik
         // Right Rail
         {
             right = blueBounds.getMaxX() + buffer;
-            left = right - kRailSize - buffer;
+            left = right - mRailSize - buffer;
             top = blueBounds.getMinY();
             bottom = yellowBounds.getMaxY();
             
@@ -155,10 +166,10 @@ namespace flik
         
         // Bottom Rail
         {
-            left = greenBounds.getMaxX();
+            left = pinkBounds.getMaxX();
             right = yellowBounds.getMinX();
-            bottom = greenBounds.getMinY() - buffer;
-            top = bottom + kRailSize + buffer;
+            bottom = pinkBounds.getMinY() - buffer;
+            top = bottom + mRailSize + buffer;
             
             createRailNode(left, bottom, right, top, collision::BlackRail, collision::All, collision::All);
         }
@@ -166,9 +177,9 @@ namespace flik
         // Left Rail
         {
             left = redBounds.getMinX() - buffer;
-            right = left + kRailSize + buffer;
+            right = left + mRailSize + buffer;
             top = redBounds.getMinY();
-            bottom = greenBounds.getMaxY();
+            bottom = pinkBounds.getMaxY();
             
             createRailNode(left, bottom, right, top, collision::BlackRail, collision::All, collision::All);
         }
@@ -180,7 +191,7 @@ namespace flik
         {
 
             left = redBounds.getMinX() - buffer;
-            right = left + kRailSize + buffer;
+            right = left + mRailSize + buffer;
             top = redBounds.getMaxY();
             bottom = redBounds.getMinY();
             
@@ -189,7 +200,7 @@ namespace flik
             left = redBounds.getMinX();
             right = redBounds.getMaxX();
             top = redBounds.getMaxY() + buffer;
-            bottom = top - kRailSize - buffer;
+            bottom = top - mRailSize - buffer;
             
             createRailNode(left, bottom, right, top, collision::RedRail, collision::AllButRedPiece, collision::AllButRedPiece, Color4B(255, 0, 0, 255));
         }
@@ -197,7 +208,7 @@ namespace flik
         // Blue Box
         {
             right = blueBounds.getMaxX() + buffer;
-            left = right - kRailSize - buffer;
+            left = right - mRailSize - buffer;
             top = blueBounds.getMaxY();
             bottom = blueBounds.getMinY();
             
@@ -206,32 +217,32 @@ namespace flik
             left = blueBounds.getMinX();
             right = blueBounds.getMaxX();
             top = blueBounds.getMaxY() + buffer;
-            bottom = top - kRailSize - buffer;
+            bottom = top - mRailSize - buffer;
             
             createRailNode(left, bottom, right, top, collision::BlueRail, collision::AllButBluePiece, collision::AllButBluePiece, Color4B(0, 0, 255, 255));
         }
         
-        // Green Box
+        // Pink Box
         {
-            left = greenBounds.getMinX() - buffer;
-            right = left + kRailSize + buffer;
-            top = greenBounds.getMaxY();
-            bottom = greenBounds.getMinY();
+            left = pinkBounds.getMinX() - buffer;
+            right = left + mRailSize + buffer;
+            top = pinkBounds.getMaxY();
+            bottom = pinkBounds.getMinY();
             
-            createRailNode(left, bottom, right, top, collision::GreenRail, collision::AllButGreenPiece, collision::AllButGreenPiece, Color4B(0, 255, 0, 255));
+            createRailNode(left, bottom, right, top, collision::PinkRail, collision::AllButPinkPiece, collision::AllButPinkPiece, Color4B(0, 255, 0, 255));
             
-            left = greenBounds.getMinX();
-            right = greenBounds.getMaxX();
-            bottom = greenBounds.getMinY() - buffer;
-            top = bottom + kRailSize + buffer;
+            left = pinkBounds.getMinX();
+            right = pinkBounds.getMaxX();
+            bottom = pinkBounds.getMinY() - buffer;
+            top = bottom + mRailSize + buffer;
             
-            createRailNode(left, bottom, right, top, collision::GreenRail, collision::AllButGreenPiece, collision::AllButGreenPiece, Color4B(0, 255, 0, 255));
+            createRailNode(left, bottom, right, top, collision::PinkRail, collision::AllButPinkPiece, collision::AllButPinkPiece, Color4B(0, 255, 0, 255));
         }
         
         // Yellow Box
         {
             right = yellowBounds.getMaxX() + buffer;
-            left = right - kRailSize - buffer;
+            left = right - mRailSize - buffer;
             top = yellowBounds.getMaxY();
             bottom = yellowBounds.getMinY();
             
@@ -240,7 +251,7 @@ namespace flik
             left = yellowBounds.getMinX();
             right = yellowBounds.getMaxX();
             bottom = yellowBounds.getMinY() - buffer;
-            top = bottom + kRailSize + buffer;
+            top = bottom + mRailSize + buffer;
             
             createRailNode(left, bottom, right, top, collision::YellowRail, collision::AllButYellowPiece, collision::AllButYellowPiece, Color4B(255, 255, 0, 255));
         }

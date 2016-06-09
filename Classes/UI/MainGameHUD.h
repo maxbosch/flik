@@ -14,6 +14,8 @@ namespace flik
 {
     class GameOverWidget;
     class MainGameScene;
+    class MainGameHeader;
+    class PauseOverlayWidget;
     
     class MainGameHUD : public GameHUD
     {
@@ -28,9 +30,14 @@ namespace flik
         
         void update(float time);
         
+        cocos2d::Node* getGameBoard() { return mGameBoard; }
+        
     private:
         cocos2d::ui::Text* mScoreValueLabel;
         cocos2d::ui::Text* mTopScoreValueLabel;
         GameOverWidget* mGameOverScreen;
+        cocos2d::Node* mGameBoard;
+        MainGameHeader* mHeader;
+        PauseOverlayWidget* mPauseOverlay;
     };
 }

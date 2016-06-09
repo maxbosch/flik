@@ -51,7 +51,7 @@ namespace flik
         
         Player::getMainPlayer()->resetScore();
         
-        mTimeRemaining = mGameTime + 0.99;
+        mTimeRemaining = mGameTime;
         
         for (int i = 0; i < kInitialSpawnCount; i++) {
             getGameScene()->spawnPiece(Util::getRandomPositionInRect(getGameScene()->getGameBoardBounds()));
@@ -68,7 +68,7 @@ namespace flik
         
         mTimeRemaining -= seconds;
         
-        if (floor(mTimeRemaining) <= 0) {
+        if (mTimeRemaining <= 0) {
             mTimeRemaining = 0;
             setGameState(GameState::Finished);
             

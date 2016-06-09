@@ -16,7 +16,8 @@ namespace flik
     {
         Starting,
         InProgress,
-        Finished
+        Finished,
+        Paused
     };
     
     class MainGameScene;
@@ -37,6 +38,9 @@ namespace flik
         
         virtual int getTopScore() = 0;
         
+        virtual void pauseGame();
+        virtual void resumeGame();
+        
     protected:
         virtual void setGameState(GameState newState);
         MainGameScene* getGameScene() { return mGameScene; }
@@ -44,5 +48,6 @@ namespace flik
     private:
         GameState mGameState;
         MainGameScene* mGameScene;
+        GameState mPausedState;
     };
 }

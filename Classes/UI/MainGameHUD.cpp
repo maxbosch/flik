@@ -12,6 +12,10 @@
 #include "Player.h"
 #include "GameMode.h"
 #include "Events.h"
+#include "Literals.h"
+#include "Styles.h"
+#include "PauseOverlayWidget.h"
+#include "MainGameHeader.h"
 
 #include <boost/lexical_cast.hpp>
 
@@ -28,51 +32,29 @@ namespace flik
             return false;
         }
         
+        //setGlobalZOrder(2);
+        
         this->setTouchEnabled(false);
         this->setLayoutComponentEnabled(true);
         
-        auto uiSize = Director::getInstance()->getOpenGLView()->getDesignResolutionSize();
+        auto uiSize = Director::getInstance()->getVisibleSize();
         
-        auto scoreValueLabel = ui::Text::create("0", "GothamRnd-Bold.otf", 16);
-        scoreValueLabel->setTextColor(Color4B(255, 255, 255, 255));
-        addChild(scoreValueLabel);
-        auto scoreValueLabelLayout = ui::RelativeLayoutParameter::create();
-        scoreValueLabelLayout->setRelativeName("score_value_label");
-        scoreValueLabelLayout->setAlign(RelativeAlign::PARENT_TOP_RIGHT);
-        scoreValueLabelLayout->setMargin(ui::Margin(0, 20, 20, 0));
-        scoreValueLabel->setLayoutParameter(scoreValueLabelLayout);
-        mScoreValueLabel = scoreValueLabel;
-        
-        auto scoreLabel = ui::Text::create("Score", "GothamRnd-Bold.otf", 16);
-        scoreLabel->setTextColor(Color4B(255, 255, 255, 255));
-        addChild(scoreLabel);
-        auto scoreLabelLayout = ui::RelativeLayoutParameter::create();
-        scoreLabelLayout->setRelativeToWidgetName("score_value_label");
-        scoreLabelLayout->setAlign(RelativeAlign::LOCATION_LEFT_OF_TOPALIGN);
-        scoreLabelLayout->setMargin(ui::Margin(0, 0, 10, 0));
-        scoreLabel->setLayoutParameter(scoreLabelLayout);
-        
-        auto topScoreValueLabel = ui::Text::create("0", "GothamRnd-Bold.otf", 16);
-        topScoreValueLabel->setTextColor(Color4B(255, 255, 255, 255));
-        addChild(topScoreValueLabel);
-        auto topScoreValueLabelLayout = ui::RelativeLayoutParameter::create();
-        topScoreValueLabelLayout->setRelativeToWidgetName("top_score_label");
-        topScoreValueLabelLayout->setAlign(RelativeAlign::LOCATION_RIGHT_OF_TOPALIGN);
-        topScoreValueLabelLayout->setMargin(ui::Margin(10, 0, 0, 0));
-        topScoreValueLabel->setLayoutParameter(topScoreValueLabelLayout);
-        mTopScoreValueLabel = topScoreValueLabel;
-        
-        auto topScoreLabel = ui::Text::create("Top Score", "GothamRnd-Bold.otf", 16);
-        topScoreLabel->setTextColor(Color4B(255, 255, 255, 255));
-        addChild(topScoreLabel);
-        auto topScoreLabelLayout = ui::RelativeLayoutParameter::create();
-        topScoreLabelLayout->setRelativeName("top_score_label");
-        topScoreLabelLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
-        topScoreLabelLayout->setMargin(ui::Margin(20, 20, 0, 0));
-        topScoreLabel->setLayoutParameter(topScoreLabelLayout);
+        auto header = MainGameHeader::create();
+        auto headerLayout = ui::RelativeLayoutParameter::create();
+        headerLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
+        header->setLayoutParameter(headerLayout);
+        addChild(header, 2);
+        header->setTouchEnabled(true);
+        header->addTouchEventListener([this](Ref* sender, TouchEventType type) {
+            if (type == TouchEventType::ENDED) {
+                getGameScene()->pauseGame();
+            }
+        });
+        //header->setGlobalZOrder(2);
+        mHeader = header;
         
         mGameOverScreen = GameOverWidget::create();
-        mGameOverScreen->setContentSize(Size(uiSize.width - 20, 120));
+        mGameOverScreen->setContentSize(Size(uiSize.width - 20.0_dp, 120.0_dp));
         mGameOverScreen->setBackGroundColor(Color3B(225, 225, 225));
         mGameOverScreen->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         mGameOverScreen->onRestartClick = [this]() {
@@ -81,10 +63,33 @@ namespace flik
             }
         };
         auto gameOverScreenLayout = ui::RelativeLayoutParameter::create();
-        gameOverScreenLayout->setMargin(ui::Margin(10, 100, 10, 0));
+        gameOverScreenLayout->setMargin(ui::Margin(10.0_dp, 100.0_dp, 10.0_dp, 0));
         gameOverScreenLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
         mGameOverScreen->setLayoutParameter(gameOverScreenLayout);
-        addChild(mGameOverScreen);
+        mGameOverScreen->setVisible(false);
+        addChild(mGameOverScreen, 3);
+        
+        auto gameBoard = ui::Layout::create();
+        gameBoard->setBackGroundColor(Color3B::BLACK);
+        gameBoard->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
+        gameBoard->setContentSize(Size(uiSize.width, uiSize.height - header->getContentSize().height));
+        auto gameBoardLayout = ui::RelativeLayoutParameter::create();
+        gameBoardLayout->setAlign(RelativeAlign::PARENT_BOTTOM_CENTER_HORIZONTAL);
+        gameBoard->setLayoutParameter(gameBoardLayout);
+        addChild(gameBoard, 1);
+        mGameBoard = gameBoard;
+        
+        auto pauseOverlay = PauseOverlayWidget::create();
+        pauseOverlay->onBackTapped = [this]() {
+            getGameScene()->unpauseGame();
+        };
+        pauseOverlay->onHomeTapped = [this]() {
+            Director::getInstance()->popToRootScene();
+        };
+        pauseOverlay->setVisible(false);
+        
+        addChild(pauseOverlay, 3);
+        mPauseOverlay = pauseOverlay;
         
         return true;
     }
@@ -93,8 +98,7 @@ namespace flik
     {
         RelativeBox::update(time);
 
-        mScoreValueLabel->setString(boost::lexical_cast<std::string>(Player::getMainPlayer()->getCurrentScore()));
-        mTopScoreValueLabel->setString(boost::lexical_cast<std::string>(getGameScene()->getGameMode()->getTopScore()));
+        mHeader->setScore(Player::getMainPlayer()->getCurrentScore());
     }
     
     void MainGameHUD::setContentSize(const cocos2d::Size& size)
@@ -108,8 +112,11 @@ namespace flik
             case GameState::Finished:
                 mGameOverScreen->setVisible(true);
                 break;
+            case GameState::Paused:
+                mPauseOverlay->setVisible(true);
             default:
                 mGameOverScreen->setVisible(false);
+                mPauseOverlay->setVisible(false);
         }
     }
 }

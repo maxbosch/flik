@@ -11,6 +11,9 @@
 #include "TimedGameMode.h"
 #include "MainGameScene.h"
 #include <boost/lexical_cast.hpp>
+#include "Literals.h"
+#include "Styles.h"
+#include "Util.h"
 
 USING_NS_CC;
 
@@ -25,14 +28,14 @@ namespace flik
             return false;
         }
         
-        auto timerLabel = ui::Text::create("0", "GothamRnd-Bold.otf", 16);
-        timerLabel->setTextColor(Color4B(255, 255, 255, 255));
-        addChild(timerLabel);
-        auto timerLabelLayout = ui::RelativeLayoutParameter::create();
-        timerLabelLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
-        timerLabelLayout->setMargin(ui::Margin(0, 20, 0, 0));
-        timerLabel->setLayoutParameter(timerLabelLayout);
-        mTimerLabel = timerLabel;
+        auto timerBar = ui::RelativeBox::create(Size(getContentSize().width, 5.0_dp));
+        timerBar->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
+        timerBar->setBackGroundColor(Util::getColorFromHex("FACC89"));
+        auto timerBarLayout = ui::RelativeLayoutParameter::create();
+        timerBarLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
+        timerBar->setLayoutParameter(timerBarLayout);
+        addChild(timerBar, 2);
+        mTimerBar = timerBar;
         
         return true;
     }
@@ -42,6 +45,7 @@ namespace flik
         MainGameHUD::update(time);
         
         auto gameMode = dynamic_cast<TimedGameMode*>(getGameScene()->getGameMode());
-        mTimerLabel->setString(boost::lexical_cast<std::string>(std::floor(gameMode->getTimeRemaining())));
+        auto ratio = gameMode->getTimeRemaining() / gameMode->getGameTime();
+        mTimerBar->setContentSize(Size(getContentSize().width * ratio, mTimerBar->getContentSize().height));
     }
 }

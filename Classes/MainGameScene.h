@@ -12,14 +12,20 @@ namespace flik
     class GameMode;
     enum class GameState;
     
+    struct LevelParams
+    {
+        GameMode* mode;
+        GameHUD* hud;
+    };
+    
     class MainGameScene : public cocos2d::Scene
     {
     public:
         // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
-        virtual bool init();
+        virtual bool init(const LevelParams& params);
         
         // implement the "static create()" method manually
-        CREATE_FUNC(MainGameScene);
+        static MainGameScene* create(const LevelParams& params);
         
         void constrainPieceToGameBounds(GamePiece* piece);
         void update(float delta);
@@ -34,6 +40,9 @@ namespace flik
         GameMode* getGameMode() { return mGameMode; }
         
         void setGameHUD(GameHUD* hud);
+        
+        void pauseGame();
+        void unpauseGame();
         
     private:
         cocos2d::TimerTargetCallback* mSpawnTimer;

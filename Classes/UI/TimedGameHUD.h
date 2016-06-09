@@ -22,6 +22,6 @@ namespace flik
         void update(float time);
         
     private:
-        cocos2d::ui::Text* mTimerLabel;
+        cocos2d::ui::Layout* mTimerBar;
     };
 }

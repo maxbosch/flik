@@ -23,6 +23,9 @@ namespace flik
         
         void setGameScene(MainGameScene* gameScene) { mGameScene = gameScene; }
         
+        virtual cocos2d::Node* getGameBoard() = 0;
+        
+        
     protected:
         MainGameScene* getGameScene() { return mGameScene; }
         

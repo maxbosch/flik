@@ -7,6 +7,8 @@
 //
 
 #include "GameOverWidget.h"
+#include "Literals.h"
+#include "Styles.h"
 
 USING_NS_CC;
 
@@ -21,20 +23,20 @@ namespace flik
             return false;
         }
         
-        auto gameOverTextLabel = ui::Text::create("Game Over", "GothamRnd-Bold.otf", 20);
+        auto gameOverTextLabel = ui::Text::create("Game Over", kDefaultFont, 20.0_dp);
         gameOverTextLabel->setTextColor(Color4B(0, 0, 0, 255));
         auto gameOverTextLabelLayout = ui::RelativeLayoutParameter::create();
         gameOverTextLabelLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
-        gameOverTextLabelLayout->setMargin(ui::Margin(0, 20, 0, 0));
+        gameOverTextLabelLayout->setMargin(ui::Margin(0, 20.0_dp, 0, 0));
         gameOverTextLabel->setLayoutParameter(gameOverTextLabelLayout);
         addChild(gameOverTextLabel);
         
         auto restartButton = ui::Button::create();
-        restartButton->setContentSize(Size(200, 30));
+        restartButton->setContentSize(Size(200.0_dp, 30.0_dp));
         restartButton->ignoreContentAdaptWithSize(false);
         restartButton->setTitleText("Restart");
-        restartButton->setTitleFontName("GothamRnd-Bold.otf");
-        restartButton->setTitleFontSize(16);
+        restartButton->setTitleFontName(kDefaultFont);
+        restartButton->setTitleFontSize(16.0_dp);
         restartButton->setTitleColor(Color3B(0, 0, 0));
         restartButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
             if (type == ui::Widget::TouchEventType::ENDED) {
@@ -43,13 +45,13 @@ namespace flik
                 }
             }
         });
-        auto buttonColor = LayerColor::create(Color4B(200, 200, 200, 255), 200, 30);
+        auto buttonColor = LayerColor::create(Color4B(200, 200, 200, 255), 200.0_dp, 30.0_dp);
         buttonColor->setLocalZOrder(-1);
         restartButton->addChild(buttonColor);
         
         auto restartButtonLayout = ui::RelativeLayoutParameter::create();
         restartButtonLayout->setAlign(RelativeAlign::PARENT_BOTTOM_CENTER_HORIZONTAL);
-        restartButtonLayout->setMargin(ui::Margin(0, 0, 0, 20));
+        restartButtonLayout->setMargin(ui::Margin(0, 0, 0, 20.0_dp));
         restartButton->setLayoutParameter(restartButtonLayout);
         addChild(restartButton);
         

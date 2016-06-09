@@ -12,14 +12,6 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
-		3EACC99019EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
-		46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7619C43A67006E1F66 /* CloseNormal.png */; };
-		46880B7C19C43A67006E1F66 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7619C43A67006E1F66 /* CloseNormal.png */; };
-		46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7719C43A67006E1F66 /* CloseSelected.png */; };
-		46880B7E19C43A67006E1F66 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7719C43A67006E1F66 /* CloseSelected.png */; };
-		46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7A19C43A67006E1F66 /* HelloWorld.png */; };
-		46880B8219C43A67006E1F66 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7A19C43A67006E1F66 /* HelloWorld.png */; };
 		46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
@@ -34,26 +26,43 @@
 		5087E76917EB910900C73F5D /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		5087E76A17EB910900C73F5D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		5087E76B17EB910900C73F5D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
-		5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77217EB970100C73F5D /* Default-568h@2x.png */; };
-		5087E77F17EB970100C73F5D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77417EB970100C73F5D /* Default@2x.png */; };
 		5087E78617EB970100C73F5D /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77B17EB970100C73F5D /* Icon-76.png */; };
 		5087E78917EB974C00C73F5D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78817EB974C00C73F5D /* AppKit.framework */; };
 		5087E78B17EB975400C73F5D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78A17EB975400C73F5D /* OpenGL.framework */; };
 		50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629217ECD46A001EB2F8 /* Icon-40.png */; };
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
-		521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6219F0C34300D177D7 /* Default-667h@2x.png */; };
-		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
-		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		5C05403BB2316A413887BF45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82184907863F3C226936A794 /* SystemConfiguration.framework */; };
+		663894451D08DFB20034892E /* PowerUpButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894431D08DFB20034892E /* PowerUpButton.cpp */; };
 		665D99ED1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */; };
 		665D99EE1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */; };
 		665D99F11D05B80C0051A9C9 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EF1D05B80C0051A9C9 /* Util.cpp */; };
 		665D99F21D05B80C0051A9C9 /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EF1D05B80C0051A9C9 /* Util.cpp */; };
+		665D99F81D0643C70051A9C9 /* MainMenuHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99F61D0643C70051A9C9 /* MainMenuHUD.cpp */; };
+		665D99FB1D0644400051A9C9 /* MainMenuHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99F91D0644400051A9C9 /* MainMenuHeader.cpp */; };
+		665D99FC1D0644400051A9C9 /* MainMenuHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99F91D0644400051A9C9 /* MainMenuHeader.cpp */; };
+		665D99FF1D064B070051A9C9 /* MainMenuButtons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99FD1D064B070051A9C9 /* MainMenuButtons.cpp */; };
+		665D9A001D064B070051A9C9 /* MainMenuButtons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99FD1D064B070051A9C9 /* MainMenuButtons.cpp */; };
+		665D9A031D07076B0051A9C9 /* Literals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D9A021D07076B0051A9C9 /* Literals.cpp */; };
+		665D9A041D07076B0051A9C9 /* Literals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D9A021D07076B0051A9C9 /* Literals.cpp */; };
+		665D9A191D070D060051A9C9 /* 1x in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A141D070D060051A9C9 /* 1x */; };
+		665D9A1A1D070D060051A9C9 /* 1x in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A141D070D060051A9C9 /* 1x */; };
+		665D9A1B1D070D060051A9C9 /* 2x in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A151D070D060051A9C9 /* 2x */; };
+		665D9A1C1D070D060051A9C9 /* 2x in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A151D070D060051A9C9 /* 2x */; };
+		665D9A1D1D070D060051A9C9 /* 3x in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A161D070D060051A9C9 /* 3x */; };
+		665D9A1E1D070D060051A9C9 /* 3x in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A161D070D060051A9C9 /* 3x */; };
+		665D9A1F1D070D060051A9C9 /* 4x in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A171D070D060051A9C9 /* 4x */; };
+		665D9A201D070D060051A9C9 /* 4x in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A171D070D060051A9C9 /* 4x */; };
+		665D9A211D070D060051A9C9 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A181D070D060051A9C9 /* fonts */; };
+		665D9A221D070D060051A9C9 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A181D070D060051A9C9 /* fonts */; };
+		666106FB1D0795A9004F6263 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666106FA1D0795A9004F6263 /* Images.xcassets */; };
+		666107001D0857F3004F6263 /* PauseButtonsWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666106FE1D0857F3004F6263 /* PauseButtonsWidget.cpp */; };
 		66DB287A1D01CB1F00E1E4C9 /* TimedGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB28781D01CB1F00E1E4C9 /* TimedGameHUD.cpp */; };
 		66DB287B1D01CB1F00E1E4C9 /* TimedGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB28781D01CB1F00E1E4C9 /* TimedGameHUD.cpp */; };
 		66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
 		66DB287F1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
+		66E233B51D085C9800BC33F5 /* PauseOverlayWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E233B31D085C9800BC33F5 /* PauseOverlayWidget.cpp */; };
+		66E233B81D08649600BC33F5 /* MainGameHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E233B61D08649600BC33F5 /* MainGameHeader.cpp */; };
 		66E3A6A01D01268600A3125C /* GamePiece.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A68D1D01268600A3125C /* GamePiece.cpp */; };
 		66E3A6A11D01268600A3125C /* GamePiece.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A68D1D01268600A3125C /* GamePiece.cpp */; };
 		66E3A6A41D01268600A3125C /* MainGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6911D01268600A3125C /* MainGameScene.cpp */; };
@@ -88,7 +97,6 @@
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
-		F4F74E23A764E551FDAD71C3 /* sdkbox_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E3D430D91204B2EE03B537C /* sdkbox_config.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,11 +138,6 @@
 		1DB24E7B8078788493A52B3B /* PluginAchievement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PluginAchievement.framework; sourceTree = SOURCE_ROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2E3D430D91204B2EE03B537C /* sdkbox_config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = sdkbox_config.json; path = ../Resources/sdkbox_config.json; sourceTree = SOURCE_ROOT; };
-		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
-		46880B7619C43A67006E1F66 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
-		46880B7719C43A67006E1F66 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
-		46880B7A19C43A67006E1F66 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
 		46880B8419C43A87006E1F66 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
@@ -171,18 +174,40 @@
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
-		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		663894431D08DFB20034892E /* PowerUpButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PowerUpButton.cpp; sourceTree = "<group>"; };
+		663894441D08DFB20034892E /* PowerUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerUpButton.h; sourceTree = "<group>"; };
+		663894461D08E08A0034892E /* Enums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
 		665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimedGameMode.cpp; sourceTree = "<group>"; };
 		665D99EC1D05B4A40051A9C9 /* TimedGameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimedGameMode.h; sourceTree = "<group>"; };
 		665D99EF1D05B80C0051A9C9 /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
 		665D99F01D05B80C0051A9C9 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		665D99F61D0643C70051A9C9 /* MainMenuHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuHUD.cpp; sourceTree = "<group>"; };
+		665D99F71D0643C70051A9C9 /* MainMenuHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuHUD.h; sourceTree = "<group>"; };
+		665D99F91D0644400051A9C9 /* MainMenuHeader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuHeader.cpp; sourceTree = "<group>"; };
+		665D99FA1D0644400051A9C9 /* MainMenuHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuHeader.h; sourceTree = "<group>"; };
+		665D99FD1D064B070051A9C9 /* MainMenuButtons.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuButtons.cpp; sourceTree = "<group>"; };
+		665D99FE1D064B070051A9C9 /* MainMenuButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuButtons.h; sourceTree = "<group>"; };
+		665D9A011D07053D0051A9C9 /* Literals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Literals.h; sourceTree = "<group>"; };
+		665D9A021D07076B0051A9C9 /* Literals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Literals.cpp; sourceTree = "<group>"; };
+		665D9A141D070D060051A9C9 /* 1x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 1x; sourceTree = "<group>"; };
+		665D9A151D070D060051A9C9 /* 2x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 2x; sourceTree = "<group>"; };
+		665D9A161D070D060051A9C9 /* 3x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 3x; sourceTree = "<group>"; };
+		665D9A171D070D060051A9C9 /* 4x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 4x; sourceTree = "<group>"; };
+		665D9A181D070D060051A9C9 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		666106FA1D0795A9004F6263 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Flik-mobile/Images.xcassets"; sourceTree = SOURCE_ROOT; };
+		666106FE1D0857F3004F6263 /* PauseButtonsWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseButtonsWidget.cpp; sourceTree = "<group>"; };
+		666106FF1D0857F3004F6263 /* PauseButtonsWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseButtonsWidget.h; sourceTree = "<group>"; };
 		66DB28771D01C97C00E1E4C9 /* Events.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
 		66DB28781D01CB1F00E1E4C9 /* TimedGameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimedGameHUD.cpp; sourceTree = "<group>"; };
 		66DB28791D01CB1F00E1E4C9 /* TimedGameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimedGameHUD.h; sourceTree = "<group>"; };
 		66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameHUD.cpp; sourceTree = "<group>"; };
 		66DB287D1D01CB4900E1E4C9 /* GameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHUD.h; sourceTree = "<group>"; };
-		66E3A68A1D01268600A3125C /* Colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colors.h; sourceTree = "<group>"; };
+		66E233B31D085C9800BC33F5 /* PauseOverlayWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseOverlayWidget.cpp; sourceTree = "<group>"; };
+		66E233B41D085C9800BC33F5 /* PauseOverlayWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseOverlayWidget.h; sourceTree = "<group>"; };
+		66E233B61D08649600BC33F5 /* MainGameHeader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainGameHeader.cpp; sourceTree = "<group>"; };
+		66E233B71D08649600BC33F5 /* MainGameHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainGameHeader.h; sourceTree = "<group>"; };
+		66E3A68A1D01268600A3125C /* Styles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Styles.h; sourceTree = "<group>"; };
 		66E3A68D1D01268600A3125C /* GamePiece.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GamePiece.cpp; sourceTree = "<group>"; };
 		66E3A68E1D01268600A3125C /* GamePiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePiece.h; sourceTree = "<group>"; };
 		66E3A6911D01268600A3125C /* MainGameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainGameScene.cpp; sourceTree = "<group>"; };
@@ -345,12 +370,12 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				521A8EA819F11F5000D177D7 /* fonts */,
-				3EACC98E19EE6D4300EB3C5E /* res */,
-				46880B7619C43A67006E1F66 /* CloseNormal.png */,
-				46880B7719C43A67006E1F66 /* CloseSelected.png */,
-				46880B7A19C43A67006E1F66 /* HelloWorld.png */,
-				2E3D430D91204B2EE03B537C /* sdkbox_config.json */,
+				666106FA1D0795A9004F6263 /* Images.xcassets */,
+				665D9A141D070D060051A9C9 /* 1x */,
+				665D9A151D070D060051A9C9 /* 2x */,
+				665D9A161D070D060051A9C9 /* 3x */,
+				665D9A171D070D060051A9C9 /* 4x */,
+				665D9A181D070D060051A9C9 /* fonts */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -363,9 +388,12 @@
 				66E3A6B81D01C07100A3125C /* UI */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
-				66E3A68A1D01268600A3125C /* Colors.h */,
+				663894461D08E08A0034892E /* Enums.h */,
+				66DB28771D01C97C00E1E4C9 /* Events.h */,
 				66E3A68D1D01268600A3125C /* GamePiece.cpp */,
 				66E3A68E1D01268600A3125C /* GamePiece.h */,
+				665D9A011D07053D0051A9C9 /* Literals.h */,
+				665D9A021D07076B0051A9C9 /* Literals.cpp */,
 				66E3A6911D01268600A3125C /* MainGameScene.cpp */,
 				66E3A6921D01268600A3125C /* MainGameScene.h */,
 				66E3A6931D01268600A3125C /* MainMenuScene.cpp */,
@@ -377,11 +405,11 @@
 				66E3A6991D01268600A3125C /* Player.h */,
 				66E3A69A1D01268600A3125C /* SideRailNode.cpp */,
 				66E3A69B1D01268600A3125C /* SideRailNode.h */,
-				66E3A69C1D01268600A3125C /* VelocityTracker.cpp */,
-				66E3A69D1D01268600A3125C /* VelocityTracker.h */,
-				66DB28771D01C97C00E1E4C9 /* Events.h */,
+				66E3A68A1D01268600A3125C /* Styles.h */,
 				665D99EF1D05B80C0051A9C9 /* Util.cpp */,
 				665D99F01D05B80C0051A9C9 /* Util.h */,
+				66E3A69C1D01268600A3125C /* VelocityTracker.cpp */,
+				66E3A69D1D01268600A3125C /* VelocityTracker.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -450,14 +478,28 @@
 		66E3A6B81D01C07100A3125C /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				66E3A6B91D01C07100A3125C /* GameOverWidget.cpp */,
-				66E3A6BA1D01C07100A3125C /* GameOverWidget.h */,
-				66E3A6BB1D01C07100A3125C /* MainGameHUD.cpp */,
-				66E3A6BC1D01C07100A3125C /* MainGameHUD.h */,
-				66DB28781D01CB1F00E1E4C9 /* TimedGameHUD.cpp */,
-				66DB28791D01CB1F00E1E4C9 /* TimedGameHUD.h */,
 				66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */,
 				66DB287D1D01CB4900E1E4C9 /* GameHUD.h */,
+				66E3A6B91D01C07100A3125C /* GameOverWidget.cpp */,
+				66E3A6BA1D01C07100A3125C /* GameOverWidget.h */,
+				66E233B61D08649600BC33F5 /* MainGameHeader.cpp */,
+				66E233B71D08649600BC33F5 /* MainGameHeader.h */,
+				66E3A6BB1D01C07100A3125C /* MainGameHUD.cpp */,
+				66E3A6BC1D01C07100A3125C /* MainGameHUD.h */,
+				665D99FD1D064B070051A9C9 /* MainMenuButtons.cpp */,
+				665D99FE1D064B070051A9C9 /* MainMenuButtons.h */,
+				665D99F91D0644400051A9C9 /* MainMenuHeader.cpp */,
+				665D99FA1D0644400051A9C9 /* MainMenuHeader.h */,
+				665D99F61D0643C70051A9C9 /* MainMenuHUD.cpp */,
+				665D99F71D0643C70051A9C9 /* MainMenuHUD.h */,
+				666106FE1D0857F3004F6263 /* PauseButtonsWidget.cpp */,
+				666106FF1D0857F3004F6263 /* PauseButtonsWidget.h */,
+				66E233B31D085C9800BC33F5 /* PauseOverlayWidget.cpp */,
+				66E233B41D085C9800BC33F5 /* PauseOverlayWidget.h */,
+				663894431D08DFB20034892E /* PowerUpButton.cpp */,
+				663894441D08DFB20034892E /* PowerUpButton.h */,
+				66DB28781D01CB1F00E1E4C9 /* TimedGameHUD.cpp */,
+				66DB28791D01CB1F00E1E4C9 /* TimedGameHUD.h */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -557,18 +599,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				665D9A211D070D060051A9C9 /* fonts in Resources */,
+				665D9A1F1D070D060051A9C9 /* 4x in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
-				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
-				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
-				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
-				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
-				521A8EA919F11F5000D177D7 /* fonts in Resources */,
+				665D9A1D1D070D060051A9C9 /* 3x in Resources */,
+				665D9A191D070D060051A9C9 /* 1x in Resources */,
+				665D9A1B1D070D060051A9C9 /* 2x in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
+				666106FB1D0795A9004F6263 /* Images.xcassets in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
-				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
-				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
-				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
-				F4F74E23A764E551FDAD71C3 /* sdkbox_config.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,12 +615,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46880B8219C43A67006E1F66 /* HelloWorld.png in Resources */,
+				665D9A201D070D060051A9C9 /* 4x in Resources */,
+				665D9A1C1D070D060051A9C9 /* 2x in Resources */,
+				665D9A1E1D070D060051A9C9 /* 3x in Resources */,
+				665D9A221D070D060051A9C9 /* fonts in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
-				3EACC99019EE6D4300EB3C5E /* res in Resources */,
-				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
-				46880B7C19C43A67006E1F66 /* CloseNormal.png in Resources */,
-				46880B7E19C43A67006E1F66 /* CloseSelected.png in Resources */,
+				665D9A1A1D070D060051A9C9 /* 1x in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,25 +631,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				666107001D0857F3004F6263 /* PauseButtonsWidget.cpp in Sources */,
+				665D9A031D07076B0051A9C9 /* Literals.cpp in Sources */,
 				66E3A6AC1D01268600A3125C /* SideRailNode.cpp in Sources */,
 				66E3A6C51D01C08300A3125C /* MarathonGameMode.cpp in Sources */,
 				66E3A6AE1D01268600A3125C /* VelocityTracker.cpp in Sources */,
 				66E3A6A01D01268600A3125C /* GamePiece.cpp in Sources */,
 				66E3A6A81D01268600A3125C /* NodeHelper.cpp in Sources */,
+				66E233B51D085C9800BC33F5 /* PauseOverlayWidget.cpp in Sources */,
+				665D99FB1D0644400051A9C9 /* MainMenuHeader.cpp in Sources */,
 				66E3A6BD1D01C07100A3125C /* GameMode.cpp in Sources */,
 				66E3A6A61D01268600A3125C /* MainMenuScene.cpp in Sources */,
 				66E3A6C11D01C07100A3125C /* MainGameHUD.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				66E3A6AA1D01268600A3125C /* Player.cpp in Sources */,
+				665D99F81D0643C70051A9C9 /* MainMenuHUD.cpp in Sources */,
 				665D99F11D05B80C0051A9C9 /* Util.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				66E3A6BF1D01C07100A3125C /* GameOverWidget.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				665D99FF1D064B070051A9C9 /* MainMenuButtons.cpp in Sources */,
+				663894451D08DFB20034892E /* PowerUpButton.cpp in Sources */,
 				665D99ED1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */,
 				66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */,
 				66E3A6A41D01268600A3125C /* MainGameScene.cpp in Sources */,
 				66DB287A1D01CB1F00E1E4C9 /* TimedGameHUD.cpp in Sources */,
+				66E233B81D08649600BC33F5 /* MainGameHeader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,15 +670,18 @@
 				665D99F21D05B80C0051A9C9 /* Util.cpp in Sources */,
 				66E3A6A71D01268600A3125C /* MainMenuScene.cpp in Sources */,
 				66E3A6C01D01C07100A3125C /* GameOverWidget.cpp in Sources */,
+				665D9A041D07076B0051A9C9 /* Literals.cpp in Sources */,
 				665D99EE1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */,
 				66E3A6AB1D01268600A3125C /* Player.cpp in Sources */,
 				66E3A6C21D01C07100A3125C /* MainGameHUD.cpp in Sources */,
 				66E3A6AD1D01268600A3125C /* SideRailNode.cpp in Sources */,
 				66DB287F1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */,
+				665D9A001D064B070051A9C9 /* MainMenuButtons.cpp in Sources */,
 				66E3A6A11D01268600A3125C /* GamePiece.cpp in Sources */,
 				66E3A6A51D01268600A3125C /* MainGameScene.cpp in Sources */,
 				66E3A6BE1D01C07100A3125C /* GameMode.cpp in Sources */,
 				66E3A6AF1D01268600A3125C /* VelocityTracker.cpp in Sources */,
+				665D99FC1D0644400051A9C9 /* MainMenuHeader.cpp in Sources */,
 				66DB287B1D01CB1F00E1E4C9 /* TimedGameHUD.cpp in Sources */,
 				66E3A6A91D01268600A3125C /* NodeHelper.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
@@ -658,6 +708,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				ENABLE_BITCODE = NO;
@@ -680,7 +732,7 @@
 					/usr/local/include,
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"\"sdkbox.framework\"",
 					"\"PluginAchievement.framework\"",
@@ -702,6 +754,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				ENABLE_BITCODE = NO;
@@ -722,7 +776,7 @@
 					/usr/local/include,
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"\"sdkbox.framework\"",
 					"\"PluginAchievement.framework\"",
