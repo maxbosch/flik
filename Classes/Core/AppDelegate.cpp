@@ -5,6 +5,7 @@
 #include "TimedGameHUD.h"
 #include "MainGameHUD.h"
 #include "MainMenuScene.h"
+#include "Player.h"
 
 USING_NS_CC;
 
@@ -46,7 +47,8 @@ namespace flik
         
         // set FPS. the default value is 1.0/60 if you don't call this
         director->setAnimationInterval(1.0 / 60);
-        //director->getOpenGLView()->setDesignResolutionSize(size.width, size.height, ResolutionPolicy::EXACT_FIT);
+        auto aspect = size.height / size.width;
+        director->getOpenGLView()->setDesignResolutionSize(750, 750 * aspect, ResolutionPolicy::EXACT_FIT);
         //director->setContentScaleFactor(1);
         
         std::vector<std::string> resFolders;
@@ -80,6 +82,14 @@ namespace flik
 //        level->setGameHUD(MainGameHUD::create());
         //level->setGameMode(TimedGameMode::createWithTime(10));
         //level->setGameHUD(TimedGameHUD::create());
+        
+        /*auto player = Player::getMainPlayer();
+        if (player->getPowerUpCount(PowerUpType::Timestop) == 0) {
+            player->addPowerUp(PowerUpType::Timestop, 5);
+        }
+        if (player->getPowerUpCount(PowerUpType::Target) == 0) {
+            player->addPowerUp(PowerUpType::Target, 5);
+        }*/
         
         auto level = MainMenuScene::create();
         

@@ -9,9 +9,12 @@
 #pragma once
 
 #include "cocos2d.h"
+#include "Enums.h"
 
 namespace flik
 {
+    static const int kMaxCurrencyAmount = 99999;
+    
     class Player
     {
     public:
@@ -23,6 +26,13 @@ namespace flik
         void addScore(int amount);
         int getCurrentScore() { return mCurrentScore; }
         void recordScore(std::string key);
+        int getPowerUpCount(PowerUpType type);
+        void consumePowerUp(PowerUpType type, int count);
+        void addPowerUp(PowerUpType type, int count);
+        
+        int getCurrencyAmount();
+        void addCurrency(int amount);
+        void removeCurrency(int amount);
         
     private:
         Player();

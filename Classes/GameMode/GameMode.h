@@ -9,6 +9,7 @@
 #pragma once
 
 #include "cocos2d.h"
+#include "Enums.h"
 
 namespace flik
 {
@@ -40,16 +41,28 @@ namespace flik
         
         virtual int getTopScore() = 0;
         
+        virtual void handlePowerUp(PowerUpType type);
+        
         virtual void pauseGame();
         virtual void resumeGame();
+        bool isTimeStopped() { return mTimeStopped; }
+        
+        bool init();
+        void update(float seconds);
         
     protected:
         virtual void setGameState(GameState newState);
         MainGameScene* getGameScene() { return mGameScene; }
+        void setPowerUpMaxPerGame(PowerUpType type, int max) { mPowerUpMaxPerGame[type] = max; }
         
     private:
         GameState mGameState;
         MainGameScene* mGameScene;
         GameState mPausedState;
+        std::map<PowerUpType, int> mPowerUpMaxPerGame;
+        std::map<PowerUpType, int> mCurrentGamePowerUpUseCount;
+        
+        bool mTimeStopped;
+        float mTimeStopRemaining;
     };
 }

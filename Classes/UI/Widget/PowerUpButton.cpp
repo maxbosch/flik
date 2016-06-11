@@ -11,6 +11,7 @@
 #include "PowerUpButton.h"
 #include "Styles.h"
 #include "Literals.h"
+#include "Player.h"
 
 USING_NS_CC;
 
@@ -35,6 +36,8 @@ namespace flik
     
     bool PowerUpButton::initWithType(PowerUpType type)
     {
+        mType = type;
+        
         auto& image = kPowerUpImages[type];
         
         if (!Button::init(image))
@@ -46,9 +49,9 @@ namespace flik
         setTitleFontName(kDefaultFont);
         setTitleFontSize(11.0_dp);
         
-        setCount(100);
+        setCount(0);
         
-        getTitleRenderer()->setPosition(getContentSize().width * 0.5, -13.0_dp);
+        scheduleUpdate();
         
         return true;
     }
@@ -56,5 +59,14 @@ namespace flik
     void PowerUpButton::setCount(int count)
     {
         setTitleText(boost::lexical_cast<std::string>(count));
+        
+        getTitleRenderer()->setPosition(getContentSize().width * 0.5, -15.0_dp);
+    }
+    
+    void PowerUpButton::update(float seconds)
+    {
+        Button::update(seconds);
+        
+        setCount(Player::getMainPlayer()->getPowerUpCount(mType));
     }
 }

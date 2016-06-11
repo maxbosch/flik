@@ -26,6 +26,10 @@ namespace flik
         
         int getTopScore();
         
+        void update(float seconds);
+        
+        void handlePowerUp(PowerUpType type);
+        
     protected:
         void setGameState(GameState newState);
         
@@ -34,6 +38,7 @@ namespace flik
         int mSpawnCount;
         int mLastSpawnIteration;
         float mSpawnInterval;
+        float mTimeSinceSpawn;
         
         void spawnPieces(int count);
         cocos2d::Vec2 findOpenSpawnPosition();

@@ -17,7 +17,7 @@ namespace flik
     public:
         CREATE_FUNC(TimedGameHUD);
         
-        ~TimedGameHUD() {}
+        ~TimedGameHUD();
         
         bool init();
         

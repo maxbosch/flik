@@ -21,6 +21,11 @@ using RelativeAlign = cocos2d::ui::RelativeLayoutParameter::RelativeAlign;
 
 namespace flik
 {
+    TimedGameHUD::~TimedGameHUD()
+    {
+        
+    }
+    
     bool TimedGameHUD::init()
     {
         if (!MainGameHUD::init())

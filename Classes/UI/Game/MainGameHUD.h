@@ -20,7 +20,7 @@ namespace flik
     class MainGameHUD : public GameHUD
     {
     public:
-        virtual ~MainGameHUD() {}
+        virtual ~MainGameHUD();
         
         CREATE_FUNC(MainGameHUD);
         
@@ -32,7 +32,7 @@ namespace flik
         
         void update(float time);
         
-        cocos2d::Node* getGameBoard() { return mGameBoard; }
+        cocos2d::Node* getGameBoard();
         
     private:
         cocos2d::ui::Text* mScoreValueLabel;

@@ -10,9 +10,25 @@
 
 #include "cocos2d.h"
 #include <boost/lexical_cast.hpp>
+#include <type_traits>
+#include <iomanip>
+#include <string>
 
 namespace flik
 {
+    template <typename T, typename ...Args>
+    static T* createWithParams(Args&&... args)
+    {
+        T* obj = new (std::nothrow) T();
+        if (obj && obj->init(std::forward(args)...))
+        {
+            obj->autorelease();
+            return obj;
+        }
+        CC_SAFE_DELETE(obj);
+        return nullptr;
+    }
+    
     class Util {
     public:
         static cocos2d::Vec2 getRandomPositionInRect(const cocos2d::Rect& rect)
@@ -36,6 +52,13 @@ namespace flik
             sscanf(bluestr.c_str(), "%x", &blueByte);
             
             return cocos2d::Color3B(redByte, greenByte, blueByte);
+        }
+        
+        static std::string toMoneyValue(float value)
+        {
+            std::stringstream costStr;
+            costStr << std::setprecision(2) << std::fixed << value;
+            return costStr.str();
         }
     };
 }

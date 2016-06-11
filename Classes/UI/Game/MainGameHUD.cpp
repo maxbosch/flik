@@ -25,6 +25,15 @@ using RelativeAlign = cocos2d::ui::RelativeLayoutParameter::RelativeAlign;
 
 namespace flik
 {
+    MainGameHUD::~MainGameHUD()
+    {
+    }
+    
+    cocos2d::Node* MainGameHUD::getGameBoard()
+    {
+        return mGameBoard;
+    }
+    
     bool MainGameHUD::init()
     {
         if (!GameHUD::init())
@@ -50,6 +59,9 @@ namespace flik
                 getGameScene()->pauseGame();
             }
         });
+        header->onPowerUpTapped = [this](PowerUpType type) {
+            getGameScene()->getGameMode()->handlePowerUp(type);
+        };
         //header->setGlobalZOrder(2);
         mHeader = header;
         

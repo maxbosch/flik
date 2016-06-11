@@ -23,6 +23,8 @@ namespace flik
         
         void setCount(int count);
         
+        void update(float seconds);
+        
     private:
         PowerUpType mType;
         int mCount;

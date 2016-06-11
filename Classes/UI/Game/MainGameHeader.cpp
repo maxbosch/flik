@@ -12,6 +12,7 @@
 #include "Styles.h"
 #include "PowerUpButton.h"
 #include "Literals.h"
+#include "Player.h"
 
 USING_NS_CC;
 
@@ -26,6 +27,8 @@ namespace flik
             return false;
         }
         
+        
+        
         auto uiSize = Director::getInstance()->getVisibleSize();
         setContentSize(Size(uiSize.width, 70.0_dp));
         setBackGroundColor(Color3B::BLACK);
@@ -36,6 +39,11 @@ namespace flik
         timestopPowerUpButtonLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
         timestopPowerUpButtonLayout->setMargin(ui::Margin(30.0_dp, 16.0_dp, 0, 0));
         timestopPowerUpButton->setLayoutParameter(timestopPowerUpButtonLayout);
+        timestopPowerUpButton->addTouchEventListener([this](Ref* sender, TouchEventType type) {
+            if (type == TouchEventType::ENDED && onPowerUpTapped) {
+                onPowerUpTapped(PowerUpType::Timestop);
+            }
+        });
         addChild(timestopPowerUpButton);
         
         auto targetPowerUpButton = PowerUpButton::create(PowerUpType::Target);
@@ -44,6 +52,11 @@ namespace flik
         targetPowerUpButtonLayout->setMargin(ui::Margin(0, 16.0_dp, 30.0_dp, 0));
         targetPowerUpButton->setLayoutParameter(targetPowerUpButtonLayout);
         addChild(targetPowerUpButton);
+        targetPowerUpButton->addTouchEventListener([this](Ref* sender, TouchEventType type) {
+            if (type == TouchEventType::ENDED && onPowerUpTapped) {
+                onPowerUpTapped(PowerUpType::Target);
+            }
+        });
         
         auto scoreLabel = ui::Text::create("0", kDefaultFont, 25.0_dp);
         auto scoreLabelLayout = ui::RelativeLayoutParameter::create();

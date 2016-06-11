@@ -13,7 +13,7 @@ LOCAL_MODULE := cocos2dcpp_shared
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
 FILE_LIST := $(wildcard $(LOCAL_PATH)/../../../Classes/**/*.cpp)
-FILE_LIST += $(wildcard $(LOCAL_PATH)/../../../Classes/*.cpp)
+FILE_LIST += $(wildcard $(LOCAL_PATH)/../../../Classes/UI/**/*.cpp)
 #echo $FILE_LIST
 #LOCAL_SRC_FILES := $(FILE_LIST:$(LOCAL_PATH)/%=%)
 
@@ -23,7 +23,7 @@ $(FILE_LIST:$(LOCAL_PATH)/%=%)
 LOCAL_CPPFLAGS := -DSDKBOX_ENABLED
 LOCAL_LDLIBS := -landroid \
 -llog
-LOCAL_C_INCLUDES := ${shell find $(LOCAL_PATH)/../../../Classes/ -type d}
+LOCAL_C_INCLUDES := ${shell find $(LOCAL_PATH)/../../../Classes -type d}
 LOCAL_C_INCLUDES += /usr/local/include
 LOCAL_WHOLE_STATIC_LIBRARIES := PluginAchievement \
 sdkbox \

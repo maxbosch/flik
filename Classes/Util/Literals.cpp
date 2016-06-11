@@ -10,10 +10,10 @@
 
 namespace flik
 {
-    static const double kDPIScaleFactor = (1.0 / 160.0) * cocos2d::Device::getDPI();
+    static const double kDPIScaleFactor = (1.0 / 160.0);
     
     long double operator "" _dp(long double value)
     {
-        return value * kDPIScaleFactor;
+        return value * 2;
     }
 }

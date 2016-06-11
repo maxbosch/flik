@@ -15,8 +15,6 @@
 USING_NS_CC;
 
 namespace flik {
-    static const std::string kSpawnTimerKey = "spawn-timer-key";
-    
     static const int kDefaultSpawnCount = 4;
     static const float kDefaultSpawnInterval = 4.0f;
     static const float kMaxCoverage = 1.05;
@@ -42,37 +40,35 @@ namespace flik {
         
         mSpawnCount = kDefaultSpawnCount;
         mSpawnInterval = kDefaultSpawnInterval;
+        mTimeSinceSpawn = kDefaultSpawnInterval;
         mLastSpawnIteration = 0;
         mIterations = 0;
         
         getGameScene()->clearPieces();
-        
-        this->unschedule(kSpawnTimerKey);
-        this->schedule([this](float time) {
-            mIterations++;
-            if (mIterations % 3 == 0) {
-                mSpawnCount++;
-            }
-            
-            /*if (mIterations - mLastSpawnIteration == mSpawnInterval) {
-             
-             mLastSpawnIteration = mIterations;
-             }
-             
-             if (mIterations % 50 == 0) {
-             mSpawnInterval = std::max(mSpawnInterval - 1, 1);
-             }*/
-            
-            spawnPieces(mSpawnCount);
-            
-        }, mSpawnInterval, CC_REPEAT_FOREVER, 0.0f, kSpawnTimerKey);
-        
-        spawnPieces(mSpawnCount);
-        
         Player::getMainPlayer()->resetScore();
-        
         setGameState(GameState::InProgress);
         
+        this->scheduleUpdate();
+    }
+    
+    void MarathonGameMode::update(float seconds)
+    {
+        GameMode::update(seconds);
+        
+        if (getGameState() == GameState::InProgress && !isTimeStopped()) {
+            mTimeSinceSpawn += seconds;
+            
+            if (mTimeSinceSpawn >= mSpawnInterval) {
+                mTimeSinceSpawn -= mSpawnInterval;
+                
+                spawnPieces(mSpawnCount);
+                
+                mIterations++;
+                if (mIterations % 3 == 0) {
+                    mSpawnCount++;
+                }
+            }
+        }
     }
     
     void MarathonGameMode::spawnPieces(int count)
@@ -91,7 +87,6 @@ namespace flik {
             if (coverageArea / boardArea >= kMaxCoverage) {
                 // You lose
                 setGameState(GameState::Finished);
-                this->unschedule(kSpawnTimerKey);
             
                 return;
             }
@@ -119,5 +114,17 @@ namespace flik {
     int MarathonGameMode::getTopScore()
     {
         return Player::getMainPlayer()->getTopScore("marathon");
+    }
+    
+    void MarathonGameMode::handlePowerUp(PowerUpType type)
+    {
+        switch (type) {
+            case PowerUpType::Timestop:
+                
+                break;
+                
+            default:
+                break;
+        }
     }
 }

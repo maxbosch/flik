@@ -14,6 +14,7 @@
 #include "TimedGameHUD.h"
 #include "MarathonGameMode.h"
 #include "TimedGameMode.h"
+#include "StoreScene.h"
 
 USING_NS_CC;
 
@@ -29,7 +30,8 @@ namespace flik
         auto hud = MainMenuHUD::create();
         hud->onGameModeSelected = CC_CALLBACK_1(MainMenuScene::onGameModeSelected, this);
         hud->onShowStoreTapped = []() {
-            
+            auto storeScene = StoreScene::create();
+            Director::getInstance()->pushScene(storeScene);
         };
         addChild(hud);
         

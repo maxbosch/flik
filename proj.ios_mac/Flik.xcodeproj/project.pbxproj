@@ -51,6 +51,11 @@
 		6638949F1D09AEB60034892E /* Literals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894931D09AEB60034892E /* Literals.cpp */; };
 		663894A01D09AEB60034892E /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894951D09AEB60034892E /* Util.cpp */; };
 		663894A11D09AEB60034892E /* VelocityTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894971D09AEB60034892E /* VelocityTracker.cpp */; };
+		663894A41D09B0770034892E /* StoreScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894A21D09B0770034892E /* StoreScene.cpp */; };
+		66442B291D0B83B100AC5983 /* string in Resources */ = {isa = PBXBuildFile; fileRef = 66442B281D0B83B100AC5983 /* string */; };
+		66442B2C1D0B84C100AC5983 /* LocalizedString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66442B2A1D0B84C100AC5983 /* LocalizedString.cpp */; };
+		66442B2F1D0B851600AC5983 /* StorePurchaseOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66442B2D1D0B851600AC5983 /* StorePurchaseOverlay.cpp */; };
+		66442B321D0B89DE00AC5983 /* StorePurchaseOptionWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66442B301D0B89DE00AC5983 /* StorePurchaseOptionWidget.cpp */; };
 		665D99ED1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */; };
 		665D99EE1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */; };
 		665D9A191D070D060051A9C9 /* 1x in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A141D070D060051A9C9 /* 1x */; };
@@ -64,6 +69,7 @@
 		665D9A211D070D060051A9C9 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A181D070D060051A9C9 /* fonts */; };
 		665D9A221D070D060051A9C9 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A181D070D060051A9C9 /* fonts */; };
 		666106FB1D0795A9004F6263 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666106FA1D0795A9004F6263 /* Images.xcassets */; };
+		66B92B721D0A3C6200DA1657 /* StoreProductWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */; };
 		66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
 		66DB287F1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
 		66E3A6BD1D01C07100A3125C /* GameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6B61D01C07100A3125C /* GameMode.cpp */; };
@@ -202,6 +208,15 @@
 		663894961D09AEB60034892E /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		663894971D09AEB60034892E /* VelocityTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VelocityTracker.cpp; sourceTree = "<group>"; };
 		663894981D09AEB60034892E /* VelocityTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityTracker.h; sourceTree = "<group>"; };
+		663894A21D09B0770034892E /* StoreScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoreScene.cpp; sourceTree = "<group>"; };
+		663894A31D09B0770034892E /* StoreScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreScene.h; sourceTree = "<group>"; };
+		66442B281D0B83B100AC5983 /* string */ = {isa = PBXFileReference; lastKnownFileType = folder; path = string; sourceTree = "<group>"; };
+		66442B2A1D0B84C100AC5983 /* LocalizedString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LocalizedString.cpp; sourceTree = "<group>"; };
+		66442B2B1D0B84C100AC5983 /* LocalizedString.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LocalizedString.hpp; sourceTree = "<group>"; };
+		66442B2D1D0B851600AC5983 /* StorePurchaseOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StorePurchaseOverlay.cpp; sourceTree = "<group>"; };
+		66442B2E1D0B851600AC5983 /* StorePurchaseOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorePurchaseOverlay.h; sourceTree = "<group>"; };
+		66442B301D0B89DE00AC5983 /* StorePurchaseOptionWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StorePurchaseOptionWidget.cpp; sourceTree = "<group>"; };
+		66442B311D0B89DE00AC5983 /* StorePurchaseOptionWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorePurchaseOptionWidget.h; sourceTree = "<group>"; };
 		665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimedGameMode.cpp; sourceTree = "<group>"; };
 		665D99EC1D05B4A40051A9C9 /* TimedGameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimedGameMode.h; sourceTree = "<group>"; };
 		665D9A141D070D060051A9C9 /* 1x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 1x; sourceTree = "<group>"; };
@@ -210,6 +225,8 @@
 		665D9A171D070D060051A9C9 /* 4x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 4x; sourceTree = "<group>"; };
 		665D9A181D070D060051A9C9 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		666106FA1D0795A9004F6263 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Flik-mobile/Images.xcassets"; sourceTree = SOURCE_ROOT; };
+		66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoreProductWidget.cpp; sourceTree = "<group>"; };
+		66B92B711D0A3C6200DA1657 /* StoreProductWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreProductWidget.h; sourceTree = "<group>"; };
 		66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameHUD.cpp; sourceTree = "<group>"; };
 		66DB287D1D01CB4900E1E4C9 /* GameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHUD.h; sourceTree = "<group>"; };
 		66E3A6B61D01C07100A3125C /* GameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameMode.cpp; sourceTree = "<group>"; };
@@ -361,6 +378,7 @@
 				665D9A161D070D060051A9C9 /* 3x */,
 				665D9A171D070D060051A9C9 /* 4x */,
 				665D9A181D070D060051A9C9 /* fonts */,
+				66442B281D0B83B100AC5983 /* string */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -464,6 +482,12 @@
 		663894701D09AD9B0034892E /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */,
+				66B92B711D0A3C6200DA1657 /* StoreProductWidget.h */,
+				66442B2D1D0B851600AC5983 /* StorePurchaseOverlay.cpp */,
+				66442B2E1D0B851600AC5983 /* StorePurchaseOverlay.h */,
+				66442B301D0B89DE00AC5983 /* StorePurchaseOptionWidget.cpp */,
+				66442B311D0B89DE00AC5983 /* StorePurchaseOptionWidget.h */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -510,6 +534,8 @@
 				6638948F1D09AEB60034892E /* MainGameScene.h */,
 				663894901D09AEB60034892E /* MainMenuScene.cpp */,
 				663894911D09AEB60034892E /* MainMenuScene.h */,
+				663894A21D09B0770034892E /* StoreScene.cpp */,
+				663894A31D09B0770034892E /* StoreScene.h */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -523,6 +549,8 @@
 				663894961D09AEB60034892E /* Util.h */,
 				663894971D09AEB60034892E /* VelocityTracker.cpp */,
 				663894981D09AEB60034892E /* VelocityTracker.h */,
+				66442B2A1D0B84C100AC5983 /* LocalizedString.cpp */,
+				66442B2B1D0B84C100AC5983 /* LocalizedString.hpp */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -653,6 +681,7 @@
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				665D9A1D1D070D060051A9C9 /* 3x in Resources */,
 				665D9A191D070D060051A9C9 /* 1x in Resources */,
+				66442B291D0B83B100AC5983 /* string in Resources */,
 				665D9A1B1D070D060051A9C9 /* 2x in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				666106FB1D0795A9004F6263 /* Images.xcassets in Resources */,
@@ -684,6 +713,7 @@
 				663894771D09AD9B0034892E /* PauseButtonsWidget.cpp in Sources */,
 				663894741D09AD9B0034892E /* GameOverWidget.cpp in Sources */,
 				663894A01D09AEB60034892E /* Util.cpp in Sources */,
+				66442B2C1D0B84C100AC5983 /* LocalizedString.cpp in Sources */,
 				6638947C1D09AD9B0034892E /* MainMenuHeader.cpp in Sources */,
 				663894751D09AD9B0034892E /* MainGameHeader.cpp in Sources */,
 				6638947D1D09AD9B0034892E /* MainMenuHUD.cpp in Sources */,
@@ -694,10 +724,13 @@
 				6638949F1D09AEB60034892E /* Literals.cpp in Sources */,
 				6638949E1D09AEB60034892E /* MainMenuScene.cpp in Sources */,
 				66E3A6C51D01C08300A3125C /* MarathonGameMode.cpp in Sources */,
+				66442B2F1D0B851600AC5983 /* StorePurchaseOverlay.cpp in Sources */,
 				663894791D09AD9B0034892E /* TimedGameHUD.cpp in Sources */,
 				663894991D09AEB60034892E /* AppDelegate.cpp in Sources */,
 				6638949C1D09AEB60034892E /* SideRailNode.cpp in Sources */,
+				66442B321D0B89DE00AC5983 /* StorePurchaseOptionWidget.cpp in Sources */,
 				66E3A6BD1D01C07100A3125C /* GameMode.cpp in Sources */,
+				66B92B721D0A3C6200DA1657 /* StoreProductWidget.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				663894A11D09AEB60034892E /* VelocityTracker.cpp in Sources */,
 				6638947E1D09AD9B0034892E /* PowerUpButton.cpp in Sources */,
@@ -706,6 +739,7 @@
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				665D99ED1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */,
+				663894A41D09B0770034892E /* StoreScene.cpp in Sources */,
 				66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
