@@ -7,6 +7,7 @@
 #include "GameOverWidget.h"
 #include "MainGameHUD.h"
 #include "GameMode.h"
+#include "GameBoard.h"
 
 USING_NS_CC;
 
@@ -14,8 +15,6 @@ using namespace cocostudio::timeline;
 
 namespace flik
 {
-    static const int kPieceTag = 0xF00F;
-    
     void MainGameScene::setGameMode(GameMode* gameMode)
     {
         mGameMode = gameMode;
@@ -72,6 +71,8 @@ namespace flik
         enumeratePieces([this](Node* piece) {
             getEventDispatcher()->removeEventListenersForTarget(piece);
         });
+        
+        Player::getMainPlayer()->handleEndOfGameAchievements(mGameMode->getGameModeType());
     }
     
     MainGameScene* MainGameScene::create(const LevelParams& params)
@@ -119,9 +120,7 @@ namespace flik
     
     void MainGameScene::clearPieces()
     {
-        enumeratePieces([](Node* piece) {
-            piece->removeFromParent();
-        });
+        mGameBoard->clearBoard();
     }
     
     void MainGameScene::update(float delta)
@@ -143,41 +142,25 @@ namespace flik
         if (mGameBoard) {
             auto piece = GamePiece::create(position);
             piece->setGameScene(this);
-            piece->setTag(kPieceTag);
-            mGameBoard->addChild(piece);
+            mGameBoard->addPiece(piece);
         }
-    }
-    
-    void MainGameScene::constrainPieceToGameBounds(GamePiece* piece)
-    {
-        auto boardBounds = mSideRails->getInnerBoundingBox();
-        auto pieceBounds = piece->getBoundingBox();
-        
-        float xOffset = 0, yOffset = 0;
-        if (boardBounds.getMinX() > pieceBounds.getMinX()) {
-            xOffset = boardBounds.getMinX() - pieceBounds.getMinX();
-        } else if (boardBounds.getMaxX() < pieceBounds.getMaxX()) {
-            xOffset = boardBounds.getMaxX() - pieceBounds.getMaxX();
-        }
-        
-        if (boardBounds.getMinY() > pieceBounds.getMinY()) {
-            yOffset = boardBounds.getMinY() - pieceBounds.getMinY();
-        } else if (boardBounds.getMaxY() < pieceBounds.getMaxY()) {
-            yOffset = boardBounds.getMaxY() - pieceBounds.getMaxY();
-        }
-        
-        piece->setPosition(piece->getPosition() + Vec2(xOffset, yOffset));
     }
     
     void MainGameScene::enumeratePieces(std::function<void(Node*)> callback) {
         if (mGameBoard) {
-            auto children = mGameBoard->getChildren();
-            for (auto child : children) {
-                if (child->getTag() == kPieceTag) {
-                    callback(child);
-                }
+            for (auto piece : mGameBoard->getPieces()) {
+                callback(piece);
             }
         }
+    }
+    
+    int MainGameScene::getPiecesCount()
+    {
+        if (mGameBoard) {
+            return (int) mGameBoard->getPieces().size();
+        }
+        
+        return 0;
     }
     
     void MainGameScene::pauseGame()

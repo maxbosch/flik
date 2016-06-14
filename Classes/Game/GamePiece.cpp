@@ -25,8 +25,6 @@ namespace flik
         "piece_yellow.png"
     };
     
-    static const float kVelocityDamping = 0.7;
-    
     static const float kDeceleration = 0.5;
     
     static const float kVelocityEpsilon = 20.0f;
@@ -59,15 +57,6 @@ namespace flik
         
         addChild(sprite);
         
-        auto touchListener = EventListenerTouchOneByOne::create();
-        
-        touchListener->onTouchBegan = CC_CALLBACK_2(GamePiece::onTouchBegan, this);
-        touchListener->onTouchEnded = CC_CALLBACK_2(GamePiece::onTouchEnded, this);
-        touchListener->onTouchMoved = CC_CALLBACK_2(GamePiece::onTouchMoved, this);
-        touchListener->onTouchCancelled = CC_CALLBACK_2(GamePiece::onTouchCancelled, this);
-        
-        getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
-        
         auto physicsBody = PhysicsBody::createBox(getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.0f));
         physicsBody->setGravityEnable(false);
         physicsBody->setRotationEnable(false);
@@ -94,17 +83,6 @@ namespace flik
             auto deltaVelocity = velocity * (delta * kDeceleration);
             mPhysicsBody->setVelocity(velocity - deltaVelocity);
         }
-        
-        auto visibleBounds = Rect(Vec2(), Director::getInstance()->getOpenGLView()->getDesignResolutionSize());
-        auto localBounds = getBoundingBox();
-        if (!getParent()->getBoundingBox().intersectsRect(localBounds)) {
-            EventCustom eventObj(kPieceRemovedEvent);
-            eventObj.setUserData(this);
-            
-            getEventDispatcher()->dispatchEvent(&eventObj);
-            
-            removeFromParent();
-        }
     }
     
     bool GamePiece::onContactBegin(PhysicsContact& contact)
@@ -120,40 +98,11 @@ namespace flik
         }
     }
     
-    bool GamePiece::onTouchBegan(Touch *touch, Event *unused_event)
+    Rect GamePiece::getTouchBoundingBox()
     {
         auto bb = getBoundingBox();
         double padding = 20.0_dp;
         bb.setRect(bb.origin.x - padding, bb.origin.y - padding, bb.size.width + (padding * 2), bb.size.height + (padding * 2));
-        mPressed = bb.containsPoint(touch->getLocation());
-        
-        mVelocityTracker.Reset();
-        mVelocityTracker.AddPoint(touch->getLocation());
-        getPhysicsBody()->setVelocity(Vec2());
-    
-        return true;
-    }
-    
-    void GamePiece::onTouchMoved(Touch *touch, Event *unused_event)
-    {
-        if (mPressed) {
-            mVelocityTracker.AddPoint(touch->getLocation());
-            setPosition(getPosition() + touch->getDelta());
-            mGameScene->constrainPieceToGameBounds(this);
-        }
-    }
-    
-    void GamePiece::onTouchEnded(Touch *touch, Event *unused_event)
-    {
-        if (mPressed) {
-            mVelocityTracker.AddPoint(touch->getLocation());
-            getPhysicsBody()->setVelocity(mVelocityTracker.GetVelocity() * kVelocityDamping);
-        }
-        
-        mPressed = false;
-    }
-    void GamePiece::onTouchCancelled(Touch *touch, Event *unused_event)
-    {
-        mPressed = false;
+        return bb;
     }
 }

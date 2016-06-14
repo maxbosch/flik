@@ -42,7 +42,6 @@
 		6638947C1D09AD9B0034892E /* MainMenuHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6638946C1D09AD9B0034892E /* MainMenuHeader.cpp */; };
 		6638947D1D09AD9B0034892E /* MainMenuHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6638946E1D09AD9B0034892E /* MainMenuHUD.cpp */; };
 		6638947E1D09AD9B0034892E /* PowerUpButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894721D09AD9B0034892E /* PowerUpButton.cpp */; };
-		663894991D09AEB60034892E /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894801D09AEB60034892E /* AppDelegate.cpp */; };
 		6638949A1D09AEB60034892E /* GamePiece.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894871D09AEB60034892E /* GamePiece.cpp */; };
 		6638949B1D09AEB60034892E /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894891D09AEB60034892E /* Player.cpp */; };
 		6638949C1D09AEB60034892E /* SideRailNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6638948B1D09AEB60034892E /* SideRailNode.cpp */; };
@@ -56,6 +55,12 @@
 		66442B2C1D0B84C100AC5983 /* LocalizedString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66442B2A1D0B84C100AC5983 /* LocalizedString.cpp */; };
 		66442B2F1D0B851600AC5983 /* StorePurchaseOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66442B2D1D0B851600AC5983 /* StorePurchaseOverlay.cpp */; };
 		66442B321D0B89DE00AC5983 /* StorePurchaseOptionWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66442B301D0B89DE00AC5983 /* StorePurchaseOptionWidget.cpp */; };
+		66442B361D0CBEBE00AC5983 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66442B341D0CBEBE00AC5983 /* Fabric.framework */; };
+		66442B371D0CBEBE00AC5983 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66442B351D0CBEBE00AC5983 /* Crashlytics.framework */; };
+		66442B391D0CC9E100AC5983 /* sdkbox_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 66442B381D0CC9E100AC5983 /* sdkbox_config.json */; };
+		66442B3E1D0DD41900AC5983 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66442B3C1D0DD41900AC5983 /* AppDelegate.cpp */; };
+		66442B3F1D0DE7AF00AC5983 /* PluginSdkboxPlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 412342C0B9B05982BF6E2B64 /* PluginSdkboxPlay.framework */; };
+		66442B411D0DE7C800AC5983 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66442B401D0DE7C800AC5983 /* GameKit.framework */; };
 		665D99ED1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */; };
 		665D99EE1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */; };
 		665D9A191D070D060051A9C9 /* 1x in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A141D070D060051A9C9 /* 1x */; };
@@ -69,6 +74,7 @@
 		665D9A211D070D060051A9C9 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A181D070D060051A9C9 /* fonts */; };
 		665D9A221D070D060051A9C9 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A181D070D060051A9C9 /* fonts */; };
 		666106FB1D0795A9004F6263 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666106FA1D0795A9004F6263 /* Images.xcassets */; };
+		66A92EF21D0F81D8004F78D3 /* GameBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A92EF01D0F81D8004F78D3 /* GameBoard.cpp */; };
 		66B92B721D0A3C6200DA1657 /* StoreProductWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */; };
 		66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
 		66DB287F1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
@@ -122,6 +128,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00AD4E188182128A9468C42B /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/EventKitUI.framework; sourceTree = DEVELOPER_DIR; };
+		0B9B4430841AE332641B6E1A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -129,6 +137,8 @@
 		1DB24E7B8078788493A52B3B /* PluginAchievement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PluginAchievement.framework; sourceTree = SOURCE_ROOT; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3E0945E78D51649ABC8081D2 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
+		412342C0B9B05982BF6E2B64 /* PluginSdkboxPlay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PluginSdkboxPlay.framework; sourceTree = SOURCE_ROOT; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -164,6 +174,9 @@
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		5FFA4CFFB64615183C2B5DD7 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
+		60914756B5344F788670F9BD /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
+		653B48C1B5B985AED8C487F1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		6638945B1D09AD9B0034892E /* GameOverWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverWidget.cpp; sourceTree = "<group>"; };
 		6638945C1D09AD9B0034892E /* GameOverWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverWidget.h; sourceTree = "<group>"; };
 		6638945D1D09AD9B0034892E /* MainGameHeader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainGameHeader.cpp; sourceTree = "<group>"; };
@@ -186,8 +199,6 @@
 		6638946F1D09AD9B0034892E /* MainMenuHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuHUD.h; sourceTree = "<group>"; };
 		663894721D09AD9B0034892E /* PowerUpButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PowerUpButton.cpp; sourceTree = "<group>"; };
 		663894731D09AD9B0034892E /* PowerUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerUpButton.h; sourceTree = "<group>"; };
-		663894801D09AEB60034892E /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
-		663894811D09AEB60034892E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		663894821D09AEB60034892E /* Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
 		663894831D09AEB60034892E /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
 		663894841D09AEB60034892E /* Physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Physics.h; sourceTree = "<group>"; };
@@ -217,6 +228,12 @@
 		66442B2E1D0B851600AC5983 /* StorePurchaseOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorePurchaseOverlay.h; sourceTree = "<group>"; };
 		66442B301D0B89DE00AC5983 /* StorePurchaseOptionWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StorePurchaseOptionWidget.cpp; sourceTree = "<group>"; };
 		66442B311D0B89DE00AC5983 /* StorePurchaseOptionWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorePurchaseOptionWidget.h; sourceTree = "<group>"; };
+		66442B341D0CBEBE00AC5983 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		66442B351D0CBEBE00AC5983 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		66442B381D0CC9E100AC5983 /* sdkbox_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sdkbox_config.json; sourceTree = "<group>"; };
+		66442B3C1D0DD41900AC5983 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
+		66442B3D1D0DD41900AC5983 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
+		66442B401D0DE7C800AC5983 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimedGameMode.cpp; sourceTree = "<group>"; };
 		665D99EC1D05B4A40051A9C9 /* TimedGameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimedGameMode.h; sourceTree = "<group>"; };
 		665D9A141D070D060051A9C9 /* 1x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 1x; sourceTree = "<group>"; };
@@ -225,6 +242,8 @@
 		665D9A171D070D060051A9C9 /* 4x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 4x; sourceTree = "<group>"; };
 		665D9A181D070D060051A9C9 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		666106FA1D0795A9004F6263 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Flik-mobile/Images.xcassets"; sourceTree = SOURCE_ROOT; };
+		66A92EF01D0F81D8004F78D3 /* GameBoard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameBoard.cpp; sourceTree = "<group>"; };
+		66A92EF11D0F81D8004F78D3 /* GameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoard.h; sourceTree = "<group>"; };
 		66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoreProductWidget.cpp; sourceTree = "<group>"; };
 		66B92B711D0A3C6200DA1657 /* StoreProductWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreProductWidget.h; sourceTree = "<group>"; };
 		66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameHUD.cpp; sourceTree = "<group>"; };
@@ -233,9 +252,12 @@
 		66E3A6B71D01C07100A3125C /* GameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMode.h; sourceTree = "<group>"; };
 		66E3A6C31D01C08300A3125C /* MarathonGameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MarathonGameMode.cpp; sourceTree = "<group>"; };
 		66E3A6C41D01C08300A3125C /* MarathonGameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarathonGameMode.h; sourceTree = "<group>"; };
+		810B4AE3B28A43C3512A6E57 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
+		81AC4D62869B4D7554A55D6A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
 		82184907863F3C226936A794 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AE6142E7B2D12A44A021E034 /* sdkbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = sdkbox.framework; sourceTree = SOURCE_ROOT; };
+		B06B46FF85927504D48D3C51 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = DEVELOPER_DIR; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -252,21 +274,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66442B411D0DE7C800AC5983 /* GameKit.framework in Frameworks */,
 				ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
 				1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
+				66442B3F1D0DE7AF00AC5983 /* PluginSdkboxPlay.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */,
 				BF1712471292920000B8313A /* libz.dylib in Frameworks */,
 				BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */,
+				66442B371D0CBEBE00AC5983 /* Crashlytics.framework in Frameworks */,
 				D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */,
 				D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */,
 				D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */,
 				6E2B4283A69F3BC8F3DAFC4E /* sdkbox.framework in Frameworks */,
 				D26F481FA774DEDE7C0E16F7 /* PluginAchievement.framework in Frameworks */,
+				66442B361D0CBEBE00AC5983 /* Fabric.framework in Frameworks */,
 				5C05403BB2316A413887BF45 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,6 +356,8 @@
 			isa = PBXGroup;
 			children = (
 				46880B8319C43A87006E1F66 /* Classes */,
+				66442B3C1D0DD41900AC5983 /* AppDelegate.cpp */,
+				66442B3D1D0DD41900AC5983 /* AppDelegate.h */,
 				46880B7519C43A67006E1F66 /* Resources */,
 				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -343,6 +371,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				66442B401D0DE7C800AC5983 /* GameKit.framework */,
+				66442B341D0CBEBE00AC5983 /* Fabric.framework */,
+				66442B351D0CBEBE00AC5983 /* Crashlytics.framework */,
 				ED545A7D1B68A1FA00C3958E /* libiconv.dylib */,
 				ED545A7B1B68A1F400C3958E /* libiconv.dylib */,
 				8262943D1AAF051F00CB7CF7 /* Security.framework */,
@@ -365,6 +396,16 @@
 				AE6142E7B2D12A44A021E034 /* sdkbox.framework */,
 				1DB24E7B8078788493A52B3B /* PluginAchievement.framework */,
 				82184907863F3C226936A794 /* SystemConfiguration.framework */,
+				412342C0B9B05982BF6E2B64 /* PluginSdkboxPlay.framework */,
+				81AC4D62869B4D7554A55D6A /* CoreMedia.framework */,
+				3E0945E78D51649ABC8081D2 /* CoreTelephony.framework */,
+				B06B46FF85927504D48D3C51 /* EventKit.framework */,
+				00AD4E188182128A9468C42B /* EventKitUI.framework */,
+				810B4AE3B28A43C3512A6E57 /* MessageUI.framework */,
+				653B48C1B5B985AED8C487F1 /* StoreKit.framework */,
+				60914756B5344F788670F9BD /* GameController.framework */,
+				0B9B4430841AE332641B6E1A /* MediaPlayer.framework */,
+				5FFA4CFFB64615183C2B5DD7 /* GameKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -379,6 +420,7 @@
 				665D9A171D070D060051A9C9 /* 4x */,
 				665D9A181D070D060051A9C9 /* fonts */,
 				66442B281D0B83B100AC5983 /* string */,
+				66442B381D0CC9E100AC5983 /* sdkbox_config.json */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -504,8 +546,6 @@
 		6638947F1D09AEB60034892E /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				663894801D09AEB60034892E /* AppDelegate.cpp */,
-				663894811D09AEB60034892E /* AppDelegate.h */,
 				663894821D09AEB60034892E /* Enums.h */,
 				663894831D09AEB60034892E /* Events.h */,
 				663894841D09AEB60034892E /* Physics.h */,
@@ -517,6 +557,8 @@
 		663894861D09AEB60034892E /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				66A92EF01D0F81D8004F78D3 /* GameBoard.cpp */,
+				66A92EF11D0F81D8004F78D3 /* GameBoard.h */,
 				663894871D09AEB60034892E /* GamePiece.cpp */,
 				663894881D09AEB60034892E /* GamePiece.h */,
 				663894891D09AEB60034892E /* Player.cpp */,
@@ -591,6 +633,7 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				66442B331D0CBEA700AC5983 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -681,6 +724,7 @@
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				665D9A1D1D070D060051A9C9 /* 3x in Resources */,
 				665D9A191D070D060051A9C9 /* 1x in Resources */,
+				66442B391D0CC9E100AC5983 /* sdkbox_config.json in Resources */,
 				66442B291D0B83B100AC5983 /* string in Resources */,
 				665D9A1B1D070D060051A9C9 /* 2x in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
@@ -704,6 +748,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		66442B331D0CBEA700AC5983 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 33a28d043f8554c7745c26f1e17a68da562f1d09 b717a88bf5fe2318e4ab24ae8ee8832cb6783f10629e7a64cd1d717731dc1940";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -716,6 +776,7 @@
 				66442B2C1D0B84C100AC5983 /* LocalizedString.cpp in Sources */,
 				6638947C1D09AD9B0034892E /* MainMenuHeader.cpp in Sources */,
 				663894751D09AD9B0034892E /* MainGameHeader.cpp in Sources */,
+				66A92EF21D0F81D8004F78D3 /* GameBoard.cpp in Sources */,
 				6638947D1D09AD9B0034892E /* MainMenuHUD.cpp in Sources */,
 				6638947A1D09AD9B0034892E /* MainMenuButtons.cpp in Sources */,
 				663894761D09AD9B0034892E /* MainGameHUD.cpp in Sources */,
@@ -726,7 +787,6 @@
 				66E3A6C51D01C08300A3125C /* MarathonGameMode.cpp in Sources */,
 				66442B2F1D0B851600AC5983 /* StorePurchaseOverlay.cpp in Sources */,
 				663894791D09AD9B0034892E /* TimedGameHUD.cpp in Sources */,
-				663894991D09AEB60034892E /* AppDelegate.cpp in Sources */,
 				6638949C1D09AEB60034892E /* SideRailNode.cpp in Sources */,
 				66442B321D0B89DE00AC5983 /* StorePurchaseOptionWidget.cpp in Sources */,
 				66E3A6BD1D01C07100A3125C /* GameMode.cpp in Sources */,
@@ -738,6 +798,7 @@
 				6638947B1D09AD9B0034892E /* MainMenuFooter.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				66442B3E1D0DD41900AC5983 /* AppDelegate.cpp in Sources */,
 				665D99ED1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */,
 				663894A41D09B0770034892E /* StoreScene.cpp in Sources */,
 				66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */,
@@ -781,7 +842,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -810,7 +874,9 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aeskreis.flik;
 				PRODUCT_NAME = Flik;
+				PROVISIONING_PROFILE = "6818b898-ee2e-4fdd-9ed4-7b71d23f36e3";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
@@ -824,10 +890,13 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COMPRESS_PNG_FILES = NO;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ios/Prefix.pch;
@@ -854,7 +923,9 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.aeskreis.flik;
 				PRODUCT_NAME = Flik;
+				PROVISIONING_PROFILE = "b133db70-e9c1-48c1-b272-327131a3572d";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";

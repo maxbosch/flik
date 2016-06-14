@@ -25,6 +25,8 @@ namespace flik
         
         void update(float seconds);
         
+        void onEnter();
+        
     private:
         PowerUpType mType;
         int mCount;

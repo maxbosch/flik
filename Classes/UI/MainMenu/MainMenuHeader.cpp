@@ -9,6 +9,8 @@
 #include "MainMenuHeader.h"
 #include "Literals.h"
 
+#include "PluginSdkboxPlay/PluginSdkboxPlay.h"
+
 USING_NS_CC;
 
 using RelativeAlign = ui::RelativeLayoutParameter::RelativeAlign;
@@ -25,7 +27,7 @@ namespace flik
         setBackGroundColor(Color3B::BLACK);
         setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         
-        auto logoButton = ui::Button::create("flik_small.png");
+        auto logoButton = ui::ImageView::create("flik_small.png");
         //logoButton->setContentSize(Size(147, 42));
         auto logoButtonLayout = ui::RelativeLayoutParameter::create();
         logoButtonLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
@@ -38,6 +40,13 @@ namespace flik
         achievementsButtonLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
         achievementsButtonLayout->setMargin(ui::Margin(12.5_dp, 20.0_dp, 0, 0));
         achievementsButton->setLayoutParameter(achievementsButtonLayout);
+        achievementsButton->addTouchEventListener([this](Ref* sender, TouchEventType type) {
+            if (type == TouchEventType::ENDED) {
+                if (sdkbox::PluginSdkboxPlay::isSignedIn()) {
+                    sdkbox::PluginSdkboxPlay::showAchievements();
+                }
+            }
+        });
         addChild(achievementsButton);
         
         auto settingsButton = ui::Button::create("settings_home.png");

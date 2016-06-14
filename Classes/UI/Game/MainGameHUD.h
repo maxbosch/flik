@@ -32,13 +32,13 @@ namespace flik
         
         void update(float time);
         
-        cocos2d::Node* getGameBoard();
+        GameBoard* getGameBoard();
         
     private:
         cocos2d::ui::Text* mScoreValueLabel;
         cocos2d::ui::Text* mTopScoreValueLabel;
         GameOverWidget* mGameOverScreen;
-        cocos2d::Node* mGameBoard;
+        GameBoard* mGameBoard;
         MainGameHeader* mHeader;
         PauseOverlayWidget* mPauseOverlay;
     };

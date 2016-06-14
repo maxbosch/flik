@@ -15,6 +15,7 @@ namespace flik
 {
     class MainGameScene;
     enum class GameState;
+    class GameBoard;
     
     class GameHUD : public cocos2d::ui::RelativeBox
     {
@@ -25,7 +26,7 @@ namespace flik
         
         void setGameScene(MainGameScene* gameScene) { mGameScene = gameScene; }
         
-        virtual cocos2d::Node* getGameBoard() = 0;
+        virtual GameBoard* getGameBoard() = 0;
         
         
     protected:

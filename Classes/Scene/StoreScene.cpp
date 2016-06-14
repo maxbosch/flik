@@ -73,7 +73,7 @@ namespace flik
         timeStopProduct->setLayoutParameter(timeStopsProductLayout);
         productsContainer->addChild(timeStopProduct);
         
-        auto targetProduct = StoreProductWidget::create(PowerUpType::Timestop, 500, 5, "Board Clears");
+        auto targetProduct = StoreProductWidget::create(PowerUpType::Target, 500, 5, "Board Clears");
         auto targetProductLayout = ui::RelativeLayoutParameter::create();
         targetProductLayout->setAlign(RelativeAlign::PARENT_RIGHT_CENTER_VERTICAL);
         targetProductLayout->setMargin(ui::Margin(0, 0, 40.0_dp, 0));

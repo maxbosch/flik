@@ -77,7 +77,7 @@ namespace flik {
         auto gameBoardBounds = scene->getGameBoardBounds();
         
         for (int i = 0; i < count; i++) {
-            auto boardArea = gameBoardBounds.size.width * gameBoardBounds.size.height;
+            /*auto boardArea = gameBoardBounds.size.width * gameBoardBounds.size.height;
             auto coverageArea = 0.0f;
             scene->enumeratePieces([&coverageArea](Node* piece) {
                 auto bounds = piece->getBoundingBox();
@@ -88,6 +88,13 @@ namespace flik {
                 // You lose
                 setGameState(GameState::Finished);
             
+                return;
+            }*/
+            
+            if (getGameScene()->getPiecesCount() > 70) {
+                // You lose
+                setGameState(GameState::Finished);
+                
                 return;
             }
             

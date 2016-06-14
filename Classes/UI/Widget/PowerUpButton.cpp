@@ -69,4 +69,11 @@ namespace flik
         
         setCount(Player::getMainPlayer()->getPowerUpCount(mType));
     }
+    
+    void PowerUpButton::onEnter()
+    {
+        Button::onEnter();
+        
+        scheduleUpdate();
+    }
 }

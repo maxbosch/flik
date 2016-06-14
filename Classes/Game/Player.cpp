@@ -34,6 +34,7 @@ namespace flik
     Player::Player() :
         mCurrentScore(0)
     {
+        sdkbox::PluginSdkboxPlay::signin();
     }
     
     int Player::getTopScore(std::string key)
@@ -92,5 +93,56 @@ namespace flik
     {
         int newCount = getCurrencyAmount() - amount;
         UserDefault::getInstance()->setIntegerForKey(kCurrencyKey.c_str(), newCount);
+    }
+    
+    void Player::handleEndOfGameAchievements(GameModeType type)
+    {
+        int score = this->getCurrentScore();
+        
+        switch (type) {
+            case GameModeType::Timed:
+            {
+                sdkbox::PluginSdkboxPlay::unlockAchievement("play_timed_game_1");
+                sdkbox::PluginSdkboxPlay::incrementAchievement("play_timed_game_5", 20);
+                sdkbox::PluginSdkboxPlay::submitScore("score_timed", score);
+                break;
+            }
+                
+            case GameModeType::Unlimited:
+            {
+                sdkbox::PluginSdkboxPlay::unlockAchievement("play_unlimited_game_1");
+                sdkbox::PluginSdkboxPlay::incrementAchievement("play_unlimited_game_5", 20);
+                sdkbox::PluginSdkboxPlay::submitScore("score_unlimited", score);
+                break;
+            }
+ 
+            default:
+                break;
+        }
+    }
+    
+    /** SdkboxPlayListener */
+    void Player::onConnectionStatusChanged( int status )
+    {
+    }
+    
+    void Player::onScoreSubmitted( const std::string& leaderboard_name, int score, bool maxScoreAllTime, bool maxScoreWeek, bool maxScoreToday )
+    {
+        
+    }
+    
+    void Player::onIncrementalAchievementUnlocked( const std::string& achievement_name )
+    {
+        
+    }
+    
+    void Player::onIncrementalAchievementStep( const std::string& achievement_name, int step )
+    {
+        
+    }
+    
+    void Player::onAchievementUnlocked( const std::string& achievement_name, bool newlyUnlocked )
+    {
+        
     }
 }

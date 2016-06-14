@@ -16,6 +16,7 @@
 #include "Styles.h"
 #include "PauseOverlayWidget.h"
 #include "MainGameHeader.h"
+#include "GameBoard.h"
 
 #include <boost/lexical_cast.hpp>
 
@@ -29,7 +30,7 @@ namespace flik
     {
     }
     
-    cocos2d::Node* MainGameHUD::getGameBoard()
+    GameBoard* MainGameHUD::getGameBoard()
     {
         return mGameBoard;
     }
@@ -81,7 +82,7 @@ namespace flik
         mGameOverScreen->setVisible(false);
         addChild(mGameOverScreen, 3);
         
-        auto gameBoard = ui::Layout::create();
+        auto gameBoard = GameBoard::create();
         gameBoard->setBackGroundColor(Color3B::BLACK);
         gameBoard->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         gameBoard->setContentSize(Size(uiSize.width, uiSize.height - header->getContentSize().height));

@@ -12,10 +12,15 @@ LOCAL_MODULE := cocos2dcpp_shared
 
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
-FILE_LIST := $(wildcard $(LOCAL_PATH)/../../../Classes/**/*.cpp)
-FILE_LIST += $(wildcard $(LOCAL_PATH)/../../../Classes/UI/**/*.cpp)
+FILE_LIST := $(shell \
+find \
+$(LOCAL_PATH)/../../../Classes/ \
+-type \
+f \
+-name \
+*.cpp)
 #echo $FILE_LIST
-#LOCAL_SRC_FILES := $(FILE_LIST:$(LOCAL_PATH)/%=%)
+#LOCAL_SRC_FILES
 
 LOCAL_SRC_FILES := hellocpp/main.cpp \
 $(FILE_LIST:$(LOCAL_PATH)/%=%)
@@ -23,11 +28,17 @@ $(FILE_LIST:$(LOCAL_PATH)/%=%)
 LOCAL_CPPFLAGS := -DSDKBOX_ENABLED
 LOCAL_LDLIBS := -landroid \
 -llog
-LOCAL_C_INCLUDES := ${shell find $(LOCAL_PATH)/../../../Classes -type d}
+LOCAL_C_INCLUDES := ${shell \
+find \
+$(LOCAL_PATH)/../../../Classes \
+-type \
+d}
 LOCAL_C_INCLUDES += /usr/local/include
+
 LOCAL_WHOLE_STATIC_LIBRARIES := PluginAchievement \
 sdkbox \
-android_native_app_glue
+android_native_app_glue \
+PluginSdkboxPlay
 
 # _COCOS_HEADER_ANDROID_BEGIN
 # _COCOS_HEADER_ANDROID_END
@@ -43,6 +54,7 @@ include $(BUILD_SHARED_LIBRARY)
 $(call import-module,.)
 $(call import-module, ./sdkbox)
 $(call import-module, ./pluginachievement)
+$(call import-module, ./pluginsdkboxplay)
 
 # _COCOS_LIB_IMPORT_ANDROID_BEGIN
 # _COCOS_LIB_IMPORT_ANDROID_END

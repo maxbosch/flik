@@ -35,6 +35,8 @@ namespace flik
         
         int getTopScore();
         
+        GameModeType getGameModeType() { return GameModeType::Timed; }
+        
     protected:
         void setGameState(GameState newState);
         

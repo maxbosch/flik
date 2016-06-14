@@ -29,11 +29,6 @@ namespace flik
         
         bool init();
         
-        bool onTouchBegan(Touch *touch, Event *unused_event);
-        void onTouchMoved(Touch *touch, Event *unused_event);
-        void onTouchEnded(Touch *touch, Event *unused_event);
-        void onTouchCancelled(Touch *touch, Event *unused_event);
-        
         bool onContactBegin(PhysicsContact& contact);
         void onPostContactSolve(PhysicsContact& contact, const PhysicsContactPostSolve& solve);
         
@@ -43,8 +38,9 @@ namespace flik
         
         void update(float delta);
         
+        Rect getTouchBoundingBox();
+        
     private:
-        VelocityTracker mVelocityTracker;
         
         EventListenerPhysicsContact* mContactListener;
         PhysicsBody* mPhysicsBody;

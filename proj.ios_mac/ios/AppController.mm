@@ -22,6 +22,9 @@
  THE SOFTWARE.
  ****************************************************************************/
 
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 #import "AppController.h"
 #import "platform/ios/CCEAGLView-ios.h"
 #import "cocos2d.h"
@@ -36,7 +39,9 @@
 // cocos2d application instance
 static flik::AppDelegate s_sharedApplication;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    [Fabric with:@[[Crashlytics class]]];
 
     cocos2d::Application *app = cocos2d::Application::getInstance();
     app->initGLContextAttrs();
@@ -57,7 +62,7 @@ static flik::AppDelegate s_sharedApplication;
                                      numberOfSamples: 0 ];
     
     // Enable or disable multiple touches
-    [eaglView setMultipleTouchEnabled:NO];
+    [eaglView setMultipleTouchEnabled:YES];
 
     // Use RootViewController manage CCEAGLView 
     _viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];

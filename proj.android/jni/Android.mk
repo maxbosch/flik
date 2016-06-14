@@ -22,7 +22,8 @@ LOCAL_LDLIBS := -landroid \
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_WHOLE_STATIC_LIBRARIES := PluginAchievement \
 sdkbox \
-android_native_app_glue
+android_native_app_glue \
+PluginSdkboxPlay
 
 # _COCOS_HEADER_ANDROID_BEGIN
 # _COCOS_HEADER_ANDROID_END
@@ -38,6 +39,7 @@ include $(BUILD_SHARED_LIBRARY)
 $(call import-module,.)
 $(call import-module, ./sdkbox)
 $(call import-module, ./pluginachievement)
+$(call import-module, ./pluginsdkboxplay)
 
 # _COCOS_LIB_IMPORT_ANDROID_BEGIN
 # _COCOS_LIB_IMPORT_ANDROID_END

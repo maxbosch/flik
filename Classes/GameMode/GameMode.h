@@ -41,6 +41,8 @@ namespace flik
         
         virtual int getTopScore() = 0;
         
+        virtual GameModeType getGameModeType() = 0;
+        
         virtual void handlePowerUp(PowerUpType type);
         
         virtual void pauseGame();

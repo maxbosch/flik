@@ -10,6 +10,7 @@ namespace flik
     class GameOverWidget;
     class GameHUD;
     class GameMode;
+    class GameBoard;
     enum class GameState;
     
     struct LevelParams
@@ -27,11 +28,11 @@ namespace flik
         // implement the "static create()" method manually
         static MainGameScene* create(const LevelParams& params);
         
-        void constrainPieceToGameBounds(GamePiece* piece);
         void update(float delta);
         void requestRestart();
         void spawnPiece(const cocos2d::Vec2& position);
         void clearPieces();
+        int getPiecesCount();
         
         void enumeratePieces(std::function<void(Node*)> callback);
         cocos2d::Rect getGameBoardBounds();
@@ -47,7 +48,7 @@ namespace flik
     private:
         cocos2d::TimerTargetCallback* mSpawnTimer;
         SideRailNode* mSideRails;
-        cocos2d::Node* mGameBoard;
+        GameBoard* mGameBoard;
         GameHUD* mGameHUD = nullptr;
         GameMode* mGameMode = nullptr;
     

@@ -30,6 +30,8 @@ namespace flik
         
         void handlePowerUp(PowerUpType type);
         
+        GameModeType getGameModeType() { return GameModeType::Unlimited; }
+        
     protected:
         void setGameState(GameState newState);
         
