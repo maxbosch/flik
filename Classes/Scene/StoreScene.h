@@ -32,5 +32,6 @@ namespace flik
         StorePurchaseOverlay* mPurchaseOverlay;
         cocos2d::ui::Button* mCloseButton;
         cocos2d::ui::Button* mPointsButton;
+        cocos2d::ui::Widget* mProductsContainer;
     };
 }

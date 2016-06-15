@@ -65,6 +65,7 @@ namespace flik
         productsContainerLayout->setMargin(ui::Margin(0, 50.0_dp, 0, 0));
         productsContainer->setLayoutParameter(productsContainerLayout);
         storeGUI->addChild(productsContainer);
+        mProductsContainer = productsContainer;
         
         auto timeStopProduct = StoreProductWidget::create(PowerUpType::Timestop, 1000, 5, "Time Stops");
         auto timeStopsProductLayout = ui::RelativeLayoutParameter::create();
@@ -131,6 +132,8 @@ namespace flik
     void StoreScene::setPurchaseOverlayVisible(bool visible)
     {
         mPurchaseOverlay->setVisible(visible);
+        mProductsContainer->setVisible(!visible);
+        
         if (visible) {
             mCloseButton->loadTextureNormal("red_x_close.png");
         } else {

@@ -28,7 +28,7 @@ namespace flik
         return createWithParams<PowerUpButton>(type);
     }
     
-    bool PowerUpButton::initWithType(PowerUpType type)
+    bool PowerUpButton::init(PowerUpType type)
     {
         mType = type;
         

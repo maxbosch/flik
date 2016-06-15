@@ -25,10 +25,13 @@ namespace flik
         }
         
         setContentSize(Size(305.0_dp, 475.0_dp));
+        setBackGroundColor(Color3B::BLACK);
+        setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         
-        auto backgroundImage = ui::ImageView::create("purchase_border.png");
+        auto backgroundImage = ui::Scale9Sprite::create(Rect(34.0_dp, 34.0_dp, 32.0_dp, 32.0_dp), "blue_border_9.png");
         backgroundImage->setPosition(Vec2(0, 0));
         backgroundImage->setAnchorPoint(Vec2(0, 0));
+        backgroundImage->setContentSize(Size(305.0_dp, 475.0_dp));
         addChild(backgroundImage);
         
         auto titleLabel = ui::Text::create("MORE POINTS NEEDED", kDefaultFont, 18.0_dp);

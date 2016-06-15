@@ -19,7 +19,7 @@ namespace flik
     public:
         static PowerUpButton* create(PowerUpType type);
         
-        bool initWithType(PowerUpType type);
+        bool init(PowerUpType type);
         
         void setCount(int count);
         

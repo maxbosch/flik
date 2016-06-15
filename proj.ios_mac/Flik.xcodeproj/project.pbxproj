@@ -79,6 +79,7 @@
 		66D655AD1D10C73100F1B6E8 /* LevelsGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655AB1D10C73100F1B6E8 /* LevelsGameMode.cpp */; };
 		66D655B01D10CC2100F1B6E8 /* LevelTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655AF1D10CC2100F1B6E8 /* LevelTypes.cpp */; };
 		66D655B31D10D58400F1B6E8 /* LevelsGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655B11D10D58400F1B6E8 /* LevelsGameHUD.cpp */; };
+		66D655B61D118E6400F1B6E8 /* GameObjectiveOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655B41D118E6400F1B6E8 /* GameObjectiveOverlay.cpp */; };
 		66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
 		66DB287F1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
 		66E3A6BD1D01C07100A3125C /* GameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6B61D01C07100A3125C /* GameMode.cpp */; };
@@ -255,6 +256,8 @@
 		66D655AF1D10CC2100F1B6E8 /* LevelTypes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelTypes.cpp; sourceTree = "<group>"; };
 		66D655B11D10D58400F1B6E8 /* LevelsGameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelsGameHUD.cpp; sourceTree = "<group>"; };
 		66D655B21D10D58400F1B6E8 /* LevelsGameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelsGameHUD.h; sourceTree = "<group>"; };
+		66D655B41D118E6400F1B6E8 /* GameObjectiveOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectiveOverlay.cpp; sourceTree = "<group>"; };
+		66D655B51D118E6400F1B6E8 /* GameObjectiveOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectiveOverlay.h; sourceTree = "<group>"; };
 		66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameHUD.cpp; sourceTree = "<group>"; };
 		66DB287D1D01CB4900E1E4C9 /* GameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHUD.h; sourceTree = "<group>"; };
 		66E3A6B61D01C07100A3125C /* GameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameMode.cpp; sourceTree = "<group>"; };
@@ -513,6 +516,8 @@
 				663894661D09AD9B0034892E /* TimedGameHUD.h */,
 				66D655B11D10D58400F1B6E8 /* LevelsGameHUD.cpp */,
 				66D655B21D10D58400F1B6E8 /* LevelsGameHUD.h */,
+				66D655B41D118E6400F1B6E8 /* GameObjectiveOverlay.cpp */,
+				66D655B51D118E6400F1B6E8 /* GameObjectiveOverlay.h */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -786,6 +791,7 @@
 			files = (
 				663894781D09AD9B0034892E /* PauseOverlayWidget.cpp in Sources */,
 				663894771D09AD9B0034892E /* PauseButtonsWidget.cpp in Sources */,
+				66D655B61D118E6400F1B6E8 /* GameObjectiveOverlay.cpp in Sources */,
 				663894741D09AD9B0034892E /* GameOverWidget.cpp in Sources */,
 				663894A01D09AEB60034892E /* Util.cpp in Sources */,
 				66442B2C1D0B84C100AC5983 /* LocalizedString.cpp in Sources */,
