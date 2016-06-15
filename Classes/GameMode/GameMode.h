@@ -34,14 +34,14 @@ namespace flik
         
         virtual void restartGame() = 0;
         
+        virtual int getTopScore() = 0;
+        
+        virtual GameModeType getGameModeType() = 0;
+        
         virtual void setGameScene(MainGameScene* gameScene)
         {
             mGameScene = gameScene;
         }
-        
-        virtual int getTopScore() = 0;
-        
-        virtual GameModeType getGameModeType() = 0;
         
         virtual void handlePowerUp(PowerUpType type);
         

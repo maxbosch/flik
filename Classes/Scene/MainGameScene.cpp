@@ -8,6 +8,7 @@
 #include "MainGameHUD.h"
 #include "GameMode.h"
 #include "GameBoard.h"
+#include "Util.h"
 
 USING_NS_CC;
 
@@ -77,14 +78,7 @@ namespace flik
     
     MainGameScene* MainGameScene::create(const LevelParams& params)
     {
-        MainGameScene* obj = new (std::nothrow) MainGameScene();
-        if (obj && obj->init(params))
-        {
-            obj->autorelease();
-            return obj;
-        }
-        CC_SAFE_DELETE(obj);
-        return nullptr;
+        return createWithParams<MainGameScene>(params);
     }
     
     // on "init" you need to initialize your instance

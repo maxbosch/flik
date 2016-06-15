@@ -76,6 +76,9 @@
 		666106FB1D0795A9004F6263 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666106FA1D0795A9004F6263 /* Images.xcassets */; };
 		66A92EF21D0F81D8004F78D3 /* GameBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A92EF01D0F81D8004F78D3 /* GameBoard.cpp */; };
 		66B92B721D0A3C6200DA1657 /* StoreProductWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */; };
+		66D655AD1D10C73100F1B6E8 /* LevelsGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655AB1D10C73100F1B6E8 /* LevelsGameMode.cpp */; };
+		66D655B01D10CC2100F1B6E8 /* LevelTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655AF1D10CC2100F1B6E8 /* LevelTypes.cpp */; };
+		66D655B31D10D58400F1B6E8 /* LevelsGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655B11D10D58400F1B6E8 /* LevelsGameHUD.cpp */; };
 		66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
 		66DB287F1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
 		66E3A6BD1D01C07100A3125C /* GameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6B61D01C07100A3125C /* GameMode.cpp */; };
@@ -246,6 +249,12 @@
 		66A92EF11D0F81D8004F78D3 /* GameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoard.h; sourceTree = "<group>"; };
 		66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoreProductWidget.cpp; sourceTree = "<group>"; };
 		66B92B711D0A3C6200DA1657 /* StoreProductWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreProductWidget.h; sourceTree = "<group>"; };
+		66D655AB1D10C73100F1B6E8 /* LevelsGameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelsGameMode.cpp; sourceTree = "<group>"; };
+		66D655AC1D10C73100F1B6E8 /* LevelsGameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelsGameMode.h; sourceTree = "<group>"; };
+		66D655AE1D10C9E500F1B6E8 /* LevelTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelTypes.h; sourceTree = "<group>"; };
+		66D655AF1D10CC2100F1B6E8 /* LevelTypes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelTypes.cpp; sourceTree = "<group>"; };
+		66D655B11D10D58400F1B6E8 /* LevelsGameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelsGameHUD.cpp; sourceTree = "<group>"; };
+		66D655B21D10D58400F1B6E8 /* LevelsGameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelsGameHUD.h; sourceTree = "<group>"; };
 		66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameHUD.cpp; sourceTree = "<group>"; };
 		66DB287D1D01CB4900E1E4C9 /* GameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHUD.h; sourceTree = "<group>"; };
 		66E3A6B61D01C07100A3125C /* GameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameMode.cpp; sourceTree = "<group>"; };
@@ -502,6 +511,8 @@
 				663894641D09AD9B0034892E /* PauseOverlayWidget.h */,
 				663894651D09AD9B0034892E /* TimedGameHUD.cpp */,
 				663894661D09AD9B0034892E /* TimedGameHUD.h */,
+				66D655B11D10D58400F1B6E8 /* LevelsGameHUD.cpp */,
+				66D655B21D10D58400F1B6E8 /* LevelsGameHUD.h */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -550,6 +561,8 @@
 				663894831D09AEB60034892E /* Events.h */,
 				663894841D09AEB60034892E /* Physics.h */,
 				663894851D09AEB60034892E /* Styles.h */,
+				66D655AE1D10C9E500F1B6E8 /* LevelTypes.h */,
+				66D655AF1D10CC2100F1B6E8 /* LevelTypes.cpp */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -602,6 +615,8 @@
 			children = (
 				66E3A6B61D01C07100A3125C /* GameMode.cpp */,
 				66E3A6B71D01C07100A3125C /* GameMode.h */,
+				66D655AB1D10C73100F1B6E8 /* LevelsGameMode.cpp */,
+				66D655AC1D10C73100F1B6E8 /* LevelsGameMode.h */,
 				66E3A6C31D01C08300A3125C /* MarathonGameMode.cpp */,
 				66E3A6C41D01C08300A3125C /* MarathonGameMode.h */,
 				665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */,
@@ -785,14 +800,17 @@
 				6638949F1D09AEB60034892E /* Literals.cpp in Sources */,
 				6638949E1D09AEB60034892E /* MainMenuScene.cpp in Sources */,
 				66E3A6C51D01C08300A3125C /* MarathonGameMode.cpp in Sources */,
+				66D655B31D10D58400F1B6E8 /* LevelsGameHUD.cpp in Sources */,
 				66442B2F1D0B851600AC5983 /* StorePurchaseOverlay.cpp in Sources */,
 				663894791D09AD9B0034892E /* TimedGameHUD.cpp in Sources */,
+				66D655AD1D10C73100F1B6E8 /* LevelsGameMode.cpp in Sources */,
 				6638949C1D09AEB60034892E /* SideRailNode.cpp in Sources */,
 				66442B321D0B89DE00AC5983 /* StorePurchaseOptionWidget.cpp in Sources */,
 				66E3A6BD1D01C07100A3125C /* GameMode.cpp in Sources */,
 				66B92B721D0A3C6200DA1657 /* StoreProductWidget.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				663894A11D09AEB60034892E /* VelocityTracker.cpp in Sources */,
+				66D655B01D10CC2100F1B6E8 /* LevelTypes.cpp in Sources */,
 				6638947E1D09AD9B0034892E /* PowerUpButton.cpp in Sources */,
 				6638949A1D09AEB60034892E /* GamePiece.cpp in Sources */,
 				6638947B1D09AD9B0034892E /* MainMenuFooter.cpp in Sources */,

@@ -32,6 +32,7 @@ namespace flik
     class SideRailNode : public cocos2d::Node
     {
     public:
+        
         bool init(const cocos2d::Size& gameBoardSize);
     
         static SideRailNode* create(const cocos2d::Size& gameBoardSize);

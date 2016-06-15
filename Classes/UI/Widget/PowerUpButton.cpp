@@ -12,6 +12,7 @@
 #include "Styles.h"
 #include "Literals.h"
 #include "Player.h"
+#include "Util.h"
 
 USING_NS_CC;
 
@@ -24,14 +25,7 @@ namespace flik
     
     PowerUpButton* PowerUpButton::create(PowerUpType type)
     {
-        PowerUpButton* widget = new (std::nothrow) PowerUpButton();
-        if (widget && widget->initWithType(type))
-        {
-            widget->autorelease();
-            return widget;
-        }
-        CC_SAFE_DELETE(widget);
-        return nullptr;
+        return createWithParams<PowerUpButton>(type);
     }
     
     bool PowerUpButton::initWithType(PowerUpType type)

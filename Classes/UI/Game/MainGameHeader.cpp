@@ -73,4 +73,9 @@ namespace flik
     {
         mScoreLabel->setString(boost::lexical_cast<std::string>(score));
     }
+    
+    void MainGameHeader::setScoreVisible(bool visible)
+    {
+        mScoreLabel->setVisible(visible);
+    }
 }

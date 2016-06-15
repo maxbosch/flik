@@ -24,7 +24,7 @@ namespace flik
         
         CREATE_FUNC(MainGameHUD);
         
-        bool init();
+        virtual bool init();
         
         virtual void setContentSize(const cocos2d::Size& size);
         
@@ -34,9 +34,7 @@ namespace flik
         
         GameBoard* getGameBoard();
         
-    private:
-        cocos2d::ui::Text* mScoreValueLabel;
-        cocos2d::ui::Text* mTopScoreValueLabel;
+    protected:
         GameOverWidget* mGameOverScreen;
         GameBoard* mGameBoard;
         MainGameHeader* mHeader;

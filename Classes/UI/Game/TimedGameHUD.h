@@ -19,11 +19,11 @@ namespace flik
         
         ~TimedGameHUD();
         
-        bool init();
+        virtual bool init();
         
         void update(float time);
         
-    private:
+    protected:
         cocos2d::ui::Layout* mTimerBar;
     };
 }

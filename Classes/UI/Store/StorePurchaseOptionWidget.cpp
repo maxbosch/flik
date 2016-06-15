@@ -23,14 +23,7 @@ namespace flik
     
     StorePurchaseOptionWidget* StorePurchaseOptionWidget::create(int pointsCount, float cost)
     {
-        StorePurchaseOptionWidget* obj = new (std::nothrow) StorePurchaseOptionWidget();
-        if (obj && obj->init(pointsCount, cost))
-        {
-            obj->autorelease();
-            return obj;
-        }
-        CC_SAFE_DELETE(obj);
-        return nullptr;
+        return createWithParams<StorePurchaseOptionWidget>(pointsCount, cost);
     }
     
     bool StorePurchaseOptionWidget::init(int pointsCount, float cost)

@@ -10,6 +10,7 @@
 #include "Styles.h"
 #include "Physics.h"
 #include "Literals.h"
+#include "Util.h"
 
 #include <boost/geometry.hpp>
 #include <boost/geometry/geometries/geometries.hpp>
@@ -41,6 +42,11 @@ namespace flik
     
     static const BoxDesc Boxes[] = { RedBoxDesc, BlueBoxDesc, PinkBoxDesc, YellowBoxDesc };
     static const int kNumBoxes = 4;
+    
+    SideRailNode* SideRailNode::create(const Size& gameBoardSize)
+    {
+        return createWithParams<SideRailNode>(gameBoardSize);
+    }
     
     bool SideRailNode::init(const Size& gameBoardSize)
     {
@@ -83,18 +89,6 @@ namespace flik
         calculateRails();
         
         return true;
-    }
-    
-    SideRailNode* SideRailNode::create(const Size& gameBoardSize)
-    {
-        SideRailNode* obj = new (std::nothrow) SideRailNode();
-        if (obj && obj->init(gameBoardSize))
-        {
-            obj->autorelease();
-            return obj;
-        }
-        CC_SAFE_DELETE(obj);
-        return nullptr;
     }
     
     void SideRailNode::calculateRails()

@@ -22,4 +22,12 @@ namespace flik
         Timestop,
         Target
     };
+    
+    enum class PieceType
+    {
+        Red,
+        Yellow,
+        Pink,
+        Blue
+    };
 }

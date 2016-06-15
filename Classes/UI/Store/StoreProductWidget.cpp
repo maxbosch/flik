@@ -25,14 +25,7 @@ namespace flik
     
     StoreProductWidget* StoreProductWidget::create(PowerUpType type, int cost, int quantity, const std::string& productName)
     {
-        StoreProductWidget* obj = new (std::nothrow) StoreProductWidget();
-        if (obj && obj->init(type, cost, quantity, productName))
-        {
-            obj->autorelease();
-            return obj;
-        }
-        CC_SAFE_DELETE(obj);
-        return nullptr;
+        return createWithParams<StoreProductWidget>(type, cost, quantity, productName);
     }
     
     bool StoreProductWidget::init(PowerUpType type, int cost, int quantity, const std::string& productName)

@@ -20,7 +20,7 @@ namespace flik
     static T* createWithParams(Args&&... args)
     {
         T* obj = new (std::nothrow) T();
-        if (obj && obj->init(std::forward(args)...))
+        if (obj && obj->init(std::forward<Args>(args)...))
         {
             obj->autorelease();
             return obj;
