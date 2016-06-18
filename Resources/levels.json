@@ -26,27 +26,6 @@
 			"objectives": [
 				{
 					"type": "red",
-					"quantity": 8
-				},
-				{
-					"type": "blue",
-					"quantity": 8
-				},
-				{
-					"type": "pink",
-					"quantity": 8
-				},
-				{
-					"type": "yellow",
-					"quantity": 8
-				}
-			]
-		},
-		{
-			"time": 45,
-			"objectives": [
-				{
-					"type": "red",
 					"quantity": 5
 				},
 				{
@@ -64,15 +43,65 @@
 			]
 		},
 		{
-			"time": 45,
+			"time": 60,
 			"objectives": [
 				{
 					"type": "red",
-					"quantity": 10
+					"quantity": 8
 				},
 				{
 					"type": "blue",
-					"quantity": 10
+					"quantity": 8
+				},
+				{
+					"type": "pink",
+					"quantity": 8
+				},
+				{
+					"type": "yellow",
+					"quantity": 8
+				}
+			]
+		},
+		{
+			"time": 60,
+			"objectives": [
+				{
+					"type": "red",
+					"quantity": 12
+				},
+				{
+					"type": "blue",
+					"quantity": 12
+				},
+				{
+					"type": "pink",
+					"quantity": 12
+				},
+				{
+					"type": "yellow",
+					"quantity": 12
+				}
+			]
+		},
+		{
+			"time": 60,
+			"objectives": [
+				{
+					"type": "red",
+					"quantity": 20
+				},
+				{
+					"type": "blue",
+					"quantity": 20
+				},
+				{
+					"type": "pink",
+					"quantity": 20
+				},
+				{
+					"type": "yellow",
+					"quantity": 20
 				}
 			]
 		}
