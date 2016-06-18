@@ -53,7 +53,7 @@ namespace flik
             return button;
         };
         
-        auto levelsButton = createButton("pink_button_fill.png", "Levels", GameModeType::Levels);
+        auto levelsButton = createButton("levels_button.png", "Levels", GameModeType::Levels);
         auto levelsButtonLayout = ui::RelativeLayoutParameter::create();
         levelsButtonLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
         levelsButtonLayout->setMargin(ui::Margin(0, 35.0_dp, 0, 0));

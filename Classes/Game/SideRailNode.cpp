@@ -55,7 +55,7 @@ namespace flik
             return false;
         }
         
-        mBoxDimens = Size(100.0_dp, 100.0_dp);
+        mBoxDimens = Size(110.0_dp, 110.0_dp);
         mRailSize = 10.0_dp;
     
         //auto contentScale = Director::getInstance()->getContentScaleFactor();

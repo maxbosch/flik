@@ -107,9 +107,7 @@ namespace flik
     {
         mLevelDesc = levelDesc;
         
-        for (auto& objective : levelDesc->objectives) {
-            mObjectiveProgress[objective.type] = objective.quantity;
-        }
+        reset();
     }
     
     bool LevelProgress::isCompleted()
@@ -134,5 +132,11 @@ namespace flik
         }
     }
     
+    void LevelProgress::reset()
+    {
+        for (auto& objective : mLevelDesc->objectives) {
+            mObjectiveProgress[objective.type] = objective.quantity;
+        }
+    }
     
 }

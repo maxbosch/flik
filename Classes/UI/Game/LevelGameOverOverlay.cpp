@@ -135,7 +135,7 @@ namespace flik
     
     void LevelGameOverOverlay::setNextLevel(bool success, int level)
     {
-        if (success && level < LevelInfo::getInstance()->getMaxLevel()) {
+        if (success && level <= LevelInfo::getInstance()->getMaxLevel()) {
             std::stringstream text;
             text << "LEVEL " << level;
             mNextLevelButton->setTitleText(text.str());

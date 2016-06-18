@@ -67,6 +67,8 @@ namespace flik
         
         bool isCompleted();
         
+        void reset();
+        
         
     private:
         std::map<ObjectiveType, int> mObjectiveProgress;

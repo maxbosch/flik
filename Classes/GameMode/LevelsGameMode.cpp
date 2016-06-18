@@ -64,6 +64,7 @@ namespace flik
             mProgress.incrementObjective(update.type, update.increment);
             
             if (mProgress.isCompleted()) {
+                LevelInfo::getInstance()->completeLevel(mLevelDesc->levelNum);
                 setGameState(GameState::Finished);
             }
             
@@ -80,6 +81,8 @@ namespace flik
     void LevelsGameMode::restartGame()
     {
         TimedGameMode::restartGame();
+        
+        mProgress.reset();
     }
     
     int LevelsGameMode::getTopScore()
