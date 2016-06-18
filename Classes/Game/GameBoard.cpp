@@ -55,7 +55,7 @@ namespace flik
             bool outsideBounds = !getParent()->getBoundingBox().intersectsRect(piece->getBoundingBox());
             if (outsideBounds) {
                 EventCustom eventObj(kPieceRemovedEvent);
-                eventObj.setUserData(this);
+                eventObj.setUserData(piece);
                 
                 getEventDispatcher()->dispatchEvent(&eventObj);
                 
@@ -69,7 +69,7 @@ namespace flik
         for (auto piece : this->getPieces()) {
             if (notify) {
                 EventCustom eventObj(kPieceRemovedEvent);
-                eventObj.setUserData(this);
+                eventObj.setUserData(piece);
                 
                 getEventDispatcher()->dispatchEvent(&eventObj);
             }

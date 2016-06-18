@@ -12,9 +12,17 @@
 
 namespace flik
 {
+    enum class ObjectiveType
+    {
+        CollectRedPiece,
+        CollectYellowPiece,
+        CollectPinkPiece,
+        CollectBluePiece
+    };
+    
     struct LevelObjective
     {
-        PieceType type;
+        ObjectiveType type;
         int quantity;
     };
     
@@ -22,6 +30,13 @@ namespace flik
     {
         std::vector<LevelObjective> objectives;
         int timeLimit;
+        int levelNum;
+    };
+    
+    struct ObjectiveIncrementUpdate
+    {
+        ObjectiveType type;
+        int increment;
     };
     
     class LevelInfo
@@ -30,15 +45,31 @@ namespace flik
         static LevelInfo* getInstance();
         
         bool isCompleted(int level);
-        const LevelDescription& getLevelDescription(int level);
+        const LevelDescription* getLevelDescription(int level);
         void completeLevel(int level);
         int getMaxLevelCompleted();
+        int getMaxLevel();
         
     private:
         LevelInfo();
         
-        void ParseLevels(const unsigned char* bytes);
+        void ParseLevels(const std::string& json);
         
         std::vector<LevelDescription> mLevels;
+    };
+    
+    class LevelProgress
+    {
+    public:
+        void setLevelDescription(const LevelDescription* levelDesc);
+        
+        void incrementObjective(ObjectiveType type, int count);
+        
+        bool isCompleted();
+        
+        
+    private:
+        std::map<ObjectiveType, int> mObjectiveProgress;
+        const LevelDescription* mLevelDesc;
     };
 }

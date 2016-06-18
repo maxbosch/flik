@@ -22,8 +22,6 @@ namespace flik
         mGameMode->setGameScene(this);
         mGameMode->onGameStateChanged = CC_CALLBACK_1(MainGameScene::onGameStateChanged, this);
         addChild(mGameMode);
-        
-        mGameMode->restartGame();
     }
     
     void MainGameScene::setGameHUD(GameHUD* hud)

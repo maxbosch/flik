@@ -15,6 +15,9 @@
 #include "MarathonGameMode.h"
 #include "TimedGameMode.h"
 #include "StoreScene.h"
+#include "LevelsGameMode.h"
+#include "LevelsGameHUD.h"
+#include "LevelTypes.h""
 
 USING_NS_CC;
 
@@ -46,7 +49,7 @@ namespace flik
             case GameModeType::Timed:
             {
                 auto gameMode = TimedGameMode::create();
-                gameMode->setGameTime(60);
+                gameMode->setGameTime(5);
                 gameScene = MainGameScene::create({gameMode, TimedGameHUD::create()});
                 break;
             }
@@ -54,6 +57,14 @@ namespace flik
             case GameModeType::Unlimited:
                 gameScene = MainGameScene::create({MarathonGameMode::create(), MainGameHUD::create()});
                 break;
+                
+            case GameModeType::Levels:
+            {
+                auto levelInfo = LevelInfo::getInstance();
+                auto levelDesc = levelInfo->getLevelDescription(levelInfo->getMaxLevelCompleted());
+                gameScene = MainGameScene::create({LevelsGameMode::create(levelDesc), LevelsGameHUD::create(levelDesc)});
+                break;
+            }
                 
             default:
                 break;

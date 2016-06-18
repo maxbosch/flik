@@ -9,13 +9,15 @@
 #pragma once
 
 #include "GameHUD.h"
+#include "ui/CocosGUI.h"
 
 namespace flik
 {
-    class GameOverWidget;
+    class DefaultGameOverOverlay;
     class MainGameScene;
     class MainGameHeader;
     class PauseOverlayWidget;
+    class GameObjectiveOverlay;
     
     class MainGameHUD : public GameHUD
     {
@@ -35,9 +37,14 @@ namespace flik
         GameBoard* getGameBoard();
         
     protected:
-        GameOverWidget* mGameOverScreen;
+        cocos2d::ui::Widget* mGameOverScreen;
         GameBoard* mGameBoard;
         MainGameHeader* mHeader;
         PauseOverlayWidget* mPauseOverlay;
+        GameObjectiveOverlay* mObjectiveOverlay;
+        
+        virtual GameObjectiveOverlay* createObjectiveOverlay();
+        virtual cocos2d::ui::Widget* createGameOverOverlay();
+        virtual void onShowGameOverScreen();
     };
 }

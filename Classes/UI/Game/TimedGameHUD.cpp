@@ -14,6 +14,7 @@
 #include "Literals.h"
 #include "Styles.h"
 #include "Util.h"
+#include "TextObjectiveOverlay.h"
 
 USING_NS_CC;
 
@@ -52,5 +53,10 @@ namespace flik
         auto gameMode = dynamic_cast<TimedGameMode*>(getGameScene()->getGameMode());
         auto ratio = gameMode->getTimeRemaining() / gameMode->getGameTime();
         mTimerBar->setContentSize(Size(getContentSize().width * ratio, mTimerBar->getContentSize().height));
+    }
+    
+    GameObjectiveOverlay* TimedGameHUD::createObjectiveOverlay()
+    {
+        return TextObjectiveOverlay::create("Timed Mode", "Score as many points as you can before time runs out");
     }
 }

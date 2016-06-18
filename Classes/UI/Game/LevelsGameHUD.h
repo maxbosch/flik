@@ -19,11 +19,16 @@ namespace flik
     class LevelsGameHUD : public TimedGameHUD
     {
     public:
-        static LevelsGameHUD* create(const LevelDescription& levelDesc);
+        static LevelsGameHUD* create(const LevelDescription* levelDesc);
         
-        bool init(const LevelDescription& levelDesc);
+        bool init(const LevelDescription* levelDesc);
+        
+        virtual GameObjectiveOverlay* createObjectiveOverlay();
         
     private:
-        LevelDescription mLevelDesc;
+        const LevelDescription* mLevelDesc;
+        
+        virtual cocos2d::ui::Widget* createGameOverOverlay();
+        virtual void onShowGameOverScreen();
     };
 }

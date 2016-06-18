@@ -67,6 +67,8 @@ namespace flik
         setPhysicsBody(physicsBody);
         mPhysicsBody = physicsBody;
         
+        mType = physicsBody->getCategoryBitmask();
+        
         this->scheduleUpdate();
 
         return true;

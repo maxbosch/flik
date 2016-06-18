@@ -17,6 +17,9 @@
 #include "PauseOverlayWidget.h"
 #include "MainGameHeader.h"
 #include "GameBoard.h"
+#include "TextObjectiveOverlay.h"
+#include "LevelObjectiveOverlay.h"
+#include "DefaultGameOverOverlay.h"
 
 #include <boost/lexical_cast.hpp>
 
@@ -66,18 +69,9 @@ namespace flik
         //header->setGlobalZOrder(2);
         mHeader = header;
         
-        mGameOverScreen = GameOverWidget::create();
-        mGameOverScreen->setContentSize(Size(uiSize.width - 20.0_dp, 120.0_dp));
-        mGameOverScreen->setBackGroundColor(Color3B(225, 225, 225));
-        mGameOverScreen->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
-        mGameOverScreen->onRestartClick = [this]() {
-            if (getGameScene()) {
-                getGameScene()->requestRestart();
-            }
-        };
+        mGameOverScreen = createGameOverOverlay();
         auto gameOverScreenLayout = ui::RelativeLayoutParameter::create();
-        gameOverScreenLayout->setMargin(ui::Margin(10.0_dp, 100.0_dp, 10.0_dp, 0));
-        gameOverScreenLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
+        gameOverScreenLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
         mGameOverScreen->setLayoutParameter(gameOverScreenLayout);
         mGameOverScreen->setVisible(false);
         addChild(mGameOverScreen, 3);
@@ -108,6 +102,22 @@ namespace flik
         addChild(pauseOverlay, 3);
         mPauseOverlay = pauseOverlay;
         
+        auto objectiveOverlay = createObjectiveOverlay();
+        auto objectiveOverlayLayout = ui::RelativeLayoutParameter::create();
+        objectiveOverlayLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
+        objectiveOverlay->setLayoutParameter(objectiveOverlayLayout);
+        addChild(objectiveOverlay, 3);
+        objectiveOverlay->onStartButtonTapped = [this]() {
+            if (getGameScene()) {
+                mObjectiveOverlay->setVisible(false);
+                getGameScene()->requestRestart();
+            }
+        };
+        objectiveOverlay->onExitButtonTapped = [this]() {
+            Director::getInstance()->popToRootScene();
+        };
+        mObjectiveOverlay = objectiveOverlay;
+        
         return true;
     }
     
@@ -127,6 +137,7 @@ namespace flik
     {
         switch (newState) {
             case GameState::Finished:
+                onShowGameOverScreen();
                 mGameOverScreen->setVisible(true);
                 break;
             case GameState::Paused:
@@ -136,5 +147,33 @@ namespace flik
                 mGameOverScreen->setVisible(false);
                 mPauseOverlay->setVisible(false);
         }
+    }
+    
+    GameObjectiveOverlay* MainGameHUD::createObjectiveOverlay()
+    {
+        return TextObjectiveOverlay::create("Unlimited Mode", "Score as many points as you can before the board fills up");
+    }
+    
+    ui::Widget* MainGameHUD::createGameOverOverlay()
+    {
+        auto gameOverOverlay = DefaultGameOverOverlay::create();
+        gameOverOverlay->onRestartTapped = [this]() {
+            if (getGameScene()) {
+                getGameScene()->requestRestart();
+            }
+        };
+        gameOverOverlay->onHomeTapped = [this]() {
+            Director::getInstance()->popToRootScene();
+        };
+        
+        return gameOverOverlay;
+    }
+    
+    void MainGameHUD::onShowGameOverScreen()
+    {
+        auto gameOverScreen = dynamic_cast<DefaultGameOverOverlay*>(mGameOverScreen);
+        gameOverScreen->setTitle("NICE JOB");
+        gameOverScreen->setTopScore(getGameScene()->getGameMode()->getTopScore());
+        gameOverScreen->setCurrentScore(Player::getMainPlayer()->getCurrentScore());
     }
 }

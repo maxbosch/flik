@@ -23,6 +23,8 @@ namespace flik
         
         void update(float time);
         
+        virtual GameObjectiveOverlay* createObjectiveOverlay();
+        
     protected:
         cocos2d::ui::Layout* mTimerBar;
     };

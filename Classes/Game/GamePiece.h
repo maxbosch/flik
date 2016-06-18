@@ -10,6 +10,7 @@
 
 #include "cocos2d.h"
 #include "VelocityTracker.h"
+#include "Physics.h"
 
 USING_NS_CC;
 
@@ -40,10 +41,13 @@ namespace flik
         
         Rect getTouchBoundingBox();
         
+        int getType() { return mType; }
+        
     private:
         
         EventListenerPhysicsContact* mContactListener;
         PhysicsBody* mPhysicsBody;
         MainGameScene* mGameScene;
+        int mType;
     };
 }

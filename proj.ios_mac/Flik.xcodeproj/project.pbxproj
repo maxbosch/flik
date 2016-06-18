@@ -31,6 +31,9 @@
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		5C05403BB2316A413887BF45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82184907863F3C226936A794 /* SystemConfiguration.framework */; };
+		66114ECC1D12D77A00B2C92B /* ObjectiveItemWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66114ECA1D12D77A00B2C92B /* ObjectiveItemWidget.cpp */; };
+		66114ECF1D12DB4900B2C92B /* ObjectiveDisplayWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66114ECD1D12DB4900B2C92B /* ObjectiveDisplayWidget.cpp */; };
+		66114ED21D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66114ED01D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp */; };
 		663894741D09AD9B0034892E /* GameOverWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6638945B1D09AD9B0034892E /* GameOverWidget.cpp */; };
 		663894751D09AD9B0034892E /* MainGameHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6638945D1D09AD9B0034892E /* MainGameHeader.cpp */; };
 		663894761D09AD9B0034892E /* MainGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6638945F1D09AD9B0034892E /* MainGameHUD.cpp */; };
@@ -80,12 +83,17 @@
 		66D655B01D10CC2100F1B6E8 /* LevelTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655AF1D10CC2100F1B6E8 /* LevelTypes.cpp */; };
 		66D655B31D10D58400F1B6E8 /* LevelsGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655B11D10D58400F1B6E8 /* LevelsGameHUD.cpp */; };
 		66D655B61D118E6400F1B6E8 /* GameObjectiveOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655B41D118E6400F1B6E8 /* GameObjectiveOverlay.cpp */; };
+		66D655BA1D12191500F1B6E8 /* TextObjectiveOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655B81D12191500F1B6E8 /* TextObjectiveOverlay.cpp */; };
 		66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
 		66DB287F1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
+		66E3457E1D1379120075CB46 /* levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 66E3457D1D1379120075CB46 /* levels.json */; };
 		66E3A6BD1D01C07100A3125C /* GameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6B61D01C07100A3125C /* GameMode.cpp */; };
 		66E3A6BE1D01C07100A3125C /* GameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6B61D01C07100A3125C /* GameMode.cpp */; };
 		66E3A6C51D01C08300A3125C /* MarathonGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6C31D01C08300A3125C /* MarathonGameMode.cpp */; };
 		66E3A6C61D01C08300A3125C /* MarathonGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E3A6C31D01C08300A3125C /* MarathonGameMode.cpp */; };
+		66E7E50E1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E50C1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp */; };
+		66E7E5111D158C6C007DE4B9 /* LevelGameOverOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E50F1D158C6C007DE4B9 /* LevelGameOverOverlay.cpp */; };
+		66E7E5141D1591A5007DE4B9 /* ScoreWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E5121D1591A5007DE4B9 /* ScoreWidget.cpp */; };
 		6E2B4283A69F3BC8F3DAFC4E /* sdkbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6142E7B2D12A44A021E034 /* sdkbox.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -181,6 +189,12 @@
 		5FFA4CFFB64615183C2B5DD7 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		60914756B5344F788670F9BD /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		653B48C1B5B985AED8C487F1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		66114ECA1D12D77A00B2C92B /* ObjectiveItemWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectiveItemWidget.cpp; sourceTree = "<group>"; };
+		66114ECB1D12D77A00B2C92B /* ObjectiveItemWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveItemWidget.h; sourceTree = "<group>"; };
+		66114ECD1D12DB4900B2C92B /* ObjectiveDisplayWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectiveDisplayWidget.cpp; sourceTree = "<group>"; };
+		66114ECE1D12DB4900B2C92B /* ObjectiveDisplayWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveDisplayWidget.h; sourceTree = "<group>"; };
+		66114ED01D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelObjectiveOverlay.cpp; sourceTree = "<group>"; };
+		66114ED11D12E1CA00B2C92B /* LevelObjectiveOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelObjectiveOverlay.h; sourceTree = "<group>"; };
 		6638945B1D09AD9B0034892E /* GameOverWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverWidget.cpp; sourceTree = "<group>"; };
 		6638945C1D09AD9B0034892E /* GameOverWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverWidget.h; sourceTree = "<group>"; };
 		6638945D1D09AD9B0034892E /* MainGameHeader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainGameHeader.cpp; sourceTree = "<group>"; };
@@ -258,12 +272,21 @@
 		66D655B21D10D58400F1B6E8 /* LevelsGameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelsGameHUD.h; sourceTree = "<group>"; };
 		66D655B41D118E6400F1B6E8 /* GameObjectiveOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameObjectiveOverlay.cpp; sourceTree = "<group>"; };
 		66D655B51D118E6400F1B6E8 /* GameObjectiveOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectiveOverlay.h; sourceTree = "<group>"; };
+		66D655B81D12191500F1B6E8 /* TextObjectiveOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextObjectiveOverlay.cpp; sourceTree = "<group>"; };
+		66D655B91D12191500F1B6E8 /* TextObjectiveOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextObjectiveOverlay.h; sourceTree = "<group>"; };
 		66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameHUD.cpp; sourceTree = "<group>"; };
 		66DB287D1D01CB4900E1E4C9 /* GameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHUD.h; sourceTree = "<group>"; };
+		66E3457D1D1379120075CB46 /* levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = levels.json; sourceTree = "<group>"; };
 		66E3A6B61D01C07100A3125C /* GameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameMode.cpp; sourceTree = "<group>"; };
 		66E3A6B71D01C07100A3125C /* GameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMode.h; sourceTree = "<group>"; };
 		66E3A6C31D01C08300A3125C /* MarathonGameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MarathonGameMode.cpp; sourceTree = "<group>"; };
 		66E3A6C41D01C08300A3125C /* MarathonGameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarathonGameMode.h; sourceTree = "<group>"; };
+		66E7E50C1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DefaultGameOverOverlay.cpp; sourceTree = "<group>"; };
+		66E7E50D1D158C58007DE4B9 /* DefaultGameOverOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultGameOverOverlay.h; sourceTree = "<group>"; };
+		66E7E50F1D158C6C007DE4B9 /* LevelGameOverOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelGameOverOverlay.cpp; sourceTree = "<group>"; };
+		66E7E5101D158C6C007DE4B9 /* LevelGameOverOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelGameOverOverlay.h; sourceTree = "<group>"; };
+		66E7E5121D1591A5007DE4B9 /* ScoreWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScoreWidget.cpp; sourceTree = "<group>"; };
+		66E7E5131D1591A5007DE4B9 /* ScoreWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreWidget.h; sourceTree = "<group>"; };
 		810B4AE3B28A43C3512A6E57 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
 		81AC4D62869B4D7554A55D6A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
 		82184907863F3C226936A794 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
@@ -433,6 +456,7 @@
 				665D9A181D070D060051A9C9 /* fonts */,
 				66442B281D0B83B100AC5983 /* string */,
 				66442B381D0CC9E100AC5983 /* sdkbox_config.json */,
+				66E3457D1D1379120075CB46 /* levels.json */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -518,6 +542,20 @@
 				66D655B21D10D58400F1B6E8 /* LevelsGameHUD.h */,
 				66D655B41D118E6400F1B6E8 /* GameObjectiveOverlay.cpp */,
 				66D655B51D118E6400F1B6E8 /* GameObjectiveOverlay.h */,
+				66D655B81D12191500F1B6E8 /* TextObjectiveOverlay.cpp */,
+				66D655B91D12191500F1B6E8 /* TextObjectiveOverlay.h */,
+				66114ECA1D12D77A00B2C92B /* ObjectiveItemWidget.cpp */,
+				66114ECB1D12D77A00B2C92B /* ObjectiveItemWidget.h */,
+				66114ECD1D12DB4900B2C92B /* ObjectiveDisplayWidget.cpp */,
+				66114ECE1D12DB4900B2C92B /* ObjectiveDisplayWidget.h */,
+				66114ED01D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp */,
+				66114ED11D12E1CA00B2C92B /* LevelObjectiveOverlay.h */,
+				66E7E50C1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp */,
+				66E7E50D1D158C58007DE4B9 /* DefaultGameOverOverlay.h */,
+				66E7E50F1D158C6C007DE4B9 /* LevelGameOverOverlay.cpp */,
+				66E7E5101D158C6C007DE4B9 /* LevelGameOverOverlay.h */,
+				66E7E5121D1591A5007DE4B9 /* ScoreWidget.cpp */,
+				66E7E5131D1591A5007DE4B9 /* ScoreWidget.h */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -690,6 +728,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = YK656P6CH5;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Flik" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -749,6 +792,7 @@
 				665D9A1B1D070D060051A9C9 /* 2x in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				666106FB1D0795A9004F6263 /* Images.xcassets in Resources */,
+				66E3457E1D1379120075CB46 /* levels.json in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -791,12 +835,14 @@
 			files = (
 				663894781D09AD9B0034892E /* PauseOverlayWidget.cpp in Sources */,
 				663894771D09AD9B0034892E /* PauseButtonsWidget.cpp in Sources */,
+				66E7E5111D158C6C007DE4B9 /* LevelGameOverOverlay.cpp in Sources */,
 				66D655B61D118E6400F1B6E8 /* GameObjectiveOverlay.cpp in Sources */,
 				663894741D09AD9B0034892E /* GameOverWidget.cpp in Sources */,
 				663894A01D09AEB60034892E /* Util.cpp in Sources */,
 				66442B2C1D0B84C100AC5983 /* LocalizedString.cpp in Sources */,
 				6638947C1D09AD9B0034892E /* MainMenuHeader.cpp in Sources */,
 				663894751D09AD9B0034892E /* MainGameHeader.cpp in Sources */,
+				66114ECF1D12DB4900B2C92B /* ObjectiveDisplayWidget.cpp in Sources */,
 				66A92EF21D0F81D8004F78D3 /* GameBoard.cpp in Sources */,
 				6638947D1D09AD9B0034892E /* MainMenuHUD.cpp in Sources */,
 				6638947A1D09AD9B0034892E /* MainMenuButtons.cpp in Sources */,
@@ -805,7 +851,9 @@
 				6638949D1D09AEB60034892E /* MainGameScene.cpp in Sources */,
 				6638949F1D09AEB60034892E /* Literals.cpp in Sources */,
 				6638949E1D09AEB60034892E /* MainMenuScene.cpp in Sources */,
+				66114ED21D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp in Sources */,
 				66E3A6C51D01C08300A3125C /* MarathonGameMode.cpp in Sources */,
+				66D655BA1D12191500F1B6E8 /* TextObjectiveOverlay.cpp in Sources */,
 				66D655B31D10D58400F1B6E8 /* LevelsGameHUD.cpp in Sources */,
 				66442B2F1D0B851600AC5983 /* StorePurchaseOverlay.cpp in Sources */,
 				663894791D09AD9B0034892E /* TimedGameHUD.cpp in Sources */,
@@ -819,10 +867,13 @@
 				66D655B01D10CC2100F1B6E8 /* LevelTypes.cpp in Sources */,
 				6638947E1D09AD9B0034892E /* PowerUpButton.cpp in Sources */,
 				6638949A1D09AEB60034892E /* GamePiece.cpp in Sources */,
+				66114ECC1D12D77A00B2C92B /* ObjectiveItemWidget.cpp in Sources */,
+				66E7E50E1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp in Sources */,
 				6638947B1D09AD9B0034892E /* MainMenuFooter.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				66442B3E1D0DD41900AC5983 /* AppDelegate.cpp in Sources */,
+				66E7E5141D1591A5007DE4B9 /* ScoreWidget.cpp in Sources */,
 				665D99ED1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */,
 				663894A41D09B0770034892E /* StoreScene.cpp in Sources */,
 				66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */,
@@ -864,6 +915,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -900,7 +952,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aeskreis.flik;
 				PRODUCT_NAME = Flik;
-				PROVISIONING_PROFILE = "6818b898-ee2e-4fdd-9ed4-7b71d23f36e3";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
@@ -914,7 +966,8 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -949,7 +1002,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aeskreis.flik;
 				PRODUCT_NAME = Flik;
-				PROVISIONING_PROFILE = "b133db70-e9c1-48c1-b272-327131a3572d";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";

@@ -1,0 +1,80 @@
+{
+	"levels": [
+		{
+			"time": 60,
+			"objectives": [
+				{
+					"type": "red",
+					"quantity": 5
+				},
+				{
+					"type": "blue",
+					"quantity": 5
+				},
+				{
+					"type": "pink",
+					"quantity": 5
+				},
+				{
+					"type": "yellow",
+					"quantity": 5
+                }
+			]
+		},
+		{
+			"time": 60,
+			"objectives": [
+				{
+					"type": "red",
+					"quantity": 8
+				},
+				{
+					"type": "blue",
+					"quantity": 8
+				},
+				{
+					"type": "pink",
+					"quantity": 8
+				},
+				{
+					"type": "yellow",
+					"quantity": 8
+				}
+			]
+		},
+		{
+			"time": 45,
+			"objectives": [
+				{
+					"type": "red",
+					"quantity": 5
+				},
+				{
+					"type": "blue",
+					"quantity": 5
+				},
+				{
+					"type": "pink",
+					"quantity": 5
+				},
+				{
+					"type": "yellow",
+					"quantity": 5
+				}
+			]
+		},
+		{
+			"time": 45,
+			"objectives": [
+				{
+					"type": "red",
+					"quantity": 10
+				},
+				{
+					"type": "blue",
+					"quantity": 10
+				}
+			]
+		}
+	]
+}

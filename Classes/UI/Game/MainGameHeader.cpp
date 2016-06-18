@@ -66,6 +66,8 @@ namespace flik
         addChild(scoreLabel);
         mScoreLabel = scoreLabel;
         
+        setScoreVisible(true);
+        
         return true;
     }
     

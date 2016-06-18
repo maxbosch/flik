@@ -27,7 +27,7 @@ namespace flik
         
         std::function<void(PowerUpType type)> onPowerUpTapped;
         
-        void setScoreVisible(bool hidden);
+        void setScoreVisible(bool visible);
         
     private:
         cocos2d::ui::Text* mScoreLabel;

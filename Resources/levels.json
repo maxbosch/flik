@@ -5,20 +5,20 @@
 			"objectives": [
 				{
 					"type": "red",
-					"quantity": 5
+					"quantity": 1
 				},
 				{
 					"type": "blue",
-					"quantity": 5
+					"quantity": 1
 				},
 				{
-					"type": "green",
-					"quantity": 5
+					"type": "pink",
+					"quantity": 1
 				},
 				{
 					"type": "yellow",
-					"quantity": 5
-				},
+					"quantity": 1
+                }
 			]
 		},
 		{
@@ -33,13 +33,13 @@
 					"quantity": 8
 				},
 				{
-					"type": "green",
+					"type": "pink",
 					"quantity": 8
 				},
 				{
 					"type": "yellow",
 					"quantity": 8
-				},
+				}
 			]
 		},
 		{
@@ -54,13 +54,13 @@
 					"quantity": 5
 				},
 				{
-					"type": "green",
+					"type": "pink",
 					"quantity": 5
 				},
 				{
 					"type": "yellow",
 					"quantity": 5
-				},
+				}
 			]
 		},
 		{
@@ -75,6 +75,6 @@
 					"quantity": 10
 				}
 			]
-		},
+		}
 	]
 }

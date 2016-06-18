@@ -17,12 +17,20 @@ namespace flik
     class LevelsGameMode : public TimedGameMode
     {
     public:
-        CREATE_FUNC(LevelsGameMode);
+        static LevelsGameMode* create(const LevelDescription* levelDesc);
+        
+        bool init(const LevelDescription* levelDesc);
         
         virtual void restartGame();
         
         virtual int getTopScore();
         
         virtual GameModeType getGameModeType();
+        
+        bool isObjectiveCompleted() { return mProgress.isCompleted(); }
+        
+    private:
+        const LevelDescription* mLevelDesc;
+        LevelProgress mProgress;
     };
 }

@@ -9,3 +9,4 @@
 #pragma once
 
 static const std::string kPieceRemovedEvent = "event_pieceRemoved";
+static const std::string kObjectiveUpdatedEvent = "event_objectiveUpdated";

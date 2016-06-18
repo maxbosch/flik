@@ -29,8 +29,8 @@ namespace flik
     
     LevelInfo::LevelInfo()
     {
-        auto fileInfo = FileUtils::getInstance()->getDataFromFile("levels.json");
-        ParseLevels(fileInfo.getBytes());
+        auto fileInfo = FileUtils::getInstance()->getStringFromFile("levels.json");
+        ParseLevels(fileInfo);
     }
     
     bool LevelInfo::isCompleted(int level)
@@ -40,7 +40,7 @@ namespace flik
     
     int LevelInfo::getMaxLevelCompleted()
     {
-        return UserDefault::getInstance()->getIntegerForKey(kMaxLevelCompleted.c_str(), 0);
+        return UserDefault::getInstance()->getIntegerForKey(kMaxLevelCompleted.c_str(), 1);
     }
     
     void LevelInfo::completeLevel(int level)
@@ -48,15 +48,15 @@ namespace flik
         return UserDefault::getInstance()->setIntegerForKey(kMaxLevelCompleted.c_str(), getMaxLevelCompleted() + 1);
     }
     
-    const LevelDescription& LevelInfo::getLevelDescription(int level)
+    const LevelDescription* LevelInfo::getLevelDescription(int level)
     {
-        return mLevels[level];
+        return &mLevels[level - 1];
     }
     
-    void LevelInfo::ParseLevels(const unsigned char* bytes)
+    void LevelInfo::ParseLevels(const std::string& json)
     {
         rapidjson::Document doc;
-        doc.Parse<0>((const char *)bytes);
+        doc.Parse<0>(json.c_str());
         if (doc.GetParseError() != rapidjson::ParseErrorCode::kParseErrorNone) {
             // Parse failed, uh oh
             return;
@@ -68,7 +68,8 @@ namespace flik
                 auto& level = levels[i];
                 
                 auto& levelObj = mLevels[i];
-                levelObj.timeLimit = level["time_limit"].GetInt();
+                levelObj.timeLimit = level["time"].GetInt();
+                levelObj.levelNum = i + 1;
                 
                 auto& objectives = level["objectives"];
                 if (objectives.IsArray()) {
@@ -82,17 +83,56 @@ namespace flik
                         
                         std::string type = objective["type"].GetString();
                         if (type == "red") {
-                            objectiveObj.type = PieceType::Red;
+                            objectiveObj.type = ObjectiveType::CollectRedPiece;
                         } else if (type == "blue") {
-                            objectiveObj.type = PieceType::Blue;
+                            objectiveObj.type = ObjectiveType::CollectBluePiece;
                         } else if (type == "pink") {
-                            objectiveObj.type = PieceType::Pink;
+                            objectiveObj.type = ObjectiveType::CollectPinkPiece;
                         } else if (type == "yellow") {
-                            objectiveObj.type = PieceType::Yellow;
+                            objectiveObj.type = ObjectiveType::CollectYellowPiece;
                         }
                     }
                 }
             }
         }
     }
+    
+    int LevelInfo::getMaxLevel() {
+        return mLevels.size();
+    }
+    
+    /** LevelProgress */
+    
+    void LevelProgress::setLevelDescription(const LevelDescription* levelDesc)
+    {
+        mLevelDesc = levelDesc;
+        
+        for (auto& objective : levelDesc->objectives) {
+            mObjectiveProgress[objective.type] = objective.quantity;
+        }
+    }
+    
+    bool LevelProgress::isCompleted()
+    {
+        bool done = true;
+        
+        for (auto& pair : mObjectiveProgress) {
+            if (pair.second > 0) {
+                done = false;
+                break;
+            }
+        }
+        
+        return done;
+    }
+    
+    void LevelProgress::incrementObjective(ObjectiveType type, int count)
+    {
+        auto pair = mObjectiveProgress.find(type);
+        if (pair != mObjectiveProgress.end()) {
+            pair->second -= count;
+        }
+    }
+    
+    
 }
