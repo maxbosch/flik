@@ -38,6 +38,10 @@ namespace flik
         double time = timeDiff.count();
         Vec2 distance = last.point - first.point;
         
-        mCurrentVelocity = distance / time;
+        if (distance.length() > 1) {
+            mCurrentVelocity = distance / time;
+        } else {
+            mCurrentVelocity = Vec2();
+        }
     }
 }

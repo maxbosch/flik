@@ -83,6 +83,17 @@ namespace flik
     {
         for (auto touch : touches) {
             auto pieces = this->getPieces();
+            pieces.erase(std::remove_if(pieces.begin(), pieces.end(), [this](GamePiece* piece) {
+                // Remove any pieces already selected
+                for (auto& selected : mSelectedPieces) {
+                    if (selected.piece == piece) {
+                        return true;
+                    }
+                }
+                
+                return false;
+            }), pieces.end());
+            
             for (auto piece = pieces.rbegin(); piece != pieces.rend(); piece++) {
                 if ((*piece)->getTouchBoundingBox().containsPoint(touch->getLocation())) {
                     bool found = false;
