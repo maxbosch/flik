@@ -4,40 +4,7 @@
 			"time": 60,
 			"objectives": [
 				{
-					"type": "red",
-					"quantity": 1
-				},
-				{
-					"type": "blue",
-					"quantity": 1
-				},
-				{
-					"type": "pink",
-					"quantity": 1
-				},
-				{
-					"type": "yellow",
-					"quantity": 1
-                }
-			]
-		},
-		{
-			"time": 60,
-			"objectives": [
-				{
-					"type": "red",
-					"quantity": 5
-				},
-				{
-					"type": "blue",
-					"quantity": 5
-				},
-				{
-					"type": "pink",
-					"quantity": 5
-				},
-				{
-					"type": "yellow",
+					"type": "collect",
 					"quantity": 5
 				}
 			]
@@ -46,20 +13,8 @@
 			"time": 60,
 			"objectives": [
 				{
-					"type": "red",
-					"quantity": 8
-				},
-				{
-					"type": "blue",
-					"quantity": 8
-				},
-				{
-					"type": "pink",
-					"quantity": 8
-				},
-				{
-					"type": "yellow",
-					"quantity": 8
+					"type": "collect",
+					"quantity": 20
 				}
 			]
 		},
@@ -67,41 +22,8 @@
 			"time": 60,
 			"objectives": [
 				{
-					"type": "red",
-					"quantity": 12
-				},
-				{
-					"type": "blue",
-					"quantity": 12
-				},
-				{
-					"type": "pink",
-					"quantity": 12
-				},
-				{
-					"type": "yellow",
-					"quantity": 12
-				}
-			]
-		},
-		{
-			"time": 60,
-			"objectives": [
-				{
-					"type": "red",
-					"quantity": 20
-				},
-				{
-					"type": "blue",
-					"quantity": 20
-				},
-				{
-					"type": "pink",
-					"quantity": 20
-				},
-				{
-					"type": "yellow",
-					"quantity": 20
+					"type": "collect",
+					"quantity": 50
 				}
 			]
 		}

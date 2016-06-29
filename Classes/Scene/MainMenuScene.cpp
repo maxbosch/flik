@@ -17,7 +17,9 @@
 #include "StoreScene.h"
 #include "LevelsGameMode.h"
 #include "LevelsGameHUD.h"
-#include "LevelTypes.h""
+#include "LevelTypes.h"
+#include "LevelSelectScene.h"
+#include "SceneManager.h"
 
 USING_NS_CC;
 
@@ -34,7 +36,7 @@ namespace flik
         hud->onGameModeSelected = CC_CALLBACK_1(MainMenuScene::onGameModeSelected, this);
         hud->onShowStoreTapped = []() {
             auto storeScene = StoreScene::create();
-            Director::getInstance()->pushScene(storeScene);
+            SceneManager::pushSceneWithTransition<TransitionSlideInB>(storeScene, kTransitionDuration);
         };
         addChild(hud);
         
@@ -43,13 +45,13 @@ namespace flik
     
     void MainMenuScene::onGameModeSelected(GameModeType type)
     {
-        MainGameScene* gameScene = nullptr;
+        Scene* gameScene = nullptr;
         
         switch (type) {
             case GameModeType::Timed:
             {
                 auto gameMode = TimedGameMode::create();
-                gameMode->setGameTime(5);
+                gameMode->setGameTime(60);
                 gameScene = MainGameScene::create({gameMode, TimedGameHUD::create()});
                 break;
             }
@@ -62,7 +64,8 @@ namespace flik
             {
                 auto levelInfo = LevelInfo::getInstance();
                 auto levelDesc = levelInfo->getLevelDescription(levelInfo->getMaxLevelCompleted());
-                gameScene = MainGameScene::create({LevelsGameMode::create(levelDesc), LevelsGameHUD::create(levelDesc)});
+                //gameScene = MainGameScene::create({LevelsGameMode::create(levelDesc), LevelsGameHUD::create(levelDesc)});
+                gameScene = LevelSelectScene::create();
                 break;
             }
                 
@@ -70,8 +73,9 @@ namespace flik
                 break;
         }
         
+        
         if (gameScene) {
-            Director::getInstance()->pushScene(gameScene);
+            SceneManager::pushSceneWithTransition<TransitionSlideInR>(gameScene, kTransitionDuration);
         }
     }
 }

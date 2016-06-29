@@ -17,6 +17,8 @@
 #include "MainGameScene.h"
 #include "PluginSdkboxPlay/PluginSdkboxPlay.h"
 #include "LevelsGameMode.h"
+#include "SceneManager.h"
+#include "Styles.h"
 
 namespace flik
 {
@@ -70,7 +72,7 @@ namespace flik
             }
         };
         gameOverOverlay->onHomeTapped = [this]() {
-            Director::getInstance()->popToRootScene();
+            SceneManager::popToRootSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
         };
         
         gameOverOverlay->onAchievementsTapped = [this]() {
@@ -81,7 +83,7 @@ namespace flik
             auto levelInfo = LevelInfo::getInstance();
             auto levelDesc = levelInfo->getLevelDescription(mLevelDesc->levelNum + 1);
             auto newScene = MainGameScene::create({LevelsGameMode::create(levelDesc), LevelsGameHUD::create(levelDesc)});
-            Director::getInstance()->pushScene(newScene);
+            SceneManager::replaceSceneWithTransition<TransitionSlideInR>(newScene, kTransitionDuration);
         };
         
         return gameOverOverlay;

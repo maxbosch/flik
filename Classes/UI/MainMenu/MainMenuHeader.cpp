@@ -8,6 +8,9 @@
 
 #include "MainMenuHeader.h"
 #include "Literals.h"
+#include "SettingsScene.h"
+#include "SceneManager.h"
+#include "Styles.h"
 
 #include "PluginSdkboxPlay/PluginSdkboxPlay.h"
 
@@ -55,6 +58,13 @@ namespace flik
         settingsButtonLayout->setMargin(ui::Margin(0, 20.0_dp, 12.5_dp, 0));
         settingsButton->setLayoutParameter(settingsButtonLayout);
         addChild(settingsButton);
+        
+        settingsButton->addTouchEventListener([this](Ref* sender, TouchEventType type) {
+            if (type == TouchEventType::ENDED) {
+                auto settingsScene = SettingsScene::create();
+                SceneManager::pushSceneWithTransition<TransitionSlideInR>(settingsScene, kTransitionDuration);
+            }
+        });
                 
         return true;
     }

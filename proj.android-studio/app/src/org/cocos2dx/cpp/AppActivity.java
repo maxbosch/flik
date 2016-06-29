@@ -23,7 +23,47 @@ THE SOFTWARE.
 ****************************************************************************/
 package org.cocos2dx.cpp;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+
+import com.aeskreis.flik.android.R;
+import com.crashlytics.android.Crashlytics;
+
 import org.cocos2dx.lib.Cocos2dxActivity;
 
+import io.fabric.sdk.android.Fabric;
+
 public class AppActivity extends Cocos2dxActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Load crashlytics
+        Fabric fabric = new Fabric.Builder(this).appInstallIdentifier(getPackageName()).debuggable(true).kits(new Crashlytics()).build();
+        Fabric.with(fabric);
+
+        Log.d("Activity", "Fabric loaded");
+    }
+
+    static void openURL(String url)
+    {
+        Intent urlIntent = new Intent(Intent.ACTION_VIEW);
+        urlIntent.setData(Uri.parse(url));
+        getContext().startActivity(urlIntent);
+    }
+
+    static void presentMailIntent(String toAddress, String subject, String body)
+    {
+        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", toAddress, null));
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, body);
+        getContext().startActivity(Intent.createChooser(intent, getContext().getString(R.string.email_us)));
+    }
+
+    static String getAppPackageName()
+    {
+        return getContext().getPackageName();
+    }
 }

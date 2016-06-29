@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Flik</string>
+    <string name="app_id">439505517884</string>
+    <string name="email_us">Email Us</string>
 </resources>

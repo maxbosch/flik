@@ -41,6 +41,7 @@ namespace flik
         
         auto backgroundImage = ui::Scale9Sprite::create(Rect(34.0_dp, 34.0_dp, 32.0_dp, 32.0_dp), "blue_border_9.png");
         backgroundImage->setAnchorPoint(Vec2());
+        backgroundImage->setContentSize(innerContainer->getContentSize());
         innerContainer->addChild(backgroundImage);
         
         auto titleLabel = ui::Text::create("", kDefaultFont, 18.0_dp);
@@ -54,7 +55,7 @@ namespace flik
         mTitleLabel = titleLabel;
         
         auto border1 = ui::HBox::create(Size(210.0_dp, 3.0_dp));
-        border1->setBackGroundColor(Util::getColorFromHex("2086E4"));
+        border1->setBackGroundColor(kBlueBorderColor);
         border1->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         auto borderLayout1 = ui::RelativeLayoutParameter::create();
         borderLayout1->setRelativeToWidgetName("title");
@@ -123,7 +124,6 @@ namespace flik
         
         innerContainer->forceDoLayout();
         //innerContainer->setContentSize(Size(305.0_dp, startButton->getBoundingBox().getMaxY() + 30.0_dp));
-        backgroundImage->setContentSize(innerContainer->getContentSize());
         
         return true;
     }

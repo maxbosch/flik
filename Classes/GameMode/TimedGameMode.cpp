@@ -33,9 +33,10 @@ namespace flik
         }
         
         auto pieceRemovedListener = EventListenerCustom::create(kPieceRemovedEvent, [this](EventCustom* event) {
-            Player::getMainPlayer()->addScore(1);
-
-            getGameScene()->spawnPiece(Util::getRandomPositionInRect(getGameScene()->getGameBoardBounds()));
+            if (getGameState() == GameState::InProgress) {
+                Player::getMainPlayer()->addScore(1);
+                getGameScene()->spawnPiece(Util::getRandomPositionInRect(getGameScene()->getGameBoardBounds()));
+            }
         });
         getEventDispatcher()->addEventListenerWithSceneGraphPriority(pieceRemovedListener, this);
         
@@ -80,11 +81,11 @@ namespace flik
     
     void TimedGameMode::setGameState(GameState newState)
     {
-        GameMode::setGameState(newState);
-        
         if (newState == GameState::Finished) {
             Player::getMainPlayer()->recordScore("timed");
         }
+        
+        GameMode::setGameState(newState);
     }
     
     int TimedGameMode::getTopScore()

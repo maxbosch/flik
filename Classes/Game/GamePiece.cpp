@@ -13,6 +13,7 @@
 #include "Player.h"
 #include "Events.h"
 #include "Literals.h"
+#include "SpawnRandomizer.h"
 
 USING_NS_CC;
 
@@ -50,7 +51,7 @@ namespace flik
         setAnchorPoint(Vec2(0.5, 0.5));
         ignoreAnchorPointForPosition(false);
         
-        auto randomId = cocos2d::random(0, 3);
+        auto randomId = SpawnRandomizer::getInstance()->getRandomId();
         auto sprite = Sprite::create(PieceSprites[randomId]);
         sprite->setAnchorPoint(Vec2(0, 0));
         //sprite->setGlobalZOrder(0);

@@ -12,6 +12,7 @@
 #include "Literals.h"
 #include "StorePurchaseOverlay.h"
 #include "Player.h"
+#include "SceneManager.h"
 
 USING_NS_CC;
 
@@ -94,7 +95,7 @@ namespace flik
                 if (mPurchaseOverlay->isVisible()) {
                     setPurchaseOverlayVisible(false);
                 } else {
-                    Director::getInstance()->popScene();
+                    SceneManager::popSceneWithTransition<TransitionSlideInT>(kTransitionDuration);
                 }
             }
         });

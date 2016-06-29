@@ -12,6 +12,7 @@
 #include "Literals.h"
 #include "Styles.h"
 #include "Util.h"
+#include "BlurredBackgroundWidget.h"
 USING_NS_CC;
 
 namespace flik
@@ -28,7 +29,10 @@ namespace flik
         
         auto uiSize = Director::getInstance()->getVisibleSize();
         setContentSize(uiSize);
+        //setBackGroundColor(Color3B::BLACK);
+        //setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         
+        //auto overlayBackground = BlurredBackgroundWidget::create();
         auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, 0.7 * 255), uiSize.width, uiSize.height);
         addChild(overlayBackground);
         
@@ -55,7 +59,7 @@ namespace flik
         borderLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
         
         auto border1 = ui::HBox::create(Size(210.0_dp, 3.0_dp));
-        border1->setBackGroundColor(Util::getColorFromHex("2086E4"));
+        border1->setBackGroundColor(kBlueBorderColor);
         border1->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         auto borderLayout1 = ui::LinearLayoutParameter::create();
         borderLayout1->setGravity(LinearGravity::CENTER_HORIZONTAL);
@@ -76,7 +80,7 @@ namespace flik
         innerContainer->addChild(objectiveWidget);
         
         auto border2 = ui::HBox::create(Size(210.0_dp, 3.0_dp));
-        border2->setBackGroundColor(Util::getColorFromHex("2086E4"));
+        border2->setBackGroundColor(kBlueBorderColor);
         border2->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         auto borderLayout2 = ui::LinearLayoutParameter::create();
         borderLayout2->setGravity(LinearGravity::CENTER_HORIZONTAL);

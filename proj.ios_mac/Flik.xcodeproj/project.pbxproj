@@ -54,6 +54,7 @@
 		663894A01D09AEB60034892E /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894951D09AEB60034892E /* Util.cpp */; };
 		663894A11D09AEB60034892E /* VelocityTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894971D09AEB60034892E /* VelocityTracker.cpp */; };
 		663894A41D09B0770034892E /* StoreScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894A21D09B0770034892E /* StoreScene.cpp */; };
+		663CC17D1D22B0FA00A423A1 /* PlatformUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663CC16C1D22048500A423A1 /* PlatformUtil.cpp */; };
 		66442B291D0B83B100AC5983 /* string in Resources */ = {isa = PBXBuildFile; fileRef = 66442B281D0B83B100AC5983 /* string */; };
 		66442B2C1D0B84C100AC5983 /* LocalizedString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66442B2A1D0B84C100AC5983 /* LocalizedString.cpp */; };
 		66442B2F1D0B851600AC5983 /* StorePurchaseOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66442B2D1D0B851600AC5983 /* StorePurchaseOverlay.cpp */; };
@@ -64,6 +65,9 @@
 		66442B3E1D0DD41900AC5983 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66442B3C1D0DD41900AC5983 /* AppDelegate.cpp */; };
 		66442B3F1D0DE7AF00AC5983 /* PluginSdkboxPlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 412342C0B9B05982BF6E2B64 /* PluginSdkboxPlay.framework */; };
 		66442B411D0DE7C800AC5983 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66442B401D0DE7C800AC5983 /* GameKit.framework */; };
+		6653CD8F1D1C230A00721B17 /* SettingsScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6653CD8D1D1C230A00721B17 /* SettingsScene.cpp */; };
+		6653CDA91D215DE400721B17 /* PlatformUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6653CDA81D215DE400721B17 /* PlatformUtil.mm */; };
+		6653CDAF1D2160B800721B17 /* FLIKMailComposePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6653CDAE1D2160B800721B17 /* FLIKMailComposePresenter.m */; };
 		665D99ED1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */; };
 		665D99EE1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */; };
 		665D9A191D070D060051A9C9 /* 1x in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A141D070D060051A9C9 /* 1x */; };
@@ -77,6 +81,10 @@
 		665D9A211D070D060051A9C9 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A181D070D060051A9C9 /* fonts */; };
 		665D9A221D070D060051A9C9 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A181D070D060051A9C9 /* fonts */; };
 		666106FB1D0795A9004F6263 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666106FA1D0795A9004F6263 /* Images.xcassets */; };
+		666EC0261D1A069500FE138F /* shaders in Resources */ = {isa = PBXBuildFile; fileRef = 666EC0251D1A069500FE138F /* shaders */; };
+		666EC0291D1A096600FE138F /* BlurredBackgroundWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666EC0271D1A096600FE138F /* BlurredBackgroundWidget.cpp */; };
+		667723511D18B0F800B1B74A /* LevelSelectRowWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6677234F1D18B0F800B1B74A /* LevelSelectRowWidget.cpp */; };
+		667723541D18BBF000B1B74A /* SpawnRandomizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 667723521D18BBF000B1B74A /* SpawnRandomizer.cpp */; };
 		66A92EF21D0F81D8004F78D3 /* GameBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A92EF01D0F81D8004F78D3 /* GameBoard.cpp */; };
 		66B92B721D0A3C6200DA1657 /* StoreProductWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */; };
 		66D655AD1D10C73100F1B6E8 /* LevelsGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655AB1D10C73100F1B6E8 /* LevelsGameMode.cpp */; };
@@ -84,6 +92,7 @@
 		66D655B31D10D58400F1B6E8 /* LevelsGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655B11D10D58400F1B6E8 /* LevelsGameHUD.cpp */; };
 		66D655B61D118E6400F1B6E8 /* GameObjectiveOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655B41D118E6400F1B6E8 /* GameObjectiveOverlay.cpp */; };
 		66D655BA1D12191500F1B6E8 /* TextObjectiveOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655B81D12191500F1B6E8 /* TextObjectiveOverlay.cpp */; };
+		66D84BE51D2351EC00BA4D53 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D84BE31D2351EC00BA4D53 /* SceneManager.cpp */; };
 		66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
 		66DB287F1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
 		66E3457E1D1379120075CB46 /* levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 66E3457D1D1379120075CB46 /* levels.json */; };
@@ -94,6 +103,8 @@
 		66E7E50E1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E50C1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp */; };
 		66E7E5111D158C6C007DE4B9 /* LevelGameOverOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E50F1D158C6C007DE4B9 /* LevelGameOverOverlay.cpp */; };
 		66E7E5141D1591A5007DE4B9 /* ScoreWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E5121D1591A5007DE4B9 /* ScoreWidget.cpp */; };
+		66E7E5171D182910007DE4B9 /* LevelSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E5151D182910007DE4B9 /* LevelSelectScene.cpp */; };
+		66E7E51A1D182A97007DE4B9 /* LevelSelectOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E5181D182A97007DE4B9 /* LevelSelectOverlay.cpp */; };
 		6E2B4283A69F3BC8F3DAFC4E /* sdkbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6142E7B2D12A44A021E034 /* sdkbox.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -138,6 +149,18 @@
 			remoteInfo = "cocos2dx iOS";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		663CC1741D22B0D600A423A1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00AD4E188182128A9468C42B /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/EventKitUI.framework; sourceTree = DEVELOPER_DIR; };
@@ -239,6 +262,8 @@
 		663894981D09AEB60034892E /* VelocityTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityTracker.h; sourceTree = "<group>"; };
 		663894A21D09B0770034892E /* StoreScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoreScene.cpp; sourceTree = "<group>"; };
 		663894A31D09B0770034892E /* StoreScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreScene.h; sourceTree = "<group>"; };
+		663CC16C1D22048500A423A1 /* PlatformUtil.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlatformUtil.cpp; sourceTree = "<group>"; };
+		663CC1761D22B0D600A423A1 /* Flik-androiddev */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Flik-androiddev"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66442B281D0B83B100AC5983 /* string */ = {isa = PBXFileReference; lastKnownFileType = folder; path = string; sourceTree = "<group>"; };
 		66442B2A1D0B84C100AC5983 /* LocalizedString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LocalizedString.cpp; sourceTree = "<group>"; };
 		66442B2B1D0B84C100AC5983 /* LocalizedString.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LocalizedString.hpp; sourceTree = "<group>"; };
@@ -252,6 +277,12 @@
 		66442B3C1D0DD41900AC5983 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		66442B3D1D0DD41900AC5983 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
 		66442B401D0DE7C800AC5983 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
+		6653CD8D1D1C230A00721B17 /* SettingsScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SettingsScene.cpp; sourceTree = "<group>"; };
+		6653CD8E1D1C230A00721B17 /* SettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsScene.h; sourceTree = "<group>"; };
+		6653CDA81D215DE400721B17 /* PlatformUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlatformUtil.mm; sourceTree = "<group>"; };
+		6653CDAA1D215DF500721B17 /* PlatformUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlatformUtil.h; sourceTree = "<group>"; };
+		6653CDAD1D2160B800721B17 /* FLIKMailComposePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLIKMailComposePresenter.h; sourceTree = "<group>"; };
+		6653CDAE1D2160B800721B17 /* FLIKMailComposePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLIKMailComposePresenter.m; sourceTree = "<group>"; };
 		665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimedGameMode.cpp; sourceTree = "<group>"; };
 		665D99EC1D05B4A40051A9C9 /* TimedGameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimedGameMode.h; sourceTree = "<group>"; };
 		665D9A141D070D060051A9C9 /* 1x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 1x; sourceTree = "<group>"; };
@@ -260,6 +291,13 @@
 		665D9A171D070D060051A9C9 /* 4x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 4x; sourceTree = "<group>"; };
 		665D9A181D070D060051A9C9 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		666106FA1D0795A9004F6263 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Flik-mobile/Images.xcassets"; sourceTree = SOURCE_ROOT; };
+		666EC0251D1A069500FE138F /* shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shaders; sourceTree = "<group>"; };
+		666EC0271D1A096600FE138F /* BlurredBackgroundWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlurredBackgroundWidget.cpp; sourceTree = "<group>"; };
+		666EC0281D1A096600FE138F /* BlurredBackgroundWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurredBackgroundWidget.h; sourceTree = "<group>"; };
+		6677234F1D18B0F800B1B74A /* LevelSelectRowWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelSelectRowWidget.cpp; sourceTree = "<group>"; };
+		667723501D18B0F800B1B74A /* LevelSelectRowWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectRowWidget.h; sourceTree = "<group>"; };
+		667723521D18BBF000B1B74A /* SpawnRandomizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpawnRandomizer.cpp; sourceTree = "<group>"; };
+		667723531D18BBF000B1B74A /* SpawnRandomizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpawnRandomizer.h; sourceTree = "<group>"; };
 		66A92EF01D0F81D8004F78D3 /* GameBoard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameBoard.cpp; sourceTree = "<group>"; };
 		66A92EF11D0F81D8004F78D3 /* GameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoard.h; sourceTree = "<group>"; };
 		66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoreProductWidget.cpp; sourceTree = "<group>"; };
@@ -274,6 +312,8 @@
 		66D655B51D118E6400F1B6E8 /* GameObjectiveOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectiveOverlay.h; sourceTree = "<group>"; };
 		66D655B81D12191500F1B6E8 /* TextObjectiveOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextObjectiveOverlay.cpp; sourceTree = "<group>"; };
 		66D655B91D12191500F1B6E8 /* TextObjectiveOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextObjectiveOverlay.h; sourceTree = "<group>"; };
+		66D84BE31D2351EC00BA4D53 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
+		66D84BE41D2351EC00BA4D53 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
 		66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameHUD.cpp; sourceTree = "<group>"; };
 		66DB287D1D01CB4900E1E4C9 /* GameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHUD.h; sourceTree = "<group>"; };
 		66E3457D1D1379120075CB46 /* levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = levels.json; sourceTree = "<group>"; };
@@ -287,6 +327,10 @@
 		66E7E5101D158C6C007DE4B9 /* LevelGameOverOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelGameOverOverlay.h; sourceTree = "<group>"; };
 		66E7E5121D1591A5007DE4B9 /* ScoreWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScoreWidget.cpp; sourceTree = "<group>"; };
 		66E7E5131D1591A5007DE4B9 /* ScoreWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreWidget.h; sourceTree = "<group>"; };
+		66E7E5151D182910007DE4B9 /* LevelSelectScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelSelectScene.cpp; sourceTree = "<group>"; };
+		66E7E5161D182910007DE4B9 /* LevelSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectScene.h; sourceTree = "<group>"; };
+		66E7E5181D182A97007DE4B9 /* LevelSelectOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelSelectOverlay.cpp; sourceTree = "<group>"; };
+		66E7E5191D182A97007DE4B9 /* LevelSelectOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectOverlay.h; sourceTree = "<group>"; };
 		810B4AE3B28A43C3512A6E57 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
 		81AC4D62869B4D7554A55D6A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
 		82184907863F3C226936A794 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
@@ -351,6 +395,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		663CC1731D22B0D600A423A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -374,6 +425,7 @@
 			children = (
 				1D6058910D05DD3D006BFB54 /* Flik.app */,
 				5087E76F17EB910900C73F5D /* Flik-desktop.app */,
+				663CC1761D22B0D600A423A1 /* Flik-androiddev */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -455,6 +507,7 @@
 				665D9A171D070D060051A9C9 /* 4x */,
 				665D9A181D070D060051A9C9 /* fonts */,
 				66442B281D0B83B100AC5983 /* string */,
+				666EC0251D1A069500FE138F /* shaders */,
 				66442B381D0CC9E100AC5983 /* sdkbox_config.json */,
 				66E3457D1D1379120075CB46 /* levels.json */,
 			);
@@ -470,6 +523,7 @@
 				66E3A6B51D01C07100A3125C /* GameMode */,
 				6638948D1D09AEB60034892E /* Scene */,
 				66E3A6B81D01C07100A3125C /* UI */,
+				6653CDA41D1CBBBC00721B17 /* Platform */,
 				663894921D09AEB60034892E /* Util */,
 			);
 			name = Classes;
@@ -556,6 +610,10 @@
 				66E7E5101D158C6C007DE4B9 /* LevelGameOverOverlay.h */,
 				66E7E5121D1591A5007DE4B9 /* ScoreWidget.cpp */,
 				66E7E5131D1591A5007DE4B9 /* ScoreWidget.h */,
+				66E7E5181D182A97007DE4B9 /* LevelSelectOverlay.cpp */,
+				66E7E5191D182A97007DE4B9 /* LevelSelectOverlay.h */,
+				6677234F1D18B0F800B1B74A /* LevelSelectRowWidget.cpp */,
+				667723501D18B0F800B1B74A /* LevelSelectRowWidget.h */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -593,6 +651,8 @@
 			children = (
 				663894721D09AD9B0034892E /* PowerUpButton.cpp */,
 				663894731D09AD9B0034892E /* PowerUpButton.h */,
+				666EC0271D1A096600FE138F /* BlurredBackgroundWidget.cpp */,
+				666EC0281D1A096600FE138F /* BlurredBackgroundWidget.h */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -634,6 +694,10 @@
 				663894911D09AEB60034892E /* MainMenuScene.h */,
 				663894A21D09B0770034892E /* StoreScene.cpp */,
 				663894A31D09B0770034892E /* StoreScene.h */,
+				66E7E5151D182910007DE4B9 /* LevelSelectScene.cpp */,
+				66E7E5161D182910007DE4B9 /* LevelSelectScene.h */,
+				6653CD8D1D1C230A00721B17 /* SettingsScene.cpp */,
+				6653CD8E1D1C230A00721B17 /* SettingsScene.h */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -649,8 +713,40 @@
 				663894981D09AEB60034892E /* VelocityTracker.h */,
 				66442B2A1D0B84C100AC5983 /* LocalizedString.cpp */,
 				66442B2B1D0B84C100AC5983 /* LocalizedString.hpp */,
+				6653CDAA1D215DF500721B17 /* PlatformUtil.h */,
+				667723521D18BBF000B1B74A /* SpawnRandomizer.cpp */,
+				667723531D18BBF000B1B74A /* SpawnRandomizer.h */,
+				66D84BE31D2351EC00BA4D53 /* SceneManager.cpp */,
+				66D84BE41D2351EC00BA4D53 /* SceneManager.h */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		663CC16B1D22047500A423A1 /* Android */ = {
+			isa = PBXGroup;
+			children = (
+				663CC16C1D22048500A423A1 /* PlatformUtil.cpp */,
+			);
+			path = Android;
+			sourceTree = "<group>";
+		};
+		6653CDA41D1CBBBC00721B17 /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				663CC16B1D22047500A423A1 /* Android */,
+				6653CDA61D1CBBBC00721B17 /* iOS */,
+			);
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		6653CDA61D1CBBBC00721B17 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6653CDA81D215DE400721B17 /* PlatformUtil.mm */,
+				6653CDAD1D2160B800721B17 /* FLIKMailComposePresenter.h */,
+				6653CDAE1D2160B800721B17 /* FLIKMailComposePresenter.m */,
+			);
+			path = iOS;
 			sourceTree = "<group>";
 		};
 		66E3A6B51D01C07100A3125C /* GameMode */ = {
@@ -721,16 +817,37 @@
 			productReference = 5087E76F17EB910900C73F5D /* Flik-desktop.app */;
 			productType = "com.apple.product-type.application";
 		};
+		663CC1751D22B0D600A423A1 /* Flik-androiddev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 663CC17A1D22B0D600A423A1 /* Build configuration list for PBXNativeTarget "Flik-androiddev" */;
+			buildPhases = (
+				663CC1721D22B0D600A423A1 /* Sources */,
+				663CC1731D22B0D600A423A1 /* Frameworks */,
+				663CC1741D22B0D600A423A1 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Flik-androiddev";
+			productName = "Flik-androiddev";
+			productReference = 663CC1761D22B0D600A423A1 /* Flik-androiddev */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0500;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = YK656P6CH5;
+					};
+					663CC1751D22B0D600A423A1 = {
+						CreatedOnToolsVersion = 7.3;
 					};
 				};
 			};
@@ -756,6 +873,7 @@
 			targets = (
 				1D6058900D05DD3D006BFB54 /* Flik-mobile */,
 				5087E73D17EB910900C73F5D /* Flik-desktop */,
+				663CC1751D22B0D600A423A1 /* Flik-androiddev */,
 			);
 		};
 /* End PBXProject section */
@@ -792,6 +910,7 @@
 				665D9A1B1D070D060051A9C9 /* 2x in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				666106FB1D0795A9004F6263 /* Images.xcassets in Resources */,
+				666EC0261D1A069500FE138F /* shaders in Resources */,
 				66E3457E1D1379120075CB46 /* levels.json in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 			);
@@ -833,6 +952,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6653CDA91D215DE400721B17 /* PlatformUtil.mm in Sources */,
 				663894781D09AD9B0034892E /* PauseOverlayWidget.cpp in Sources */,
 				663894771D09AD9B0034892E /* PauseButtonsWidget.cpp in Sources */,
 				66E7E5111D158C6C007DE4B9 /* LevelGameOverOverlay.cpp in Sources */,
@@ -840,15 +960,18 @@
 				663894741D09AD9B0034892E /* GameOverWidget.cpp in Sources */,
 				663894A01D09AEB60034892E /* Util.cpp in Sources */,
 				66442B2C1D0B84C100AC5983 /* LocalizedString.cpp in Sources */,
+				6653CDAF1D2160B800721B17 /* FLIKMailComposePresenter.m in Sources */,
 				6638947C1D09AD9B0034892E /* MainMenuHeader.cpp in Sources */,
 				663894751D09AD9B0034892E /* MainGameHeader.cpp in Sources */,
 				66114ECF1D12DB4900B2C92B /* ObjectiveDisplayWidget.cpp in Sources */,
 				66A92EF21D0F81D8004F78D3 /* GameBoard.cpp in Sources */,
 				6638947D1D09AD9B0034892E /* MainMenuHUD.cpp in Sources */,
+				66E7E5171D182910007DE4B9 /* LevelSelectScene.cpp in Sources */,
 				6638947A1D09AD9B0034892E /* MainMenuButtons.cpp in Sources */,
 				663894761D09AD9B0034892E /* MainGameHUD.cpp in Sources */,
 				6638949B1D09AEB60034892E /* Player.cpp in Sources */,
 				6638949D1D09AEB60034892E /* MainGameScene.cpp in Sources */,
+				66E7E51A1D182A97007DE4B9 /* LevelSelectOverlay.cpp in Sources */,
 				6638949F1D09AEB60034892E /* Literals.cpp in Sources */,
 				6638949E1D09AEB60034892E /* MainMenuScene.cpp in Sources */,
 				66114ED21D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp in Sources */,
@@ -866,11 +989,16 @@
 				663894A11D09AEB60034892E /* VelocityTracker.cpp in Sources */,
 				66D655B01D10CC2100F1B6E8 /* LevelTypes.cpp in Sources */,
 				6638947E1D09AD9B0034892E /* PowerUpButton.cpp in Sources */,
+				6653CD8F1D1C230A00721B17 /* SettingsScene.cpp in Sources */,
+				66D84BE51D2351EC00BA4D53 /* SceneManager.cpp in Sources */,
 				6638949A1D09AEB60034892E /* GamePiece.cpp in Sources */,
 				66114ECC1D12D77A00B2C92B /* ObjectiveItemWidget.cpp in Sources */,
 				66E7E50E1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp in Sources */,
 				6638947B1D09AD9B0034892E /* MainMenuFooter.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				666EC0291D1A096600FE138F /* BlurredBackgroundWidget.cpp in Sources */,
+				667723541D18BBF000B1B74A /* SpawnRandomizer.cpp in Sources */,
+				667723511D18B0F800B1B74A /* LevelSelectRowWidget.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				66442B3E1D0DD41900AC5983 /* AppDelegate.cpp in Sources */,
 				66E7E5141D1591A5007DE4B9 /* ScoreWidget.cpp in Sources */,
@@ -889,6 +1017,14 @@
 				66DB287F1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */,
 				66E3A6BE1D01C07100A3125C /* GameMode.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		663CC1721D22B0D600A423A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				663CC17D1D22B0FA00A423A1 /* PlatformUtil.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -914,6 +1050,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
@@ -941,6 +1078,7 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"\"sdkbox.framework\"",
 					"\"PluginAchievement.framework\"",
@@ -954,6 +1092,7 @@
 				PRODUCT_NAME = Flik;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
 				VALID_ARCHS = "arm64 armv7";
@@ -966,6 +1105,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
@@ -991,6 +1131,7 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"\"sdkbox.framework\"",
 					"\"PluginAchievement.framework\"",
@@ -1074,6 +1215,114 @@
 			};
 			name = Release;
 		};
+		663CC17B1D22B0D600A423A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../cocos2d",
+					"$(SRCROOT)/../cocos2d/cocos",
+					"$(SRCROOT)/../cocos2d/cocos/base",
+					"$(SRCROOT)/../cocos2d/cocos/physics",
+					"$(SRCROOT)/../cocos2d/cocos/math",
+					"$(SRCROOT)/../cocos2d/cocos/2d",
+					"$(SRCROOT)/../cocos2d/cocos/ui",
+					"$(SRCROOT)/../cocos2d/cocos/network",
+					"$(SRCROOT)/../cocos2d/cocos/audio/include",
+					"$(SRCROOT)/../cocos2d/cocos/editor-support",
+					"$(SRCROOT)/../cocos2d/extensions",
+					"$(SRCROOT)/../cocos2d/external",
+					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
+					/usr/local/include,
+					"$(SRCROOT)/../cocos2d/cocos/platform/android/jni",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		663CC17C1D22B0D600A423A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../cocos2d",
+					"$(SRCROOT)/../cocos2d/cocos",
+					"$(SRCROOT)/../cocos2d/cocos/base",
+					"$(SRCROOT)/../cocos2d/cocos/physics",
+					"$(SRCROOT)/../cocos2d/cocos/math",
+					"$(SRCROOT)/../cocos2d/cocos/2d",
+					"$(SRCROOT)/../cocos2d/cocos/ui",
+					"$(SRCROOT)/../cocos2d/cocos/network",
+					"$(SRCROOT)/../cocos2d/cocos/audio/include",
+					"$(SRCROOT)/../cocos2d/cocos/editor-support",
+					"$(SRCROOT)/../cocos2d/extensions",
+					"$(SRCROOT)/../cocos2d/external",
+					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
+					/usr/local/include,
+					"$(SRCROOT)/../cocos2d/cocos/platform/android/jni",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1154,6 +1403,15 @@
 			buildConfigurations = (
 				5087E76D17EB910900C73F5D /* Debug */,
 				5087E76E17EB910900C73F5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		663CC17A1D22B0D600A423A1 /* Build configuration list for PBXNativeTarget "Flik-androiddev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				663CC17B1D22B0D600A423A1 /* Debug */,
+				663CC17C1D22B0D600A423A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

@@ -6,6 +6,7 @@
 #include "MainGameHUD.h"
 #include "MainMenuScene.h"
 #include "Player.h"
+#include "SceneManager.h"
 
 #include "PluginSdkboxPlay/PluginSdkboxPlay.h"
 
@@ -100,7 +101,7 @@ namespace flik
         
         
         // run
-        director->runWithScene(level);
+        SceneManager::runWithScene(level);
         
         return true;
     }

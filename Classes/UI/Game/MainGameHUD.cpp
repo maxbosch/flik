@@ -20,6 +20,7 @@
 #include "TextObjectiveOverlay.h"
 #include "LevelObjectiveOverlay.h"
 #include "DefaultGameOverOverlay.h"
+#include "SceneManager.h"
 
 #include <boost/lexical_cast.hpp>
 
@@ -91,7 +92,7 @@ namespace flik
             getGameScene()->unpauseGame();
         };
         pauseOverlay->onHomeTapped = [this]() {
-            Director::getInstance()->popToRootScene();
+            SceneManager::popToRootSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
         };
         pauseOverlay->onRestartTapped = [this]() {
             getGameScene()->unpauseGame();
@@ -102,21 +103,26 @@ namespace flik
         addChild(pauseOverlay, 3);
         mPauseOverlay = pauseOverlay;
         
-        auto objectiveOverlay = createObjectiveOverlay();
-        auto objectiveOverlayLayout = ui::RelativeLayoutParameter::create();
-        objectiveOverlayLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
-        objectiveOverlay->setLayoutParameter(objectiveOverlayLayout);
-        addChild(objectiveOverlay, 3);
-        objectiveOverlay->onStartButtonTapped = [this]() {
-            if (getGameScene()) {
-                mObjectiveOverlay->setVisible(false);
-                getGameScene()->requestRestart();
-            }
-        };
-        objectiveOverlay->onExitButtonTapped = [this]() {
-            Director::getInstance()->popToRootScene();
-        };
-        mObjectiveOverlay = objectiveOverlay;
+        scheduleOnce([this](float time) {
+            auto objectiveOverlay = createObjectiveOverlay();
+            auto objectiveOverlayLayout = ui::RelativeLayoutParameter::create();
+            objectiveOverlayLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
+            objectiveOverlay->setLayoutParameter(objectiveOverlayLayout);
+            addChild(objectiveOverlay, 3);
+            objectiveOverlay->onStartButtonTapped = [this]() {
+                if (getGameScene()) {
+                    mObjectiveOverlay->setVisible(false);
+                    getGameScene()->requestRestart();
+                }
+            };
+            objectiveOverlay->onExitButtonTapped = [this]() {
+                SceneManager::popSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
+            };
+            objectiveOverlay->setVisible(false);
+            mObjectiveOverlay = objectiveOverlay;
+
+            mObjectiveOverlay->setVisible(true);
+        }, Director::getInstance()->getAnimationInterval(), "show_objective");
         
         return true;
     }
@@ -163,7 +169,7 @@ namespace flik
             }
         };
         gameOverOverlay->onHomeTapped = [this]() {
-            Director::getInstance()->popToRootScene();
+            SceneManager::popToRootSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
         };
         
         return gameOverOverlay;

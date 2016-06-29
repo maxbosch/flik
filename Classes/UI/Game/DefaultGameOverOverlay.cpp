@@ -55,7 +55,7 @@ namespace flik
         mTitleLabel = titleLabel;
         
         auto border1 = ui::HBox::create(Size(210.0_dp, 3.0_dp));
-        border1->setBackGroundColor(Util::getColorFromHex("2086E4"));
+        border1->setBackGroundColor(kBlueBorderColor);
         border1->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         auto borderLayout1 = ui::RelativeLayoutParameter::create();
         borderLayout1->setRelativeToWidgetName("title");

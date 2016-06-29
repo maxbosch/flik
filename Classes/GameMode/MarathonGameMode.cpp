@@ -26,8 +26,10 @@ namespace flik {
             return false;
         }
         
-        auto pieceRemovedListener = EventListenerCustom::create(kPieceRemovedEvent, [](EventCustom* event) {
-            Player::getMainPlayer()->addScore(1);
+        auto pieceRemovedListener = EventListenerCustom::create(kPieceRemovedEvent, [this](EventCustom* event) {
+            if (getGameState() == GameState::InProgress) {
+                Player::getMainPlayer()->addScore(1);
+            }
         });
         getEventDispatcher()->addEventListenerWithSceneGraphPriority(pieceRemovedListener, this);
         
@@ -111,11 +113,11 @@ namespace flik {
     
     void MarathonGameMode::setGameState(GameState newState)
     {
-        GameMode::setGameState(newState);
-        
         if (newState == GameState::Finished) {
             Player::getMainPlayer()->recordScore("marathon");
         }
+        
+        GameMode::setGameState(newState);
     }
     
     int MarathonGameMode::getTopScore()

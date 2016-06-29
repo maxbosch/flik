@@ -12,13 +12,7 @@ LOCAL_MODULE := cocos2dcpp_shared
 
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
-FILE_LIST := $(shell \
-find \
-$(LOCAL_PATH)/../../../Classes/ \
--type \
-f \
--name \
-*.cpp)
+FILE_LIST := $(shell find $(LOCAL_PATH)/../../../Classes/ -type f -name *.cpp -not -path "../../../Classes/Platform/iOS/*")
 #echo $FILE_LIST
 #LOCAL_SRC_FILES
 
