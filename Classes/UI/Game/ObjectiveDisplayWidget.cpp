@@ -16,17 +16,11 @@ USING_NS_CC;
 namespace flik
 {
     static std::map<ObjectiveType, std::string> kObjectiveImages {
-        std::pair<ObjectiveType, std::string>(ObjectiveType::CollectRedPiece, "objective_collect_red_piece.png"),
-        std::pair<ObjectiveType, std::string>(ObjectiveType::CollectBluePiece, "objective_collect_blue_piece.png"),
-        std::pair<ObjectiveType, std::string>(ObjectiveType::CollectPinkPiece, "objective_collect_pink_piece.png"),
-        std::pair<ObjectiveType, std::string>(ObjectiveType::CollectYellowPiece, "objective_collect_yellow_piece.png")
+        std::pair<ObjectiveType, std::string>(ObjectiveType::CollectPiece, "objective_collect_red_piece.png")
     };
     
     static std::map<ObjectiveType, std::string> kObjectiveCompletedImages {
-        std::pair<ObjectiveType, std::string>(ObjectiveType::CollectRedPiece, "objective_collect_red_piece_complete.png"),
-        std::pair<ObjectiveType, std::string>(ObjectiveType::CollectBluePiece, "objective_collect_blue_piece_complete.png"),
-        std::pair<ObjectiveType, std::string>(ObjectiveType::CollectPinkPiece, "objective_collect_pink_piece_complete.png"),
-        std::pair<ObjectiveType, std::string>(ObjectiveType::CollectYellowPiece, "objective_collect_yellow_piece_complete.png")
+        std::pair<ObjectiveType, std::string>(ObjectiveType::CollectPiece, "objective_collect_red_piece_complete.png")
     };
     
     ObjectiveDisplayWidget* ObjectiveDisplayWidget::create(const std::vector<LevelObjective>& objectives)

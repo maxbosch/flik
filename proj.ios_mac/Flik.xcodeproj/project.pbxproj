@@ -92,6 +92,9 @@
 		66D655B31D10D58400F1B6E8 /* LevelsGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655B11D10D58400F1B6E8 /* LevelsGameHUD.cpp */; };
 		66D655B61D118E6400F1B6E8 /* GameObjectiveOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655B41D118E6400F1B6E8 /* GameObjectiveOverlay.cpp */; };
 		66D655BA1D12191500F1B6E8 /* TextObjectiveOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655B81D12191500F1B6E8 /* TextObjectiveOverlay.cpp */; };
+		66D7CF731D249CC70000DE33 /* TutorialGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D7CF711D249CC70000DE33 /* TutorialGameMode.cpp */; };
+		66D7CF791D24A2950000DE33 /* TutorialGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D7CF771D24A2950000DE33 /* TutorialGameHUD.cpp */; };
+		66D7CF801D26B3DB0000DE33 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D7CF7C1D26B3DB0000DE33 /* Animation.cpp */; };
 		66D84BE51D2351EC00BA4D53 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D84BE31D2351EC00BA4D53 /* SceneManager.cpp */; };
 		66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
 		66DB287F1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
@@ -312,6 +315,14 @@
 		66D655B51D118E6400F1B6E8 /* GameObjectiveOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObjectiveOverlay.h; sourceTree = "<group>"; };
 		66D655B81D12191500F1B6E8 /* TextObjectiveOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextObjectiveOverlay.cpp; sourceTree = "<group>"; };
 		66D655B91D12191500F1B6E8 /* TextObjectiveOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextObjectiveOverlay.h; sourceTree = "<group>"; };
+		66D7CF711D249CC70000DE33 /* TutorialGameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TutorialGameMode.cpp; sourceTree = "<group>"; };
+		66D7CF721D249CC70000DE33 /* TutorialGameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialGameMode.h; sourceTree = "<group>"; };
+		66D7CF771D24A2950000DE33 /* TutorialGameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TutorialGameHUD.cpp; sourceTree = "<group>"; };
+		66D7CF781D24A2950000DE33 /* TutorialGameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialGameHUD.h; sourceTree = "<group>"; };
+		66D7CF7C1D26B3DB0000DE33 /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animation.cpp; sourceTree = "<group>"; };
+		66D7CF7D1D26B3DB0000DE33 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
+		66D7CF7E1D26B3DB0000DE33 /* Interpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interpolator.h; sourceTree = "<group>"; };
+		66D7CF7F1D26B3DB0000DE33 /* ValueAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueAnimation.h; sourceTree = "<group>"; };
 		66D84BE31D2351EC00BA4D53 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
 		66D84BE41D2351EC00BA4D53 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
 		66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameHUD.cpp; sourceTree = "<group>"; };
@@ -336,6 +347,7 @@
 		82184907863F3C226936A794 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AE6142E7B2D12A44A021E034 /* sdkbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = sdkbox.framework; sourceTree = SOURCE_ROOT; };
+		AF7B48E78461F0E96925226C /* PluginIAP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PluginIAP.framework; sourceTree = SOURCE_ROOT; };
 		B06B46FF85927504D48D3C51 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = DEVELOPER_DIR; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -493,6 +505,7 @@
 				60914756B5344F788670F9BD /* GameController.framework */,
 				0B9B4430841AE332641B6E1A /* MediaPlayer.framework */,
 				5FFA4CFFB64615183C2B5DD7 /* GameKit.framework */,
+				AF7B48E78461F0E96925226C /* PluginIAP.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -518,6 +531,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				66D7CF7B1D26B3DB0000DE33 /* Animation */,
 				6638947F1D09AEB60034892E /* Core */,
 				663894861D09AEB60034892E /* Game */,
 				66E3A6B51D01C07100A3125C /* GameMode */,
@@ -614,6 +628,8 @@
 				66E7E5191D182A97007DE4B9 /* LevelSelectOverlay.h */,
 				6677234F1D18B0F800B1B74A /* LevelSelectRowWidget.cpp */,
 				667723501D18B0F800B1B74A /* LevelSelectRowWidget.h */,
+				66D7CF771D24A2950000DE33 /* TutorialGameHUD.cpp */,
+				66D7CF781D24A2950000DE33 /* TutorialGameHUD.h */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -749,6 +765,17 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
+		66D7CF7B1D26B3DB0000DE33 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				66D7CF7C1D26B3DB0000DE33 /* Animation.cpp */,
+				66D7CF7D1D26B3DB0000DE33 /* Animation.h */,
+				66D7CF7E1D26B3DB0000DE33 /* Interpolator.h */,
+				66D7CF7F1D26B3DB0000DE33 /* ValueAnimation.h */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		66E3A6B51D01C07100A3125C /* GameMode */ = {
 			isa = PBXGroup;
 			children = (
@@ -760,6 +787,8 @@
 				66E3A6C41D01C08300A3125C /* MarathonGameMode.h */,
 				665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */,
 				665D99EC1D05B4A40051A9C9 /* TimedGameMode.h */,
+				66D7CF711D249CC70000DE33 /* TutorialGameMode.cpp */,
+				66D7CF721D249CC70000DE33 /* TutorialGameMode.h */,
 			);
 			path = GameMode;
 			sourceTree = "<group>";
@@ -980,6 +1009,7 @@
 				66D655B31D10D58400F1B6E8 /* LevelsGameHUD.cpp in Sources */,
 				66442B2F1D0B851600AC5983 /* StorePurchaseOverlay.cpp in Sources */,
 				663894791D09AD9B0034892E /* TimedGameHUD.cpp in Sources */,
+				66D7CF791D24A2950000DE33 /* TutorialGameHUD.cpp in Sources */,
 				66D655AD1D10C73100F1B6E8 /* LevelsGameMode.cpp in Sources */,
 				6638949C1D09AEB60034892E /* SideRailNode.cpp in Sources */,
 				66442B321D0B89DE00AC5983 /* StorePurchaseOptionWidget.cpp in Sources */,
@@ -988,6 +1018,8 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				663894A11D09AEB60034892E /* VelocityTracker.cpp in Sources */,
 				66D655B01D10CC2100F1B6E8 /* LevelTypes.cpp in Sources */,
+				66D7CF731D249CC70000DE33 /* TutorialGameMode.cpp in Sources */,
+				66D7CF801D26B3DB0000DE33 /* Animation.cpp in Sources */,
 				6638947E1D09AD9B0034892E /* PowerUpButton.cpp in Sources */,
 				6653CD8F1D1C230A00721B17 /* SettingsScene.cpp in Sources */,
 				66D84BE51D2351EC00BA4D53 /* SceneManager.cpp in Sources */,

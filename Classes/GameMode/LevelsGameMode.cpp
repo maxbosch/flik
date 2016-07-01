@@ -38,26 +38,7 @@ namespace flik
             auto piece = reinterpret_cast<GamePiece*>(event->getUserData());
             
             ObjectiveIncrementUpdate update;
-            switch (piece->getType()) {
-                case collision::RedPiece:
-                    update.type = ObjectiveType::CollectRedPiece;
-                    break;
-                    
-                case collision::BluePiece:
-                    update.type = ObjectiveType::CollectBluePiece;
-                    break;
-                    
-                case collision::YellowPiece:
-                    update.type = ObjectiveType::CollectYellowPiece;
-                    break;
-                    
-                case collision::PinkPiece:
-                    update.type = ObjectiveType::CollectPinkPiece;
-                    break;
-                    
-                default:
-                    break;
-            }
+            update.type = ObjectiveType::CollectPiece;
             
             update.increment = 1;
             

@@ -82,14 +82,8 @@ namespace flik
                         objectiveObj.quantity = objective["quantity"].GetInt();
                         
                         std::string type = objective["type"].GetString();
-                        if (type == "red") {
-                            objectiveObj.type = ObjectiveType::CollectRedPiece;
-                        } else if (type == "blue") {
-                            objectiveObj.type = ObjectiveType::CollectBluePiece;
-                        } else if (type == "pink") {
-                            objectiveObj.type = ObjectiveType::CollectPinkPiece;
-                        } else if (type == "yellow") {
-                            objectiveObj.type = ObjectiveType::CollectYellowPiece;
+                        if (type == "collect") {
+                            objectiveObj.type = ObjectiveType::CollectPiece;
                         }
                     }
                 }
@@ -98,7 +92,7 @@ namespace flik
     }
     
     int LevelInfo::getMaxLevel() {
-        return mLevels.size();
+        return (int) mLevels.size();
     }
     
     /** LevelProgress */

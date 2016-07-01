@@ -26,7 +26,7 @@ namespace flik
         piece(_piece), startLocation(_startLocation) {}
     };
     
-    class GameBoard : public cocos2d::ui::Layout
+    class GameBoard : public cocos2d::ui::RelativeBox
     {
     public:
         CREATE_FUNC(GameBoard);

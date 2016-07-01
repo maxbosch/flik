@@ -20,7 +20,7 @@ namespace flik
     
     bool GameBoard::init()
     {
-        if (!Node::init())
+        if (!RelativeBox::init())
         {
             return false;
         }

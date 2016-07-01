@@ -129,10 +129,10 @@ namespace flik
         return mSideRails->getInnerBoundingBox();
     }
     
-    void MainGameScene::spawnPiece(const Vec2& position)
+    void MainGameScene::spawnPiece(const Vec2& position, GamePieceType pieceType)
     {
         if (mGameBoard) {
-            auto piece = GamePiece::create(position);
+            auto piece = GamePiece::create(position, pieceType);
             piece->setGameScene(this);
             mGameBoard->addPiece(piece);
         }

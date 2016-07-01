@@ -7,6 +7,8 @@
 #include "MainMenuScene.h"
 #include "Player.h"
 #include "SceneManager.h"
+#include "TutorialGameMode.h"
+#include "TutorialGameHUD.h"
 
 #include "PluginSdkboxPlay/PluginSdkboxPlay.h"
 
@@ -97,7 +99,11 @@ namespace flik
             player->addPowerUp(PowerUpType::Target, 5);
         }*/
         
-        auto level = MainMenuScene::create();
+        //auto level = MainMenuScene::create();
+        LevelParams params;
+        params.hud = TutorialGameHUD::create();
+        params.mode = TutorialGameMode::create();
+        auto level = MainGameScene::create(params);
         
         
         // run

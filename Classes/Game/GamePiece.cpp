@@ -14,6 +14,7 @@
 #include "Events.h"
 #include "Literals.h"
 #include "SpawnRandomizer.h"
+#include "Util.h"
 
 USING_NS_CC;
 
@@ -30,16 +31,12 @@ namespace flik
     
     static const float kVelocityEpsilon = 20.0f;
     
-    GamePiece* GamePiece::create(const cocos2d::Vec2& position)
+    GamePiece* GamePiece::create(const cocos2d::Vec2& position, GamePieceType pieceType)
     {
-        auto obj = create();
-        if (obj) {
-            obj->setPosition(position);
-        }
-        return obj;
+        return createWithParams<GamePiece>(position, pieceType);
     }
     
-    bool GamePiece::init()
+    bool GamePiece::init(const Vec2& position, GamePieceType pieceType)
     {
         if (!Node::init())
         {
@@ -48,11 +45,15 @@ namespace flik
         
         //setGlobalZOrder(0);
         setContentSize(Size(50.0_dp, 50.0_dp));
+        setPosition(position);
         setAnchorPoint(Vec2(0.5, 0.5));
         ignoreAnchorPointForPosition(false);
         
-        auto randomId = SpawnRandomizer::getInstance()->getRandomId();
-        auto sprite = Sprite::create(PieceSprites[randomId]);
+        if (pieceType == GamePieceType::RandomPiece) {
+            pieceType = (GamePieceType) SpawnRandomizer::getInstance()->getRandomId();
+        }
+        
+        auto sprite = Sprite::create(PieceSprites[(int)pieceType]);
         sprite->setAnchorPoint(Vec2(0, 0));
         //sprite->setGlobalZOrder(0);
         
@@ -62,15 +63,16 @@ namespace flik
         physicsBody->setGravityEnable(false);
         physicsBody->setRotationEnable(false);
 
-        physicsBody->setCollisionBitmask(collision::PieceCollisionMasks[randomId]);
-        physicsBody->setContactTestBitmask(collision::PieceContactMasks[randomId]);
-        physicsBody->setCategoryBitmask(collision::PieceCategoryMasks[randomId]);
+        physicsBody->setCollisionBitmask(collision::PieceCollisionMasks[(int)pieceType]);
+        physicsBody->setContactTestBitmask(collision::PieceContactMasks[(int)pieceType]);
+        physicsBody->setCategoryBitmask(collision::PieceCategoryMasks[(int)pieceType]);
         setPhysicsBody(physicsBody);
         mPhysicsBody = physicsBody;
         
         mType = physicsBody->getCategoryBitmask();
         
         this->scheduleUpdate();
+        
 
         return true;
     }

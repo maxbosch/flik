@@ -27,8 +27,6 @@ namespace flik
             return false;
         }
         
-        
-        
         auto uiSize = Director::getInstance()->getVisibleSize();
         setContentSize(Size(uiSize.width, 70.0_dp));
         setBackGroundColor(Color3B::BLACK);

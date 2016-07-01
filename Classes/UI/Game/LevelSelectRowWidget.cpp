@@ -47,10 +47,10 @@ namespace flik
         addChild(levelStatusContainer);
         
         std::string imageName = "level_locked.png";
-        if (levelInfo->getMaxLevelCompleted() == level - 1) {
+        if (levelInfo->getMaxLevelCompleted() == level) {
             imageName = "level_current.png";
             levelText->setColor(Util::getColorFromHex("FACC89"));
-        } else if (levelInfo->getMaxLevelCompleted() > level - 1) {
+        } else if (levelInfo->getMaxLevelCompleted() > level) {
             imageName = "level_complete.png";
             levelText->setColor(Util::getColorFromHex("FF00A1"));
         }

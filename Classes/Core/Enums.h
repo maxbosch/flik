@@ -14,12 +14,31 @@ namespace flik
     {
         Unlimited,
         Timed,
-        Levels
+        Levels,
+        Tutorial
     };
     
     enum class PowerUpType
     {
         Timestop,
         Target
+    };
+    
+    enum class TutorialArrowPosition
+    {
+        TopLeft,
+        TopRight,
+        BottomLeft,
+        BottomRight,
+        Hidden
+    };
+    
+    enum class GamePieceType
+    {
+        RedPiece,
+        BluePiece,
+        PinkPiece,
+        YellowPiece,
+        RandomPiece
     };
 }

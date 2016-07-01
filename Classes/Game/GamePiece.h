@@ -11,6 +11,7 @@
 #include "cocos2d.h"
 #include "VelocityTracker.h"
 #include "Physics.h"
+#include "Enums.h"
 
 USING_NS_CC;
 
@@ -22,13 +23,12 @@ namespace flik
     class GamePiece : public Node
     {
     public:
-        CREATE_FUNC(GamePiece);
         
         static const int Tag = 0xF0F0;
         
-        static GamePiece* create(const Vec2& position);
+        static GamePiece* create(const Vec2& position, GamePieceType pieceType = GamePieceType::RandomPiece);
         
-        bool init();
+        bool init(const Vec2& position, GamePieceType pieceType);
         
         bool onContactBegin(PhysicsContact& contact);
         void onPostContactSolve(PhysicsContact& contact, const PhysicsContactPostSolve& solve);

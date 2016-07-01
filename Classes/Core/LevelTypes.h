@@ -14,10 +14,7 @@ namespace flik
 {
     enum class ObjectiveType
     {
-        CollectRedPiece,
-        CollectYellowPiece,
-        CollectPinkPiece,
-        CollectBluePiece
+        CollectPiece
     };
     
     struct LevelObjective

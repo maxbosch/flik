@@ -12,7 +12,16 @@ LOCAL_MODULE := cocos2dcpp_shared
 
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
-FILE_LIST := $(shell find $(LOCAL_PATH)/../../../Classes/ -type f -name *.cpp -not -path "../../../Classes/Platform/iOS/*")
+FILE_LIST := $(shell \
+find \
+$(LOCAL_PATH)/../../../Classes/ \
+-type \
+f \
+-name \
+*.cpp \
+-not \
+-path \
+"../../../Classes/Platform/iOS/*")
 #echo $FILE_LIST
 #LOCAL_SRC_FILES
 
@@ -32,7 +41,8 @@ LOCAL_C_INCLUDES += /usr/local/include
 LOCAL_WHOLE_STATIC_LIBRARIES := PluginAchievement \
 sdkbox \
 android_native_app_glue \
-PluginSdkboxPlay
+PluginSdkboxPlay \
+PluginIAP
 
 # _COCOS_HEADER_ANDROID_BEGIN
 # _COCOS_HEADER_ANDROID_END
@@ -49,6 +59,7 @@ $(call import-module,.)
 $(call import-module, ./sdkbox)
 $(call import-module, ./pluginachievement)
 $(call import-module, ./pluginsdkboxplay)
+$(call import-module, ./pluginiap)
 
 # _COCOS_LIB_IMPORT_ANDROID_BEGIN
 # _COCOS_LIB_IMPORT_ANDROID_END

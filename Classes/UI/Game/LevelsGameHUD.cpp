@@ -83,7 +83,7 @@ namespace flik
             auto levelInfo = LevelInfo::getInstance();
             auto levelDesc = levelInfo->getLevelDescription(mLevelDesc->levelNum + 1);
             auto newScene = MainGameScene::create({LevelsGameMode::create(levelDesc), LevelsGameHUD::create(levelDesc)});
-            SceneManager::replaceSceneWithTransition<TransitionSlideInR>(newScene, kTransitionDuration);
+            SceneManager::replaceSceneWithTransition<TransitionMoveInR>(newScene, kTransitionDuration);
         };
         
         return gameOverOverlay;

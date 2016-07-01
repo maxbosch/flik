@@ -2,6 +2,7 @@
 
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
+#include "Enums.h"
 
 namespace flik
 {
@@ -30,7 +31,7 @@ namespace flik
         
         void update(float delta);
         void requestRestart();
-        void spawnPiece(const cocos2d::Vec2& position);
+        void spawnPiece(const cocos2d::Vec2& position, GamePieceType pieceType = GamePieceType::RandomPiece);
         void clearPieces();
         int getPiecesCount();
         
@@ -39,8 +40,9 @@ namespace flik
         
         void setGameMode(GameMode* gameMode);
         GameMode* getGameMode() { return mGameMode; }
-        
+    
         void setGameHUD(GameHUD* hud);
+        GameHUD* getGameHUD() { return mGameHUD; }
         
         void pauseGame();
         void unpauseGame();
