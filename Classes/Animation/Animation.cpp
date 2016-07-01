@@ -50,11 +50,15 @@ namespace flik
             bool finished = linearT >= 1.0;
             if (this->IsFinished() || finished)
             {
-                this->End();
                 linearT = 1.0;
             }
             double curvedT = mInterpolator->Interpolate(linearT);
             this->Animate(curvedT);
+            
+            if (this->IsFinished() || finished)
+            {
+                this->End();
+            }
         }
     }
 }

@@ -20,6 +20,23 @@ USING_NS_CC;
 
 namespace flik
 {
+    struct TutorialTextInterpolator : public Interpolator
+    {
+        float factor = 0.25;
+        float multiplier = 1.0f / factor;
+        
+        float operator()(float t)
+        {
+            if (t < factor) {
+                return t * multiplier;
+            } else if (t > (1.0 - factor)) {
+                return ((1.0f - t) * multiplier);
+            }
+            
+            return 1.0f;
+        }
+    };
+    
     using RelativeAlign = ui::RelativeLayoutParameter::RelativeAlign;
     
     bool TutorialGameHUD::init()
@@ -127,45 +144,49 @@ namespace flik
         }
     }
     
+    void TutorialGameHUD::update(float t)
+    {
+        if (mTextAnimation) {
+            if (mTextAnimation->IsFinished()) {
+                mTextAnimation = nullptr;
+            } else {
+                mTextAnimation->Update(t);
+            }
+        }
+    }
+    
     void TutorialGameHUD::executeTutorialIntroAnimation()
     {
         mTutorialText->setString("Welcome to Flik!\nHow about a quick tutorial first?");
         mTutorialText->setOpacity(0);
         
-        auto tutorialTextFade = std::shared_ptr<ValueAnimationf>(new ValueAnimationf(0, 1, [this](const ValueAnimationf* animator, const float t) {
+        mTextAnimation = std::shared_ptr<ValueAnimationf>(new ValueAnimationf(0, 255, [this](const ValueAnimationf* animator, const float t) {
             mTutorialText->setOpacity(t);
         }));
-        tutorialTextFade->SetCompletion([this, tutorialTextFade](Animation* completed) {
+        mTextAnimation->SetCompletion([this](Animation* completed) {
             mTutorialText->setString("Move the piece to\n its matching color");
+            mTutorialText->setOpacity(255);
             mArrow->setVisible(true);
             getGameScene()->requestRestart();
         });
-        tutorialTextFade->SetDuration(1.0);
-        tutorialTextFade->Start();
+        mTextAnimation->SetDuration(3.0);
+        mTextAnimation->SetInterpolationFunction(std::unique_ptr<TutorialTextInterpolator>(new TutorialTextInterpolator()));
+        mTextAnimation->Start();
     }
     
     void TutorialGameHUD::executeTutorialExitAnimation()
     {
-        /*mTutorialText->setString("Awesome!\n Now for a real challenge...");
+        mTutorialText->setString("Awesome!\n Now for a real challenge...");
         mTutorialText->setOpacity(0);
         
-        auto tutorialTextFadeIn = std::unique_ptr<ValueAnimationf>(new ValueAnimationf(0, 1, [this](const ValueAnimationf* animator, const float t) {
+        mTextAnimation = std::shared_ptr<ValueAnimationf>(new ValueAnimationf(0, 255, [this](const ValueAnimationf* animator, const float t) {
             mTutorialText->setOpacity(t);
         }));
-        tutorialTextFadeIn->SetCompletion([this](Animation* completed) {
-            scheduleOnce([this](float t) {
-                auto tutorialTextFadeOut = std::unique_ptr<ValueAnimationf>(new ValueAnimationf(1, 0, [this](const ValueAnimationf* animator, const float t) {
-                    mTutorialText->setOpacity(t);
-                }));
-                tutorialTextFadeOut->SetDuration(1.0);
-                tutorialTextFadeOut->SetCompletion([this](Animation* completed) {
-                    SceneManager::replaceSceneWithTransition<TransitionSlideInR>(MainMenuScene::create(), kTransitionDuration);
-                });
-                tutorialTextFadeOut->Start();
-            }, 2.0, "text_fade_timer");
-            
+        mTextAnimation->SetCompletion([this](Animation* completed) {
+            SceneManager::replaceSceneWithTransition<TransitionSlideInR>(MainMenuScene::create(), kTransitionDuration);
         });
-        tutorialTextFadeIn->SetDuration(1.0);
-        tutorialTextFadeIn->Start();*/
+        mTextAnimation->SetDuration(3.0);
+        mTextAnimation->SetInterpolationFunction(std::unique_ptr<TutorialTextInterpolator>(new TutorialTextInterpolator()));
+        mTextAnimation->Start();
     }
 }
