@@ -13,6 +13,8 @@
 #include "Styles.h"
 #include "Util.h"
 #include "BlurredBackgroundWidget.h"
+#include "Animations.h"
+
 USING_NS_CC;
 
 namespace flik
@@ -121,6 +123,13 @@ namespace flik
                 onExitButtonTapped();
             }
         });
+        
+        innerContainer->setAnchorPoint(Vec2(0.5, 0.5));
+        innerContainer->setScale(0);
+        
+        Animations::animate(kTransitionDuration, [innerContainer](float t) {
+            innerContainer->setScale(t);
+        }, nullptr, OvershootCurve);
         
         return true;
     }

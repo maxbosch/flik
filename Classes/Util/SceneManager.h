@@ -12,6 +12,8 @@
 
 #include "cocos2d.h"
 
+#include "Animations.h"
+
 USING_NS_CC;
 
 namespace flik
@@ -24,6 +26,8 @@ namespace flik
             sSceneStack.push(scene);
             
             Director::getInstance()->runWithScene(scene);
+            
+            Animations::onSceneChanged(scene);
         }
         
         static void pushScene(Scene* scene)
@@ -31,6 +35,8 @@ namespace flik
             sSceneStack.push(scene);
             
             Director::getInstance()->pushScene(scene);
+            
+            Animations::onSceneChanged(scene);
         }
         
         template <typename T>
@@ -39,13 +45,23 @@ namespace flik
             sSceneStack.push(scene);
             
             Director::getInstance()->pushScene(T::create(duration, scene));
+            
+            Animations::onSceneChanged(scene);
         }
         
         static void popScene()
         {
             sSceneStack.pop();
+            if (sSceneStack.size() == 0) {
+                Director::getInstance()->end();
+                return;
+            }
             
-            Director::getInstance()->popScene();
+            auto backScene = sSceneStack.top();
+            
+            Director::getInstance()->replaceScene(backScene);
+            
+            Animations::onSceneChanged(backScene);
         }
         
         template <typename T>
@@ -60,6 +76,8 @@ namespace flik
             auto backScene = sSceneStack.top();
             
             Director::getInstance()->replaceScene(T::create(duration, backScene));
+            
+            Animations::onSceneChanged(backScene);
         }
         
         static void replaceScene(Scene* scene)
@@ -68,6 +86,8 @@ namespace flik
             sSceneStack.push(scene);
             
             Director::getInstance()->replaceScene(scene);
+            
+            Animations::onSceneChanged(scene);
         }
         
         template <typename T>
@@ -77,11 +97,20 @@ namespace flik
             sSceneStack.push(scene);
             
             Director::getInstance()->replaceScene(T::create(duration, scene));
+            
+            Animations::onSceneChanged(scene);
         }
         
         static void popToRootScene()
         {
-            Director::getInstance()->popToRootScene();
+            while (sSceneStack.size() > 1) {
+                sSceneStack.pop();
+            }
+            
+            auto backScene = sSceneStack.top();
+            Director::getInstance()->replaceScene(backScene);
+            
+            Animations::onSceneChanged(backScene);
         }
         
         template <typename T>
@@ -93,6 +122,16 @@ namespace flik
             
             auto backScene = sSceneStack.top();
             Director::getInstance()->replaceScene(T::create(duration, backScene));
+            
+            Animations::onSceneChanged(backScene);
+        }
+        
+        static Scene* getActiveScene() {
+            if (sSceneStack.size() > 0) {
+                return sSceneStack.top();
+            }
+            
+            return nullptr;
         }
         
     private:

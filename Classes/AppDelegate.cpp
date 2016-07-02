@@ -84,27 +84,18 @@ namespace flik
         
         FileUtils::getInstance()->setSearchResolutionsOrder(resFolders);
         
-        // create a scene. it's an autorelease object
-//        auto level = MainGameScene::create();
-//        level->setGameMode(MarathonGameMode::create());
-//        level->setGameHUD(MainGameHUD::create());
-        //level->setGameMode(TimedGameMode::createWithTime(10));
-        //level->setGameHUD(TimedGameHUD::create());
+        Scene* level;
         
-        /*auto player = Player::getMainPlayer();
-        if (player->getPowerUpCount(PowerUpType::Timestop) == 0) {
-            player->addPowerUp(PowerUpType::Timestop, 5);
+        if (UserDefault::getInstance()->getBoolForKey("installed")) {
+            level = MainMenuScene::create();
+        } else {
+            LevelParams params;
+            params.hud = TutorialGameHUD::create();
+            params.mode = TutorialGameMode::create();
+            level = MainGameScene::create(params);
+            
+            UserDefault::getInstance()->setBoolForKey("installed", true);
         }
-        if (player->getPowerUpCount(PowerUpType::Target) == 0) {
-            player->addPowerUp(PowerUpType::Target, 5);
-        }*/
-        
-        //auto level = MainMenuScene::create();
-        LevelParams params;
-        params.hud = TutorialGameHUD::create();
-        params.mode = TutorialGameMode::create();
-        auto level = MainGameScene::create(params);
-        
         
         // run
         SceneManager::runWithScene(level);

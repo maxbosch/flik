@@ -24,7 +24,8 @@ namespace flik
             return false;
         }
         
-        setContentSize(Size(305.0_dp, 475.0_dp));
+        setAnchorPoint(Vec2(0.5, 0.5));
+        setContentSize(Size(325.0_dp, 475.0_dp));
         setBackGroundColor(Color3B::BLACK);
         setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         

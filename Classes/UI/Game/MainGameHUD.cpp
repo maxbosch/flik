@@ -21,6 +21,7 @@
 #include "LevelObjectiveOverlay.h"
 #include "DefaultGameOverOverlay.h"
 #include "SceneManager.h"
+#include "Animations.h"
 
 #include <boost/lexical_cast.hpp>
 
@@ -122,7 +123,8 @@ namespace flik
             mObjectiveOverlay = objectiveOverlay;
 
             mObjectiveOverlay->setVisible(true);
-        }, Director::getInstance()->getAnimationInterval(), "show_objective");
+            
+        }, kTransitionDuration, "show_objective");
         
         return true;
     }

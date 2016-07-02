@@ -26,7 +26,7 @@ namespace flik
         void update(float seconds);
     
     private:
-        void setPurchaseOverlayVisible(bool visible);
+        void setPurchaseOverlayVisible(bool visible, bool animated = true);
         void onProductPurchaseRequested(PowerUpType type, int cost, int quantity);
         
         StorePurchaseOverlay* mPurchaseOverlay;

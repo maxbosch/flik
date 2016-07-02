@@ -94,7 +94,7 @@
 		66D655BA1D12191500F1B6E8 /* TextObjectiveOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655B81D12191500F1B6E8 /* TextObjectiveOverlay.cpp */; };
 		66D7CF731D249CC70000DE33 /* TutorialGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D7CF711D249CC70000DE33 /* TutorialGameMode.cpp */; };
 		66D7CF791D24A2950000DE33 /* TutorialGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D7CF771D24A2950000DE33 /* TutorialGameHUD.cpp */; };
-		66D7CF801D26B3DB0000DE33 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D7CF7C1D26B3DB0000DE33 /* Animation.cpp */; };
+		66D7CF851D270C0D0000DE33 /* Animations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D7CF831D270C0D0000DE33 /* Animations.cpp */; };
 		66D84BE51D2351EC00BA4D53 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D84BE31D2351EC00BA4D53 /* SceneManager.cpp */; };
 		66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
 		66DB287F1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
@@ -319,10 +319,8 @@
 		66D7CF721D249CC70000DE33 /* TutorialGameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialGameMode.h; sourceTree = "<group>"; };
 		66D7CF771D24A2950000DE33 /* TutorialGameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TutorialGameHUD.cpp; sourceTree = "<group>"; };
 		66D7CF781D24A2950000DE33 /* TutorialGameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialGameHUD.h; sourceTree = "<group>"; };
-		66D7CF7C1D26B3DB0000DE33 /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animation.cpp; sourceTree = "<group>"; };
-		66D7CF7D1D26B3DB0000DE33 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
-		66D7CF7E1D26B3DB0000DE33 /* Interpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interpolator.h; sourceTree = "<group>"; };
-		66D7CF7F1D26B3DB0000DE33 /* ValueAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueAnimation.h; sourceTree = "<group>"; };
+		66D7CF831D270C0D0000DE33 /* Animations.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animations.cpp; sourceTree = "<group>"; };
+		66D7CF841D270C0D0000DE33 /* Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animations.h; sourceTree = "<group>"; };
 		66D84BE31D2351EC00BA4D53 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
 		66D84BE41D2351EC00BA4D53 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
 		66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameHUD.cpp; sourceTree = "<group>"; };
@@ -768,10 +766,8 @@
 		66D7CF7B1D26B3DB0000DE33 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				66D7CF7C1D26B3DB0000DE33 /* Animation.cpp */,
-				66D7CF7D1D26B3DB0000DE33 /* Animation.h */,
-				66D7CF7E1D26B3DB0000DE33 /* Interpolator.h */,
-				66D7CF7F1D26B3DB0000DE33 /* ValueAnimation.h */,
+				66D7CF831D270C0D0000DE33 /* Animations.cpp */,
+				66D7CF841D270C0D0000DE33 /* Animations.h */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -1016,10 +1012,10 @@
 				66E3A6BD1D01C07100A3125C /* GameMode.cpp in Sources */,
 				66B92B721D0A3C6200DA1657 /* StoreProductWidget.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				66D7CF851D270C0D0000DE33 /* Animations.cpp in Sources */,
 				663894A11D09AEB60034892E /* VelocityTracker.cpp in Sources */,
 				66D655B01D10CC2100F1B6E8 /* LevelTypes.cpp in Sources */,
 				66D7CF731D249CC70000DE33 /* TutorialGameMode.cpp in Sources */,
-				66D7CF801D26B3DB0000DE33 /* Animation.cpp in Sources */,
 				6638947E1D09AD9B0034892E /* PowerUpButton.cpp in Sources */,
 				6653CD8F1D1C230A00721B17 /* SettingsScene.cpp in Sources */,
 				66D84BE51D2351EC00BA4D53 /* SceneManager.cpp in Sources */,

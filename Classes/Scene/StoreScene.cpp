@@ -13,6 +13,7 @@
 #include "StorePurchaseOverlay.h"
 #include "Player.h"
 #include "SceneManager.h"
+#include "Animations.h"
 
 USING_NS_CC;
 
@@ -107,7 +108,7 @@ namespace flik
         storePurchaseOverlay->setLayoutParameter(storePurchaseOverlayLayout);
         storeGUI->addChild(storePurchaseOverlay);
         mPurchaseOverlay = storePurchaseOverlay;
-        setPurchaseOverlayVisible(false);
+        setPurchaseOverlayVisible(false, false);
         
         timeStopProduct->onProductPurchaseRequested = CC_CALLBACK_3(StoreScene::onProductPurchaseRequested, this);
         targetProduct->onProductPurchaseRequested = CC_CALLBACK_3(StoreScene::onProductPurchaseRequested, this);
@@ -130,10 +131,26 @@ namespace flik
         mPointsButton->getTitleRenderer()->setString(boost::lexical_cast<std::string>(Player::getMainPlayer()->getCurrencyAmount()));
     }
     
-    void StoreScene::setPurchaseOverlayVisible(bool visible)
+    void StoreScene::setPurchaseOverlayVisible(bool visible, bool animated)
     {
-        mPurchaseOverlay->setVisible(visible);
-        mProductsContainer->setVisible(!visible);
+        if (animated) {
+            if (visible) {
+                mPurchaseOverlay->setVisible(true);
+                mPurchaseOverlay->setScale(0);
+                Animations::animate(kTransitionDuration, [this](float t) {
+                    mPurchaseOverlay->setScale(t);
+                }, nullptr, OvershootCurve);
+            } else {
+                mPurchaseOverlay->setScale(1);
+                Animations::animate(0.2, [this](float t) {
+                    mPurchaseOverlay->setScale(1.0 - t);
+                }, [this](bool finished) {
+                    mPurchaseOverlay->setVisible(false);
+                });
+            }
+        } else {
+            mPurchaseOverlay->setVisible(visible);
+        }
         
         if (visible) {
             mCloseButton->loadTextureNormal("red_x_close.png");
