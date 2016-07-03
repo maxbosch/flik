@@ -104,7 +104,25 @@ namespace flik
             {
                 sdkbox::PluginSdkboxPlay::unlockAchievement("play_timed_game_1");
                 sdkbox::PluginSdkboxPlay::incrementAchievement("play_timed_game_5", 20);
+                sdkbox::PluginSdkboxPlay::incrementAchievement("play_timed_game_20", 5);
                 sdkbox::PluginSdkboxPlay::submitScore("score_timed", score);
+                
+                if (score >= 25) {
+                    sdkbox::PluginSdkboxPlay::unlockAchievement("score_timed_25");
+                }
+                
+                if (score >= 50) {
+                    sdkbox::PluginSdkboxPlay::unlockAchievement("score_timed_50");
+                }
+                
+                if (score >= 75) {
+                    sdkbox::PluginSdkboxPlay::unlockAchievement("score_timed_75");
+                }
+                
+                if (score >= 100) {
+                    sdkbox::PluginSdkboxPlay::unlockAchievement("score_timed_100");
+                }
+                
                 break;
             }
                 
@@ -112,7 +130,25 @@ namespace flik
             {
                 sdkbox::PluginSdkboxPlay::unlockAchievement("play_unlimited_game_1");
                 sdkbox::PluginSdkboxPlay::incrementAchievement("play_unlimited_game_5", 20);
+                sdkbox::PluginSdkboxPlay::incrementAchievement("play_unlimited_game_20", 5);
                 sdkbox::PluginSdkboxPlay::submitScore("score_unlimited", score);
+                
+                if (score >= 50) {
+                    sdkbox::PluginSdkboxPlay::unlockAchievement("score_unlimited_50");
+                }
+                
+                if (score >= 100) {
+                    sdkbox::PluginSdkboxPlay::unlockAchievement("score_unlimited_100");
+                }
+                
+                if (score >= 150) {
+                    sdkbox::PluginSdkboxPlay::unlockAchievement("score_unlimited_150");
+                }
+                
+                if (score >= 200) {
+                    sdkbox::PluginSdkboxPlay::unlockAchievement("score_unlimited_200");
+                }
+                
                 break;
             }
  

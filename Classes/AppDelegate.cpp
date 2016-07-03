@@ -10,6 +10,7 @@
 #include "TutorialGameMode.h"
 #include "TutorialGameHUD.h"
 
+#include "sdkbox/Sdkbox.h"
 #include "PluginSdkboxPlay/PluginSdkboxPlay.h"
 
 USING_NS_CC;
@@ -36,6 +37,12 @@ namespace flik
     }
     
     bool AppDelegate::applicationDidFinishLaunching() {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+        sdkbox::init("f3c8fed09ca10e38e27b888cb9fe7261", "78e4d540c0a089d6");
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+        sdkbox::init("d372d757b12f6fdfc4972504a8dbe5ab", "3618e189567712b3", "googleplay");
+#endif
+        
         // initialize director
         auto director = Director::getInstance();
         auto size = director->getVisibleSize();
