@@ -94,6 +94,9 @@
 		66D7CF791D24A2950000DE33 /* TutorialGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D7CF771D24A2950000DE33 /* TutorialGameHUD.cpp */; };
 		66D7CF851D270C0D0000DE33 /* Animations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D7CF831D270C0D0000DE33 /* Animations.cpp */; };
 		66D7CF8A1D273C8C0000DE33 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7CF891D273C8C0000DE33 /* libcocos2d iOS.a */; };
+		66D7CF8B1D29C2300000DE33 /* PluginIAP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF7B48E78461F0E96925226C /* PluginIAP.framework */; };
+		66D7CF8D1D29C2400000DE33 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7CF8C1D29C2400000DE33 /* StoreKit.framework */; };
+		66D7CF901D2BDD5A0000DE33 /* AchievementsScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D7CF8E1D2BDD5A0000DE33 /* AchievementsScene.cpp */; };
 		66D84BE51D2351EC00BA4D53 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D84BE31D2351EC00BA4D53 /* SceneManager.cpp */; };
 		66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
 		66DB287F1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
@@ -289,6 +292,9 @@
 		66D7CF831D270C0D0000DE33 /* Animations.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animations.cpp; sourceTree = "<group>"; };
 		66D7CF841D270C0D0000DE33 /* Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animations.h; sourceTree = "<group>"; };
 		66D7CF891D273C8C0000DE33 /* libcocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS.a"; path = "../../../../../../Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/prebuilt/ios/libcocos2d iOS.a"; sourceTree = "<group>"; };
+		66D7CF8C1D29C2400000DE33 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		66D7CF8E1D2BDD5A0000DE33 /* AchievementsScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AchievementsScene.cpp; sourceTree = "<group>"; };
+		66D7CF8F1D2BDD5A0000DE33 /* AchievementsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementsScene.h; sourceTree = "<group>"; };
 		66D84BE31D2351EC00BA4D53 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
 		66D84BE41D2351EC00BA4D53 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
 		66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameHUD.cpp; sourceTree = "<group>"; };
@@ -331,6 +337,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66D7CF8D1D29C2400000DE33 /* StoreKit.framework in Frameworks */,
 				66442B411D0DE7C800AC5983 /* GameKit.framework in Frameworks */,
 				ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
@@ -349,6 +356,7 @@
 				D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */,
 				6E2B4283A69F3BC8F3DAFC4E /* sdkbox.framework in Frameworks */,
 				D26F481FA774DEDE7C0E16F7 /* PluginAchievement.framework in Frameworks */,
+				66D7CF8B1D29C2300000DE33 /* PluginIAP.framework in Frameworks */,
 				66442B361D0CBEBE00AC5983 /* Fabric.framework in Frameworks */,
 				5C05403BB2316A413887BF45 /* SystemConfiguration.framework in Frameworks */,
 			);
@@ -425,6 +433,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				66D7CF8C1D29C2400000DE33 /* StoreKit.framework */,
 				66D7CF891D273C8C0000DE33 /* libcocos2d iOS.a */,
 				66442B401D0DE7C800AC5983 /* GameKit.framework */,
 				66442B341D0CBEBE00AC5983 /* Fabric.framework */,
@@ -550,40 +559,40 @@
 		6638945A1D09AD9B0034892E /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				6638945B1D09AD9B0034892E /* GameOverWidget.cpp */,
-				6638945C1D09AD9B0034892E /* GameOverWidget.h */,
-				6638945D1D09AD9B0034892E /* MainGameHeader.cpp */,
-				6638945E1D09AD9B0034892E /* MainGameHeader.h */,
-				6638945F1D09AD9B0034892E /* MainGameHUD.cpp */,
-				663894601D09AD9B0034892E /* MainGameHUD.h */,
-				663894611D09AD9B0034892E /* PauseButtonsWidget.cpp */,
-				663894621D09AD9B0034892E /* PauseButtonsWidget.h */,
-				663894631D09AD9B0034892E /* PauseOverlayWidget.cpp */,
-				663894641D09AD9B0034892E /* PauseOverlayWidget.h */,
-				663894651D09AD9B0034892E /* TimedGameHUD.cpp */,
-				663894661D09AD9B0034892E /* TimedGameHUD.h */,
-				66D655B11D10D58400F1B6E8 /* LevelsGameHUD.cpp */,
-				66D655B21D10D58400F1B6E8 /* LevelsGameHUD.h */,
-				66D655B41D118E6400F1B6E8 /* GameObjectiveOverlay.cpp */,
-				66D655B51D118E6400F1B6E8 /* GameObjectiveOverlay.h */,
-				66D655B81D12191500F1B6E8 /* TextObjectiveOverlay.cpp */,
-				66D655B91D12191500F1B6E8 /* TextObjectiveOverlay.h */,
-				66114ECA1D12D77A00B2C92B /* ObjectiveItemWidget.cpp */,
-				66114ECB1D12D77A00B2C92B /* ObjectiveItemWidget.h */,
-				66114ECD1D12DB4900B2C92B /* ObjectiveDisplayWidget.cpp */,
-				66114ECE1D12DB4900B2C92B /* ObjectiveDisplayWidget.h */,
-				66114ED01D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp */,
-				66114ED11D12E1CA00B2C92B /* LevelObjectiveOverlay.h */,
 				66E7E50C1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp */,
 				66E7E50D1D158C58007DE4B9 /* DefaultGameOverOverlay.h */,
+				66D655B41D118E6400F1B6E8 /* GameObjectiveOverlay.cpp */,
+				66D655B51D118E6400F1B6E8 /* GameObjectiveOverlay.h */,
+				6638945B1D09AD9B0034892E /* GameOverWidget.cpp */,
+				6638945C1D09AD9B0034892E /* GameOverWidget.h */,
 				66E7E50F1D158C6C007DE4B9 /* LevelGameOverOverlay.cpp */,
 				66E7E5101D158C6C007DE4B9 /* LevelGameOverOverlay.h */,
-				66E7E5121D1591A5007DE4B9 /* ScoreWidget.cpp */,
-				66E7E5131D1591A5007DE4B9 /* ScoreWidget.h */,
+				66114ED01D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp */,
+				66114ED11D12E1CA00B2C92B /* LevelObjectiveOverlay.h */,
 				66E7E5181D182A97007DE4B9 /* LevelSelectOverlay.cpp */,
 				66E7E5191D182A97007DE4B9 /* LevelSelectOverlay.h */,
 				6677234F1D18B0F800B1B74A /* LevelSelectRowWidget.cpp */,
 				667723501D18B0F800B1B74A /* LevelSelectRowWidget.h */,
+				66D655B11D10D58400F1B6E8 /* LevelsGameHUD.cpp */,
+				66D655B21D10D58400F1B6E8 /* LevelsGameHUD.h */,
+				6638945D1D09AD9B0034892E /* MainGameHeader.cpp */,
+				6638945E1D09AD9B0034892E /* MainGameHeader.h */,
+				6638945F1D09AD9B0034892E /* MainGameHUD.cpp */,
+				663894601D09AD9B0034892E /* MainGameHUD.h */,
+				66114ECD1D12DB4900B2C92B /* ObjectiveDisplayWidget.cpp */,
+				66114ECE1D12DB4900B2C92B /* ObjectiveDisplayWidget.h */,
+				66114ECA1D12D77A00B2C92B /* ObjectiveItemWidget.cpp */,
+				66114ECB1D12D77A00B2C92B /* ObjectiveItemWidget.h */,
+				663894611D09AD9B0034892E /* PauseButtonsWidget.cpp */,
+				663894621D09AD9B0034892E /* PauseButtonsWidget.h */,
+				663894631D09AD9B0034892E /* PauseOverlayWidget.cpp */,
+				663894641D09AD9B0034892E /* PauseOverlayWidget.h */,
+				66E7E5121D1591A5007DE4B9 /* ScoreWidget.cpp */,
+				66E7E5131D1591A5007DE4B9 /* ScoreWidget.h */,
+				66D655B81D12191500F1B6E8 /* TextObjectiveOverlay.cpp */,
+				66D655B91D12191500F1B6E8 /* TextObjectiveOverlay.h */,
+				663894651D09AD9B0034892E /* TimedGameHUD.cpp */,
+				663894661D09AD9B0034892E /* TimedGameHUD.h */,
 				66D7CF771D24A2950000DE33 /* TutorialGameHUD.cpp */,
 				66D7CF781D24A2950000DE33 /* TutorialGameHUD.h */,
 			);
@@ -660,6 +669,8 @@
 		6638948D1D09AEB60034892E /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				66D7CF8E1D2BDD5A0000DE33 /* AchievementsScene.cpp */,
+				66D7CF8F1D2BDD5A0000DE33 /* AchievementsScene.h */,
 				6638948E1D09AEB60034892E /* MainGameScene.cpp */,
 				6638948F1D09AEB60034892E /* MainGameScene.h */,
 				663894901D09AEB60034892E /* MainMenuScene.cpp */,
@@ -945,6 +956,7 @@
 				66E3A6BD1D01C07100A3125C /* GameMode.cpp in Sources */,
 				66B92B721D0A3C6200DA1657 /* StoreProductWidget.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				66D7CF901D2BDD5A0000DE33 /* AchievementsScene.cpp in Sources */,
 				66D7CF851D270C0D0000DE33 /* Animations.cpp in Sources */,
 				663894A11D09AEB60034892E /* VelocityTracker.cpp in Sources */,
 				66D655B01D10CC2100F1B6E8 /* LevelTypes.cpp in Sources */,

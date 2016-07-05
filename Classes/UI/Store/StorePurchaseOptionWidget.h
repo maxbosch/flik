@@ -16,8 +16,8 @@ namespace flik
     class StorePurchaseOptionWidget : public cocos2d::ui::RelativeBox
     {
     public:
-        static StorePurchaseOptionWidget* create(int pointsCount, float cost);
+        static StorePurchaseOptionWidget* create(int pointsCount, float cost, const std::string& productName);
         
-        bool init(int pointsCount, float cost);
+        bool init(int pointsCount, float cost, const std::string& productName);
     };
 }

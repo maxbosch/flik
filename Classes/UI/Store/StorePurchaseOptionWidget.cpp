@@ -15,18 +15,21 @@
 #include "Util.h"
 #include "Player.h"
 
+#include "PluginIAP/PluginIAP.h"
+
+
 USING_NS_CC;
 
 namespace flik
 {
     using RelativeAlign = ui::RelativeLayoutParameter::RelativeAlign;
     
-    StorePurchaseOptionWidget* StorePurchaseOptionWidget::create(int pointsCount, float cost)
+    StorePurchaseOptionWidget* StorePurchaseOptionWidget::create(int pointsCount, float cost, const std::string& productName)
     {
-        return createWithParams<StorePurchaseOptionWidget>(pointsCount, cost);
+        return createWithParams<StorePurchaseOptionWidget>(pointsCount, cost, productName);
     }
     
-    bool StorePurchaseOptionWidget::init(int pointsCount, float cost)
+    bool StorePurchaseOptionWidget::init(int pointsCount, float cost, const std::string& productName)
     {
         if (!RelativeBox::init())
         {
@@ -53,14 +56,16 @@ namespace flik
         purchaseButton->setLayoutParameter(purchaseButtonLayout);
         addChild(purchaseButton);
         
-        purchaseButton->addTouchEventListener([this, pointsCount, cost](Ref* sender, TouchEventType type) {
+        purchaseButton->addTouchEventListener([this, pointsCount, cost, productName](Ref* sender, TouchEventType type) {
             if (type == TouchEventType::ENDED) {
                 // TODO: Add e-commerce code
                 
-                auto player = Player::getMainPlayer();
+                sdkbox::IAP::purchase(productName);
+                
+                /*auto player = Player::getMainPlayer();
                 if (player->getCurrencyAmount() + pointsCount < kMaxCurrencyAmount) {
                     player->addCurrency(pointsCount);
-                }
+                }*/
             }
         });
         

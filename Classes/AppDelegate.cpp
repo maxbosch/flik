@@ -12,6 +12,7 @@
 
 #include "sdkbox/Sdkbox.h"
 #include "PluginSdkboxPlay/PluginSdkboxPlay.h"
+#include "PluginIAP/PluginIAP.h"
 
 USING_NS_CC;
 
@@ -42,6 +43,9 @@ namespace flik
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
         sdkbox::init("d372d757b12f6fdfc4972504a8dbe5ab", "3618e189567712b3", "googleplay");
 #endif
+        sdkbox::IAP::init();
+        sdkbox::IAP::setDebug(true);
+        sdkbox::IAP::refresh();
         
         // initialize director
         auto director = Director::getInstance();

@@ -22,6 +22,7 @@
 #include "DefaultGameOverOverlay.h"
 #include "SceneManager.h"
 #include "Animations.h"
+#include "SettingsScene.h"
 
 #include <boost/lexical_cast.hpp>
 
@@ -98,6 +99,9 @@ namespace flik
         pauseOverlay->onRestartTapped = [this]() {
             getGameScene()->unpauseGame();
             getGameScene()->requestRestart();
+        };
+        pauseOverlay->onSettingsTapped = [this]() {
+            SceneManager::pushSceneWithTransition<TransitionSlideInR>(SettingsScene::create(), 0.3);
         };
         pauseOverlay->setVisible(false);
         

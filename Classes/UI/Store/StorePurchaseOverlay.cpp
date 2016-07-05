@@ -64,15 +64,15 @@ namespace flik
         productsList->setLayoutParameter(productsListLayout);
         addChild(productsList);
         
-        std::vector<std::pair<int, float>> purchaseOptions {
-            std::pair<int, float>(5000, 0.99),
-            std::pair<int, float>(15000, 1.99),
-            std::pair<int, float>(50000, 4.99)
+        std::vector<std::tuple<int, float, std::string>> purchaseOptions {
+            std::tuple<int, float, std::string>(5000, 0.99, "points_5000"),
+            std::tuple<int, float, std::string>(15000, 1.99, "points_15000"),
+            std::tuple<int, float, std::string>(50000, 4.99, "points_50000")
         };
         
         Size productsListSize;
         for (auto& purchaseOption : purchaseOptions) {
-            auto optionWidget = StorePurchaseOptionWidget::create(purchaseOption.first, purchaseOption.second);
+            auto optionWidget = StorePurchaseOptionWidget::create(std::get<0>(purchaseOption), std::get<1>(purchaseOption), std::get<2>(purchaseOption));
             auto optionWidgetLayout = ui::LinearLayoutParameter::create();
             optionWidgetLayout->setMargin(ui::Margin(0, 25.0_dp, 0, 0));
             optionWidget->setLayoutParameter(optionWidgetLayout);

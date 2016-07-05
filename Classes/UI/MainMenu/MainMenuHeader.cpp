@@ -9,6 +9,7 @@
 #include "MainMenuHeader.h"
 #include "Literals.h"
 #include "SettingsScene.h"
+#include "AchievementsScene.h"
 #include "SceneManager.h"
 #include "Styles.h"
 
@@ -45,8 +46,8 @@ namespace flik
         achievementsButton->setLayoutParameter(achievementsButtonLayout);
         achievementsButton->addTouchEventListener([this](Ref* sender, TouchEventType type) {
             if (type == TouchEventType::ENDED) {
-                if (sdkbox::PluginSdkboxPlay::isSignedIn()) {
-                    sdkbox::PluginSdkboxPlay::showAchievements();
+                if (sdkbox::PluginSdkboxPlay::isSignedIn() || true) {
+                    SceneManager::pushSceneWithTransition<TransitionSlideInL>(AchievementsScene::create(), kTransitionDuration);
                 }
             }
         });
