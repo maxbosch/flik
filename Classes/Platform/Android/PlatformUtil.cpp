@@ -64,4 +64,9 @@ namespace flik
             env->CallStaticVoidMethod(clazz, methodId, toAddressString, subjectString, bodyString);
         }
     }
+    
+    std::string PlatformUtil::getLanguage()
+    {
+        return "en";
+    }
 }

@@ -13,6 +13,7 @@
 #include "Util.h"
 #include "PlatformUtil.h"
 #include "SceneManager.h"
+#include "LocalizedString.h"
 
 USING_NS_CC;
 
@@ -45,7 +46,7 @@ namespace flik
         auto header = ui::RelativeBox::create(Size(uiSize.width, 82.5_dp));
         container->addChild(header);
         
-        auto title = ui::Text::create("SETTINGS", kDefaultFont, 25.0_dp);
+        auto title = ui::Text::create(LocalizedString::getString("title_settings"), kDefaultFont, 25.0_dp);
         title->setTextVerticalAlignment(cocos2d::TextVAlignment::CENTER);
         auto titleLayout = ui::RelativeLayoutParameter::create();
         titleLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
@@ -112,8 +113,8 @@ namespace flik
             return checkboxContainer;
         };
         
-        container->addChild(createCheckboxWidget("SOUNDS", kSoundsEnabledKey, true));
-        container->addChild(createCheckboxWidget("VIBRATIONS", kVibrationsEnabledKey, true));
+        container->addChild(createCheckboxWidget(LocalizedString::getString("setting_sounds"), kSoundsEnabledKey, true));
+        container->addChild(createCheckboxWidget(LocalizedString::getString("setting_vibrations"), kVibrationsEnabledKey, true));
         
         auto createLinkWidget = [&](const std::string& icon, const std::string& label, std::function<void()> callback) -> ui::Widget*{
             auto linkContainer = ui::RelativeBox::create(Size(uiSize.width, 60.0_dp));
@@ -151,12 +152,13 @@ namespace flik
             return linkContainer;
         };
         
-        container->addChild(createLinkWidget("icon_rate_star.png", "RATE US", []() {
+        container->addChild(createLinkWidget("icon_rate_star.png", LocalizedString::getString("setting_rate_us"), []() {
             PlatformUtil::openURL(PlatformUtil::getStoreUrl());
         }));
     
-        container->addChild(createLinkWidget("icon_email.png", "EMAIL US", []() {
-            PlatformUtil::presentEmailCompose("feedback@playflik.com", "Feedback", "");
+        container->addChild(createLinkWidget("icon_email.png", LocalizedString::getString("setting_email_us"), []() {
+            PlatformUtil::presentEmailCompose("feedback@playflik.com", LocalizedString::getString("feedback_email_subject"),
+                                              LocalizedString::getString("feedback_email_body"));
         }));
         
         // LOL MADE IN BROOKLYN
@@ -165,7 +167,7 @@ namespace flik
         madeInContainer->setAnchorPoint(Vec2(0.5, 0.0));
         addChild(madeInContainer);
         
-        auto label1 = ui::Text::create("MADE IN", kDefaultFont, 15.0_dp);
+        auto label1 = ui::Text::create(LocalizedString::getString("setting_made_in"), kDefaultFont, 15.0_dp);
         auto label1Layout = ui::LinearLayoutParameter::create();
         label1Layout->setGravity(LinearGravity::CENTER_HORIZONTAL);
         label1->setLayoutParameter(label1Layout);

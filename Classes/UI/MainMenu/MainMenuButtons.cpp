@@ -10,6 +10,7 @@
 #include "Styles.h"
 #include "Literals.h"
 #include "Enums.h"
+#include "LocalizedString.h"
 
 USING_NS_CC;
 
@@ -53,21 +54,21 @@ namespace flik
             return button;
         };
         
-        auto levelsButton = createButton("levels_button.png", "Levels", GameModeType::Levels);
+        auto levelsButton = createButton("levels_button.png", LocalizedString::getString("main_menu_mode_levels"), GameModeType::Levels);
         auto levelsButtonLayout = ui::RelativeLayoutParameter::create();
         levelsButtonLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
         levelsButtonLayout->setMargin(ui::Margin(0, 35.0_dp, 0, 0));
         levelsButton->setLayoutParameter(levelsButtonLayout);
         innerContainer->addChild(levelsButton);
         
-        auto timedButton = createButton("timer_home.png", "Timed", GameModeType::Timed);
+        auto timedButton = createButton("timer_home.png", LocalizedString::getString("main_menu_mode_timed"), GameModeType::Timed);
         auto timedButtonLayout = ui::RelativeLayoutParameter::create();
         timedButtonLayout->setAlign(RelativeAlign::PARENT_TOP_RIGHT);
         timedButtonLayout->setMargin(ui::Margin(0, 35.0_dp, 0, 0));
         timedButton->setLayoutParameter(timedButtonLayout);
         innerContainer->addChild(timedButton);
         
-        auto unlimitedButton = createButton("unlimited_home.png", "Unlimited", GameModeType::Unlimited);
+        auto unlimitedButton = createButton("unlimited_home.png", LocalizedString::getString("main_menu_mode_unlimited"), GameModeType::Unlimited);
         auto unlimitedButtonLayout = ui::RelativeLayoutParameter::create();
         unlimitedButtonLayout->setAlign(RelativeAlign::PARENT_BOTTOM_CENTER_HORIZONTAL);
         unlimitedButton->setLayoutParameter(unlimitedButtonLayout);

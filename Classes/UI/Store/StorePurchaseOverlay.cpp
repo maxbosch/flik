@@ -10,6 +10,7 @@
 #include "Literals.h"
 #include "Styles.h"
 #include "StorePurchaseOptionWidget.h"
+#include "LocalizedString.h"
 
 USING_NS_CC;
 
@@ -24,18 +25,20 @@ namespace flik
             return false;
         }
         
+        auto uiSize = Director::getInstance()->getVisibleSize();
+        
         setAnchorPoint(Vec2(0.5, 0.5));
-        setContentSize(Size(325.0_dp, 475.0_dp));
+        setContentSize(Size(uiSize.width, 475.0_dp));
         setBackGroundColor(Color3B::BLACK);
         setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         
         auto backgroundImage = ui::Scale9Sprite::create(Rect(34.0_dp, 34.0_dp, 32.0_dp, 32.0_dp), "blue_border_9.png");
-        backgroundImage->setPosition(Vec2(0, 0));
+        backgroundImage->setPosition(Vec2(40.0_dp, 0));
         backgroundImage->setAnchorPoint(Vec2(0, 0));
-        backgroundImage->setContentSize(Size(305.0_dp, 475.0_dp));
+        backgroundImage->setContentSize(Size(uiSize.width - 80.0_dp, 475.0_dp));
         addChild(backgroundImage);
         
-        auto titleLabel = ui::Text::create("MORE POINTS NEEDED", kDefaultFont, 18.0_dp);
+        auto titleLabel = ui::Text::create(LocalizedString::getString("store_purchase_title"), kDefaultFont, 18.0_dp);
         titleLabel->setColor(Color3B::WHITE);
         auto titleLabelLayout = ui::RelativeLayoutParameter::create();
         titleLabelLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
@@ -44,7 +47,7 @@ namespace flik
         titleLabel->setLayoutParameter(titleLabelLayout);
         addChild(titleLabel);
         
-        auto subtitleLabel = ui::Text::create("Play more games to get more \npoints or purchase some below", kDefaultFont, 15.0_dp);
+        auto subtitleLabel = ui::Text::create(LocalizedString::getString("store_purchase_description"), kDefaultFont, 15.0_dp);
         subtitleLabel->setColor(Color3B::WHITE);
         subtitleLabel->setTextHorizontalAlignment(cocos2d::TextHAlignment::CENTER);
         subtitleLabel->setContentSize(Size(250.0_dp, 40.0_dp));

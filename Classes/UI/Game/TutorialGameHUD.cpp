@@ -15,6 +15,7 @@
 #include "MainMenuScene.h"
 #include "MainGameScene.h"
 #include "Animations.h"
+#include "LocalizedString.h"
 
 USING_NS_CC;
 
@@ -141,13 +142,13 @@ namespace flik
     
     void TutorialGameHUD::executeTutorialIntroAnimation()
     {
-        mTutorialText->setString("Welcome to Flik!\nHow about a quick tutorial first?");
+        mTutorialText->setString(LocalizedString::getString("tutorial_intro"));
         mTutorialText->setOpacity(0);
         
         Animations::animate(3.0, [this](const float t) {
             mTutorialText->setOpacity(t * 255);
         }, [this](bool completed) {
-            mTutorialText->setString("Move the piece to\n its matching color");
+            mTutorialText->setString(LocalizedString::getString("tutorial_text"));
             mTutorialText->setOpacity(255);
             mArrow->setVisible(true);
             getGameScene()->requestRestart();
@@ -156,7 +157,7 @@ namespace flik
     
     void TutorialGameHUD::executeTutorialExitAnimation()
     {
-        mTutorialText->setString("Awesome!\n Now for a real challenge...");
+        mTutorialText->setString(LocalizedString::getString("tutorial_exit"));
         mTutorialText->setOpacity(0);
         
         Animations::animate(3.0, [this](const float t) {

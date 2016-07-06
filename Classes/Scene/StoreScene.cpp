@@ -14,6 +14,7 @@
 #include "Player.h"
 #include "SceneManager.h"
 #include "Animations.h"
+#include "LocalizedString.h"
 
 USING_NS_CC;
 
@@ -50,7 +51,7 @@ namespace flik
         storeGUI->addChild(pointsButton);
         mPointsButton = pointsButton;
         
-        auto productsCopy = ui::Text::create("POWER UPS", kDefaultFont, 25.0_dp);
+        auto productsCopy = ui::Text::create(LocalizedString::getString("store_power_ups"), kDefaultFont, 25.0_dp);
         productsCopy->setColor(Color3B::WHITE);
         auto productsCopyLayout = ui::RelativeLayoutParameter::create();
         productsCopyLayout->setRelativeToWidgetName("points_button");
@@ -69,14 +70,14 @@ namespace flik
         storeGUI->addChild(productsContainer);
         mProductsContainer = productsContainer;
         
-        auto timeStopProduct = StoreProductWidget::create(PowerUpType::Timestop, 1000, 5, "Time Stops");
+        auto timeStopProduct = StoreProductWidget::create(PowerUpType::Timestop, 1000, 5, LocalizedString::getString("store_product_time_stops"));
         auto timeStopsProductLayout = ui::RelativeLayoutParameter::create();
         timeStopsProductLayout->setAlign(RelativeAlign::PARENT_LEFT_CENTER_VERTICAL);
         timeStopsProductLayout->setMargin(ui::Margin(40.0_dp, 0, 0, 0));
         timeStopProduct->setLayoutParameter(timeStopsProductLayout);
         productsContainer->addChild(timeStopProduct);
         
-        auto targetProduct = StoreProductWidget::create(PowerUpType::Target, 500, 5, "Board Clears");
+        auto targetProduct = StoreProductWidget::create(PowerUpType::Target, 500, 5, LocalizedString::getString("store_product_board_clears"));
         auto targetProductLayout = ui::RelativeLayoutParameter::create();
         targetProductLayout->setAlign(RelativeAlign::PARENT_RIGHT_CENTER_VERTICAL);
         targetProductLayout->setMargin(ui::Margin(0, 0, 40.0_dp, 0));
@@ -104,7 +105,7 @@ namespace flik
         auto storePurchaseOverlay = StorePurchaseOverlay::create();
         auto storePurchaseOverlayLayout = ui::RelativeLayoutParameter::create();
         storePurchaseOverlayLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
-        storePurchaseOverlayLayout->setMargin(ui::Margin(0, 0, 0, 20.0_dp));
+        //storePurchaseOverlayLayout->setMargin(ui::Margin(0, 0, 0, 0));
         storePurchaseOverlay->setLayoutParameter(storePurchaseOverlayLayout);
         storeGUI->addChild(storePurchaseOverlay);
         mPurchaseOverlay = storePurchaseOverlay;

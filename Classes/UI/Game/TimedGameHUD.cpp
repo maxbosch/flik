@@ -15,6 +15,7 @@
 #include "Styles.h"
 #include "Util.h"
 #include "TextObjectiveOverlay.h"
+#include "LocalizedString.h"
 
 USING_NS_CC;
 
@@ -57,6 +58,6 @@ namespace flik
     
     GameObjectiveOverlay* TimedGameHUD::createObjectiveOverlay()
     {
-        return TextObjectiveOverlay::create("Timed Mode", "Score as many points as you can before time runs out");
+        return TextObjectiveOverlay::create(LocalizedString::getString("game_mode_timed"), LocalizedString::getString("objective_timed"));
     }
 }

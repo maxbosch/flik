@@ -19,6 +19,9 @@
 #include "LevelsGameMode.h"
 #include "SceneManager.h"
 #include "Styles.h"
+#include "LocalizedString.h"
+
+#include <boost/format.hpp>
 
 namespace flik
 {
@@ -58,9 +61,8 @@ namespace flik
     
     GameObjectiveOverlay* LevelsGameHUD::createObjectiveOverlay()
     {
-        std::stringstream title;
-        title << "Level " << mLevelDesc->levelNum;
-        return LevelObjectiveOverlay::create(title.str(), mLevelDesc);
+        auto title = boost::str(boost::format(LocalizedString::getString("objective_level")) % mLevelDesc->levelNum);
+        return LevelObjectiveOverlay::create(title, mLevelDesc);
     }
     
     cocos2d::ui::Widget* LevelsGameHUD::createGameOverOverlay()

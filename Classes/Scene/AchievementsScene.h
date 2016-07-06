@@ -10,11 +10,11 @@
 
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
-#include "extensions/CCTableView.h"
+#include "GUI/CCScrollView/CCTableView.h"
 
 namespace flik
 {
-    class AchievementsScene : public cocos2d::Scene, public cocos2d::ui::TableViewDataSource
+    class AchievementsScene : public cocos2d::Scene, public cocos2d::extension::TableViewDataSource
     {
     public:
         CREATE_FUNC(AchievementsScene);
@@ -22,8 +22,8 @@ namespace flik
         bool init();
         
         /* TableViewDataSource */
-        virtual Size cellSizeForTable(TableView *table);
-        virtual TableViewCell* tableCellAtIndex(TableView *table, ssize_t idx);
-        virtual ssize_t numberOfCellsInTableView(TableView *table);
+        virtual cocos2d::Size cellSizeForTable(cocos2d::extension::TableView *table);
+        virtual cocos2d::extension::TableViewCell* tableCellAtIndex(cocos2d::extension::TableView *table, ssize_t idx);
+        virtual ssize_t numberOfCellsInTableView(cocos2d::extension::TableView *table);
     };
 };

@@ -14,6 +14,7 @@
 #include "Util.h"
 #include "BlurredBackgroundWidget.h"
 #include "Animations.h"
+#include "LocalizedString.h"
 
 USING_NS_CC;
 
@@ -68,7 +69,7 @@ namespace flik
         border1->setLayoutParameter(borderLayout1);
         innerContainer->addChild(border1);
         
-        auto objectiveTextLabel = ui::Text::create("Objective", kDefaultFont, 15.0_dp);
+        auto objectiveTextLabel = ui::Text::create(LocalizedString::getString("objective"), kDefaultFont, 15.0_dp);
         auto objectiveTextLabelLayout = ui::LinearLayoutParameter::create();
         objectiveTextLabelLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
         objectiveTextLabelLayout->setMargin(ui::Margin(0, 45.0_dp, 0, 20.0_dp));
@@ -92,7 +93,7 @@ namespace flik
         auto startButton = ui::Button::create("pink_button_fill_large.png");
         startButton->setTitleFontName(kDefaultFont);
         startButton->setTitleFontSize(18.0_dp);
-        startButton->setTitleText("START!");
+        startButton->setTitleText(LocalizedString::getString("button_start"));
         startButton->setTitleColor(Color3B::WHITE);
         auto startButtonLayout = ui::LinearLayoutParameter::create();
         startButtonLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);

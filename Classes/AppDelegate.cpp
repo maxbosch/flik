@@ -9,6 +9,7 @@
 #include "SceneManager.h"
 #include "TutorialGameMode.h"
 #include "TutorialGameHUD.h"
+#include "LocalizedString.h"
 
 #include "sdkbox/Sdkbox.h"
 #include "PluginSdkboxPlay/PluginSdkboxPlay.h"
@@ -46,6 +47,8 @@ namespace flik
         sdkbox::IAP::init();
         sdkbox::IAP::setDebug(true);
         sdkbox::IAP::refresh();
+        
+        LocalizedString::loadStrings();
         
         // initialize director
         auto director = Director::getInstance();

@@ -23,6 +23,7 @@
 #include "SceneManager.h"
 #include "Animations.h"
 #include "SettingsScene.h"
+#include "LocalizedString.h"
 
 #include <boost/lexical_cast.hpp>
 
@@ -163,7 +164,7 @@ namespace flik
     
     GameObjectiveOverlay* MainGameHUD::createObjectiveOverlay()
     {
-        return TextObjectiveOverlay::create("Unlimited Mode", "Score as many points as you can before the board fills up");
+        return TextObjectiveOverlay::create(LocalizedString::getString("game_mode_unlimited"), LocalizedString::getString("objective_unlimited"));
     }
     
     ui::Widget* MainGameHUD::createGameOverOverlay()
@@ -184,7 +185,7 @@ namespace flik
     void MainGameHUD::onShowGameOverScreen()
     {
         auto gameOverScreen = dynamic_cast<DefaultGameOverOverlay*>(mGameOverScreen);
-        gameOverScreen->setTitle("NICE JOB");
+        gameOverScreen->setTitle(LocalizedString::getString("game_over_success"));
         gameOverScreen->setTopScore(getGameScene()->getGameMode()->getTopScore());
         gameOverScreen->setCurrentScore(Player::getMainPlayer()->getCurrentScore());
     }

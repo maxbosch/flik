@@ -44,4 +44,9 @@ namespace flik
         auto activeVC = ((AppController *)[UIApplication sharedApplication].delegate).viewController;
         [presenter presentInViewController:activeVC];
     }
+    
+    std::string PlatformUtil::getLanguage()
+    {
+        return [[[NSLocale preferredLanguages] objectAtIndex:0] UTF8String];
+    }
 }

@@ -11,6 +11,9 @@
 #include "Literals.h"
 #include "ScoreWidget.h"
 #include "LevelTypes.h"
+#include "LocalizedString.h"
+
+#include <boost/format.hpp>
 
 USING_NS_CC;
 
@@ -136,9 +139,8 @@ namespace flik
     void LevelGameOverOverlay::setNextLevel(bool success, int level)
     {
         if (success && level <= LevelInfo::getInstance()->getMaxLevel()) {
-            std::stringstream text;
-            text << "LEVEL " << level;
-            mNextLevelButton->setTitleText(text.str());
+            auto nextLevelText = boost::str(boost::format(LocalizedString::getString("game_mode_level")) % (level - 1));
+            mNextLevelButton->setTitleText(nextLevelText);
             
             mNextLevelButton->setVisible(true);
             mAchievementsButton->setVisible(false);
@@ -148,11 +150,11 @@ namespace flik
         }
         
         if (success) {
-            mTitleLabel->setString("SUCCESS!");
+            mTitleLabel->setString(LocalizedString::getString("level_success"));
         } else {
             std::stringstream text;
-            text << "LEVEL " << (level - 1) << " FAILED";
-            mTitleLabel->setString(text.str());
+            auto failText = boost::str(boost::format(LocalizedString::getString("level_failed")) % (level - 1));
+            mTitleLabel->setString(failText);
         }
     }
 }

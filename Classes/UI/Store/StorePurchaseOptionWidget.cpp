@@ -14,9 +14,11 @@
 #include "Styles.h"
 #include "Util.h"
 #include "Player.h"
+#include "LocalizedString.h"
 
 #include "PluginIAP/PluginIAP.h"
 
+#include <boost/format.hpp>
 
 USING_NS_CC;
 
@@ -38,7 +40,8 @@ namespace flik
         
         setContentSize(Size(118.5_dp, 65.0_dp));
         
-        auto label = ui::Text::create(boost::lexical_cast<std::string>(pointsCount) + " points", kDefaultFont, 15.0_dp);
+        auto text = boost::str(boost::format(LocalizedString::getString("store_points")) % pointsCount);
+        auto label = ui::Text::create(text, kDefaultFont, 15.0_dp);
         label->setTextColor(Color4B::WHITE);
         auto labelLayout = ui::RelativeLayoutParameter::create();
         labelLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);

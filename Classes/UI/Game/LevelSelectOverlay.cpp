@@ -16,6 +16,7 @@
 #include "LevelsGameHUD.h"
 #include "MainGameScene.h"
 #include "SceneManager.h"
+#include "LocalizedString.h"
 
 USING_NS_CC;
 
@@ -50,7 +51,7 @@ namespace flik
         backgroundImage->setContentSize(innerContainer->getContentSize());
         innerContainer->addChild(backgroundImage);
         
-        auto titleLabel = ui::Text::create("LEVELS", kDefaultFont, 18.0_dp);
+        auto titleLabel = ui::Text::create(LocalizedString::getString("levels_list_title"), kDefaultFont, 18.0_dp);
         auto titleLabelLayout = ui::LinearLayoutParameter::create();
         titleLabelLayout->setMargin(ui::Margin(0, 45.0_dp, 0, 45.0_dp));
         titleLabelLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
