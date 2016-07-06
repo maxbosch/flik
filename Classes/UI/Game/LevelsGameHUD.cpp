@@ -20,6 +20,7 @@
 #include "SceneManager.h"
 #include "Styles.h"
 #include "LocalizedString.h"
+#include "AchievementsScene.h"
 
 #include <boost/format.hpp>
 
@@ -78,7 +79,7 @@ namespace flik
         };
         
         gameOverOverlay->onAchievementsTapped = [this]() {
-            sdkbox::PluginSdkboxPlay::showAchievements();
+            SceneManager::pushSceneWithTransition<TransitionSlideInL>(AchievementsScene::create(), kTransitionDuration);
         };
         
         gameOverOverlay->onNextLevelTapped = [this]() {

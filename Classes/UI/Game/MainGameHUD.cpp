@@ -24,6 +24,7 @@
 #include "Animations.h"
 #include "SettingsScene.h"
 #include "LocalizedString.h"
+#include "AchievementsScene.h"
 
 #include <boost/lexical_cast.hpp>
 
@@ -104,6 +105,10 @@ namespace flik
         pauseOverlay->onSettingsTapped = [this]() {
             SceneManager::pushSceneWithTransition<TransitionSlideInR>(SettingsScene::create(), 0.3);
         };
+        pauseOverlay->onAchievementsTapped = [this]() {
+            SceneManager::pushSceneWithTransition<TransitionSlideInL>(AchievementsScene::create(), kTransitionDuration);
+        };
+        
         pauseOverlay->setVisible(false);
         
         addChild(pauseOverlay, 3);
