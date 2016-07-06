@@ -33,6 +33,8 @@ import com.crashlytics.android.Crashlytics;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
+import java.util.Locale;
+
 import io.fabric.sdk.android.Fabric;
 
 public class AppActivity extends Cocos2dxActivity {
@@ -65,5 +67,9 @@ public class AppActivity extends Cocos2dxActivity {
     static String getAppPackageName()
     {
         return getContext().getPackageName();
+    }
+
+    static String getLanguage() {
+        return Locale.getDefault().getLanguage();
     }
 }

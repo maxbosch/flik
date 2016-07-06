@@ -67,6 +67,15 @@ namespace flik
     
     std::string PlatformUtil::getLanguage()
     {
-        return "en";
+        //Locale.getDefault().getLanguage()
+        JNIEnv *env = cocos2d::JniHelper::getEnv();
+        if (env) {
+            auto clazz = env->FindClass("org/cocos2dx/cpp/AppActivity");
+            auto methodId = env->GetStaticMethodID(clazz, "getLanguage", "()Ljava/lang/String;");
+            jstring language = (jstring) env->CallStaticObjectMethod(clazz, methodId);
+            return env->GetStringUTFChars(language, NULL);;
+        }
+        
+        return "";
     }
 }
