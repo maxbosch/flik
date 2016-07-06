@@ -61,7 +61,7 @@ namespace flik
     
     GameObjectiveOverlay* LevelsGameHUD::createObjectiveOverlay()
     {
-        auto title = boost::str(boost::format(LocalizedString::getString("objective_level")) % mLevelDesc->levelNum);
+        auto title = boost::str(boost::format(LocalizedString::getString("game_mode_level")) % mLevelDesc->levelNum);
         return LevelObjectiveOverlay::create(title, mLevelDesc);
     }
     
