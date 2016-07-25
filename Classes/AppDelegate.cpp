@@ -10,10 +10,15 @@
 #include "TutorialGameMode.h"
 #include "TutorialGameHUD.h"
 #include "LocalizedString.h"
+#include "Fonts.h"
 
 #include "sdkbox/Sdkbox.h"
 #include "PluginSdkboxPlay/PluginSdkboxPlay.h"
 #include "PluginIAP/PluginIAP.h"
+#include "GameServices.h"
+
+#include "lua_cocos2dx_auto.hpp"
+#include "CCLuaEngine.h"
 
 USING_NS_CC;
 
@@ -39,16 +44,29 @@ namespace flik
     }
     
     bool AppDelegate::applicationDidFinishLaunching() {
+        // Load configuration
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         sdkbox::init("f3c8fed09ca10e38e27b888cb9fe7261", "78e4d540c0a089d6");
 #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
         sdkbox::init("d372d757b12f6fdfc4972504a8dbe5ab", "3618e189567712b3", "googleplay");
 #endif
+        
+        // Register IAP
         sdkbox::IAP::init();
         sdkbox::IAP::setDebug(true);
         sdkbox::IAP::refresh();
         
+        // Reigster essential services
         LocalizedString::loadStrings();
+        Fonts::load();
+        GameServices::getInstance()->initialize();
+        
+        // Register LUA
+        LuaEngine* engine = LuaEngine::getInstance();
+        ScriptEngineManager::getInstance()->setScriptEngine(engine);
+        LuaStack* stack = engine->getLuaStack();
+        lua_State* L = stack->getLuaState();
+        register_all_cocos2dx(L);
         
         // initialize director
         auto director = Director::getInstance();
@@ -56,12 +74,9 @@ namespace flik
 
         auto glview = director->getOpenGLView();
         if(!glview) {
-            glview = GLViewImpl::createWithRect("Fling", Rect(0, 0, size.width, size.height));
+            glview = GLViewImpl::createWithRect("Flik", Rect(0, 0, size.width, size.height));
             director->setOpenGLView(glview);
         }
-        
-        sdkbox::PluginSdkboxPlay::init();
-        sdkbox::PluginSdkboxPlay::setListener(Player::getMainPlayer());
 
         auto contentScale = Device::getDPI() / 160.0;
         // turn on display FPS
@@ -71,7 +86,6 @@ namespace flik
         director->setAnimationInterval(1.0 / 60);
         auto aspect = size.height / size.width;
         director->getOpenGLView()->setDesignResolutionSize(750, 750 * aspect, ResolutionPolicy::EXACT_FIT);
-        //director->setContentScaleFactor(1);
         
         std::vector<std::string> resFolders;
         if (contentScale >= 4.1) {
@@ -110,6 +124,8 @@ namespace flik
             
             UserDefault::getInstance()->setBoolForKey("installed", true);
         }
+        
+        engine->executeScriptFile("lua/lua_testing.lua");
         
         // run
         SceneManager::runWithScene(level);

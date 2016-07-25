@@ -31,7 +31,7 @@ namespace flik
             return false;
         }
         
-        auto titleLabel = ui::Text::create(title, kDefaultFont, 18.0_dp);
+        auto titleLabel = Fonts::createLocalizedText(title, 18.0_dp);
         titleLabel->setColor(Color3B::WHITE);
         auto titleLabelLayout = ui::LinearLayoutParameter::create();
         titleLabelLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
@@ -39,7 +39,7 @@ namespace flik
         titleLabel->setLayoutParameter(titleLabelLayout);
         addChild(titleLabel);
         
-        auto scoreLabel = ui::Text::create("0", kDefaultFont, 25.0_dp);
+        auto scoreLabel = Fonts::createLocalizedText("0", 25.0_dp);
         scoreLabel->setColor(Color3B::WHITE);
         auto scoreLabelLayout = ui::LinearLayoutParameter::create();
         scoreLabelLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);

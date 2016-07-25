@@ -107,6 +107,24 @@
         }
     },
     "android" : {
+        "iap" : {
+            "enabled" : true,
+            "key" : "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoLvp3PjRH4M0oUxAHWORVmq7Ey1b2ENGcUaQnHbigCM7S6UWx3nm5XA+r6CsOK6Lm1Vv3OqbuwRYaHa1ofGzWqc7PHJWtqiwr7KYGIAldf3ltKj0IyQclQEM40NZxEXQbvDqcBkHFV+\/GgcHM8JYKRFkqLBmygwqDoLpN\/iisVe4YnFWS6i2+QfZL03zH1sT+p\/8c8\/o+sHA5SevIribGPe+29SSOhdD2PIHVL\/BaSEyyOrw\/VdK6ESk1Zh7uLwj4R9TwH83z4IiCRdAKOD1rE+dF4AReuNds8PDPCw+OksMS4xPtzN3\/JJb9yLTZs1Lwsx6TlC9FH\/+FirrpL3a8wIDAQAB",
+            "items" : {
+                "points_5000" : {
+                    "id" : "points_5000",
+                    "type" : "consumable"
+                },
+                "points_15000" : {
+                    "id" : "points_15000",
+                    "type" : "consumable"
+                },
+                "points_50000" : {
+                    "id" : "points_50000",
+                    "type" : "consumable"
+                }
+            }
+        },
         "sdkboxplay" : {
             "enabled" : true,
             "debug" : true,
@@ -192,13 +210,6 @@
                     "name" : "score_unlimited_200",
                     "incremental" : false
                 }
-            ]
-        },
-        "iap" : {
-            "enabled" : true,
-            "key" : "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoLvp3PjRH4M0oUxAHWORVmq7Ey1b2ENGcUaQnHbigCM7S6UWx3nm5XA+r6CsOK6Lm1Vv3OqbuwRYaHa1ofGzWqc7PHJWtqiwr7KYGIAldf3ltKj0IyQclQEM40NZxEXQbvDqcBkHFV+\/GgcHM8JYKRFkqLBmygwqDoLpN\/iisVe4YnFWS6i2+QfZL03zH1sT+p\/8c8\/o+sHA5SevIribGPe+29SSOhdD2PIHVL\/BaSEyyOrw\/VdK6ESk1Zh7uLwj4R9TwH83z4IiCRdAKOD1rE+dF4AReuNds8PDPCw+OksMS4xPtzN3\/JJb9yLTZs1Lwsx6TlC9FH\/+FirrpL3a8wIDAQAB",
-            "items" : [
-                
             ]
         }
     },

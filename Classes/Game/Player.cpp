@@ -34,7 +34,6 @@ namespace flik
     Player::Player() :
         mCurrentScore(0)
     {
-        sdkbox::PluginSdkboxPlay::signin();
     }
     
     int Player::getTopScore(std::string key)
@@ -155,30 +154,5 @@ namespace flik
             default:
                 break;
         }
-    }
-    
-    /** SdkboxPlayListener */
-    void Player::onConnectionStatusChanged( int status )
-    {
-    }
-    
-    void Player::onScoreSubmitted( const std::string& leaderboard_name, int score, bool maxScoreAllTime, bool maxScoreWeek, bool maxScoreToday )
-    {
-        
-    }
-    
-    void Player::onIncrementalAchievementUnlocked( const std::string& achievement_name )
-    {
-        
-    }
-    
-    void Player::onIncrementalAchievementStep( const std::string& achievement_name, int step )
-    {
-        
-    }
-    
-    void Player::onAchievementUnlocked( const std::string& achievement_name, bool newlyUnlocked )
-    {
-        
     }
 }

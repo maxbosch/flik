@@ -46,7 +46,7 @@ namespace flik
         auto header = ui::RelativeBox::create(Size(uiSize.width, 82.5_dp));
         container->addChild(header);
         
-        auto title = ui::Text::create(LocalizedString::getString("title_settings"), kDefaultFont, 25.0_dp);
+        auto title = Fonts::createLocalizedText(LocalizedString::getString("title_settings"), 25.0_dp);
         title->setTextVerticalAlignment(cocos2d::TextVAlignment::CENTER);
         auto titleLayout = ui::RelativeLayoutParameter::create();
         titleLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
@@ -79,8 +79,9 @@ namespace flik
         
         auto createCheckboxWidget = [&](const std::string& label, const std::string& key, bool defaultValue) -> ui::Widget* {
             auto checkboxContainer = ui::RelativeBox::create(Size(uiSize.width, 75.0_dp));
+            checkboxContainer->setTouchEnabled(false);
             
-            auto title = ui::Text::create(label, kDefaultFont, 20.0_dp);
+            auto title = Fonts::createLocalizedText(label, 20.0_dp);
             title->setTextVerticalAlignment(cocos2d::TextVAlignment::CENTER);
             auto titleLayout = ui::RelativeLayoutParameter::create();
             titleLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
@@ -88,13 +89,14 @@ namespace flik
             title->setLayoutParameter(titleLayout);
             checkboxContainer->addChild(title);
             
-            auto checkbox = ui::CheckBox::create("checkbox_off.png", "", "checkbox_on.png", "", "");
+            auto checkbox = ui::CheckBox::create("checkbox_on.png", "checkbox_on.png", "", "", "");
             auto checkboxLayout = ui::RelativeLayoutParameter::create();
             checkboxLayout->setAlign(RelativeAlign::PARENT_RIGHT_CENTER_VERTICAL);
             checkboxLayout->setMargin(ui::Margin(0, 0, 21.0_dp, 0));
             checkbox->setLayoutParameter(checkboxLayout);
             checkboxContainer->addChild(checkbox);
             checkbox->setEnabled(UserDefault::getInstance()->getBoolForKey(key.c_str(), defaultValue));
+            checkbox->setTouchEnabled(true);
             
             checkbox->addTouchEventListener([checkbox, key](Ref* sender, ui::Widget::TouchEventType type) {
                 if (type == ui::Widget::TouchEventType::ENDED) {
@@ -127,7 +129,7 @@ namespace flik
             iconWidget->setLayoutParameter(iconWidgetLayout);
             linkContainer->addChild(iconWidget);
             
-            auto labelWidget = ui::Text::create(label, kDefaultFont, 15.0_dp);
+            auto labelWidget = Fonts::createLocalizedText(label, 15.0_dp);
             auto labelLayout = ui::RelativeLayoutParameter::create();
             labelLayout->setAlign(RelativeAlign::LOCATION_RIGHT_OF_TOPALIGN);
             labelLayout->setMargin(ui::Margin(22.0_dp, 6.0_dp, 0, 0));
@@ -167,20 +169,20 @@ namespace flik
         madeInContainer->setAnchorPoint(Vec2(0.5, 0.0));
         addChild(madeInContainer);
         
-        auto label1 = ui::Text::create(LocalizedString::getString("setting_made_in"), kDefaultFont, 15.0_dp);
+        auto label1 = Fonts::createLocalizedText(LocalizedString::getString("setting_made_in"), 15.0_dp);
         auto label1Layout = ui::LinearLayoutParameter::create();
         label1Layout->setGravity(LinearGravity::CENTER_HORIZONTAL);
         label1->setLayoutParameter(label1Layout);
         madeInContainer->addChild(label1);
         
-        auto label2 = ui::Text::create("BROOKLYN", kDefaultFont, 25.0_dp);
+        auto label2 = Fonts::createLocalizedText("BROOKLYN", 25.0_dp);
         auto label2Layout = ui::LinearLayoutParameter::create();
         label2Layout->setGravity(LinearGravity::CENTER_HORIZONTAL);
         label2Layout->setMargin(ui::Margin(0, 7.0_dp, 0, 0));
         label2->setLayoutParameter(label2Layout);
         madeInContainer->addChild(label2);
         
-        auto label3 = ui::Text::create("NYC", kDefaultFont, 15.0_dp);
+        auto label3 = Fonts::createLocalizedText("NYC", 15.0_dp);
         auto label3Layout = ui::LinearLayoutParameter::create();
         label3Layout->setGravity(LinearGravity::CENTER_HORIZONTAL);
         label3Layout->setMargin(ui::Margin(0, 5.0_dp, 0, 0));

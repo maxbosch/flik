@@ -29,7 +29,7 @@ namespace flik
     
     ui::Widget* TextObjectiveOverlay::createObjectiveWidget()
     {
-        auto textWidget = ui::Text::create(mText, kDefaultFont, 15.0_dp);
+        auto textWidget = Fonts::createLocalizedText(mText, 15.0_dp);
         textWidget->setColor(Color3B::WHITE);
         textWidget->setTextHorizontalAlignment(TextHAlignment::CENTER);
         textWidget->setTextAreaSize(Size(250.0_dp, 80.0_dp));

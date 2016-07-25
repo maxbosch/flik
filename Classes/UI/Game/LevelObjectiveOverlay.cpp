@@ -10,6 +10,10 @@
 #include "Util.h"
 #include "ObjectiveDisplayWidget.h"
 #include "LevelTypes.h"
+#include "Fonts.h"
+#include "Styles.h"
+#include "LocalizedString.h"
+#include "Literals.h"
 
 USING_NS_CC;
 
@@ -29,7 +33,12 @@ namespace flik
     
     ui::Widget* LevelObjectiveOverlay::createObjectiveWidget()
     {
-        auto widget = ObjectiveDisplayWidget::create(mLevelDesc->objectives);
+        //auto widget = ObjectiveDisplayWidget::create(mLevelDesc->objectives);
+        auto objective = mLevelDesc->objectives[0];
+        auto widget = Fonts::createLocalizedText(LocalizedString::getString("objective_clear_pieces", objective.quantity), 25.0_dp);
+        widget->setColor(kGoldColor);
+        widget->setTextAreaSize(Size(250.0_dp, 80.0_dp));
+        widget->setTextHorizontalAlignment(TextHAlignment::CENTER);
         return widget;
     }
 }

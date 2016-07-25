@@ -51,7 +51,7 @@ namespace flik
         backgroundImage->setContentSize(innerContainer->getContentSize());
         innerContainer->addChild(backgroundImage);
         
-        auto titleLabel = ui::Text::create(LocalizedString::getString("levels_list_title"), kDefaultFont, 18.0_dp);
+        auto titleLabel = Fonts::createLocalizedText(LocalizedString::getString("levels_list_title"), 18.0_dp);
         auto titleLabelLayout = ui::LinearLayoutParameter::create();
         titleLabelLayout->setMargin(ui::Margin(0, 45.0_dp, 0, 45.0_dp));
         titleLabelLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
@@ -91,11 +91,11 @@ namespace flik
         scrollView->setLayoutType(ui::Layout::Type::VERTICAL);
         scrollView->setDirection(cocos2d::ui::ScrollView::Direction::VERTICAL);
         scrollView->setTouchEnabled(true);
-        scrollView->setScrollBarOpacity(255);
-        scrollView->setScrollBarAutoHideEnabled(false);
+        scrollView->setScrollBarAutoHideEnabled(true);
         scrollView->setScrollBarEnabled(true);
         scrollView->setScrollBarWidth(9.0_dp);
         scrollView->setScrollBarColor(kBlueBorderColor);
+        scrollView->setScrollBarOpacity(255);
         auto scrollViewLayout = ui::LinearLayoutParameter::create();
         scrollViewLayout->setMargin(ui::Margin(5.0_dp, 16.0_dp, 5.0_dp, 0));
         scrollView->setLayoutParameter(scrollViewLayout);

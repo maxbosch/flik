@@ -60,5 +60,14 @@ namespace flik
             costStr << std::setprecision(2) << std::fixed << value;
             return costStr.str();
         }
+        
+        static cocos2d::Color3B colorInterpolate(const cocos2d::Color3B& startColor, const cocos2d::Color3B& endColor, float t)
+        {
+            int r = startColor.r + (endColor.r - startColor.r) * t;
+            int g = startColor.g + (endColor.g - startColor.g) * t;
+            int b = startColor.b + (endColor.b - startColor.b) * t;
+            
+            return cocos2d::Color3B(r, g, b);
+        }
     };
 }

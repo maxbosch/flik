@@ -10,11 +10,10 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 
-#include <boost/format.hpp>
-
 #include "PlatformUtil.h"
 #import "FLIKMailComposePresenter.h"
 #import "AppController.h"
+#include "format.h"
 
 namespace flik
 {
@@ -32,7 +31,7 @@ namespace flik
     std::string PlatformUtil::getStoreUrl()
     {
         NSString* appID = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
-        return boost::str(boost::format(kItunesBaseUrl) % [appID UTF8String]);
+        return fmt::format(kItunesBaseUrl, [appID UTF8String]);
     }
     
     void PlatformUtil::presentEmailCompose(const std::string& toAddress, const std::string& subject, const std::string& body)
@@ -47,6 +46,7 @@ namespace flik
     
     std::string PlatformUtil::getLanguage()
     {
-        return [[[NSLocale preferredLanguages] objectAtIndex:0] UTF8String];
+        NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
+        return [[language substringToIndex:2] UTF8String];
     }
 }

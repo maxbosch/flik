@@ -11,6 +11,7 @@
 #include "Events.h"
 #include "GamePiece.h"
 #include "Physics.h"
+#include "CCLuaEngine.h"
 
 USING_NS_CC;
 
@@ -35,8 +36,6 @@ namespace flik
         mProgress.setLevelDescription(levelDesc);
         
         auto pieceRemovedListener = EventListenerCustom::create(kPieceRemovedEvent, [this](EventCustom* event) {
-            auto piece = reinterpret_cast<GamePiece*>(event->getUserData());
-            
             ObjectiveIncrementUpdate update;
             update.type = ObjectiveType::CollectPiece;
             
@@ -55,6 +54,8 @@ namespace flik
             getEventDispatcher()->dispatchEvent(&eventObj);
         });
         getEventDispatcher()->addEventListenerWithSceneGraphPriority(pieceRemovedListener, this);
+        
+        LuaEngine::getInstance()->executeScriptFile("lua/level_score_objective.lua");
         
         return true;
     }

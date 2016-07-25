@@ -26,7 +26,7 @@ namespace flik
         addChild(levelSelectOverlay);
         
         levelSelectOverlay->onExitButtonTapped = []() {
-            SceneManager::popToRootSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
+            SceneManager::popToRootSceneWithTransition<TransitionSlideInB>(kTransitionDuration);
         };
         
         return true;

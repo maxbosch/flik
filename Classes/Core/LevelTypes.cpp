@@ -53,6 +53,11 @@ namespace flik
         return &mLevels[level - 1];
     }
     
+    int LevelInfo::getNextLevel()
+    {
+        return std::min(getMaxLevelCompleted() + 1, getMaxLevel());
+    }
+    
     void LevelInfo::ParseLevels(const std::string& json)
     {
         rapidjson::Document doc;

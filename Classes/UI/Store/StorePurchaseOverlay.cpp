@@ -38,7 +38,7 @@ namespace flik
         backgroundImage->setContentSize(Size(uiSize.width - 80.0_dp, 475.0_dp));
         addChild(backgroundImage);
         
-        auto titleLabel = ui::Text::create(LocalizedString::getString("store_purchase_title"), kDefaultFont, 18.0_dp);
+        auto titleLabel = Fonts::createLocalizedText(LocalizedString::getString("store_purchase_title"), 18.0_dp);
         titleLabel->setColor(Color3B::WHITE);
         auto titleLabelLayout = ui::RelativeLayoutParameter::create();
         titleLabelLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
@@ -47,7 +47,7 @@ namespace flik
         titleLabel->setLayoutParameter(titleLabelLayout);
         addChild(titleLabel);
         
-        auto subtitleLabel = ui::Text::create(LocalizedString::getString("store_purchase_description"), kDefaultFont, 15.0_dp);
+        auto subtitleLabel = Fonts::createLocalizedText(LocalizedString::getString("store_purchase_description"), 15.0_dp);
         subtitleLabel->setColor(Color3B::WHITE);
         subtitleLabel->setTextHorizontalAlignment(cocos2d::TextHAlignment::CENTER);
         subtitleLabel->setContentSize(Size(250.0_dp, 40.0_dp));

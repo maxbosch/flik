@@ -30,5 +30,7 @@ namespace flik
         
         virtual cocos2d::ui::Widget* createGameOverOverlay();
         virtual void onShowGameOverScreen();
+        
+        int mObjectiveProgress;
     };
 }

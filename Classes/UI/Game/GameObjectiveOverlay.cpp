@@ -50,7 +50,7 @@ namespace flik
         backgroundImage->setAnchorPoint(Vec2());
         innerContainer->addChild(backgroundImage);
         
-        auto titleLabel = ui::Text::create(boost::to_upper_copy(title), kDefaultFont, 18.0_dp);
+        auto titleLabel = Fonts::createLocalizedText(boost::to_upper_copy(title), 18.0_dp);
         auto titleLabelLayout = ui::LinearLayoutParameter::create();
         titleLabelLayout->setMargin(ui::Margin(0, 45.0_dp, 0, 45.0_dp));
         titleLabelLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
@@ -69,7 +69,7 @@ namespace flik
         border1->setLayoutParameter(borderLayout1);
         innerContainer->addChild(border1);
         
-        auto objectiveTextLabel = ui::Text::create(LocalizedString::getString("objective"), kDefaultFont, 15.0_dp);
+        auto objectiveTextLabel = Fonts::createLocalizedText(LocalizedString::getString("objective"), 15.0_dp);
         auto objectiveTextLabelLayout = ui::LinearLayoutParameter::create();
         objectiveTextLabelLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
         objectiveTextLabelLayout->setMargin(ui::Margin(0, 45.0_dp, 0, 20.0_dp));
@@ -79,6 +79,7 @@ namespace flik
         auto objectiveWidget = createObjectiveWidget();
         auto objectiveContainerLayout = ui::LinearLayoutParameter::create();
         objectiveContainerLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
+        objectiveContainerLayout->setMargin(ui::Margin(0, 10.0_dp, 0, 0));
         objectiveWidget->setLayoutParameter(objectiveContainerLayout);
         innerContainer->addChild(objectiveWidget);
         
@@ -91,9 +92,9 @@ namespace flik
         innerContainer->addChild(border2);
         
         auto startButton = ui::Button::create("pink_button_fill_large.png");
-        startButton->setTitleFontName(kDefaultFont);
         startButton->setTitleFontSize(18.0_dp);
         startButton->setTitleText(LocalizedString::getString("button_start"));
+        startButton->setTitleFontName(Fonts::getFontForString(startButton->getTitleText()));
         startButton->setTitleColor(Color3B::WHITE);
         auto startButtonLayout = ui::LinearLayoutParameter::create();
         startButtonLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);

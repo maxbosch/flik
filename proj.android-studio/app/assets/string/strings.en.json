@@ -1,0 +1,50 @@
+{
+	"main_menu_mode_levels": "Levels",
+	"main_menu_mode_unlimited": "Unlimited",
+	"main_menu_mode_timed": "Timed",
+    
+    "levels_list_title": "LEVELS",
+    
+    "game_mode_timed": "TIMED MODE",
+    "game_mode_unlimited": "UNLIMITED_MODE",
+    "game_mode_level": "LEVEL %d",
+    
+    "objective": "Objective",
+    "objective_timed": "Score as many points as you can before time runs out",
+    "objective_unlimited": "Score as many points as you can before the board fills up",
+    
+    "title_settings": "SETTINGS",
+    "title_achievements": "ACHIEVEMENTS",
+    
+    "button_start": "START",
+    
+    "game_over": "Game Over",
+    "game_over_success": "NICE JOB!",
+    "restart": "Restart",
+    
+    "level_success": "SUCCESS",
+    "level_failed": "LEVEL %d FAILED",
+    
+    "setting_sounds": "SOUNDS",
+    "setting_vibrations": "VIBRATIONS",
+    "setting_rate_us": "RATE US",
+    "setting_email_us": "EMAIL US",
+    "setting_made_in": "MADE IN",
+    
+    "feedback_email_subject": "Feedback",
+    "feedback_email_body": "",
+    
+    "tutorial_intro": "Welcome to Flik!\nHow about a quick tutorial first?",
+    "tutorial_text": "Move the piece to\n its matching color",
+    "tutorial_exit": "Awesome!\n Now for a real challenge...",
+    
+    "store_power_ups": "POWER UPS",
+    "store_product_time_stops": "TIME STOPS",
+    "store_product_board_clears": "BOARD CLEARS",
+    "store_purchase_title": "MORE POINTS NEEDED",
+    "store_purchase_description": "Play more games to get more\n points or purchase some below",
+    "store_points": "%d points",
+    
+    "achievements_best_timed": "Best Timed",
+    "achievements_best_unlimited": "Best Unlimited"
+}

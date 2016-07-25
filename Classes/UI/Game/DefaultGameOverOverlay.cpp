@@ -44,7 +44,7 @@ namespace flik
         backgroundImage->setAnchorPoint(Vec2());
         innerContainer->addChild(backgroundImage);
         
-        auto titleLabel = ui::Text::create("", kDefaultFont, 18.0_dp);
+        auto titleLabel = Fonts::createLocalizedText("", 18.0_dp);
         titleLabel->setColor(Color3B::WHITE);
         auto titleLabelLayout = ui::RelativeLayoutParameter::create();
         titleLabelLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);

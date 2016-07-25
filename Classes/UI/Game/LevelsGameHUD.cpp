@@ -22,8 +22,6 @@
 #include "LocalizedString.h"
 #include "AchievementsScene.h"
 
-#include <boost/format.hpp>
-
 namespace flik
 {
     using RelativeAlign = ui::RelativeLayoutParameter::RelativeAlign;
@@ -43,17 +41,24 @@ namespace flik
         }
         
         mHeader->setScoreVisible(false);
+        mObjectiveProgress = 0;
         
-        auto objectivesWidget = ObjectiveDisplayWidget::create(mLevelDesc->objectives);
+        auto quantity = mLevelDesc->objectives[0].quantity;
+        
+        auto objectivesWidget = Fonts::createLocalizedText(fmt::sprintf("0/%d", quantity), 20.0_dp);
+        objectivesWidget->setColor(kGoldColor);
         auto objectivesWidgetLayout = ui::RelativeLayoutParameter::create();
         objectivesWidgetLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
-        objectivesWidgetLayout->setMargin(ui::Margin(0, 10.0_dp, 0, 0));
+        objectivesWidgetLayout->setMargin(ui::Margin(0, 30.0_dp, 0, 0));
         objectivesWidget->setLayoutParameter(objectivesWidgetLayout);
         mHeader->addChild(objectivesWidget);
         
-        auto pieceRemovedListener = EventListenerCustom::create(kObjectiveUpdatedEvent, [objectivesWidget](EventCustom* event) {
+        auto pieceRemovedListener = EventListenerCustom::create(kObjectiveUpdatedEvent, [this, objectivesWidget, quantity](EventCustom* event) {
             ObjectiveIncrementUpdate* updateData = reinterpret_cast<ObjectiveIncrementUpdate*>(event->getUserData());
-            objectivesWidget->incrementObjective(updateData->type, updateData->increment);
+            mObjectiveProgress += updateData->increment;
+            mObjectiveProgress = std::min(mObjectiveProgress, quantity);
+            objectivesWidget->setString(fmt::sprintf("%d/%d", mObjectiveProgress, quantity));
+            
         });
         getEventDispatcher()->addEventListenerWithSceneGraphPriority(pieceRemovedListener, this);
         
@@ -62,8 +67,7 @@ namespace flik
     
     GameObjectiveOverlay* LevelsGameHUD::createObjectiveOverlay()
     {
-        auto title = boost::str(boost::format(LocalizedString::getString("game_mode_level")) % mLevelDesc->levelNum);
-        return LevelObjectiveOverlay::create(title, mLevelDesc);
+        return LevelObjectiveOverlay::create(LocalizedString::getString("game_mode_level", mLevelDesc->levelNum), mLevelDesc);
     }
     
     cocos2d::ui::Widget* LevelsGameHUD::createGameOverOverlay()
@@ -75,7 +79,7 @@ namespace flik
             }
         };
         gameOverOverlay->onHomeTapped = [this]() {
-            SceneManager::popToRootSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
+            SceneManager::popToRootSceneWithTransition<TransitionSlideInB>(kTransitionDuration);
         };
         
         gameOverOverlay->onAchievementsTapped = [this]() {

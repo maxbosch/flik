@@ -63,9 +63,12 @@
 		66442B3E1D0DD41900AC5983 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66442B3C1D0DD41900AC5983 /* AppDelegate.cpp */; };
 		66442B3F1D0DE7AF00AC5983 /* PluginSdkboxPlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 412342C0B9B05982BF6E2B64 /* PluginSdkboxPlay.framework */; };
 		66442B411D0DE7C800AC5983 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66442B401D0DE7C800AC5983 /* GameKit.framework */; };
+		664F99611D392796007C9ED7 /* libluacocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CC6CB91D33DF0500A60D8D /* libluacocos2d iOS.a */; };
 		6653CD8F1D1C230A00721B17 /* SettingsScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6653CD8D1D1C230A00721B17 /* SettingsScene.cpp */; };
 		6653CDA91D215DE400721B17 /* PlatformUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6653CDA81D215DE400721B17 /* PlatformUtil.mm */; };
 		6653CDAF1D2160B800721B17 /* FLIKMailComposePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6653CDAE1D2160B800721B17 /* FLIKMailComposePresenter.m */; };
+		665766871D2D3B5B0098D936 /* fonts.json in Resources */ = {isa = PBXBuildFile; fileRef = 665766861D2D3B5B0098D936 /* fonts.json */; };
+		6657668A1D2D3B7E0098D936 /* Fonts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665766881D2D3B7E0098D936 /* Fonts.cpp */; };
 		665D99ED1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */; };
 		665D99EE1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */; };
 		665D9A191D070D060051A9C9 /* 1x in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A141D070D060051A9C9 /* 1x */; };
@@ -85,6 +88,9 @@
 		667723541D18BBF000B1B74A /* SpawnRandomizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 667723521D18BBF000B1B74A /* SpawnRandomizer.cpp */; };
 		66A92EF21D0F81D8004F78D3 /* GameBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A92EF01D0F81D8004F78D3 /* GameBoard.cpp */; };
 		66B92B721D0A3C6200DA1657 /* StoreProductWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */; };
+		66CC6CA01D2FDDD600A60D8D /* lua in Resources */ = {isa = PBXBuildFile; fileRef = 66CC6C9F1D2FDDD600A60D8D /* lua */; };
+		66CC6CA41D2FE29A00A60D8D /* GameServices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66CC6CA21D2FE29A00A60D8D /* GameServices.cpp */; };
+		66CC6CB81D30678800A60D8D /* format.cc in Sources */ = {isa = PBXBuildFile; fileRef = 66CC6CB61D30678800A60D8D /* format.cc */; };
 		66D655AD1D10C73100F1B6E8 /* LevelsGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655AB1D10C73100F1B6E8 /* LevelsGameMode.cpp */; };
 		66D655B01D10CC2100F1B6E8 /* LevelTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655AF1D10CC2100F1B6E8 /* LevelTypes.cpp */; };
 		66D655B31D10D58400F1B6E8 /* LevelsGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D655B11D10D58400F1B6E8 /* LevelsGameHUD.cpp */; };
@@ -250,12 +256,16 @@
 		66442B3C1D0DD41900AC5983 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		66442B3D1D0DD41900AC5983 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
 		66442B401D0DE7C800AC5983 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
+		664F99301D352CAF007C9ED7 /* liblua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblua.a; path = "../../../../../../Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/external/lua/lua/prebuilt/ios/liblua.a"; sourceTree = "<group>"; };
 		6653CD8D1D1C230A00721B17 /* SettingsScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SettingsScene.cpp; sourceTree = "<group>"; };
 		6653CD8E1D1C230A00721B17 /* SettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsScene.h; sourceTree = "<group>"; };
 		6653CDA81D215DE400721B17 /* PlatformUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlatformUtil.mm; sourceTree = "<group>"; };
 		6653CDAA1D215DF500721B17 /* PlatformUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlatformUtil.h; sourceTree = "<group>"; };
 		6653CDAD1D2160B800721B17 /* FLIKMailComposePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLIKMailComposePresenter.h; sourceTree = "<group>"; };
 		6653CDAE1D2160B800721B17 /* FLIKMailComposePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLIKMailComposePresenter.m; sourceTree = "<group>"; };
+		665766861D2D3B5B0098D936 /* fonts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fonts.json; sourceTree = "<group>"; };
+		665766881D2D3B7E0098D936 /* Fonts.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fonts.cpp; sourceTree = "<group>"; };
+		665766891D2D3B7E0098D936 /* Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fonts.h; sourceTree = "<group>"; };
 		665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimedGameMode.cpp; sourceTree = "<group>"; };
 		665D99EC1D05B4A40051A9C9 /* TimedGameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimedGameMode.h; sourceTree = "<group>"; };
 		665D9A141D070D060051A9C9 /* 1x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 1x; sourceTree = "<group>"; };
@@ -275,6 +285,14 @@
 		66A92EF11D0F81D8004F78D3 /* GameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoard.h; sourceTree = "<group>"; };
 		66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoreProductWidget.cpp; sourceTree = "<group>"; };
 		66B92B711D0A3C6200DA1657 /* StoreProductWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreProductWidget.h; sourceTree = "<group>"; };
+		66CC6C9F1D2FDDD600A60D8D /* lua */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lua; sourceTree = "<group>"; };
+		66CC6CA11D2FE0F400A60D8D /* Achievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Achievement.h; sourceTree = "<group>"; };
+		66CC6CA21D2FE29A00A60D8D /* GameServices.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameServices.cpp; sourceTree = "<group>"; };
+		66CC6CA31D2FE29A00A60D8D /* GameServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameServices.h; sourceTree = "<group>"; };
+		66CC6CB21D3063EB00A60D8D /* Errors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Errors.h; sourceTree = "<group>"; };
+		66CC6CB61D30678800A60D8D /* format.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = format.cc; sourceTree = "<group>"; };
+		66CC6CB71D30678800A60D8D /* format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = format.h; sourceTree = "<group>"; };
+		66CC6CB91D33DF0500A60D8D /* libluacocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libluacocos2d iOS.a"; path = "../../../../../../Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/prebuilt/ios/libluacocos2d iOS.a"; sourceTree = "<group>"; };
 		66D655AB1D10C73100F1B6E8 /* LevelsGameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelsGameMode.cpp; sourceTree = "<group>"; };
 		66D655AC1D10C73100F1B6E8 /* LevelsGameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelsGameMode.h; sourceTree = "<group>"; };
 		66D655AE1D10C9E500F1B6E8 /* LevelTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LevelTypes.h; sourceTree = "<group>"; };
@@ -342,6 +360,7 @@
 				ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
 				66D7CF8A1D273C8C0000DE33 /* libcocos2d iOS.a in Frameworks */,
+				664F99611D392796007C9ED7 /* libluacocos2d iOS.a in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
 				66442B3F1D0DE7AF00AC5983 /* PluginSdkboxPlay.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
@@ -433,6 +452,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				664F99301D352CAF007C9ED7 /* liblua.a */,
+				66CC6CB91D33DF0500A60D8D /* libluacocos2d iOS.a */,
 				66D7CF8C1D29C2400000DE33 /* StoreKit.framework */,
 				66D7CF891D273C8C0000DE33 /* libcocos2d iOS.a */,
 				66442B401D0DE7C800AC5983 /* GameKit.framework */,
@@ -487,7 +508,9 @@
 				66442B281D0B83B100AC5983 /* string */,
 				666EC0251D1A069500FE138F /* shaders */,
 				66442B381D0CC9E100AC5983 /* sdkbox_config.json */,
+				66CC6C9F1D2FDDD600A60D8D /* lua */,
 				66E3457D1D1379120075CB46 /* levels.json */,
+				665766861D2D3B5B0098D936 /* fonts.json */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -647,6 +670,8 @@
 				663894851D09AEB60034892E /* Styles.h */,
 				66D655AE1D10C9E500F1B6E8 /* LevelTypes.h */,
 				66D655AF1D10CC2100F1B6E8 /* LevelTypes.cpp */,
+				66CC6CA11D2FE0F400A60D8D /* Achievement.h */,
+				66CC6CB21D3063EB00A60D8D /* Errors.h */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -688,6 +713,7 @@
 		663894921D09AEB60034892E /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				66CC6CB51D30678800A60D8D /* Format */,
 				663894931D09AEB60034892E /* Literals.cpp */,
 				663894941D09AEB60034892E /* Literals.h */,
 				663894951D09AEB60034892E /* Util.cpp */,
@@ -701,6 +727,10 @@
 				667723531D18BBF000B1B74A /* SpawnRandomizer.h */,
 				66D84BE31D2351EC00BA4D53 /* SceneManager.cpp */,
 				66D84BE41D2351EC00BA4D53 /* SceneManager.h */,
+				665766881D2D3B7E0098D936 /* Fonts.cpp */,
+				665766891D2D3B7E0098D936 /* Fonts.h */,
+				66CC6CA21D2FE29A00A60D8D /* GameServices.cpp */,
+				66CC6CA31D2FE29A00A60D8D /* GameServices.h */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -730,6 +760,15 @@
 				6653CDAE1D2160B800721B17 /* FLIKMailComposePresenter.m */,
 			);
 			path = iOS;
+			sourceTree = "<group>";
+		};
+		66CC6CB51D30678800A60D8D /* Format */ = {
+			isa = PBXGroup;
+			children = (
+				66CC6CB61D30678800A60D8D /* format.cc */,
+				66CC6CB71D30678800A60D8D /* format.h */,
+			);
+			path = Format;
 			sourceTree = "<group>";
 		};
 		66D7CF7B1D26B3DB0000DE33 /* Animation */ = {
@@ -869,8 +908,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				665766871D2D3B5B0098D936 /* fonts.json in Resources */,
 				665D9A211D070D060051A9C9 /* fonts in Resources */,
 				665D9A1F1D070D060051A9C9 /* 4x in Resources */,
+				66CC6CA01D2FDDD600A60D8D /* lua in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				665D9A1D1D070D060051A9C9 /* 3x in Resources */,
 				665D9A191D070D060051A9C9 /* 1x in Resources */,
@@ -935,7 +976,9 @@
 				66114ECF1D12DB4900B2C92B /* ObjectiveDisplayWidget.cpp in Sources */,
 				66A92EF21D0F81D8004F78D3 /* GameBoard.cpp in Sources */,
 				6638947D1D09AD9B0034892E /* MainMenuHUD.cpp in Sources */,
+				6657668A1D2D3B7E0098D936 /* Fonts.cpp in Sources */,
 				66E7E5171D182910007DE4B9 /* LevelSelectScene.cpp in Sources */,
+				66CC6CA41D2FE29A00A60D8D /* GameServices.cpp in Sources */,
 				6638947A1D09AD9B0034892E /* MainMenuButtons.cpp in Sources */,
 				663894761D09AD9B0034892E /* MainGameHUD.cpp in Sources */,
 				6638949B1D09AEB60034892E /* Player.cpp in Sources */,
@@ -961,6 +1004,7 @@
 				663894A11D09AEB60034892E /* VelocityTracker.cpp in Sources */,
 				66D655B01D10CC2100F1B6E8 /* LevelTypes.cpp in Sources */,
 				66D7CF731D249CC70000DE33 /* TutorialGameMode.cpp in Sources */,
+				66CC6CB81D30678800A60D8D /* format.cc in Sources */,
 				6638947E1D09AD9B0034892E /* PowerUpButton.cpp in Sources */,
 				6653CD8F1D1C230A00721B17 /* SettingsScene.cpp in Sources */,
 				66D84BE51D2351EC00BA4D53 /* SceneManager.cpp in Sources */,
@@ -1010,6 +1054,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1036,6 +1081,10 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 					/usr/local/include,
 					"$(SRCROOT)/../cocos2d/extensions",
+					/usr/local/include/freetype2,
+					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/cocos/scripting/lua-bindings/auto",
+					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/external/lua/tolua",
+					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/cocos/scripting/lua-bindings/manual",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1044,11 +1093,16 @@
 					"\"sdkbox.framework\"",
 					"\"PluginAchievement.framework\"",
 					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/prebuilt/ios",
+					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/external/lua/lua/prebuilt/ios",
 				);
 				OTHER_CFLAGS = "-DSDKBOX_ENABLED";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
+					"-pagezero_size",
+					10000,
+					"-image_base",
+					100000000,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aeskreis.flik;
 				PRODUCT_NAME = Flik;
@@ -1067,6 +1121,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Adam Eskreis (YK656P6CH5)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Adam Eskreis (YK656P6CH5)";
@@ -1091,6 +1146,10 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 					/usr/local/include,
 					"$(SRCROOT)/../cocos2d/extensions",
+					/usr/local/include/freetype2,
+					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/cocos/scripting/lua-bindings/auto",
+					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/external/lua/tolua",
+					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/cocos/scripting/lua-bindings/manual",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1099,11 +1158,16 @@
 					"\"sdkbox.framework\"",
 					"\"PluginAchievement.framework\"",
 					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/prebuilt/ios",
+					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/external/lua/lua/prebuilt/ios",
 				);
 				OTHER_CFLAGS = "-DSDKBOX_ENABLED";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
+					"-pagezero_size",
+					10000,
+					"-image_base",
+					100000000,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aeskreis.flik;
 				PRODUCT_NAME = Flik;

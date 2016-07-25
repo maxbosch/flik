@@ -40,7 +40,7 @@ namespace flik
         }
         
         setTitleColor(Color3B::WHITE);
-        setTitleFontName(kDefaultFont);
+        setTitleFontName(Fonts::getFontForString("1234567890"));
         setTitleFontSize(11.0_dp);
         
         setCount(0);

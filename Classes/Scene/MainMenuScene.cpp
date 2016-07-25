@@ -75,7 +75,7 @@ namespace flik
         
         
         if (gameScene) {
-            SceneManager::pushSceneWithTransition<TransitionSlideInR>(gameScene, kTransitionDuration);
+            SceneManager::pushSceneWithTransition<TransitionSlideInT>(gameScene, kTransitionDuration);
         }
     }
 }

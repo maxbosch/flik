@@ -13,8 +13,6 @@
 #include "LevelTypes.h"
 #include "LocalizedString.h"
 
-#include <boost/format.hpp>
-
 USING_NS_CC;
 
 namespace flik
@@ -47,7 +45,7 @@ namespace flik
         backgroundImage->setContentSize(innerContainer->getContentSize());
         innerContainer->addChild(backgroundImage);
         
-        auto titleLabel = ui::Text::create("", kDefaultFont, 18.0_dp);
+        auto titleLabel = Fonts::createLocalizedText("", 18.0_dp);
         titleLabel->setColor(Color3B::WHITE);
         auto titleLabelLayout = ui::RelativeLayoutParameter::create();
         titleLabelLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
@@ -108,7 +106,6 @@ namespace flik
         
         auto nextLevelButton = ui::Button::create("pink_button_fill_large.png");
         nextLevelButton->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
-        nextLevelButton->setTitleFontName(kDefaultFont);
         nextLevelButton->setTitleFontSize(18.0_dp);
         nextLevelButton->setTitleColor(Color3B::WHITE);
         
@@ -139,8 +136,7 @@ namespace flik
     void LevelGameOverOverlay::setNextLevel(bool success, int level)
     {
         if (success && level <= LevelInfo::getInstance()->getMaxLevel()) {
-            auto nextLevelText = boost::str(boost::format(LocalizedString::getString("game_mode_level")) % (level - 1));
-            mNextLevelButton->setTitleText(nextLevelText);
+            mNextLevelButton->setTitleText(LocalizedString::getString("game_over_try_next", level));
             
             mNextLevelButton->setVisible(true);
             mAchievementsButton->setVisible(false);
@@ -152,9 +148,9 @@ namespace flik
         if (success) {
             mTitleLabel->setString(LocalizedString::getString("level_success"));
         } else {
-            std::stringstream text;
-            auto failText = boost::str(boost::format(LocalizedString::getString("level_failed")) % (level - 1));
-            mTitleLabel->setString(failText);
+            mTitleLabel->setString(LocalizedString::getString("level_failed", level - 1));
         }
+        
+        mNextLevelButton->setTitleFontName(Fonts::getFontForString(mNextLevelButton->getTitleText()));
     }
 }

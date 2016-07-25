@@ -47,7 +47,7 @@ namespace flik
         textContainer->setLayoutParameter(textContainerLayout);
         addChild(textContainer);
         
-        auto text = ui::Text::create(boost::lexical_cast<std::string>(quantity), kDefaultFont, 11.0_dp);
+        auto text = Fonts::createLocalizedText(boost::lexical_cast<std::string>(quantity), 11.0_dp);
         auto textLayout = ui::RelativeLayoutParameter::create();
         textLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
         text->setLayoutParameter(textLayout);

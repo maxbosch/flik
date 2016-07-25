@@ -17,7 +17,7 @@ namespace flik
 {
     static const int kMaxCurrencyAmount = 99999;
     
-    class Player : public sdkbox::SdkboxPlayListener
+    class Player
     {
     public:
         static Player* getMainPlayer();
@@ -37,13 +37,6 @@ namespace flik
         void removeCurrency(int amount);
         
         void handleEndOfGameAchievements(GameModeType type);
-        
-        /** SdkboxPlayListener */
-        virtual void onConnectionStatusChanged( int status );
-        virtual void onScoreSubmitted( const std::string& leaderboard_name, int score, bool maxScoreAllTime, bool maxScoreWeek, bool maxScoreToday );
-        virtual void onIncrementalAchievementUnlocked( const std::string& achievement_name );
-        virtual void onIncrementalAchievementStep( const std::string& achievement_name, int step );
-        virtual void onAchievementUnlocked( const std::string& achievement_name, bool newlyUnlocked );
         
         
     private:

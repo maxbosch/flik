@@ -30,7 +30,7 @@ namespace flik
             return false;
         }
         
-        auto levelText = ui::Text::create("Level " + boost::lexical_cast<std::string>(level), kDefaultFont, 25.0_dp);
+        auto levelText = Fonts::createLocalizedText("Level " + boost::lexical_cast<std::string>(level), 25.0_dp);
         auto levelTextLayout = ui::RelativeLayoutParameter::create();
         levelTextLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
         levelTextLayout->setMargin(ui::Margin(37.0_dp, 22.0_dp, 0, 0));

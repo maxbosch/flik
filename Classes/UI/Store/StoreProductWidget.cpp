@@ -54,7 +54,7 @@ namespace flik
         
         std::stringstream productText;
         productText << quantity << " " << boost::to_upper_copy(productName);
-        auto productLabel = ui::Text::create(productText.str(), kDefaultFont, 15.0_dp);
+        auto productLabel = Fonts::createLocalizedText(productText.str(), 15.0_dp);
         productLabel->setTextColor(Color4B::WHITE);
         auto productLabelLayout = ui::RelativeLayoutParameter::create();
         productLabelLayout->setRelativeToWidgetName("circle");
@@ -66,7 +66,7 @@ namespace flik
         
         auto purchaseButton = ui::Button::create("purchase_button.png");
         purchaseButton->setTitleText(boost::lexical_cast<std::string>(cost));
-        purchaseButton->setTitleFontName(kDefaultFont);
+        purchaseButton->setTitleFontName(Fonts::getFontForString(purchaseButton->getTitleText()));
         purchaseButton->setTitleFontSize(15.0_dp);
         purchaseButton->setTitleColor(Util::getColorFromHex("FACC89"));
         purchaseButton->getTitleRenderer()->setPosition(purchaseButton->getTitleRenderer()->getPosition() - Vec2(0, 2.0_dp));

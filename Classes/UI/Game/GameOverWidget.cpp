@@ -24,7 +24,7 @@ namespace flik
             return false;
         }
         
-        auto gameOverTextLabel = ui::Text::create(LocalizedString::getString("game_over"), kDefaultFont, 20.0_dp);
+        auto gameOverTextLabel = Fonts::createLocalizedText(LocalizedString::getString("game_over"), 20.0_dp);
         gameOverTextLabel->setTextColor(Color4B(0, 0, 0, 255));
         auto gameOverTextLabelLayout = ui::RelativeLayoutParameter::create();
         gameOverTextLabelLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
@@ -36,7 +36,7 @@ namespace flik
         restartButton->setContentSize(Size(200.0_dp, 30.0_dp));
         restartButton->ignoreContentAdaptWithSize(false);
         restartButton->setTitleText(LocalizedString::getString("restart"));
-        restartButton->setTitleFontName(kDefaultFont);
+        restartButton->setTitleFontName(Fonts::getFontForString(restartButton->getTitleText()));
         restartButton->setTitleFontSize(16.0_dp);
         restartButton->setTitleColor(Color3B(0, 0, 0));
         restartButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {

@@ -11,6 +11,10 @@
 #include "Literals.h"
 #include "Enums.h"
 #include "LocalizedString.h"
+#include "Fonts.h"
+#include "LevelTypes.h"
+
+#include <boost/lexical_cast.hpp>
 
 USING_NS_CC;
 
@@ -35,7 +39,7 @@ namespace flik
         auto createButton = [this](const std::string& image, const std::string& title, GameModeType gameType) -> ui::Button* {
             auto button = ui::Button::create(image);
             button->setTitleText(title);
-            button->setTitleFontName(kDefaultFont);
+            button->setTitleFontName(Fonts::getFontForString(button->getTitleText()));
             button->setTitleColor(Color3B::WHITE);
             button->setTitleFontSize(23.0_dp);
             button->addTouchEventListener([this, gameType](Ref* sender, ui::Widget::TouchEventType type) {
@@ -54,12 +58,17 @@ namespace flik
             return button;
         };
         
-        auto levelsButton = createButton("levels_button.png", LocalizedString::getString("main_menu_mode_levels"), GameModeType::Levels);
+        auto levelsButton = createButton("pink_button_fill.png", LocalizedString::getString("main_menu_mode_levels"), GameModeType::Levels);
         auto levelsButtonLayout = ui::RelativeLayoutParameter::create();
         levelsButtonLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
         levelsButtonLayout->setMargin(ui::Margin(0, 35.0_dp, 0, 0));
         levelsButton->setLayoutParameter(levelsButtonLayout);
         innerContainer->addChild(levelsButton);
+        
+        auto levelsButtonLabel = Fonts::createLocalizedText(boost::lexical_cast<std::string>(LevelInfo::getInstance()->getNextLevel() + 1), 25.0_dp);
+        levelsButtonLabel->setAnchorPoint(Vec2(0.5, 0.5));
+        levelsButtonLabel->setPosition(levelsButton->getContentSize() * 0.5);
+        levelsButton->addChild(levelsButtonLabel);
         
         auto timedButton = createButton("timer_home.png", LocalizedString::getString("main_menu_mode_timed"), GameModeType::Timed);
         auto timedButtonLayout = ui::RelativeLayoutParameter::create();

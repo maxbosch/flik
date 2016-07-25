@@ -11,6 +11,7 @@
 #include "Literals.h"
 #include "SceneManager.h"
 #include "Player.h"
+#include "Errors.h"
 #include "LocalizedString.h"
 
 USING_NS_CC;
@@ -54,7 +55,7 @@ namespace flik
             container->setAnchorPoint(Vec2(0, 0));
             addChild(container);
             
-            auto nameText = ui::Text::create("Play a game in Timed Mode", kDefaultFont, 18.0_dp);
+            auto nameText = Fonts::createLocalizedText("", 18.0_dp);
             nameText->setTextAreaSize(Size(200.0_dp, 40.0_dp));
             nameText->setTextVerticalAlignment(TextVAlignment::CENTER);
             auto nameTextLayout = ui::RelativeLayoutParameter::create();
@@ -62,6 +63,7 @@ namespace flik
             nameTextLayout->setMargin(ui::Margin(40.0_dp, 0, 0, 0));
             nameText->setLayoutParameter(nameTextLayout);
             container->addChild(nameText);
+            mNameText = nameText;
             
             auto imageView = ui::ImageView::create("achievement_incomplete.png");
             auto imageViewLayout = ui::RelativeLayoutParameter::create();
@@ -80,19 +82,20 @@ namespace flik
             return true;
         }
         
-        void setAchievement(ssize_t uIdx)
+        void setAchievement(Achievement& achievement)
         {
-            bool complete = uIdx % 2 == 0;
-            
-            printf("Complete: %d", complete);
-            if (complete) {
+            if (achievement.state == AchievementState::Unlocked) {
                 mCompletionImage->loadTexture("achievement_complete.png");
             } else {
                 mCompletionImage->loadTexture("achievement_incomplete.png");
             }
+            
+            mNameText->setString(achievement.name);
         }
         
+    private:
         ui::ImageView* mCompletionImage;
+        ui::Text* mNameText;
     };
     
     bool AchievementsScene::init()
@@ -118,7 +121,7 @@ namespace flik
         auto header = ui::RelativeBox::create(Size(uiSize.width, 82.5_dp));
         container->addChild(header);
         
-        auto title = ui::Text::create(LocalizedString::getString("title_achievements"), kDefaultFont, 25.0_dp);
+        auto title = Fonts::createLocalizedText(LocalizedString::getString("title_achievements"), 25.0_dp);
         title->setTextVerticalAlignment(cocos2d::TextVAlignment::CENTER);
         auto titleLayout = ui::RelativeLayoutParameter::create();
         titleLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
@@ -135,7 +138,7 @@ namespace flik
         
         backButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
             if (type == ui::Widget::TouchEventType::ENDED) {
-                SceneManager::popSceneWithTransition<TransitionSlideInR>(kTransitionDuration);
+                SceneManager::popToRootSceneWithTransition<TransitionSlideInB>(kTransitionDuration);
             }
         });
         
@@ -148,7 +151,7 @@ namespace flik
         auto createTopScoreWidget = [uiSize](const std::string& name, int value, float ratio) {
             auto container = ui::RelativeBox::create(Size(uiSize.width * ratio, 120.0_dp));
             
-            auto label = ui::Text::create(name, kDefaultFont, 15.0_dp);
+            auto label = Fonts::createLocalizedText(name, 15.0_dp);
             auto labelLayout = ui::RelativeLayoutParameter::create();
             labelLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
             labelLayout->setMargin(ui::Margin(0, 35.0_dp, 0, 0));
@@ -156,7 +159,7 @@ namespace flik
             label->setLayoutParameter(labelLayout);
             container->addChild(label);
             
-            auto valueLabel = ui::Text::create(boost::lexical_cast<std::string>(value), kDefaultFont, 25.0_dp);
+            auto valueLabel = Fonts::createLocalizedText(boost::lexical_cast<std::string>(value), 25.0_dp);
             auto valueLabelLayout = ui::RelativeLayoutParameter::create();
             valueLabelLayout->setAlign(RelativeAlign::LOCATION_BELOW_CENTER);
             valueLabelLayout->setMargin(ui::Margin(0, 3.0_dp, 0, 0));
@@ -181,6 +184,15 @@ namespace flik
         
         auto achievementsTable = TableView::create(this, Size(uiSize.width, scrollViewHeight));
         addChild(achievementsTable);
+        GameServices::getInstance()->getAchievements([this, achievementsTable](const TAchievementList& achievements, int result) {
+            if (result == RESULT_OK) {
+                mAchievements = achievements;
+                achievementsTable->reloadData();
+            } else {
+                // Show error dialog;
+                auto error = LocalizedString::getString("error_load_failed", LocalizedString::getString("word_achievements"));
+            }
+        });
         
         return true;
     }
@@ -198,13 +210,15 @@ namespace flik
             cell = AchievementTableCell::create();
         }
         
-        cell->setAchievement(idx);
+        if (mAchievements.size() > idx) {
+            cell->setAchievement(mAchievements[idx]);
+        }
         
         return cell;
     }
     
     ssize_t AchievementsScene::numberOfCellsInTableView(TableView *table)
     {
-        return 10;
+        return mAchievements.size();
     }
 }

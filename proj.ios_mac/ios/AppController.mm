@@ -37,7 +37,7 @@
 #pragma mark Application lifecycle
 
 // cocos2d application instance
-static flik::AppDelegate s_sharedApplication;
+static flik::AppDelegate es_sharedApplication;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 

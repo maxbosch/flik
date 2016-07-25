@@ -46,6 +46,7 @@ namespace flik
         void completeLevel(int level);
         int getMaxLevelCompleted();
         int getMaxLevel();
+        int getNextLevel();
         
     private:
         LevelInfo();

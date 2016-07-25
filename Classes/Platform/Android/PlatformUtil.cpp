@@ -16,9 +16,9 @@
 #include "cocos2d.h"
 #endif
 
-#include <boost/format.hpp>
-
 #include "PlatformUtil.h"
+
+#include "format.h"
 
 
 namespace flik
@@ -46,7 +46,7 @@ namespace flik
     
             const char *packageName = env->GetStringUTFChars(package, NULL);
             
-            return boost::str(boost::format(kPlayStoreBaseUrl) % packageName);
+            return fmt::format(kPlayStoreBaseUrl, packageName);
         }
         
         return "";

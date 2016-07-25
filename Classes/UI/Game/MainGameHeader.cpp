@@ -56,7 +56,7 @@ namespace flik
             }
         });
         
-        auto scoreLabel = ui::Text::create("0", kDefaultFont, 25.0_dp);
+        auto scoreLabel = Fonts::createLocalizedText("0", 25.0_dp);
         auto scoreLabelLayout = ui::RelativeLayoutParameter::create();
         scoreLabelLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
         scoreLabelLayout->setMargin(ui::Margin(0, 27.0_dp, 0, 0));

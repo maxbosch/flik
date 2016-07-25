@@ -18,8 +18,6 @@
 
 #include "PluginIAP/PluginIAP.h"
 
-#include <boost/format.hpp>
-
 USING_NS_CC;
 
 namespace flik
@@ -40,8 +38,7 @@ namespace flik
         
         setContentSize(Size(118.5_dp, 65.0_dp));
         
-        auto text = boost::str(boost::format(LocalizedString::getString("store_points")) % pointsCount);
-        auto label = ui::Text::create(text, kDefaultFont, 15.0_dp);
+        auto label = Fonts::createLocalizedText(LocalizedString::getString("store_points", pointsCount), 15.0_dp);
         label->setTextColor(Color4B::WHITE);
         auto labelLayout = ui::RelativeLayoutParameter::create();
         labelLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
@@ -50,7 +47,7 @@ namespace flik
         
         auto purchaseButton = ui::Button::create("purchase_button.png");
         purchaseButton->setTitleText(Util::toMoneyValue(cost));
-        purchaseButton->setTitleFontName(kDefaultFont);
+        purchaseButton->setTitleFontName(Fonts::getFontForString(purchaseButton->getTitleText()));
         purchaseButton->setTitleFontSize(15.0_dp);
         purchaseButton->setTitleColor(Util::getColorFromHex("FACC89"));
         purchaseButton->getTitleRenderer()->setPosition(purchaseButton->getTitleRenderer()->getPosition() - Vec2(0, 2.0_dp));

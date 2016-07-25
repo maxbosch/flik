@@ -39,22 +39,22 @@ namespace flik
         
         auto pointsButton = ui::Button::create("points_container.png");
         pointsButton->setTitleColor(Color3B::WHITE);
-        pointsButton->setTitleFontName(kDefaultFont);
+        pointsButton->setTitleFontName(Fonts::getFontForString("1234567890"));
         pointsButton->setTitleFontSize(25.0_dp);
         pointsButton->getTitleRenderer()->setAnchorPoint(Vec2(0, 0.5));
         pointsButton->getTitleRenderer()->setPosition(Vec2(12.0_dp, pointsButton->getContentSize().height * 0.5 - 2.0_dp));
         auto pointsButtonLayout = ui::RelativeLayoutParameter::create();
         pointsButtonLayout->setRelativeName("points_button");
-        pointsButtonLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
-        pointsButtonLayout->setMargin(ui::Margin(0, 20.0_dp, 0, 0));
+        pointsButtonLayout->setAlign(RelativeAlign::PARENT_BOTTOM_CENTER_HORIZONTAL);
+        pointsButtonLayout->setMargin(ui::Margin(0, 0, 0, 20.0_dp));
         pointsButton->setLayoutParameter(pointsButtonLayout);
         storeGUI->addChild(pointsButton);
         mPointsButton = pointsButton;
         
-        auto productsCopy = ui::Text::create(LocalizedString::getString("store_power_ups"), kDefaultFont, 25.0_dp);
+        auto productsCopy = Fonts::createLocalizedText(LocalizedString::getString("store_power_ups"), 25.0_dp);
         productsCopy->setColor(Color3B::WHITE);
         auto productsCopyLayout = ui::RelativeLayoutParameter::create();
-        productsCopyLayout->setRelativeToWidgetName("points_button");
+        productsCopyLayout->setRelativeToWidgetName("close_button");
         productsCopyLayout->setRelativeName("products_copy");
         productsCopyLayout->setAlign(RelativeAlign::LOCATION_BELOW_CENTER);
         productsCopyLayout->setMargin(ui::Margin(0, 90.0_dp, 0, 0));
@@ -85,9 +85,11 @@ namespace flik
         productsContainer->addChild(targetProduct);
         
         auto closeButton = ui::Button::create("arrow_down.png");
+        closeButton->setRotation(180);
         auto closeButtonLayout = ui::RelativeLayoutParameter::create();
-        closeButtonLayout->setAlign(RelativeAlign::PARENT_BOTTOM_CENTER_HORIZONTAL);
-        closeButtonLayout->setMargin(ui::Margin(0, 0, 0, 20.0_dp));
+        closeButtonLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
+        closeButtonLayout->setRelativeName("close_button");
+        closeButtonLayout->setMargin(ui::Margin(0, 20.0_dp, 0, 0));
         closeButton->setLayoutParameter(closeButtonLayout);
         storeGUI->addChild(closeButton);
         mCloseButton = closeButton;

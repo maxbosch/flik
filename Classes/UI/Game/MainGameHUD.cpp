@@ -96,7 +96,7 @@ namespace flik
             getGameScene()->unpauseGame();
         };
         pauseOverlay->onHomeTapped = [this]() {
-            SceneManager::popToRootSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
+            SceneManager::popToRootSceneWithTransition<TransitionSlideInB>(kTransitionDuration);
         };
         pauseOverlay->onRestartTapped = [this]() {
             getGameScene()->unpauseGame();
@@ -127,7 +127,7 @@ namespace flik
                 }
             };
             objectiveOverlay->onExitButtonTapped = [this]() {
-                SceneManager::popSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
+                SceneManager::popToRootSceneWithTransition<TransitionSlideInB>(kTransitionDuration);
             };
             objectiveOverlay->setVisible(false);
             mObjectiveOverlay = objectiveOverlay;
@@ -181,7 +181,7 @@ namespace flik
             }
         };
         gameOverOverlay->onHomeTapped = [this]() {
-            SceneManager::popToRootSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
+            SceneManager::popToRootSceneWithTransition<TransitionSlideInB>(kTransitionDuration);
         };
         
         return gameOverOverlay;
