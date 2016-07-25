@@ -72,10 +72,10 @@ namespace flik
         auto border = ui::HBox::create(Size(uiSize.width, 0.5_dp));
         border->setBackGroundColor(borderColor);
         border->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
-        auto borderLayout = ui::RelativeLayoutParameter::create();
-        borderLayout->setAlign(RelativeAlign::PARENT_LEFT_BOTTOM);
-        border->setLayoutParameter(borderLayout);
-        header->addChild(border);
+//        auto borderLayout = ui::RelativeLayoutParameter::create();
+//        borderLayout->setAlign(RelativeAlign::PARENT_LEFT_BOTTOM);
+//        border->setLayoutParameter(borderLayout);
+        container->addChild(border);
         
         auto createCheckboxWidget = [&](const std::string& label, const std::string& key, bool defaultValue) -> ui::Widget* {
             auto checkboxContainer = ui::RelativeBox::create(Size(uiSize.width, 75.0_dp));
@@ -89,7 +89,7 @@ namespace flik
             title->setLayoutParameter(titleLayout);
             checkboxContainer->addChild(title);
             
-            auto checkbox = ui::CheckBox::create("checkbox_on.png", "checkbox_on.png", "", "", "");
+            auto checkbox = ui::CheckBox::create("checkbox_off.png", "checkbox_on.png", "", "", "");
             auto checkboxLayout = ui::RelativeLayoutParameter::create();
             checkboxLayout->setAlign(RelativeAlign::PARENT_RIGHT_CENTER_VERTICAL);
             checkboxLayout->setMargin(ui::Margin(0, 0, 21.0_dp, 0));
