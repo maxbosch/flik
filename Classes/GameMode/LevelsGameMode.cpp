@@ -12,6 +12,10 @@
 #include "GamePiece.h"
 #include "Physics.h"
 #include "CCLuaEngine.h"
+#include "Styles.h"
+#include "GameBoard.h"
+#include "MainGameScene.h"
+#include "ReplaceSpawner.h"
 
 USING_NS_CC;
 
@@ -24,7 +28,7 @@ namespace flik
     
     bool LevelsGameMode::init(const LevelDescription* levelDesc)
     {
-        if (!TimedGameMode::init())
+        if (!GameMode::init())
         {
             return false;
         }
@@ -55,14 +59,84 @@ namespace flik
         });
         getEventDispatcher()->addEventListenerWithSceneGraphPriority(pieceRemovedListener, this);
         
-        LuaEngine::getInstance()->executeScriptFile("lua/level_score_objective.lua");
-        
         return true;
     }
     
     void LevelsGameMode::restartGame()
     {
-        TimedGameMode::restartGame();
+        auto uiSize = Director::getInstance()->getVisibleSize();
+        
+        if (mLevelDesc->timeLimit > 0) {
+            setGameTime(mLevelDesc->timeLimit);
+        }
+        
+        setSpawner(ReplaceSpawner::create(5));
+        
+        if (mLevelDesc->obstacles.IsArray()) {
+            for (int i = 0; i < mLevelDesc->obstacles.Size(); i++) {
+                auto& obstacle = mLevelDesc->obstacles[i];
+                if (obstacle.IsObject()) {
+                    std::string type = obstacle["type"].GetString();
+                    if (type == "wall") {
+                        int collisionMask = collision::AllPieces;
+                        int categoryMask = collision::BlackRail;
+                        auto& colors = obstacle["colors"];
+                        if (colors.IsArray() && colors.Size() > 0) {
+                            collisionMask = 0;
+                            for (int i = 0; i < colors.Size(); i++) {
+                                std::string color = colors[i].GetString();
+                                if (color == "red") {
+                                    collisionMask |= collision::RedPiece;
+                                } else if (color == "blue") {
+                                    collisionMask |= collision::BluePiece;
+                                } else if (color == "green") {
+                                    collisionMask |= collision::PinkPiece;
+                                } else if (color == "yellow") {
+                                    collisionMask |= collision::YellowPiece;
+                                }
+                            }
+                        }
+                        
+                        auto parsePoint = [&](const rapidjson::Value& pointValue) -> Vec2 {
+                            auto x = (pointValue["x"].GetDouble() / 100.0) * uiSize.width;
+                            auto y = (pointValue["y"].GetDouble() / 100.0) * uiSize.height;
+                            
+                            return Vec2(x, y);
+                        };
+                        
+                        auto parseSize = [&](const rapidjson::Value& pointValue) -> Size {
+                            auto x = (pointValue["width"].GetDouble() / 100.0) * uiSize.width;
+                            auto y = (pointValue["height"].GetDouble() / 100.0) * uiSize.height;
+                            
+                            return Size(x, y);
+                        };
+                        
+                        auto position = parsePoint(obstacle["position"]);
+                        auto size = parseSize(obstacle["size"]);
+                        auto rotation = obstacle["rotation"].GetDouble();
+                        
+                        auto layer = LayerColor::create(Color4B(Color3B::WHITE));
+                        layer->setContentSize(size);
+                        layer->setPosition(position);
+                        layer->setAnchorPoint(Vec2(0, 0));
+                        layer->setRotation(rotation);
+                        layer->ignoreAnchorPointForPosition(false);
+                        
+                        auto physicsBody = PhysicsBody::createBox(layer->getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.0f));
+                        physicsBody->setRotationOffset(layer->getRotation());
+                        physicsBody->setDynamic(false);
+                        physicsBody->setCategoryBitmask(collision::BlackRail);
+                        physicsBody->setContactTestBitmask(collision::All);
+                        physicsBody->setCollisionBitmask(collision::All);
+                        physicsBody->setRotationEnable(true);
+                        layer->setPhysicsBody(physicsBody);
+                        
+                        getGameScene()->getGameBoard()->addChild(layer);
+                        
+                    }
+                }
+            }
+        }
         
         mProgress.reset();
     }

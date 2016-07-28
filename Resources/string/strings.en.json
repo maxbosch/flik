@@ -12,7 +12,8 @@
     "objective": "Objective",
     "objective_timed": "Score as many points as you can before time runs out",
     "objective_unlimited": "Score as many points as you can before the board fills up",
-    "objective_clear_pieces": "Clear %d Shapes",
+    "objective_collect_pieces": "Score %d Shapes",
+    "objective_clear_board": "Clear %d Shapes",
     
     "title_settings": "SETTINGS",
     "title_achievements": "ACHIEVEMENTS",

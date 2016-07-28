@@ -22,27 +22,17 @@ namespace flik
         
         static TimedGameMode* createWithTime(float seconds);
         
-        void setGameTime(float seconds) { mGameTime = seconds; }
-        
-        void restartGame();
-        
         bool init();
         
         void update(float seconds);
-        
-        float getTimeRemaining() { return mTimeRemaining; }
-        float getGameTime() { return mGameTime; }
-        
+
         int getTopScore();
         
         GameModeType getGameModeType() { return GameModeType::Timed; }
         
     protected:
         void setGameState(GameState newState);
-        
-    private:
-        float mTimeRemaining;
-        float mGameTime;
+    
     };
 }
 

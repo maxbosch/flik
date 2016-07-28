@@ -47,6 +47,25 @@ namespace flik {
         setGameState(mPausedState);
     }
     
+    void GameMode::restartGame()
+    {
+        setGameState(GameState::Starting);
+        
+        getGameScene()->clearPieces();
+        
+        Player::getMainPlayer()->resetScore();
+        
+        if (mSpawner) {
+            mSpawner->start(getGameScene());
+        }
+        
+        mTimeRemaining = mGameTime;
+        
+        scheduleUpdate();
+        
+        setGameState(GameState::InProgress);
+    }
+    
     void GameMode::handlePowerUp(PowerUpType type)
     {
         bool used = false;
@@ -90,6 +109,19 @@ namespace flik {
             if (mTimeStopRemaining <= 0) {
                 mTimeStopRemaining = 0;
                 mTimeStopped = false;
+            }
+        }
+        
+        if (mGameTime > 0) {
+            if (getGameState() == GameState::InProgress && !isTimeStopped()) {
+                mTimeRemaining -= seconds;
+                
+                if (mTimeRemaining <= 0) {
+                    mTimeRemaining = 0;
+                    setGameState(GameState::Finished);
+                    
+                    unscheduleUpdate();
+                }
             }
         }
     }

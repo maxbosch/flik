@@ -9,12 +9,14 @@
 #pragma once
 
 #include "Enums.h"
+#include <rapidjson/document.h>
 
 namespace flik
 {
     enum class ObjectiveType
     {
-        CollectPiece
+        CollectPiece,
+        ClearBoard
     };
     
     struct LevelObjective
@@ -28,6 +30,7 @@ namespace flik
         std::vector<LevelObjective> objectives;
         int timeLimit;
         int levelNum;
+        rapidjson::Value obstacles;
     };
     
     struct ObjectiveIncrementUpdate

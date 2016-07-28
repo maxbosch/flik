@@ -26,11 +26,11 @@ namespace flik
         
         int getTopScore();
         
-        void update(float seconds);
-        
         void handlePowerUp(PowerUpType type);
         
         GameModeType getGameModeType() { return GameModeType::Unlimited; }
+        
+        void update(float seconds);
         
     protected:
         void setGameState(GameState newState);
@@ -41,8 +41,5 @@ namespace flik
         int mLastSpawnIteration;
         float mSpawnInterval;
         float mTimeSinceSpawn;
-        
-        void spawnPieces(int count);
-        cocos2d::Vec2 findOpenSpawnPosition();
     };
 }

@@ -84,7 +84,7 @@ namespace flik
         
         void setAchievement(Achievement& achievement)
         {
-            if (achievement.state == AchievementState::Unlocked) {
+            if (achievement.percentage == 100) {
                 mCompletionImage->loadTexture("achievement_complete.png");
             } else {
                 mCompletionImage->loadTexture("achievement_incomplete.png");

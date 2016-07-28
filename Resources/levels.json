@@ -26,6 +26,33 @@
 					"quantity": 50
 				}
 			]
+		},
+		{
+			"time": 60,
+			"objectives": [
+				{
+					"type": "collect",
+					"quantity": 10
+				}
+			],
+			"obstacles": [
+				{
+					"type": "wall",
+					"colors": [],
+					"position": { "x": 30, "y": 45 },
+					"size": { "width": 40, "height": 3 },
+                    "rotation": 0
+				}
+			]
+		},
+		{
+			"time": 60,
+			"objectives": [
+				{
+					"type": "clear",
+					"quantity": 20
+				}
+			]
 		}
 	]
 }

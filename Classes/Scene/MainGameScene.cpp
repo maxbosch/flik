@@ -88,7 +88,7 @@ namespace flik
         }
         
         auto physicsWorld = getPhysicsWorld();
-        //physicsWorld->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_CONTACT);
+        physicsWorld->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_CONTACT);
         physicsWorld->setSubsteps(2);
         //physicsWorld->setSpeed(1.0 / 120.0);
         

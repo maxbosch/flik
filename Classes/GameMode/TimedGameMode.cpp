@@ -11,6 +11,7 @@
 #include "Player.h"
 #include "MainGameScene.h"
 #include "Util.h"
+#include "ReplaceSpawner.h"
 
 USING_NS_CC;
 
@@ -35,48 +36,18 @@ namespace flik
         auto pieceRemovedListener = EventListenerCustom::create(kPieceRemovedEvent, [this](EventCustom* event) {
             if (getGameState() == GameState::InProgress) {
                 Player::getMainPlayer()->addScore(1);
-                getGameScene()->spawnPiece(Util::getRandomPositionInRect(getGameScene()->getGameBoardBounds()));
             }
         });
         getEventDispatcher()->addEventListenerWithSceneGraphPriority(pieceRemovedListener, this);
         
+        setSpawner(ReplaceSpawner::create(kInitialSpawnCount));
+        
         return true;
-    }
-    
-    
-    void TimedGameMode::restartGame()
-    {
-        setGameState(GameState::Starting);
-        
-        getGameScene()->clearPieces();
-        
-        Player::getMainPlayer()->resetScore();
-        
-        mTimeRemaining = mGameTime;
-        
-        for (int i = 0; i < kInitialSpawnCount; i++) {
-            getGameScene()->spawnPiece(Util::getRandomPositionInRect(getGameScene()->getGameBoardBounds()));
-        }
-        
-        scheduleUpdate();
-        
-        setGameState(GameState::InProgress);
     }
     
     void TimedGameMode::update(float seconds)
     {
         GameMode::update(seconds);
-        
-        if (getGameState() == GameState::InProgress && !isTimeStopped()) {
-            mTimeRemaining -= seconds;
-        
-            if (mTimeRemaining <= 0) {
-                mTimeRemaining = 0;
-                setGameState(GameState::Finished);
-                
-                unscheduleUpdate();
-            }
-        }
     }
     
     void TimedGameMode::setGameState(GameState newState)

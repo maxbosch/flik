@@ -60,13 +60,13 @@ namespace flik
     
     void LevelInfo::ParseLevels(const std::string& json)
     {
-        rapidjson::Document doc;
-        doc.Parse<0>(json.c_str());
-        if (doc.GetParseError() != rapidjson::ParseErrorCode::kParseErrorNone) {
+        rapidjson::Document *doc = new rapidjson::Document;
+        doc->Parse<0>(json.c_str());
+        if (doc->GetParseError() != rapidjson::ParseErrorCode::kParseErrorNone) {
             // Parse failed, uh oh
             return;
         }
-        auto& levels = doc["levels"];
+        auto& levels = (*doc)["levels"];
         if (levels.IsArray()) {
             mLevels.resize(levels.Size());
             for (int i = 0; i < levels.Size(); i++) {
@@ -75,6 +75,10 @@ namespace flik
                 auto& levelObj = mLevels[i];
                 levelObj.timeLimit = level["time"].GetInt();
                 levelObj.levelNum = i + 1;
+                
+                if (level.HasMember("obstacles")) {
+                    levelObj.obstacles = level["obstacles"];
+                }
                 
                 auto& objectives = level["objectives"];
                 if (objectives.IsArray()) {
@@ -89,6 +93,8 @@ namespace flik
                         std::string type = objective["type"].GetString();
                         if (type == "collect") {
                             objectiveObj.type = ObjectiveType::CollectPiece;
+                        } else if (type == "clear") {
+                            objectiveObj.type = ObjectiveType::ClearBoard;
                         }
                     }
                 }

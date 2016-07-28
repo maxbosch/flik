@@ -44,6 +44,8 @@ namespace flik
         void setGameHUD(GameHUD* hud);
         GameHUD* getGameHUD() { return mGameHUD; }
         
+        GameBoard* getGameBoard() { return mGameBoard; }
+        
         void pauseGame();
         void unpauseGame();
         

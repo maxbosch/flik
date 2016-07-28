@@ -14,7 +14,7 @@
 
 namespace flik
 {
-    class LevelsGameMode : public TimedGameMode
+    class LevelsGameMode : public GameMode
     {
     public:
         static LevelsGameMode* create(const LevelDescription* levelDesc);

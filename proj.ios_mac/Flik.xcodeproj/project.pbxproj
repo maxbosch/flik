@@ -86,6 +86,9 @@
 		666EC0291D1A096600FE138F /* BlurredBackgroundWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666EC0271D1A096600FE138F /* BlurredBackgroundWidget.cpp */; };
 		667723511D18B0F800B1B74A /* LevelSelectRowWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6677234F1D18B0F800B1B74A /* LevelSelectRowWidget.cpp */; };
 		667723541D18BBF000B1B74A /* SpawnRandomizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 667723521D18BBF000B1B74A /* SpawnRandomizer.cpp */; };
+		668304AD1D48F72D0036BFA7 /* TimedSpawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 668304AB1D48F72D0036BFA7 /* TimedSpawner.cpp */; };
+		668304B01D48F73D0036BFA7 /* IncreasingTimedSpawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 668304AE1D48F73D0036BFA7 /* IncreasingTimedSpawner.cpp */; };
+		668304B31D48F74B0036BFA7 /* ReplaceSpawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 668304B11D48F74B0036BFA7 /* ReplaceSpawner.cpp */; };
 		66A92EF21D0F81D8004F78D3 /* GameBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A92EF01D0F81D8004F78D3 /* GameBoard.cpp */; };
 		66B92B721D0A3C6200DA1657 /* StoreProductWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */; };
 		66CC6CA01D2FDDD600A60D8D /* lua in Resources */ = {isa = PBXBuildFile; fileRef = 66CC6C9F1D2FDDD600A60D8D /* lua */; };
@@ -281,6 +284,13 @@
 		667723501D18B0F800B1B74A /* LevelSelectRowWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectRowWidget.h; sourceTree = "<group>"; };
 		667723521D18BBF000B1B74A /* SpawnRandomizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpawnRandomizer.cpp; sourceTree = "<group>"; };
 		667723531D18BBF000B1B74A /* SpawnRandomizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpawnRandomizer.h; sourceTree = "<group>"; };
+		668304AB1D48F72D0036BFA7 /* TimedSpawner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimedSpawner.cpp; sourceTree = "<group>"; };
+		668304AC1D48F72D0036BFA7 /* TimedSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimedSpawner.h; sourceTree = "<group>"; };
+		668304AE1D48F73D0036BFA7 /* IncreasingTimedSpawner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IncreasingTimedSpawner.cpp; sourceTree = "<group>"; };
+		668304AF1D48F73D0036BFA7 /* IncreasingTimedSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncreasingTimedSpawner.h; sourceTree = "<group>"; };
+		668304B11D48F74B0036BFA7 /* ReplaceSpawner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReplaceSpawner.cpp; sourceTree = "<group>"; };
+		668304B21D48F74B0036BFA7 /* ReplaceSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplaceSpawner.h; sourceTree = "<group>"; };
+		668304B41D48F7780036BFA7 /* PieceSpawner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PieceSpawner.h; sourceTree = "<group>"; };
 		66A92EF01D0F81D8004F78D3 /* GameBoard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameBoard.cpp; sourceTree = "<group>"; };
 		66A92EF11D0F81D8004F78D3 /* GameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoard.h; sourceTree = "<group>"; };
 		66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoreProductWidget.cpp; sourceTree = "<group>"; };
@@ -762,6 +772,20 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
+		668304AA1D48F6FF0036BFA7 /* Spawn */ = {
+			isa = PBXGroup;
+			children = (
+				668304AB1D48F72D0036BFA7 /* TimedSpawner.cpp */,
+				668304AC1D48F72D0036BFA7 /* TimedSpawner.h */,
+				668304AE1D48F73D0036BFA7 /* IncreasingTimedSpawner.cpp */,
+				668304AF1D48F73D0036BFA7 /* IncreasingTimedSpawner.h */,
+				668304B11D48F74B0036BFA7 /* ReplaceSpawner.cpp */,
+				668304B21D48F74B0036BFA7 /* ReplaceSpawner.h */,
+				668304B41D48F7780036BFA7 /* PieceSpawner.h */,
+			);
+			path = Spawn;
+			sourceTree = "<group>";
+		};
 		66CC6CB51D30678800A60D8D /* Format */ = {
 			isa = PBXGroup;
 			children = (
@@ -783,6 +807,7 @@
 		66E3A6B51D01C07100A3125C /* GameMode */ = {
 			isa = PBXGroup;
 			children = (
+				668304AA1D48F6FF0036BFA7 /* Spawn */,
 				66E3A6B61D01C07100A3125C /* GameMode.cpp */,
 				66E3A6B71D01C07100A3125C /* GameMode.h */,
 				66D655AB1D10C73100F1B6E8 /* LevelsGameMode.cpp */,
@@ -992,6 +1017,7 @@
 				66D655B31D10D58400F1B6E8 /* LevelsGameHUD.cpp in Sources */,
 				66442B2F1D0B851600AC5983 /* StorePurchaseOverlay.cpp in Sources */,
 				663894791D09AD9B0034892E /* TimedGameHUD.cpp in Sources */,
+				668304AD1D48F72D0036BFA7 /* TimedSpawner.cpp in Sources */,
 				66D7CF791D24A2950000DE33 /* TutorialGameHUD.cpp in Sources */,
 				66D655AD1D10C73100F1B6E8 /* LevelsGameMode.cpp in Sources */,
 				6638949C1D09AEB60034892E /* SideRailNode.cpp in Sources */,
@@ -1000,7 +1026,9 @@
 				66B92B721D0A3C6200DA1657 /* StoreProductWidget.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				66D7CF901D2BDD5A0000DE33 /* AchievementsScene.cpp in Sources */,
+				668304B01D48F73D0036BFA7 /* IncreasingTimedSpawner.cpp in Sources */,
 				66D7CF851D270C0D0000DE33 /* Animations.cpp in Sources */,
+				668304B31D48F74B0036BFA7 /* ReplaceSpawner.cpp in Sources */,
 				663894A11D09AEB60034892E /* VelocityTracker.cpp in Sources */,
 				66D655B01D10CC2100F1B6E8 /* LevelTypes.cpp in Sources */,
 				66D7CF731D249CC70000DE33 /* TutorialGameMode.cpp in Sources */,

@@ -10,6 +10,7 @@
 
 #include "cocos2d.h"
 #include "Enums.h"
+#include "PieceSpawner.h"
 
 namespace flik
 {
@@ -32,7 +33,7 @@ namespace flik
         
         std::function<void(GameState)> onGameStateChanged;
         
-        virtual void restartGame() = 0;
+        void restartGame();
         
         virtual int getTopScore() = 0;
         
@@ -52,6 +53,15 @@ namespace flik
         bool init();
         void update(float seconds);
         
+        void setGameTime(float seconds) { mGameTime = seconds; }
+        float getTimeRemaining() { return mTimeRemaining; }
+        float getGameTime() { return mGameTime; }
+        
+        void setSpawner(PieceSpawner* spawner) {
+            mSpawner = std::move(spawner);
+            addChild(spawner);
+        }
+        
     protected:
         virtual void setGameState(GameState newState);
         MainGameScene* getGameScene() { return mGameScene; }
@@ -66,5 +76,10 @@ namespace flik
         
         bool mTimeStopped;
         float mTimeStopRemaining;
+        
+        float mTimeRemaining = 0.0f;
+        float mGameTime = 0.0f;
+        
+        PieceSpawner* mSpawner;
     };
 }

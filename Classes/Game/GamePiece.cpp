@@ -27,7 +27,7 @@ namespace flik
         "piece_yellow.png"
     };
     
-    static const float kDeceleration = 0.5;
+    static const float kDeceleration = 0.7;
     
     static const float kVelocityEpsilon = 20.0f;
     

@@ -15,7 +15,7 @@
 
 namespace flik
 {
-    static const float kVelocityDamping = 0.7;
+    static const float kVelocityDamping = 0.4;
     static const int kPieceTag = 0xF00F;
     
     bool GameBoard::init()
