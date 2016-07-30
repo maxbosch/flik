@@ -10,6 +10,9 @@
 
 #include "Achievement.h"
 #include "PluginSdkboxPlay/PluginSdkboxPlay.h"
+#include <functional>
+#include <vector>
+#include <string>
 
 namespace flik
 {

@@ -8,6 +8,8 @@
 
 #pragma once
 
+#include <string>
+
 namespace flik
 {
     enum class AchievementState
