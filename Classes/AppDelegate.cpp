@@ -17,7 +17,8 @@
 #include "PluginIAP/PluginIAP.h"
 #include "GameServices.h"
 
-#include "CCLuaEngine.h"
+//#include "lua_cocos2dx_auto.hpp"
+//#include "CCLuaEngine.h"
 
 USING_NS_CC;
 
@@ -61,11 +62,11 @@ namespace flik
         GameServices::getInstance()->initialize();
         
         // Register LUA
-        LuaEngine* engine = LuaEngine::getInstance();
-        ScriptEngineManager::getInstance()->setScriptEngine(engine);
-        LuaStack* stack = engine->getLuaStack();
-        lua_State* L = stack->getLuaState();
-        register_all_cocos2dx(L);
+//        LuaEngine* engine = LuaEngine::getInstance();
+//        ScriptEngineManager::getInstance()->setScriptEngine(engine);
+//        LuaStack* stack = engine->getLuaStack();
+//        lua_State* L = stack->getLuaState();
+//        register_all_cocos2dx(L);
         
         // initialize director
         auto director = Director::getInstance();
@@ -123,8 +124,6 @@ namespace flik
             
             UserDefault::getInstance()->setBoolForKey("installed", true);
         }
-        
-        engine->executeScriptFile("lua/lua_testing.lua");
         
         // run
         SceneManager::runWithScene(level);
