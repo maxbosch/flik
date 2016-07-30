@@ -10,7 +10,6 @@
 #include "Util.h"
 #include "LevelObjectiveOverlay.h"
 #include "MainGameHeader.h"
-#include "ObjectiveDisplayWidget.h"
 #include "Literals.h"
 #include "Events.h"
 #include "LevelGameOverOverlay.h"
@@ -21,6 +20,8 @@
 #include "Styles.h"
 #include "LocalizedString.h"
 #include "AchievementsScene.h"
+#include "LevelsGameMode.h"
+#include "ObjectiveTracker.h"
 
 namespace flik
 {
@@ -35,39 +36,29 @@ namespace flik
     {
         mLevelDesc = levelDesc;
         
-        if (!TimedGameHUD::init())
+        if (!MainGameHUD::init())
         {
             return false;
         }
         
         mHeader->setScoreVisible(false);
         mObjectiveProgress = 0;
-        
-        auto quantity = mLevelDesc->objectives[0].quantity;
-        
-        auto objectivesWidget = Fonts::createLocalizedText(fmt::sprintf("0/%d", quantity), 20.0_dp);
+ 
+        auto objectivesWidget = Fonts::createLocalizedText("", 20.0_dp);
         objectivesWidget->setColor(kGoldColor);
         auto objectivesWidgetLayout = ui::RelativeLayoutParameter::create();
         objectivesWidgetLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
         objectivesWidgetLayout->setMargin(ui::Margin(0, 30.0_dp, 0, 0));
         objectivesWidget->setLayoutParameter(objectivesWidgetLayout);
         mHeader->addChild(objectivesWidget);
-        
-        auto pieceRemovedListener = EventListenerCustom::create(kObjectiveUpdatedEvent, [this, objectivesWidget, quantity](EventCustom* event) {
-            ObjectiveIncrementUpdate* updateData = reinterpret_cast<ObjectiveIncrementUpdate*>(event->getUserData());
-            mObjectiveProgress += updateData->increment;
-            mObjectiveProgress = std::min(mObjectiveProgress, quantity);
-            objectivesWidget->setString(fmt::sprintf("%d/%d", mObjectiveProgress, quantity));
-            
-        });
-        getEventDispatcher()->addEventListenerWithSceneGraphPriority(pieceRemovedListener, this);
+        mObjectiveText = objectivesWidget;
         
         return true;
     }
     
     GameObjectiveOverlay* LevelsGameHUD::createObjectiveOverlay()
     {
-        return LevelObjectiveOverlay::create(LocalizedString::getString("game_mode_level", mLevelDesc->levelNum), mLevelDesc);
+        return LevelObjectiveOverlay::create(LocalizedString::getString("game_mode_level", mLevelDesc->levelNum, mLevelDesc->sublevelNum + 1), mLevelDesc);
     }
     
     cocos2d::ui::Widget* LevelsGameHUD::createGameOverOverlay()
@@ -88,9 +79,13 @@ namespace flik
         
         gameOverOverlay->onNextLevelTapped = [this]() {
             auto levelInfo = LevelInfo::getInstance();
-            auto levelDesc = levelInfo->getLevelDescription(mLevelDesc->levelNum + 1);
+            auto levelDesc = levelInfo->getLevelDescription(mLevelDesc->levelNum);
             auto newScene = MainGameScene::create({LevelsGameMode::create(levelDesc), LevelsGameHUD::create(levelDesc)});
             SceneManager::replaceSceneWithTransition<TransitionMoveInR>(newScene, kTransitionDuration);
+        };
+        
+        gameOverOverlay->onShowLevelListTapped = [this]() {
+            SceneManager::popSceneWithTransition<TransitionSlideInR>(kTransitionDuration);
         };
         
         return gameOverOverlay;
@@ -102,6 +97,19 @@ namespace flik
         
         auto gameMode = dynamic_cast<LevelsGameMode*>(getGameScene()->getGameMode());
         
-        gameOverOverlay->setNextLevel(gameMode->isObjectiveCompleted(), mLevelDesc->levelNum + 1);
+        gameOverOverlay->setNextLevel(gameMode->isObjectiveCompleted(), mLevelDesc->levelNum);
+    }
+    
+    void LevelsGameHUD::update(float seconds)
+    {
+        MainGameHUD::update(seconds);
+        
+        if (getGameScene()) {
+            auto gameMode = dynamic_cast<LevelsGameMode*>(getGameScene()->getGameMode());
+            if (gameMode) {
+                auto objective = gameMode->getObjectives()[0];
+                mObjectiveText->setString(fmt::sprintf("%d/%d", objective->getCurrentValue(), objective->getTotalValue()));
+            }
+        }
     }
 }

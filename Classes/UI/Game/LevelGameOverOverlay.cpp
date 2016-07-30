@@ -92,9 +92,9 @@ namespace flik
         
         auto achievementsButton = ui::Button::create("pause_achievements.png");
         auto achievementsButtonLayout = ui::RelativeLayoutParameter::create();
-        achievementsButtonLayout->setAlign(RelativeAlign::LOCATION_BELOW_CENTER);
+        achievementsButtonLayout->setAlign(RelativeAlign::LOCATION_BELOW_RIGHTALIGN);
         achievementsButtonLayout->setRelativeToWidgetName("border");
-        achievementsButtonLayout->setMargin(ui::Margin(0, 35.0_dp, 0, 0));
+        achievementsButtonLayout->setMargin(ui::Margin(0, 35.0_dp, 30.0_dp, 0));
         achievementsButton->setLayoutParameter(achievementsButtonLayout);
         achievementsButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
             if (type == ui::Widget::TouchEventType::ENDED && onAchievementsTapped) {
@@ -106,13 +106,13 @@ namespace flik
         
         auto nextLevelButton = ui::Button::create("pink_button_fill_large.png");
         nextLevelButton->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
-        nextLevelButton->setTitleFontSize(18.0_dp);
+        nextLevelButton->setTitleFontSize(15.0_dp);
         nextLevelButton->setTitleColor(Color3B::WHITE);
         
         auto nextLevelButtonLayout = ui::RelativeLayoutParameter::create();
-        nextLevelButtonLayout->setAlign(RelativeAlign::LOCATION_BELOW_CENTER);
+        nextLevelButtonLayout->setAlign(RelativeAlign::LOCATION_BELOW_RIGHTALIGN);
         nextLevelButtonLayout->setRelativeToWidgetName("border");
-        nextLevelButtonLayout->setMargin(ui::Margin(0, 35.0_dp, 0, 0));
+        nextLevelButtonLayout->setMargin(ui::Margin(0, 35.0_dp, -20.0_dp, 0));
         nextLevelButton->setLayoutParameter(nextLevelButtonLayout);
         nextLevelButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
             if (type == ui::Widget::TouchEventType::ENDED && onNextLevelTapped) {
@@ -121,6 +121,24 @@ namespace flik
         });
         innerContainer->addChild(nextLevelButton);
         mNextLevelButton = nextLevelButton;
+        
+        auto levelListButton = ui::Button::create("pink_button_fill_large.png");
+        levelListButton->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
+        levelListButton->setTitleFontSize(15.0_dp);
+        levelListButton->setTitleColor(Color3B::WHITE);
+        levelListButton->setTitleText("Back To\n List");
+        levelListButton->setTitleFontName(Fonts::getFontForString(levelListButton->getTitleText()));
+        auto levelListButtonLayout = ui::RelativeLayoutParameter::create();
+        levelListButtonLayout->setAlign(RelativeAlign::LOCATION_BELOW_LEFTALIGN);
+        levelListButtonLayout->setRelativeToWidgetName("border");
+        levelListButtonLayout->setMargin(ui::Margin(-20.0_dp, 35.0_dp, 0, 0));
+        levelListButton->setLayoutParameter(levelListButtonLayout);
+        levelListButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
+            if (type == ui::Widget::TouchEventType::ENDED && onShowLevelListTapped) {
+                onShowLevelListTapped();
+            }
+        });
+        innerContainer->addChild(levelListButton);
         
         innerContainer->forceDoLayout();
         //innerContainer->setContentSize(Size(305.0_dp, startButton->getBoundingBox().getMaxY() + 30.0_dp));
@@ -135,8 +153,10 @@ namespace flik
     
     void LevelGameOverOverlay::setNextLevel(bool success, int level)
     {
+        int sublevel = LevelInfo::getInstance()->getSublevel(level);
+        
         if (success && level <= LevelInfo::getInstance()->getMaxLevel()) {
-            mNextLevelButton->setTitleText(LocalizedString::getString("game_over_try_next", level));
+            mNextLevelButton->setTitleText(LocalizedString::getString("game_over_try_next", level, sublevel + 2));
             
             mNextLevelButton->setVisible(true);
             mAchievementsButton->setVisible(false);
@@ -148,7 +168,7 @@ namespace flik
         if (success) {
             mTitleLabel->setString(LocalizedString::getString("level_success"));
         } else {
-            mTitleLabel->setString(LocalizedString::getString("level_failed", level - 1));
+            mTitleLabel->setString(LocalizedString::getString("level_failed", level - 1, sublevel + 1));
         }
         
         mNextLevelButton->setTitleFontName(Fonts::getFontForString(mNextLevelButton->getTitleText()));

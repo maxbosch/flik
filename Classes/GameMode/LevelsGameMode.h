@@ -14,6 +14,8 @@
 
 namespace flik
 {
+    class ObjectiveTracker;
+    
     class LevelsGameMode : public GameMode
     {
     public:
@@ -27,10 +29,18 @@ namespace flik
         
         virtual GameModeType getGameModeType();
         
-        bool isObjectiveCompleted() { return mProgress.isCompleted(); }
+        bool isObjectiveCompleted();
+    
+        void update(float seconds);
+        
+        void setGameScene(MainGameScene* scene);
+        void setGameState(GameState state);
+        
+        std::vector<ObjectiveTracker*> getObjectives() { return mObjectives; }
         
     private:
         const LevelDescription* mLevelDesc;
+        std::vector<ObjectiveTracker*> mObjectives;
         LevelProgress mProgress;
     };
 }

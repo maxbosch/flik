@@ -42,6 +42,7 @@ namespace flik
         MainGameHeader* mHeader;
         PauseOverlayWidget* mPauseOverlay;
         GameObjectiveOverlay* mObjectiveOverlay;
+        cocos2d::ui::Layout* mTimerBar;
         
         virtual GameObjectiveOverlay* createObjectiveOverlay();
         virtual cocos2d::ui::Widget* createGameOverOverlay();

@@ -17,7 +17,6 @@
 #include "PluginIAP/PluginIAP.h"
 #include "GameServices.h"
 
-#include "lua_cocos2dx_auto.hpp"
 #include "CCLuaEngine.h"
 
 USING_NS_CC;

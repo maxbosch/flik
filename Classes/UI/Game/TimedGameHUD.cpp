@@ -35,27 +35,7 @@ namespace flik
             return false;
         }
         
-        auto timerBar = ui::RelativeBox::create(Size(getContentSize().width, 5.0_dp));
-        timerBar->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
-        timerBar->setBackGroundColor(kGoldColor);
-        auto timerBarLayout = ui::RelativeLayoutParameter::create();
-        timerBarLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
-        timerBar->setLayoutParameter(timerBarLayout);
-        addChild(timerBar, 2);
-        mTimerBar = timerBar;
-        
         return true;
-    }
-    
-    void TimedGameHUD::update(float time)
-    {
-        MainGameHUD::update(time);
-        
-        auto gameMode = dynamic_cast<TimedGameMode*>(getGameScene()->getGameMode());
-        auto ratio = gameMode->getTimeRemaining() / gameMode->getGameTime();
-        mTimerBar->setContentSize(Size(getContentSize().width * ratio, mTimerBar->getContentSize().height));
-        
-        mTimerBar->setBackGroundColor(Util::colorInterpolate(kRedColor, kGoldColor, ratio));
     }
     
     GameObjectiveOverlay* TimedGameHUD::createObjectiveOverlay()

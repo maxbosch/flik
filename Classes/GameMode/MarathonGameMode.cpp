@@ -33,7 +33,7 @@ namespace flik {
         });
         getEventDispatcher()->addEventListenerWithSceneGraphPriority(pieceRemovedListener, this);
         
-        setSpawner(IncreasingTimedSpawner::create(kDefaultSpawnCount, kDefaultSpawnInterval, 10.0f, 1));
+        setSpawner(IncreasingTimedSpawner::create(kDefaultSpawnCount, kDefaultSpawnInterval, 10.0f, 1, kDefaultSpawnCount));
         
         return true;
     }

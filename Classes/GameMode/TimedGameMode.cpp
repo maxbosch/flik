@@ -45,11 +45,6 @@ namespace flik
         return true;
     }
     
-    void TimedGameMode::update(float seconds)
-    {
-        GameMode::update(seconds);
-    }
-    
     void TimedGameMode::setGameState(GameState newState)
     {
         if (newState == GameState::Finished) {

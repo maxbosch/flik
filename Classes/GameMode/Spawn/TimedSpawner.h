@@ -18,9 +18,9 @@ namespace flik
     class TimedSpawner : public PieceSpawner
     {
     public:
-        static TimedSpawner* create(int initialCount, float interval);
+        static TimedSpawner* create(int initialCount, float interval, int count);
         
-        bool init(int initialCount, float interval);
+        bool init(int initialCount, float interval, int count);
         
         void setCount(int count) { mCount = count; }
         void setInterval(float interval) { mInterval = interval; }
@@ -37,6 +37,7 @@ namespace flik
         MainGameScene* getGameScene() { return mScene; }
         
     private:
+        int mInitialCount = 0;
         int mCount = 0;
         float mInterval = 0;
         float mTimeSinceSpawn = 0;

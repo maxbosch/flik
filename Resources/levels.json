@@ -1,58 +1,176 @@
 {
-	"levels": [
-		{
-			"time": 60,
-			"objectives": [
-				{
-					"type": "collect",
-					"quantity": 5
-				}
-			]
-		},
-		{
-			"time": 60,
-			"objectives": [
-				{
-					"type": "collect",
-					"quantity": 20
-				}
-			]
-		},
-		{
-			"time": 60,
-			"objectives": [
-				{
-					"type": "collect",
-					"quantity": 50
-				}
-			]
-		},
-		{
-			"time": 60,
-			"objectives": [
-				{
-					"type": "collect",
-					"quantity": 10
-				}
-			],
-			"obstacles": [
-				{
-					"type": "wall",
-					"colors": [],
-					"position": { "x": 30, "y": 45 },
-					"size": { "width": 40, "height": 3 },
-                    "rotation": 0
-				}
-			]
-		},
-		{
-			"time": 60,
-			"objectives": [
-				{
-					"type": "clear",
-					"quantity": 20
-				}
-			]
-		}
-	]
+	"levels": [{
+		"sublevels": [{
+			"time_limit": 60,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 5
+			}],
+			"spawner": {
+				"type": "replace",
+				"initial_count": 5
+			}
+		}, {
+			"time_limit": 60,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 25
+			}],
+			"spawner": {
+				"type": "replace",
+				"initial_count": 5
+			}
+		}, {
+			"time_limit": 60,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 50
+			}],
+			"spawner": {
+				"type": "replace",
+				"initial_count": 5
+			}
+		}, {
+			"time_limit": 60,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 75
+			}],
+			"spawner": {
+				"type": "replace",
+				"initial_count": 5
+			}
+		}, {
+			"time_limit": 60,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 125
+			}],
+			"spawner": {
+				"type": "replace",
+				"initial_count": 5
+			}
+		}, {
+			"time_limit": 45,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 125
+			}],
+			"spawner": {
+				"type": "replace",
+				"initial_count": 10
+			}
+		}]
+	}, {
+		"sublevels": [{
+			"time_limit": 60,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 10
+			}],
+			"obstacles": [{
+				"type": "wall",
+				"colors": [],
+				"position": {
+					"x": 30,
+					"y": 45
+				},
+				"size": {
+					"width": 40,
+					"height": 3
+				},
+				"rotation": 0
+			}],
+			"spawner": {
+				"type": "replace",
+				"initial_count": 5
+			}
+		}]
+	}, {
+		"sublevels": [{
+			"time_limit": 60,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 20
+			}],
+			"spawner": {
+				"type": "onetime",
+				"count": 20
+			}
+		}, {
+			"time_limit": 60,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 30
+			}],
+			"spawner": {
+				"type": "onetime",
+				"count": 30
+			}
+		}, {
+			"time_limit": 60,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 40
+			}],
+			"spawner": {
+				"type": "onetime",
+				"count": 40
+			}
+		}, {
+			"time_limit": 60,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 50
+			}],
+			"spawner": {
+				"type": "onetime",
+				"count": 50
+			}
+		}, {
+			"time_limit": 45,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 50
+			}],
+			"spawner": {
+				"type": "onetime",
+				"count": 50
+			}
+		}, {
+			"time_limit": 40,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 50
+			}],
+			"spawner": {
+				"type": "onetime",
+				"count": 50
+			}
+		}, {
+			"time_limit": 30,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 50
+			}],
+			"spawner": {
+				"type": "onetime",
+				"count": 50
+			}
+		}]
+	}, {
+		"sublevels": [{
+			"time_limit": 60,
+			"objectives": [{
+				"type": "max",
+				"quantity": 20
+			}],
+			"spawner": {
+				"type": "timed",
+				"initial_count": 5,
+				"count": 1,
+				"interval": 1
+			}
+		}]
+	}]
 }

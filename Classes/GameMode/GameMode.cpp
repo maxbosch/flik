@@ -125,4 +125,10 @@ namespace flik {
             }
         }
     }
+    
+    void GameMode::setSpawner(PieceSpawner* spawner)
+    {
+        mSpawner = std::move(spawner);
+        addChild(spawner);
+    }
 }

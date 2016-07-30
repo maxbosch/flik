@@ -8,6 +8,7 @@
 
 #include "cocos2d.h"
 #include "LevelTypes.h"
+#include "format.h"
 
 #include <rapidjson/document.h>
 
@@ -45,7 +46,18 @@ namespace flik
     
     void LevelInfo::completeLevel(int level)
     {
-        return UserDefault::getInstance()->setIntegerForKey(kMaxLevelCompleted.c_str(), getMaxLevelCompleted() + 1);
+        auto& levelObj = mLevels[level-1];
+        auto& sublevels = levelObj.data["sublevels"];
+        int newSublevelNum = std::min<int>(sublevels.Size() - 1, getSublevel(level) + 1);
+        //return UserDefault::getInstance()->setIntegerForKey(kMaxLevelCompleted.c_str(), getMaxLevelCompleted() + 1);
+        UserDefault::getInstance()->setIntegerForKey(fmt::sprintf("sublevel_%d", level).c_str(), newSublevelNum);
+        
+        mLevels[level - 1].sublevelNum = newSublevelNum;
+    }
+    
+    int LevelInfo::getSublevel(int level)
+    {
+        return UserDefault::getInstance()->getIntegerForKey(fmt::sprintf("sublevel_%d", level).c_str(), 0);
     }
     
     const LevelDescription* LevelInfo::getLevelDescription(int level)
@@ -73,31 +85,9 @@ namespace flik
                 auto& level = levels[i];
                 
                 auto& levelObj = mLevels[i];
-                levelObj.timeLimit = level["time"].GetInt();
                 levelObj.levelNum = i + 1;
-                
-                if (level.HasMember("obstacles")) {
-                    levelObj.obstacles = level["obstacles"];
-                }
-                
-                auto& objectives = level["objectives"];
-                if (objectives.IsArray()) {
-                    levelObj.objectives.resize(objectives.Size());
-                    for (int j = 0; j < objectives.Size(); j++) {
-                        auto& objective = objectives[j];
-                        
-                        auto& objectiveObj = levelObj.objectives[j];
-                        
-                        objectiveObj.quantity = objective["quantity"].GetInt();
-                        
-                        std::string type = objective["type"].GetString();
-                        if (type == "collect") {
-                            objectiveObj.type = ObjectiveType::CollectPiece;
-                        } else if (type == "clear") {
-                            objectiveObj.type = ObjectiveType::ClearBoard;
-                        }
-                    }
-                }
+                levelObj.data = level;
+                levelObj.sublevelNum = getSublevel(levelObj.levelNum);
             }
         }
     }
@@ -129,7 +119,7 @@ namespace flik
         return done;
     }
     
-    void LevelProgress::incrementObjective(ObjectiveType type, int count)
+    void LevelProgress::incrementObjective(const std::string& type, int count)
     {
         auto pair = mObjectiveProgress.find(type);
         if (pair != mObjectiveProgress.end()) {
@@ -139,9 +129,6 @@ namespace flik
     
     void LevelProgress::reset()
     {
-        for (auto& objective : mLevelDesc->objectives) {
-            mObjectiveProgress[objective.type] = objective.quantity;
-        }
     }
     
 }

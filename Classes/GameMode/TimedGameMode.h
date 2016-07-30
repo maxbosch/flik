@@ -23,8 +23,6 @@ namespace flik
         static TimedGameMode* createWithTime(float seconds);
         
         bool init();
-        
-        void update(float seconds);
 
         int getTopScore();
         

@@ -16,6 +16,11 @@
 #include "GameBoard.h"
 #include "MainGameScene.h"
 #include "ReplaceSpawner.h"
+#include "OneTimeSpawner.h"
+#include "TimedSpawner.h"
+#include "ObjectiveTracker.h"
+#include "PiecesClearedObjectiveTracker.h"
+#include "MaxOnBoardObjectiveTracker.h"
 
 USING_NS_CC;
 
@@ -33,48 +38,100 @@ namespace flik
             return false;
         }
         
-        setGameTime(levelDesc->timeLimit);
-        
         mLevelDesc = levelDesc;
         
         mProgress.setLevelDescription(levelDesc);
-        
-        auto pieceRemovedListener = EventListenerCustom::create(kPieceRemovedEvent, [this](EventCustom* event) {
-            ObjectiveIncrementUpdate update;
-            update.type = ObjectiveType::CollectPiece;
-            
-            update.increment = 1;
-            
-            mProgress.incrementObjective(update.type, update.increment);
-            
-            if (mProgress.isCompleted()) {
-                LevelInfo::getInstance()->completeLevel(mLevelDesc->levelNum);
-                setGameState(GameState::Finished);
-            }
-            
-            EventCustom eventObj(kObjectiveUpdatedEvent);
-            eventObj.setUserData(&update);
-            
-            getEventDispatcher()->dispatchEvent(&eventObj);
-        });
-        getEventDispatcher()->addEventListenerWithSceneGraphPriority(pieceRemovedListener, this);
         
         return true;
     }
     
     void LevelsGameMode::restartGame()
     {
-        auto uiSize = Director::getInstance()->getVisibleSize();
+        GameMode::restartGame();
         
-        if (mLevelDesc->timeLimit > 0) {
-            setGameTime(mLevelDesc->timeLimit);
+        for (auto objective : mObjectives) {
+            objective->reset();
+        }
+    }
+    
+    void LevelsGameMode::update(float seconds)
+    {
+        GameMode::update(seconds);
+        
+        bool allCompleted = true;
+        
+        if (getGameState() == GameState::InProgress) {
+            for (auto objective : mObjectives) {
+                // If any objective is failed, it's game over
+                if (!objective->finishWhenComplete()) {
+                    if (objective->isFailed()) {
+                        setGameState(GameState::Finished);
+                        break;
+
+                    }
+                    
+                    allCompleted = false;
+                } else if (objective->finishWhenComplete()) {
+                    allCompleted &= objective->isCompleted();
+                }
+            }
+            
+            if (allCompleted) {
+                setGameState(GameState::Finished);
+            }
+        }
+    }
+    
+    void LevelsGameMode::setGameScene(MainGameScene* scene)
+    {
+        GameMode::setGameScene(scene);
+        
+        auto uiSize = Director::getInstance()->getVisibleSize();
+        auto& sublevels = mLevelDesc->data["sublevels"];
+        auto& level = sublevels[mLevelDesc->sublevelNum];
+        
+        if (level.HasMember("time_limit")) {
+            setGameTime(level["time_limit"].GetInt());
         }
         
-        setSpawner(ReplaceSpawner::create(5));
+        if (level.HasMember("spawner")) {
+            auto& spawner = level["spawner"];
+            const std::string& type = spawner["type"].GetString();
+            if (type == "replace") {
+                int initialCount = spawner["initial_count"].GetInt();
+                setSpawner(ReplaceSpawner::create(initialCount));
+            } else if (type == "onetime") {
+                int count = spawner["count"].GetInt();
+                setSpawner(OneTimeSpawner::create(count));
+            } else if (type == "timed") {
+                int initialCount = spawner["initial_count"].GetInt();
+                int count = spawner["count"].GetInt();
+                float interval = spawner["interval"].GetDouble();
+                setSpawner(TimedSpawner::create(initialCount, interval, count));
+            }
+        }
         
-        if (mLevelDesc->obstacles.IsArray()) {
-            for (int i = 0; i < mLevelDesc->obstacles.Size(); i++) {
-                auto& obstacle = mLevelDesc->obstacles[i];
+        auto& objectives = level["objectives"];
+        if (objectives.IsArray() && objectives.Size() > 0) {
+            auto& objective = objectives[0];
+            std::string type = objective["type"].GetString();
+            if (type == "clear") {
+                int quantity = objective["quantity"].GetInt();
+                auto objective = PiecesClearedObjectiveTracker::create(quantity);
+                mObjectives.push_back(objective);
+                addChild(objective);
+            } else if (type == "max") {
+                int quantity = objective["quantity"].GetInt();
+                auto objective = MaxOnBoardObjectiveTracker::create(getGameScene(), quantity);
+                mObjectives.push_back(objective);
+                addChild(objective);
+            }
+        }
+        
+        if (level.HasMember("obstacles")) {
+            auto& obstacles = level["obstacles"];
+            for (int i = 0; i < obstacles.Size(); i++) {
+                auto& obstacle = obstacles[i];
                 if (obstacle.IsObject()) {
                     std::string type = obstacle["type"].GetString();
                     if (type == "wall") {
@@ -137,8 +194,6 @@ namespace flik
                 }
             }
         }
-        
-        mProgress.reset();
     }
     
     int LevelsGameMode::getTopScore()
@@ -149,5 +204,27 @@ namespace flik
     GameModeType LevelsGameMode::getGameModeType()
     {
         return GameModeType::Levels;
+    }
+    
+    bool LevelsGameMode::isObjectiveCompleted()
+    {
+        for (auto objective : mObjectives) {
+            if (!objective->isCompleted()) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+    
+    void LevelsGameMode::setGameState(GameState state)
+    {
+        GameMode::setGameState(state);
+        
+        if (state == GameState::Finished) {
+            if (isObjectiveCompleted()) {
+                LevelInfo::getInstance()->completeLevel(mLevelDesc->levelNum);
+            }
+        }
     }
 }

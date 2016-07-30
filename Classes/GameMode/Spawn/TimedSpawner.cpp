@@ -16,19 +16,20 @@ USING_NS_CC;
 
 namespace flik
 {
-    TimedSpawner* TimedSpawner::create(int initialCount, float interval)
+    TimedSpawner* TimedSpawner::create(int initialCount, float interval, int count)
     {
-        return createWithParams<TimedSpawner>(initialCount, interval);
+        return createWithParams<TimedSpawner>(initialCount, interval, count);
     }
     
-    bool TimedSpawner::init(int initialCount, float interval)
+    bool TimedSpawner::init(int initialCount, float interval, int count)
     {
         if (!PieceSpawner::init())
         {
             return false;
         }
         
-        mCount = initialCount;
+        mCount = count;
+        mInitialCount = initialCount;
         mInterval = interval;
         
         return true;
@@ -36,7 +37,7 @@ namespace flik
     
     void TimedSpawner::start(MainGameScene* scene)
     {
-        for (int i = 0; i < mCount; i++) {
+        for (int i = 0; i < mInitialCount; i++) {
             scene->spawnPiece(Util::getRandomPositionInRect(scene->getGameBoardBounds()));
         }
         

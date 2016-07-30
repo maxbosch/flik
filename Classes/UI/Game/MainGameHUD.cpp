@@ -91,6 +91,15 @@ namespace flik
         addChild(gameBoard, 1);
         mGameBoard = gameBoard;
         
+        auto timerBar = ui::RelativeBox::create(Size(getContentSize().width, 5.0_dp));
+        timerBar->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
+        timerBar->setBackGroundColor(kGoldColor);
+        auto timerBarLayout = ui::RelativeLayoutParameter::create();
+        timerBarLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
+        timerBar->setLayoutParameter(timerBarLayout);
+        addChild(timerBar, 2);
+        mTimerBar = timerBar;
+        
         auto pauseOverlay = PauseOverlayWidget::create();
         pauseOverlay->onBackTapped = [this]() {
             getGameScene()->unpauseGame();
@@ -144,6 +153,14 @@ namespace flik
         RelativeBox::update(time);
 
         mHeader->setScore(Player::getMainPlayer()->getCurrentScore());
+        
+        if (mTimerBar->isVisible()) {
+            auto gameMode = getGameScene()->getGameMode();
+            auto ratio = gameMode->getTimeRemaining() / gameMode->getGameTime();
+            mTimerBar->setContentSize(Size(getContentSize().width * ratio, mTimerBar->getContentSize().height));
+            
+            mTimerBar->setBackGroundColor(Util::colorInterpolate(kRedColor, kGoldColor, ratio));
+        }
     }
     
     void MainGameHUD::setContentSize(const cocos2d::Size& size)
@@ -164,6 +181,13 @@ namespace flik
             default:
                 mGameOverScreen->setVisible(false);
                 mPauseOverlay->setVisible(false);
+        }
+    
+        if (newState == GameState::InProgress) {
+            auto gameMode = getGameScene()->getGameMode();
+            if (gameMode->getGameTime() > 0) {
+                mTimerBar->setVisible(true);
+            }
         }
     }
     

@@ -33,7 +33,7 @@ namespace flik
         
         std::function<void(GameState)> onGameStateChanged;
         
-        void restartGame();
+        virtual void restartGame();
         
         virtual int getTopScore() = 0;
         
@@ -57,10 +57,7 @@ namespace flik
         float getTimeRemaining() { return mTimeRemaining; }
         float getGameTime() { return mGameTime; }
         
-        void setSpawner(PieceSpawner* spawner) {
-            mSpawner = std::move(spawner);
-            addChild(spawner);
-        }
+        void setSpawner(PieceSpawner* spawner);
         
     protected:
         virtual void setGameState(GameState newState);

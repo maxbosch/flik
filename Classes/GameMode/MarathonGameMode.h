@@ -22,8 +22,6 @@ namespace flik
         
         bool init();
         
-        void restartGame();
-        
         int getTopScore();
         
         void handlePowerUp(PowerUpType type);

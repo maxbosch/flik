@@ -30,7 +30,6 @@
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		5C05403BB2316A413887BF45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82184907863F3C226936A794 /* SystemConfiguration.framework */; };
 		66114ECC1D12D77A00B2C92B /* ObjectiveItemWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66114ECA1D12D77A00B2C92B /* ObjectiveItemWidget.cpp */; };
-		66114ECF1D12DB4900B2C92B /* ObjectiveDisplayWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66114ECD1D12DB4900B2C92B /* ObjectiveDisplayWidget.cpp */; };
 		66114ED21D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66114ED01D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp */; };
 		663894741D09AD9B0034892E /* GameOverWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6638945B1D09AD9B0034892E /* GameOverWidget.cpp */; };
 		663894751D09AD9B0034892E /* MainGameHeader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6638945D1D09AD9B0034892E /* MainGameHeader.cpp */; };
@@ -64,6 +63,9 @@
 		66442B3F1D0DE7AF00AC5983 /* PluginSdkboxPlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 412342C0B9B05982BF6E2B64 /* PluginSdkboxPlay.framework */; };
 		66442B411D0DE7C800AC5983 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66442B401D0DE7C800AC5983 /* GameKit.framework */; };
 		664F99611D392796007C9ED7 /* libluacocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CC6CB91D33DF0500A60D8D /* libluacocos2d iOS.a */; };
+		66522F0C1D4ACC5300C6AF19 /* OneTimeSpawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66522F0A1D4ACC5300C6AF19 /* OneTimeSpawner.cpp */; };
+		66522F111D4AD27F00C6AF19 /* PiecesClearedObjectiveTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66522F0F1D4AD27F00C6AF19 /* PiecesClearedObjectiveTracker.cpp */; };
+		66522F141D4AD52900C6AF19 /* MaxOnBoardObjectiveTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66522F121D4AD52900C6AF19 /* MaxOnBoardObjectiveTracker.cpp */; };
 		6653CD8F1D1C230A00721B17 /* SettingsScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6653CD8D1D1C230A00721B17 /* SettingsScene.cpp */; };
 		6653CDA91D215DE400721B17 /* PlatformUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6653CDA81D215DE400721B17 /* PlatformUtil.mm */; };
 		6653CDAF1D2160B800721B17 /* FLIKMailComposePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6653CDAE1D2160B800721B17 /* FLIKMailComposePresenter.m */; };
@@ -196,8 +198,6 @@
 		653B48C1B5B985AED8C487F1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		66114ECA1D12D77A00B2C92B /* ObjectiveItemWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectiveItemWidget.cpp; sourceTree = "<group>"; };
 		66114ECB1D12D77A00B2C92B /* ObjectiveItemWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveItemWidget.h; sourceTree = "<group>"; };
-		66114ECD1D12DB4900B2C92B /* ObjectiveDisplayWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectiveDisplayWidget.cpp; sourceTree = "<group>"; };
-		66114ECE1D12DB4900B2C92B /* ObjectiveDisplayWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveDisplayWidget.h; sourceTree = "<group>"; };
 		66114ED01D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelObjectiveOverlay.cpp; sourceTree = "<group>"; };
 		66114ED11D12E1CA00B2C92B /* LevelObjectiveOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelObjectiveOverlay.h; sourceTree = "<group>"; };
 		6638945B1D09AD9B0034892E /* GameOverWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverWidget.cpp; sourceTree = "<group>"; };
@@ -260,6 +260,13 @@
 		66442B3D1D0DD41900AC5983 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
 		66442B401D0DE7C800AC5983 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		664F99301D352CAF007C9ED7 /* liblua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblua.a; path = "../../../../../../Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/external/lua/lua/prebuilt/ios/liblua.a"; sourceTree = "<group>"; };
+		66522F0A1D4ACC5300C6AF19 /* OneTimeSpawner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OneTimeSpawner.cpp; sourceTree = "<group>"; };
+		66522F0B1D4ACC5300C6AF19 /* OneTimeSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneTimeSpawner.h; sourceTree = "<group>"; };
+		66522F0E1D4AD1AC00C6AF19 /* ObjectiveTracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectiveTracker.h; sourceTree = "<group>"; };
+		66522F0F1D4AD27F00C6AF19 /* PiecesClearedObjectiveTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PiecesClearedObjectiveTracker.cpp; sourceTree = "<group>"; };
+		66522F101D4AD27F00C6AF19 /* PiecesClearedObjectiveTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PiecesClearedObjectiveTracker.h; sourceTree = "<group>"; };
+		66522F121D4AD52900C6AF19 /* MaxOnBoardObjectiveTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MaxOnBoardObjectiveTracker.cpp; sourceTree = "<group>"; };
+		66522F131D4AD52900C6AF19 /* MaxOnBoardObjectiveTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaxOnBoardObjectiveTracker.h; sourceTree = "<group>"; };
 		6653CD8D1D1C230A00721B17 /* SettingsScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SettingsScene.cpp; sourceTree = "<group>"; };
 		6653CD8E1D1C230A00721B17 /* SettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsScene.h; sourceTree = "<group>"; };
 		6653CDA81D215DE400721B17 /* PlatformUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlatformUtil.mm; sourceTree = "<group>"; };
@@ -612,8 +619,6 @@
 				6638945E1D09AD9B0034892E /* MainGameHeader.h */,
 				6638945F1D09AD9B0034892E /* MainGameHUD.cpp */,
 				663894601D09AD9B0034892E /* MainGameHUD.h */,
-				66114ECD1D12DB4900B2C92B /* ObjectiveDisplayWidget.cpp */,
-				66114ECE1D12DB4900B2C92B /* ObjectiveDisplayWidget.h */,
 				66114ECA1D12D77A00B2C92B /* ObjectiveItemWidget.cpp */,
 				66114ECB1D12D77A00B2C92B /* ObjectiveItemWidget.h */,
 				663894611D09AD9B0034892E /* PauseButtonsWidget.cpp */,
@@ -753,6 +758,18 @@
 			path = Android;
 			sourceTree = "<group>";
 		};
+		66522F0D1D4AD12000C6AF19 /* Objective */ = {
+			isa = PBXGroup;
+			children = (
+				66522F0E1D4AD1AC00C6AF19 /* ObjectiveTracker.h */,
+				66522F0F1D4AD27F00C6AF19 /* PiecesClearedObjectiveTracker.cpp */,
+				66522F101D4AD27F00C6AF19 /* PiecesClearedObjectiveTracker.h */,
+				66522F121D4AD52900C6AF19 /* MaxOnBoardObjectiveTracker.cpp */,
+				66522F131D4AD52900C6AF19 /* MaxOnBoardObjectiveTracker.h */,
+			);
+			path = Objective;
+			sourceTree = "<group>";
+		};
 		6653CDA41D1CBBBC00721B17 /* Platform */ = {
 			isa = PBXGroup;
 			children = (
@@ -782,6 +799,8 @@
 				668304B11D48F74B0036BFA7 /* ReplaceSpawner.cpp */,
 				668304B21D48F74B0036BFA7 /* ReplaceSpawner.h */,
 				668304B41D48F7780036BFA7 /* PieceSpawner.h */,
+				66522F0A1D4ACC5300C6AF19 /* OneTimeSpawner.cpp */,
+				66522F0B1D4ACC5300C6AF19 /* OneTimeSpawner.h */,
 			);
 			path = Spawn;
 			sourceTree = "<group>";
@@ -807,6 +826,7 @@
 		66E3A6B51D01C07100A3125C /* GameMode */ = {
 			isa = PBXGroup;
 			children = (
+				66522F0D1D4AD12000C6AF19 /* Objective */,
 				668304AA1D48F6FF0036BFA7 /* Spawn */,
 				66E3A6B61D01C07100A3125C /* GameMode.cpp */,
 				66E3A6B71D01C07100A3125C /* GameMode.h */,
@@ -993,14 +1013,15 @@
 				66E7E5111D158C6C007DE4B9 /* LevelGameOverOverlay.cpp in Sources */,
 				66D655B61D118E6400F1B6E8 /* GameObjectiveOverlay.cpp in Sources */,
 				663894741D09AD9B0034892E /* GameOverWidget.cpp in Sources */,
+				66522F111D4AD27F00C6AF19 /* PiecesClearedObjectiveTracker.cpp in Sources */,
 				663894A01D09AEB60034892E /* Util.cpp in Sources */,
 				66442B2C1D0B84C100AC5983 /* LocalizedString.cpp in Sources */,
 				6653CDAF1D2160B800721B17 /* FLIKMailComposePresenter.m in Sources */,
 				6638947C1D09AD9B0034892E /* MainMenuHeader.cpp in Sources */,
 				663894751D09AD9B0034892E /* MainGameHeader.cpp in Sources */,
-				66114ECF1D12DB4900B2C92B /* ObjectiveDisplayWidget.cpp in Sources */,
 				66A92EF21D0F81D8004F78D3 /* GameBoard.cpp in Sources */,
 				6638947D1D09AD9B0034892E /* MainMenuHUD.cpp in Sources */,
+				66522F0C1D4ACC5300C6AF19 /* OneTimeSpawner.cpp in Sources */,
 				6657668A1D2D3B7E0098D936 /* Fonts.cpp in Sources */,
 				66E7E5171D182910007DE4B9 /* LevelSelectScene.cpp in Sources */,
 				66CC6CA41D2FE29A00A60D8D /* GameServices.cpp in Sources */,
@@ -1008,6 +1029,7 @@
 				663894761D09AD9B0034892E /* MainGameHUD.cpp in Sources */,
 				6638949B1D09AEB60034892E /* Player.cpp in Sources */,
 				6638949D1D09AEB60034892E /* MainGameScene.cpp in Sources */,
+				66522F141D4AD52900C6AF19 /* MaxOnBoardObjectiveTracker.cpp in Sources */,
 				66E7E51A1D182A97007DE4B9 /* LevelSelectOverlay.cpp in Sources */,
 				6638949F1D09AEB60034892E /* Literals.cpp in Sources */,
 				6638949E1D09AEB60034892E /* MainMenuScene.cpp in Sources */,
@@ -1101,6 +1123,7 @@
 					CC_TARGET_OS_IPHONE,
 					"COCOS2D_DEBUG=1",
 					"CC_ENABLE_CHIPMUNK_INTEGRATION=1",
+					RAPIDJSON_HAS_STDSTRING,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1166,6 +1189,7 @@
 					USE_FILE32API,
 					CC_TARGET_OS_IPHONE,
 					"CC_ENABLE_CHIPMUNK_INTEGRATION=1",
+					RAPIDJSON_HAS_STDSTRING,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (

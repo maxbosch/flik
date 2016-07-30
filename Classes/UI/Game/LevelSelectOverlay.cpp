@@ -104,12 +104,10 @@ namespace flik
             auto row = LevelSelectRowWidget::create(i);
             row->setContentSize(Size(305.0_dp, rowHeight));
             row->onTapped = [this, levelInfo](int level) {
-                if (level <= levelInfo->getMaxLevelCompleted() + 1) {
-                    auto levelInfo = LevelInfo::getInstance();
-                    auto levelDesc = levelInfo->getLevelDescription(level);
-                    auto gameScene = MainGameScene::create({LevelsGameMode::create(levelDesc), LevelsGameHUD::create(levelDesc)});
-                    SceneManager::pushSceneWithTransition<TransitionSlideInR>(gameScene, kTransitionDuration);
-                }
+                auto levelInfo = LevelInfo::getInstance();
+                auto levelDesc = levelInfo->getLevelDescription(level);
+                auto gameScene = MainGameScene::create({LevelsGameMode::create(levelDesc), LevelsGameHUD::create(levelDesc)});
+                SceneManager::pushSceneWithTransition<TransitionSlideInR>(gameScene, kTransitionDuration);
             };
             scrollView->addChild(row);
         }

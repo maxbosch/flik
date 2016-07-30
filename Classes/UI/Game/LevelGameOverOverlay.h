@@ -29,6 +29,7 @@ namespace flik
         std::function<void()> onHomeTapped;
         std::function<void()> onAchievementsTapped;
         std::function<void()> onNextLevelTapped;
+        std::function<void()> onShowLevelListTapped;
         
     private:
         cocos2d::ui::Text* mTitleLabel;
