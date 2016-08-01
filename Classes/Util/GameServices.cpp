@@ -78,6 +78,7 @@ namespace flik
     void GameServices::onAchievementsLoaded( bool reload_forced, const std::string& json_achievements_info )
     {
         if (json_achievements_info.length() > 0) {
+            cocos2d::log("Achievements JSON: %s\n", json_achievements_info.c_str());
             rapidjson::Document doc;
             doc.Parse<0>(json_achievements_info.c_str());
             if (doc.GetParseError() != rapidjson::kParseErrorNone) {
@@ -106,15 +107,15 @@ namespace flik
                         }
                         
                         if (achievementJson.HasMember("state")) {
-                            achievement.state = (AchievementState) achievementJson["state"].GetInt();
+                            achievement.state = (AchievementState) achievementJson["state"].GetDouble();
                         }
                         
                         if (achievementJson.HasMember("type")) {
-                            achievement.type = (AchievementType)achievementJson["type"].GetInt();
+                            achievement.type = (AchievementType)achievementJson["type"].GetDouble();
                         }
                         
                         if (achievementJson.HasMember("xp_value")) {
-                            achievement.xpValue = achievementJson["xp_value"].GetInt();
+                            achievement.xpValue = achievementJson["xp_value"].GetDouble();
                         }
                         
                         if (achievementJson.HasMember("last_updated_timestamp")) {

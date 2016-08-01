@@ -37,17 +37,19 @@ namespace flik
         FT_Init_FreeType(&sLibrary);
         
         for (int i = 0; i < fonts.Size(); i++) {
-            const std::string& font = FileUtils::getInstance()->fullPathForFilename(kBasePath + fonts[i].GetString());
-            
+            std::string font = fonts[i].GetString();
+            auto contents = FileUtils::getInstance()->getDataFromFile(kBasePath + fonts[i].GetString());
             FT_Face* outFace = new FT_Face;
-            int error = FT_New_Face(sLibrary, font.c_str(), 0, outFace);
+            
+            //int error = FT_New_Face(sLibrary, font.c_str(), 0, outFace);
+            int error = FT_New_Memory_Face(sLibrary, contents.getBytes(), contents.getSize(), 0, outFace);
             if (error != 0) {
-                cocos2d::log("Failed to read font: %s", font.c_str());
+                cocos2d::log("Failed to read font: %s, %d", font.c_str(), error);
             }
             sFaces[font] = outFace;
         }
         
-        sFallbackFont = kBasePath + doc["fallback"].GetString();
+        sFallbackFont = doc["fallback"].GetString();
     }
     
     std::string Fonts::getFontForString(const std::string& str)

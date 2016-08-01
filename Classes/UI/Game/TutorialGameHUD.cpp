@@ -75,7 +75,7 @@ namespace flik
         addChild(gameBoard, 1);
         mGameBoard = gameBoard;
         
-        auto tutorialText = Fonts::createLocalizedText("", 20.0_dp);
+        auto tutorialText = Fonts::createLocalizedText(LocalizedString::getString("tutorial_intro"), 20.0_dp);
         tutorialText->setTextHorizontalAlignment(TextHAlignment::CENTER);
         auto tutorialTextLayout = ui::RelativeLayoutParameter::create();
         tutorialTextLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);

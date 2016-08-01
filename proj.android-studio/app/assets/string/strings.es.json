@@ -1,0 +1,50 @@
+{
+	"main_menu_mode_levels": "Niveles",
+	"main_menu_mode_unlimited": "Ilimitado",
+	"main_menu_mode_timed": "Tiempo",
+    
+    "levels_list_title": "NIVELES",
+    
+    "game_mode_timed": "MODO TIEMPO",
+    "game_mode_unlimited": "MODO ILIMITADO",
+    "game_mode_level": "NIVEL %d",
+    
+    "objective": "Objetivo",
+    "objective_timed": "Anotar tantos puntos como puedas antes de que acabe el tiempo",
+    "objective_unlimited": "Anotar tantos puntos como pueda antes de que el tablero se llena",
+    
+    "title_settings": "AJUSTES",
+    "title_achievements": "LOGROS",
+    
+    "button_start": "COMIENZO",
+    
+    "game_over": "JUEGO TERMINADO",
+    "game_over_success": "¡BUEN TRABAJO!",
+    "restart": "Reinciar",
+    
+    "level_success": "ÉXITO",
+    "level_failed": "NIVEL %d FALLADO",
+    
+    "setting_sounds": "SONIDOS",
+    "setting_vibrations": "VIBRACIONES",
+    "setting_rate_us": "RATE US",
+    "setting_email_us": "EMAIL US",
+    "setting_made_in": "HECHO EN",
+    
+    "feedback_email_subject": "Comentarios",
+    "feedback_email_body": "",
+    
+    "tutorial_intro": "Bienvenidos al Flik!\¿Qué tal un rápido tutorial en primer lugar?",
+    "tutorial_text": "Mover la pieza a\n su color a juego",
+    "tutorial_exit": "Awesome!\n Now for a real challenge...",
+    
+    "store_power_ups": "POWER UPS",
+    "store_product_time_stops": "TIME STOPS",
+    "store_product_board_clears": "BOARD CLEARS",
+    "store_purchase_title": "MORE POINTS NEEDED",
+    "store_purchase_description": "Play more games to get more\n points or purchase some below",
+    "store_points": "%d points",
+    
+    "achievements_best_timed": "Best Timed",
+    "achievements_best_unlimited": "Best Unlimited"
+}

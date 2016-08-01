@@ -6,24 +6,29 @@
     "levels_list_title": "LEVELS",
     
     "game_mode_timed": "TIMED MODE",
-    "game_mode_unlimited": "UNLIMITED_MODE",
-    "game_mode_level": "LEVEL %d",
+    "game_mode_unlimited": "UNLIMITED MODE",
+    "game_mode_level": "LEVEL %d.%d",
     
     "objective": "Objective",
     "objective_timed": "Score as many points as you can before time runs out",
     "objective_unlimited": "Score as many points as you can before the board fills up",
+    "objective_collect_pieces": "Score %d Shapes",
+    "objective_clear": "Clear %d Shapes",
+    "objective_max": "Maximum %d Shapes at once",
     
     "title_settings": "SETTINGS",
     "title_achievements": "ACHIEVEMENTS",
+    "title_store": "Store",
     
     "button_start": "START",
     
     "game_over": "Game Over",
     "game_over_success": "NICE JOB!",
+    "game_over_try_next": "TRY\nLEVEL %d.%d",
     "restart": "Restart",
     
     "level_success": "SUCCESS",
-    "level_failed": "LEVEL %d FAILED",
+    "level_failed": "LEVEL %d.%d FAILED",
     
     "setting_sounds": "SOUNDS",
     "setting_vibrations": "VIBRATIONS",
@@ -46,5 +51,9 @@
     "store_points": "%d points",
     
     "achievements_best_timed": "Best Timed",
-    "achievements_best_unlimited": "Best Unlimited"
+    "achievements_best_unlimited": "Best Unlimited",
+    
+    "error_load_failed": "Failed to load %s. Please check your network connection and try again.",
+    
+    "word_achievements": "achievements"
 }
