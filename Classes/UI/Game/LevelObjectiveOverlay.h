@@ -23,6 +23,7 @@ namespace flik
         
         bool init(const std::string& title, const LevelDescription* levelDesc);
         
+        cocos2d::ui::Widget* createTitleWidget(const std::string& title);
         cocos2d::ui::Widget* createObjectiveWidget();
         
     private:

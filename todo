@@ -1,0 +1,18 @@
+- Show an information dialog the first time a level is opened
+- More information in the objective screen
+- Achievement notification popup (possibly with particle effect)
+- Add Sounds
+	- Click sound when tapping any button
+	- Sound effect when a point is scored
+	- Sound effect when a level is completed
+	- Sound effect when an achievement is earned
+	
+
+Bonuses -
+Gravity - Pieces slowly move toward their color
+Ghost - Pieces can move through eachother
+Rainbow - You can score a piece in any color
+Extra Time - Add 5 seconds to the clock
+
+
+

@@ -37,8 +37,15 @@ namespace flik
     {
         RedPiece,
         BluePiece,
-        PinkPiece,
+        GreenPiece,
         YellowPiece,
         RandomPiece
+    };
+
+    enum class BonusType
+    {
+        Ghost,
+        Rainbow,
+        AddTime
     };
 }

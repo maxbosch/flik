@@ -65,7 +65,7 @@ namespace flik
         addChild(productLabel);
         
         auto purchaseButton = ui::Button::create("purchase_button.png");
-        purchaseButton->setTitleText(boost::lexical_cast<std::string>(cost));
+        Fonts::updateLocalizedText(purchaseButton, boost::lexical_cast<std::string>(cost));
         purchaseButton->setTitleFontName(Fonts::getFontForString(purchaseButton->getTitleText()));
         purchaseButton->setTitleFontSize(15.0_dp);
         purchaseButton->setTitleColor(Util::getColorFromHex("FACC89"));

@@ -46,7 +46,7 @@ namespace flik
         addChild(label);
         
         auto purchaseButton = ui::Button::create("purchase_button.png");
-        purchaseButton->setTitleText(Util::toMoneyValue(cost));
+        Fonts::updateLocalizedText(purchaseButton, Util::toMoneyValue(cost));
         purchaseButton->setTitleFontName(Fonts::getFontForString(purchaseButton->getTitleText()));
         purchaseButton->setTitleFontSize(15.0_dp);
         purchaseButton->setTitleColor(Util::getColorFromHex("FACC89"));

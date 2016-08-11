@@ -18,7 +18,7 @@ namespace flik
 {
     static const Color3B kBlueColor = Util::getColorFromHex("2086E4");
     static const Color3B kYellowColor = Util::getColorFromHex("FDFF00");
-    static const Color3B kPinkColor = Util::getColorFromHex("77C198");
+    static const Color3B kGreenColor = Util::getColorFromHex("77C198");
     static const Color3B kRedColor = Util::getColorFromHex("F22239");
     static const Color3B kBlueBorderColor = Util::getColorFromHex("2086E4");
     

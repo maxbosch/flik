@@ -16,9 +16,9 @@ namespace flik
     class LevelSelectRowWidget : public cocos2d::ui::RelativeBox
     {
     public:
-        static LevelSelectRowWidget* create(int level);
+        static LevelSelectRowWidget* create(int level, const std::string& name);
         
-        bool init(int level);
+        bool init(int level, const std::string& name);
         
         std::function<void(int)> onTapped;
     };

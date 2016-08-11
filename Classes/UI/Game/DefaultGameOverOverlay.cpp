@@ -30,7 +30,7 @@ namespace flik
         auto uiSize = Director::getInstance()->getVisibleSize();
         setContentSize(uiSize);
         
-        auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, 0.7 * 255), uiSize.width, uiSize.height);
+        auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, 0.8 * 255), uiSize.width, uiSize.height);
         addChild(overlayBackground);
         
         auto innerContainer = ui::RelativeBox::create(Size(305.0_dp, 455.0_dp));
@@ -116,7 +116,7 @@ namespace flik
     
     void DefaultGameOverOverlay::setTitle(const std::string& title)
     {
-        mTitleLabel->setString(title);
+        Fonts::updateLocalizedText(mTitleLabel, title);
     }
     
     void DefaultGameOverOverlay::setTopScore(int score)

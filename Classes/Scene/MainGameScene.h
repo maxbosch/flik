@@ -12,6 +12,7 @@ namespace flik
     class GameHUD;
     class GameMode;
     class GameBoard;
+    class GoalLayer;
     enum class GameState;
     
     struct LevelParams
@@ -48,6 +49,9 @@ namespace flik
         
         void pauseGame();
         void unpauseGame();
+        
+        void setColorEnabled(GamePieceType color, bool enabled);
+        GoalLayer* getLayerForColor(GamePieceType color);
         
     private:
         cocos2d::TimerTargetCallback* mSpawnTimer;

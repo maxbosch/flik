@@ -21,6 +21,7 @@
 #include "ObjectiveTracker.h"
 #include "PiecesClearedObjectiveTracker.h"
 #include "MaxOnBoardObjectiveTracker.h"
+#include "Behavior.h"
 
 USING_NS_CC;
 
@@ -147,7 +148,7 @@ namespace flik
                                 } else if (color == "blue") {
                                     collisionMask |= collision::BluePiece;
                                 } else if (color == "green") {
-                                    collisionMask |= collision::PinkPiece;
+                                    collisionMask |= collision::GreenPiece;
                                 } else if (color == "yellow") {
                                     collisionMask |= collision::YellowPiece;
                                 }

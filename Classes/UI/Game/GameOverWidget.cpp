@@ -35,8 +35,7 @@ namespace flik
         auto restartButton = ui::Button::create();
         restartButton->setContentSize(Size(200.0_dp, 30.0_dp));
         restartButton->ignoreContentAdaptWithSize(false);
-        restartButton->setTitleText(LocalizedString::getString("restart"));
-        restartButton->setTitleFontName(Fonts::getFontForString(restartButton->getTitleText()));
+        Fonts::updateLocalizedText(restartButton, LocalizedString::getString("restart"));
         restartButton->setTitleFontSize(16.0_dp);
         restartButton->setTitleColor(Color3B(0, 0, 0));
         restartButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {

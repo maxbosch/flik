@@ -11,6 +11,7 @@
 #include <map>
 
 #include "cocos2d.h"
+#include "Enums.h"
 
 namespace flik
 {
@@ -29,6 +30,8 @@ namespace flik
         1 << 4  // Yellow
     };
     
+    class GoalLayer;
+    
     class SideRailNode : public cocos2d::Node
     {
     public:
@@ -37,12 +40,14 @@ namespace flik
     
         static SideRailNode* create(const cocos2d::Size& gameBoardSize);
         
+        GoalLayer* getColorLayer(GamePieceType color) { return mBoxes[color]; }
+        
         cocos2d::Rect getInnerBoundingBox() { return mInnerBox->getBoundingBox(); }
         
     private:
         void calculateRails();
         
-        std::map<SideRailBox, cocos2d::LayerColor *> mBoxes;
+        std::map<GamePieceType, GoalLayer *> mBoxes;
         cocos2d::LayerColor* mOuterBox;
         cocos2d::LayerColor* mInnerBox;
         cocos2d::Size mBoxDimens;

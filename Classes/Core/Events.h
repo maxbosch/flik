@@ -10,3 +10,4 @@
 
 static const std::string kPieceRemovedEvent = "event_pieceRemoved";
 static const std::string kObjectiveUpdatedEvent = "event_objectiveUpdated";
+static const std::string kPieceAddedEvent = "event_pieceAdded";

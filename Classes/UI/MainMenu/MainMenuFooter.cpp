@@ -52,7 +52,7 @@ namespace flik
         addChild(storeButtonContainer);
         
         auto storeButton = ui::Button::create();
-        storeButton->setTitleText(LocalizedString::getString("title_store"));
+        Fonts::updateLocalizedText(storeButton, LocalizedString::getString("title_store"));
         storeButton->setTitleColor(kGoldColor);
         storeButton->setTitleFontName(Fonts::getFontForString(storeButton->getTitleText()));
         storeButton->setTitleFontSize(25.0_dp);

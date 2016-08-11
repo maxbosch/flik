@@ -142,13 +142,13 @@ namespace flik
     
     void TutorialGameHUD::executeTutorialIntroAnimation()
     {
-        mTutorialText->setString(LocalizedString::getString("tutorial_intro"));
+        Fonts::updateLocalizedText(mTutorialText, LocalizedString::getString("tutorial_intro"));
         mTutorialText->setOpacity(0);
         
         Animations::animate(3.0, [this](const float t) {
             mTutorialText->setOpacity(t * 255);
         }, [this](bool completed) {
-            mTutorialText->setString(LocalizedString::getString("tutorial_text"));
+            Fonts::updateLocalizedText(mTutorialText, LocalizedString::getString("tutorial_text"));
             mTutorialText->setOpacity(255);
             mArrow->setVisible(true);
             getGameScene()->requestRestart();
@@ -157,7 +157,7 @@ namespace flik
     
     void TutorialGameHUD::executeTutorialExitAnimation()
     {
-        mTutorialText->setString(LocalizedString::getString("tutorial_exit"));
+        Fonts::updateLocalizedText(mTutorialText, LocalizedString::getString("tutorial_exit"));
         mTutorialText->setOpacity(0);
         
         Animations::animate(3.0, [this](const float t) {

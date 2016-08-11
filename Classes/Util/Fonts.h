@@ -21,5 +21,7 @@ namespace flik
         static std::string getFontForString(const std::string& str);
         
         static cocos2d::ui::Text* createLocalizedText(const std::string& content, float size);
+        static void updateLocalizedText(cocos2d::ui::Text* text, const std::string& content);
+        static void updateLocalizedText(cocos2d::ui::Button* button, const std::string& content);
     };
 }

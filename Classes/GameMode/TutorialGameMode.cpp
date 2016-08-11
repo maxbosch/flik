@@ -29,7 +29,7 @@ namespace flik
     static const std::vector<TutorialPieceInfo> kPieceOrder {{
         { GamePieceType::RedPiece, 325.0f, TutorialArrowPosition::TopLeft },
         { GamePieceType::YellowPiece, 145.0f, TutorialArrowPosition::BottomRight },
-        { GamePieceType::PinkPiece, 215.0f, TutorialArrowPosition::BottomLeft },
+        { GamePieceType::GreenPiece, 215.0f, TutorialArrowPosition::BottomLeft },
         { GamePieceType::BluePiece, 35.0f, TutorialArrowPosition::TopRight }
     }};
     

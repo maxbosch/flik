@@ -1,5 +1,6 @@
 {
 	"levels": [{
+		"name": "intro",
 		"sublevels": [{
 			"time_limit": 60,
 			"objectives": [{
@@ -31,7 +32,47 @@
 				"initial_count": 5
 			}
 		}, {
+			"time_limit": 50,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 50
+			}],
+			"spawner": {
+				"type": "replace",
+				"initial_count": 5
+			}
+		}, {
+			"time_limit": 45,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 50
+			}],
+			"spawner": {
+				"type": "replace",
+				"initial_count": 5
+			}
+		}, {
 			"time_limit": 60,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 75
+			}],
+			"spawner": {
+				"type": "replace",
+				"initial_count": 5
+			}
+		}, {
+			"time_limit": 50,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 75
+			}],
+			"spawner": {
+				"type": "replace",
+				"initial_count": 5
+			}
+		}, {
+			"time_limit": 45,
 			"objectives": [{
 				"type": "clear",
 				"quantity": 75
@@ -62,6 +103,7 @@
 			}
 		}]
 	}, {
+		"name": "walls",
 		"sublevels": [{
 			"time_limit": 60,
 			"objectives": [{
@@ -87,6 +129,7 @@
 			}
 		}]
 	}, {
+		"name": "clear",
 		"sublevels": [{
 			"time_limit": 60,
 			"objectives": [{
@@ -108,7 +151,37 @@
 				"count": 30
 			}
 		}, {
+			"time_limit": 45,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 30
+			}],
+			"spawner": {
+				"type": "onetime",
+				"count": 30
+			}
+		}, {
 			"time_limit": 60,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 40
+			}],
+			"spawner": {
+				"type": "onetime",
+				"count": 40
+			}
+		}, {
+			"time_limit": 45,
+			"objectives": [{
+				"type": "clear",
+				"quantity": 40
+			}],
+			"spawner": {
+				"type": "onetime",
+				"count": 40
+			}
+		}, {
+			"time_limit": 40,
 			"objectives": [{
 				"type": "clear",
 				"quantity": 40
@@ -159,8 +232,9 @@
 			}
 		}]
 	}, {
+		"name": "max",
 		"sublevels": [{
-			"time_limit": 60,
+			"time_limit": 25,
 			"objectives": [{
 				"type": "max",
 				"quantity": 20
@@ -168,7 +242,91 @@
 			"spawner": {
 				"type": "timed",
 				"initial_count": 5,
-				"count": 1,
+				"count": 2,
+				"interval": 1
+			}
+		}, {
+			"time_limit": 25,
+			"objectives": [{
+				"type": "max",
+				"quantity": 15
+			}],
+			"spawner": {
+				"type": "timed",
+				"initial_count": 5,
+				"count": 2,
+				"interval": 1
+			}
+		}, {
+			"time_limit": 25,
+			"objectives": [{
+				"type": "max",
+				"quantity": 10
+			}],
+			"spawner": {
+				"type": "timed",
+				"initial_count": 5,
+				"count": 2,
+				"interval": 1
+			}
+		}, {
+			"time_limit": 25,
+			"objectives": [{
+				"type": "max",
+				"quantity": 15
+			}],
+			"spawner": {
+				"type": "timed",
+				"initial_count": 5,
+				"count": 3,
+				"interval": 1
+			}
+		}, {
+			"time_limit": 25,
+			"objectives": [{
+				"type": "max",
+				"quantity": 30
+			}],
+			"spawner": {
+				"type": "timed",
+				"initial_count": 5,
+				"count": 4,
+				"interval": 1
+			}
+		}, {
+			"time_limit": 25,
+			"objectives": [{
+				"type": "max",
+				"quantity": 25
+			}],
+			"spawner": {
+				"type": "timed",
+				"initial_count": 5,
+				"count": 4,
+				"interval": 1.5
+			}
+		}, {
+			"time_limit": 25,
+			"objectives": [{
+				"type": "max",
+				"quantity": 20
+			}],
+			"spawner": {
+				"type": "timed",
+				"initial_count": 5,
+				"count": 4,
+				"interval": 1.5
+			}
+		}, {
+			"time_limit": 25,
+			"objectives": [{
+				"type": "max",
+				"quantity": 15
+			}],
+			"spawner": {
+				"type": "timed",
+				"initial_count": 5,
+				"count": 4,
 				"interval": 1
 			}
 		}]

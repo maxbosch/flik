@@ -36,7 +36,7 @@ namespace flik
         //setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         
         //auto overlayBackground = BlurredBackgroundWidget::create();
-        auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, 0.7 * 255), uiSize.width, uiSize.height);
+        auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, 0.8 * 255), uiSize.width, uiSize.height);
         addChild(overlayBackground);
         
         auto innerContainer = ui::VBox::create(Size(305.0_dp, 475.0_dp));
@@ -49,14 +49,9 @@ namespace flik
         auto backgroundImage = ui::Scale9Sprite::create(Rect(34.0_dp, 34.0_dp, 32.0_dp, 32.0_dp), "blue_border_9.png");
         backgroundImage->setAnchorPoint(Vec2());
         innerContainer->addChild(backgroundImage);
-        
-        auto titleLabel = Fonts::createLocalizedText(boost::to_upper_copy(title), 18.0_dp);
-        auto titleLabelLayout = ui::LinearLayoutParameter::create();
-        titleLabelLayout->setMargin(ui::Margin(0, 45.0_dp, 0, 45.0_dp));
-        titleLabelLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
-        titleLabel->setLayoutParameter(titleLabelLayout);
-        innerContainer->addChild(titleLabel);
-        mTitleLabel = titleLabel;
+        mContentContainer = innerContainer;
+    
+        innerContainer->addChild(createTitleWidget(title));
     
         auto borderLayout = ui::LinearLayoutParameter::create();
         borderLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
@@ -93,8 +88,7 @@ namespace flik
         
         auto startButton = ui::Button::create("pink_button_fill_large.png");
         startButton->setTitleFontSize(18.0_dp);
-        startButton->setTitleText(LocalizedString::getString("button_start"));
-        startButton->setTitleFontName(Fonts::getFontForString(startButton->getTitleText()));
+        Fonts::updateLocalizedText(startButton, LocalizedString::getString("button_start"));
         startButton->setTitleColor(Color3B::WHITE);
         auto startButtonLayout = ui::LinearLayoutParameter::create();
         startButtonLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
@@ -129,11 +123,25 @@ namespace flik
         innerContainer->setAnchorPoint(Vec2(0.5, 0.5));
         innerContainer->setScale(0);
         
-        Animations::animate(kTransitionDuration, [innerContainer](float t) {
-            innerContainer->setScale(t);
-        }, nullptr, OvershootCurve);
+        performIntroAnimation();
         
         return true;
     }
 
+    void GameObjectiveOverlay::performIntroAnimation()
+    {
+        Animations::animate(kTransitionDuration, [this](float t) {
+            mContentContainer->setScale(t);
+        }, nullptr, OvershootCurve);
+    }
+    
+    cocos2d::ui::Widget* GameObjectiveOverlay::createTitleWidget(const std::string& title)
+    {
+        auto titleLabel = Fonts::createLocalizedText(boost::to_upper_copy(title), 18.0_dp);
+        auto titleLabelLayout = ui::LinearLayoutParameter::create();
+        titleLabelLayout->setMargin(ui::Margin(0, 45.0_dp, 0, 45.0_dp));
+        titleLabelLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
+        titleLabel->setLayoutParameter(titleLabelLayout);
+        return titleLabel;
+    }
 }

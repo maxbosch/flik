@@ -30,6 +30,8 @@ namespace flik
         
         void update(float seconds);
         
+        void setGameScene(MainGameScene* scene);
+        
     protected:
         void setGameState(GameState newState);
         

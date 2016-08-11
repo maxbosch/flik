@@ -13,8 +13,6 @@ USING_NS_CC;
 
 namespace flik
 {
-    static const int kAnimationNodeTag = 0x184357;
-    
     struct AnimationData
     {
         float duration;

@@ -36,7 +36,7 @@ namespace flik
         auto uiSize = Director::getInstance()->getVisibleSize();
         setContentSize(uiSize);
         
-        auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, 0.7 * 255), uiSize.width, uiSize.height);
+        auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, 0.8 * 255), uiSize.width, uiSize.height);
         addChild(overlayBackground);
         
         auto innerContainer = ui::VBox::create(Size(305.0_dp, 525.0_dp));
@@ -101,7 +101,8 @@ namespace flik
         scrollView->setLayoutParameter(scrollViewLayout);
         
         for (int i = 1; i <= levelInfo->getMaxLevel(); i++) {
-            auto row = LevelSelectRowWidget::create(i);
+            auto level = levelInfo->getLevelDescription(i);
+            auto row = LevelSelectRowWidget::create(i, level->data["name"].GetString());
             row->setContentSize(Size(305.0_dp, rowHeight));
             row->onTapped = [this, levelInfo](int level) {
                 auto levelInfo = LevelInfo::getInstance();

@@ -1,13 +1,13 @@
 {
-	"main_menu_mode_levels": "Levels",
+	"main_menu_mode_levels": "Games",
 	"main_menu_mode_unlimited": "Unlimited",
 	"main_menu_mode_timed": "Timed",
     
-    "levels_list_title": "LEVELS",
+    "levels_list_title": "GAMES",
     
     "game_mode_timed": "TIMED MODE",
     "game_mode_unlimited": "UNLIMITED MODE",
-    "game_mode_level": "LEVEL %d.%d",
+    "game_mode_level": "LEVEL %d",
     
     "objective": "Objective",
     "objective_timed": "Score as many points as you can before time runs out",
@@ -24,11 +24,11 @@
     
     "game_over": "Game Over",
     "game_over_success": "NICE JOB!",
-    "game_over_try_next": "TRY\nLEVEL %d.%d",
+    "game_over_try_next": "NEXT\nLEVEL",
     "restart": "Restart",
     
     "level_success": "SUCCESS",
-    "level_failed": "LEVEL %d.%d FAILED",
+    "level_failed": "LEVEL FAILED",
     
     "setting_sounds": "SOUNDS",
     "setting_vibrations": "VIBRATIONS",
@@ -55,5 +55,10 @@
     
     "error_load_failed": "Failed to load %s. Please check your network connection and try again.",
     
-    "word_achievements": "achievements"
+    "word_achievements": "achievements",
+    
+    "level_name_intro": "Intro",
+    "level_name_walls": "Walls",
+    "level_name_max": "Max",
+    "level_name_clear": "Clear"
 }

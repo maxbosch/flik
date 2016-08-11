@@ -36,7 +36,7 @@ namespace flik
         setContentSize(uiSize);
         
         auto container = ui::VBox::create(uiSize);
-        container->setBackGroundColor(kPinkColor);
+        container->setBackGroundColor(kGreenColor);
         container->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         container->setPosition(Vec2());
         container->setAnchorPoint(Vec2());

@@ -71,7 +71,7 @@ namespace flik
     
     void MainGameHeader::setScore(int score)
     {
-        mScoreLabel->setString(boost::lexical_cast<std::string>(score));
+        Fonts::updateLocalizedText(mScoreLabel, boost::lexical_cast<std::string>(score));
     }
     
     void MainGameHeader::setScoreVisible(bool visible)

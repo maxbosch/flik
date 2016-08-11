@@ -11,6 +11,7 @@
 #include "Styles.h"
 #include "Literals.h"
 #include "LevelTypes.h"
+#include "LocalizedString.h"
 #include "format.h"
 
 USING_NS_CC;
@@ -19,19 +20,19 @@ namespace flik
 {
     using RelativeAlign = ui::RelativeLayoutParameter::RelativeAlign;
     
-    LevelSelectRowWidget* LevelSelectRowWidget::create(int level)
+    LevelSelectRowWidget* LevelSelectRowWidget::create(int level, const std::string& name)
     {
-        return createWithParams<LevelSelectRowWidget>(level);
+        return createWithParams<LevelSelectRowWidget>(level, name);
     }
     
-    bool LevelSelectRowWidget::init(int level)
+    bool LevelSelectRowWidget::init(int level, const std::string& name)
     {
         if (!RelativeBox::init())
         {
             return false;
         }
         
-        auto levelText = Fonts::createLocalizedText("Level " + boost::lexical_cast<std::string>(level), 25.0_dp);
+        auto levelText = Fonts::createLocalizedText(LocalizedString::getString("level_name_" + name), 25.0_dp);
         auto levelTextLayout = ui::RelativeLayoutParameter::create();
         levelTextLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
         levelTextLayout->setMargin(ui::Margin(37.0_dp, 22.0_dp, 0, 0));
@@ -50,7 +51,7 @@ namespace flik
         /*std::string imageName = "level_locked.png";
         if (levelInfo->getMaxLevelCompleted() == level) {
             imageName = "level_current.png";
-            levelText->setColor(Util::getColorFromHex("FACC89"));
+            levelText->setColor(Uikitil::getColorFromHex("FACC89"));
         } else if (levelInfo->getMaxLevelCompleted() > level) {
             imageName = "level_complete.png";
             levelText->setColor(Util::getColorFromHex("FF00A1"));

@@ -9,6 +9,8 @@
 #include "GameMode.h"
 #include "GameBoard.h"
 #include "Util.h"
+#include "Events.h"
+#include "GoalLayer.h"
 
 USING_NS_CC;
 
@@ -135,6 +137,10 @@ namespace flik
             auto piece = GamePiece::create(position, pieceType);
             piece->setGameScene(this);
             mGameBoard->addPiece(piece);
+            
+            EventCustom eventObj(kPieceAddedEvent);
+            eventObj.setUserData(piece);
+            getEventDispatcher()->dispatchEvent(&eventObj);
         }
     }
     
@@ -163,6 +169,17 @@ namespace flik
     void MainGameScene::unpauseGame()
     {
         mGameMode->resumeGame();
+    }
+    
+    void MainGameScene::setColorEnabled(GamePieceType color, bool enabled)
+    {
+        auto layer = mSideRails->getColorLayer(color);
+        layer->setEnabled(enabled);
+    }
+    
+    GoalLayer* MainGameScene::getLayerForColor(GamePieceType color)
+    {
+        return mSideRails->getColorLayer(color);
     }
 }
 

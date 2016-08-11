@@ -76,7 +76,7 @@ namespace flik
         
         if (!isComplete()) {
             int remaining = std::max(0, mQuantity - mCurrentCount);
-            mText->setString(boost::lexical_cast<std::string>(remaining));
+            Fonts::updateLocalizedText(mText, boost::lexical_cast<std::string>(remaining));
             if (remaining == 0) {
                 mImage->loadTexture(mCompletedImage);
                 mText->setVisible(false);

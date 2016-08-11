@@ -54,10 +54,16 @@ namespace flik
         void update(float seconds);
         
         void setGameTime(float seconds) { mGameTime = seconds; }
+        void addGameTime(float seconds) {
+            mGameTime += seconds;
+            mTimeRemaining += seconds;
+        }
         float getTimeRemaining() { return mTimeRemaining; }
         float getGameTime() { return mGameTime; }
         
         void setSpawner(PieceSpawner* spawner);
+        
+        void addBonus(BonusType type);
         
     protected:
         virtual void setGameState(GameState newState);

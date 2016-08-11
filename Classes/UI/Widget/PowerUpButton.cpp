@@ -13,6 +13,7 @@
 #include "Literals.h"
 #include "Player.h"
 #include "Util.h"
+#include "Fonts.h"
 
 USING_NS_CC;
 
@@ -52,7 +53,7 @@ namespace flik
     
     void PowerUpButton::setCount(int count)
     {
-        setTitleText(boost::lexical_cast<std::string>(count));
+        Fonts::updateLocalizedText(this, boost::lexical_cast<std::string>(count));
         
         getTitleRenderer()->setPosition(getContentSize().width * 0.5, -15.0_dp);
     }

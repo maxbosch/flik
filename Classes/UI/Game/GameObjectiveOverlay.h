@@ -18,12 +18,15 @@ namespace flik
     public:
         bool init(const std::string& title);
         
+        virtual cocos2d::ui::Widget* createTitleWidget(const std::string& title);
         virtual cocos2d::ui::Widget* createObjectiveWidget() = 0;
         
         std::function<void()> onStartButtonTapped;
         std::function<void()> onExitButtonTapped;
         
-    private:
-        cocos2d::ui::Text* mTitleLabel;
+    protected:
+        void performIntroAnimation();
+        
+        cocos2d::ui::Widget* mContentContainer;
     };
 }

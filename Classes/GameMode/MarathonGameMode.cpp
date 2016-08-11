@@ -12,6 +12,7 @@
 #include "Player.h"
 #include "Util.h"
 #include "IncreasingTimedSpawner.h"
+#include "GhostBonusBehavior.h"
 
 USING_NS_CC;
 
@@ -33,7 +34,7 @@ namespace flik {
         });
         getEventDispatcher()->addEventListenerWithSceneGraphPriority(pieceRemovedListener, this);
         
-        setSpawner(IncreasingTimedSpawner::create(kDefaultSpawnCount, kDefaultSpawnInterval, 10.0f, 1, kDefaultSpawnCount));
+        setSpawner(IncreasingTimedSpawner::create(kDefaultSpawnCount, kDefaultSpawnInterval, kDefaultSpawnCount, 10.0f, 1));
         
         return true;
     }
@@ -72,5 +73,12 @@ namespace flik {
             default:
                 break;
         }
+    }
+    
+    void MarathonGameMode::setGameScene(MainGameScene* scene)
+    {
+        GameMode::setGameScene(scene);
+        
+        addBonus(BonusType::Rainbow);
     }
 }

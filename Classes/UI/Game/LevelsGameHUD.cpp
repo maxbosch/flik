@@ -58,7 +58,8 @@ namespace flik
     
     GameObjectiveOverlay* LevelsGameHUD::createObjectiveOverlay()
     {
-        return LevelObjectiveOverlay::create(LocalizedString::getString("game_mode_level", mLevelDesc->levelNum, mLevelDesc->sublevelNum + 1), mLevelDesc);
+        auto name = LocalizedString::getString("level_name_" + std::string(mLevelDesc->data["name"].GetString()));
+        return LevelObjectiveOverlay::create(name, mLevelDesc);
     }
     
     cocos2d::ui::Widget* LevelsGameHUD::createGameOverOverlay()
@@ -108,7 +109,7 @@ namespace flik
             auto gameMode = dynamic_cast<LevelsGameMode*>(getGameScene()->getGameMode());
             if (gameMode) {
                 auto objective = gameMode->getObjectives()[0];
-                mObjectiveText->setString(fmt::sprintf("%d/%d", objective->getCurrentValue(), objective->getTotalValue()));
+                Fonts::updateLocalizedText(mObjectiveText, fmt::sprintf("%d/%d", objective->getCurrentValue(), objective->getTotalValue()));
             }
         }
     }

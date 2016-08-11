@@ -11,6 +11,7 @@
 #include "Physics.h"
 #include "Literals.h"
 #include "Util.h"
+#include "GoalLayer.h"
 
 #include <boost/geometry.hpp>
 #include <boost/geometry/geometries/geometries.hpp>
@@ -29,18 +30,18 @@ namespace flik
 {
     struct BoxDesc
     {
-        SideRailBox type;
+        GamePieceType type;
         Vec2 anchor;
         Color3B color;
         Vec2 direction;
     };
     
-    static const BoxDesc RedBoxDesc = { RedBox, Vec2(0, 1), kRedColor, Vec2(0.5, 0.5) };
-    static const BoxDesc BlueBoxDesc = { BlueBox, Vec2(1, 1), kBlueColor, Vec2(-0.5, 0.5) };
-    static const BoxDesc PinkBoxDesc = { PinkBox, Vec2(0, 0), kPinkColor, Vec2(0.5, -0.5) };
-    static const BoxDesc YellowBoxDesc = { YellowBox, Vec2(1, 0), kYellowColor, Vec2(-0.5, -0.5) };
+    static const BoxDesc RedBoxDesc = { GamePieceType::RedPiece, Vec2(0, 1), kRedColor, Vec2(1, 1) };
+    static const BoxDesc BlueBoxDesc = { GamePieceType::BluePiece, Vec2(1, 1), kBlueColor, Vec2(0, 1) };
+    static const BoxDesc GreenBoxDesc = { GamePieceType::GreenPiece, Vec2(0, 0), kGreenColor, Vec2(1, 0) };
+    static const BoxDesc YellowBoxDesc = { GamePieceType::YellowPiece, Vec2(1, 0), kYellowColor, Vec2(0, 0) };
     
-    static const BoxDesc Boxes[] = { RedBoxDesc, BlueBoxDesc, PinkBoxDesc, YellowBoxDesc };
+    static const BoxDesc Boxes[] = { RedBoxDesc, BlueBoxDesc, GreenBoxDesc, YellowBoxDesc };
     static const int kNumBoxes = 4;
     
     SideRailNode* SideRailNode::create(const Size& gameBoardSize)
@@ -69,10 +70,11 @@ namespace flik
         for (int i = 0; i < kNumBoxes; i++) {
             auto& box = Boxes[i];
             
-            auto layer = LayerColor::create(Color4B(box.color));
+            auto layer = GoalLayer::create(box.type, Color4B(box.color));
             layer->setContentSize(mBoxDimens);
             layer->setPosition(Vec2(box.anchor.x * gameBoardSize.width, box.anchor.y * gameBoardSize.height));
             layer->setAnchorPoint(box.anchor);
+            layer->setDirection(box.direction);
             layer->ignoreAnchorPointForPosition(false);
             
             addChild(layer);
@@ -93,14 +95,14 @@ namespace flik
     
     void SideRailNode::calculateRails()
     {
-        auto red = mBoxes[RedBox];
-        auto blue = mBoxes[BlueBox];
-        auto pink = mBoxes[PinkBox];
-        auto yellow = mBoxes[YellowBox];
+        auto red = mBoxes[GamePieceType::RedPiece];
+        auto blue = mBoxes[GamePieceType::BluePiece];
+        auto green = mBoxes[GamePieceType::GreenPiece];
+        auto yellow = mBoxes[GamePieceType::YellowPiece];
         
         auto redBounds = red->getBoundingBox();
         auto blueBounds = blue->getBoundingBox();
-        auto pinkBounds = pink->getBoundingBox();
+        auto greenBounds = green->getBoundingBox();
         auto yellowBounds = yellow->getBoundingBox();
         
         double left, right, top, bottom;
@@ -136,6 +138,8 @@ namespace flik
 #endif
             
             addChild(railNode);
+            
+            return railNode;
         };
         
         // Top Rail
@@ -160,9 +164,9 @@ namespace flik
         
         // Bottom Rail
         {
-            left = pinkBounds.getMaxX();
+            left = greenBounds.getMaxX();
             right = yellowBounds.getMinX();
-            bottom = pinkBounds.getMinY() - buffer;
+            bottom = greenBounds.getMinY() - buffer;
             top = bottom + mRailSize + buffer;
             
             createRailNode(left, bottom, right, top, collision::BlackRail, collision::All, collision::All);
@@ -173,7 +177,7 @@ namespace flik
             left = redBounds.getMinX() - buffer;
             right = left + mRailSize + buffer;
             top = redBounds.getMinY();
-            bottom = pinkBounds.getMaxY();
+            bottom = greenBounds.getMaxY();
             
             createRailNode(left, bottom, right, top, collision::BlackRail, collision::All, collision::All);
         }
@@ -189,14 +193,23 @@ namespace flik
             top = redBounds.getMaxY();
             bottom = redBounds.getMinY();
             
-            createRailNode(left, bottom, right, top, collision::RedRail, collision::AllButRedPiece, collision::AllButRedPiece, Color4B(255, 0, 0, 255));
+            int categoryMask = collision::RedRail;
+            int contactMask = collision::AllButRedPiece;
+            int collisionMask = collision::AllButRedPiece;
+            
+            auto layer = mBoxes[GamePieceType::RedPiece];
+            layer->setCollisionFlags(categoryMask, contactMask, collisionMask);
+            
+            auto node1 = createRailNode(left, bottom, right, top, categoryMask, contactMask, collisionMask, Color4B(255, 0, 0, 255));
+            layer->addCollisionNode(node1);
             
             left = redBounds.getMinX();
             right = redBounds.getMaxX();
             top = redBounds.getMaxY() + buffer;
             bottom = top - mRailSize - buffer;
             
-            createRailNode(left, bottom, right, top, collision::RedRail, collision::AllButRedPiece, collision::AllButRedPiece, Color4B(255, 0, 0, 255));
+            auto node2 = createRailNode(left, bottom, right, top, categoryMask, contactMask, collisionMask, Color4B(255, 0, 0, 255));
+            layer->addCollisionNode(node2);
         }
         
         // Blue Box
@@ -206,31 +219,49 @@ namespace flik
             top = blueBounds.getMaxY();
             bottom = blueBounds.getMinY();
             
-            createRailNode(left, bottom, right, top, collision::BlueRail, collision::AllButBluePiece, collision::AllButBluePiece, Color4B(0, 0, 255, 255));
+            int categoryMask = collision::BlueRail;
+            int contactMask = collision::AllButBluePiece;
+            int collisionMask = collision::AllButBluePiece;
+            
+            auto layer = mBoxes[GamePieceType::BluePiece];
+            layer->setCollisionFlags(categoryMask, contactMask, collisionMask);
+            
+            auto node1 = createRailNode(left, bottom, right, top, categoryMask, contactMask, collisionMask, Color4B(0, 0, 255, 255));
+            layer->addCollisionNode(node1);
             
             left = blueBounds.getMinX();
             right = blueBounds.getMaxX();
             top = blueBounds.getMaxY() + buffer;
             bottom = top - mRailSize - buffer;
             
-            createRailNode(left, bottom, right, top, collision::BlueRail, collision::AllButBluePiece, collision::AllButBluePiece, Color4B(0, 0, 255, 255));
+            auto node2 = createRailNode(left, bottom, right, top, categoryMask, contactMask, collisionMask, Color4B(0, 0, 255, 255));
+            layer->addCollisionNode(node2);
         }
         
-        // Pink Box
+        // Green Box
         {
-            left = pinkBounds.getMinX() - buffer;
+            left = greenBounds.getMinX() - buffer;
             right = left + mRailSize + buffer;
-            top = pinkBounds.getMaxY();
-            bottom = pinkBounds.getMinY();
+            top = greenBounds.getMaxY();
+            bottom = greenBounds.getMinY();
             
-            createRailNode(left, bottom, right, top, collision::PinkRail, collision::AllButPinkPiece, collision::AllButPinkPiece, Color4B(0, 255, 0, 255));
+            int categoryMask = collision::GreenRail;
+            int contactMask = collision::AllButGreenPiece;
+            int collisionMask = collision::AllButGreenPiece;
             
-            left = pinkBounds.getMinX();
-            right = pinkBounds.getMaxX();
-            bottom = pinkBounds.getMinY() - buffer;
+            auto layer = mBoxes[GamePieceType::GreenPiece];
+            layer->setCollisionFlags(categoryMask, contactMask, collisionMask);
+            
+            auto node1 = createRailNode(left, bottom, right, top, categoryMask, contactMask, collisionMask, Color4B(0, 255, 0, 255));
+            layer->addCollisionNode(node1);
+            
+            left = greenBounds.getMinX();
+            right = greenBounds.getMaxX();
+            bottom = greenBounds.getMinY() - buffer;
             top = bottom + mRailSize + buffer;
             
-            createRailNode(left, bottom, right, top, collision::PinkRail, collision::AllButPinkPiece, collision::AllButPinkPiece, Color4B(0, 255, 0, 255));
+            auto node2 = createRailNode(left, bottom, right, top, categoryMask, contactMask, collisionMask, Color4B(0, 255, 0, 255));
+            layer->addCollisionNode(node2);
         }
         
         // Yellow Box
@@ -240,14 +271,23 @@ namespace flik
             top = yellowBounds.getMaxY();
             bottom = yellowBounds.getMinY();
             
-            createRailNode(left, bottom, right, top, collision::YellowRail, collision::AllButYellowPiece, collision::AllButYellowPiece, Color4B(255, 255, 0, 255));
+            int categoryMask = collision::YellowRail;
+            int contactMask = collision::AllButYellowPiece;
+            int collisionMask = collision::AllButYellowPiece;
+            
+            auto layer = mBoxes[GamePieceType::YellowPiece];
+            layer->setCollisionFlags(categoryMask, contactMask, collisionMask);
+            
+            auto node1 = createRailNode(left, bottom, right, top, categoryMask, contactMask, collisionMask, Color4B(255, 255, 0, 255));
+            layer->addCollisionNode(node1);
             
             left = yellowBounds.getMinX();
             right = yellowBounds.getMaxX();
             bottom = yellowBounds.getMinY() - buffer;
             top = bottom + mRailSize + buffer;
             
-            createRailNode(left, bottom, right, top, collision::YellowRail, collision::AllButYellowPiece, collision::AllButYellowPiece, Color4B(255, 255, 0, 255));
+            auto node2 = createRailNode(left, bottom, right, top, categoryMask, contactMask, collisionMask, Color4B(255, 255, 0, 255));
+            layer->addCollisionNode(node2);
         }
     }
 }

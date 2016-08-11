@@ -37,19 +37,19 @@ namespace flik
         FT_Init_FreeType(&sLibrary);
         
         for (int i = 0; i < fonts.Size(); i++) {
-            std::string font = fonts[i].GetString();
-            auto contents = FileUtils::getInstance()->getDataFromFile(kBasePath + fonts[i].GetString());
+            std::string font = FileUtils::getInstance()->fullPathForFilename(kBasePath + fonts[i].GetString());
+            auto contents = FileUtils::getInstance()->getDataFromFile(font);
             FT_Face* outFace = new FT_Face;
             
-            //int error = FT_New_Face(sLibrary, font.c_str(), 0, outFace);
-            int error = FT_New_Memory_Face(sLibrary, contents.getBytes(), contents.getSize(), 0, outFace);
+            int error = FT_New_Face(sLibrary, font.c_str(), 0, outFace);
+            //int error = FT_New_Memory_Face(sLibrary, contents.getBytes(), contents.getSize(), 0, outFace);
             if (error != 0) {
                 cocos2d::log("Failed to read font: %s, %d", font.c_str(), error);
             }
             sFaces[font] = outFace;
         }
         
-        sFallbackFont = doc["fallback"].GetString();
+        sFallbackFont = FileUtils::getInstance()->fullPathForFilename(kBasePath + doc["fallback"].GetString());
     }
     
     std::string Fonts::getFontForString(const std::string& str)
@@ -57,7 +57,7 @@ namespace flik
         std::vector<char32_t> wideStr;
         utf8::utf8to32(str.begin(), str.end(), back_inserter(wideStr));
         
-        for (auto& pair : sFaces) {
+        /*for (auto& pair : sFaces) {
             auto face = pair.second;
             
             bool hasAllChars = true;
@@ -70,7 +70,7 @@ namespace flik
             if (hasAllChars) {
                 return pair.first;
             }
-        }
+        }*/
         
         return sFallbackFont;
     }
@@ -78,5 +78,17 @@ namespace flik
     cocos2d::ui::Text* Fonts::createLocalizedText(const std::string& content, float size)
     {
         return cocos2d::ui::Text::create(content, getFontForString(content), size);
+    }
+    
+    void Fonts::updateLocalizedText(cocos2d::ui::Text* text, const std::string& content)
+    {
+        text->setString(content);
+        text->setFontName(getFontForString(content));
+    }
+    
+    void Fonts::updateLocalizedText(cocos2d::ui::Button* button, const std::string& content)
+    {
+        button->setTitleText(content);
+        button->setTitleFontName(getFontForString(content));
     }
 }

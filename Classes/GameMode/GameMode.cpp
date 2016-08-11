@@ -9,6 +9,8 @@
 #include "GameMode.h"
 #include "MainGameScene.h"
 #include "Player.h"
+#include "GhostBonusBehavior.h"
+#include "RainbowBonusBehavior.h"
 
 namespace flik {
     bool GameMode::init()
@@ -130,5 +132,23 @@ namespace flik {
     {
         mSpawner = std::move(spawner);
         addChild(spawner);
+    }
+    
+    void GameMode::addBonus(BonusType type)
+    {
+        switch (type)
+        {
+            case BonusType::Rainbow:
+                addChild(RainbowBonusBehavior::create(getGameScene(), 10));
+                break;
+                
+            case BonusType::AddTime:
+                addGameTime(5);
+                break;
+                
+            case BonusType::Ghost:
+                addChild(GhostBonusBehavior::create(getGameScene(), 10));
+                break;
+        }
     }
 }

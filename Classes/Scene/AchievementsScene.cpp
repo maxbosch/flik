@@ -90,7 +90,7 @@ namespace flik
                 mCompletionImage->loadTexture("achievement_incomplete.png");
             }
             
-            mNameText->setString(achievement.name);
+            Fonts::updateLocalizedText(mNameText, achievement.name);
         }
         
     private:
