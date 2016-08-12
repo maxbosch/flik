@@ -172,4 +172,13 @@ namespace flik
             setPurchaseOverlayVisible(true);
         }
     }
+    
+    void StoreScene::onBackPressed()
+    {
+        if (mPurchaseOverlay->isVisible()) {
+            setPurchaseOverlayVisible(false);
+        } else {
+            SceneManager::popSceneWithTransition<TransitionSlideInT>(kTransitionDuration);
+        }
+    }
 }

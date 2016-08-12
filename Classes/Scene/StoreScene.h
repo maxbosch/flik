@@ -11,12 +11,13 @@
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 #include "Enums.h"
+#include "SceneEx.h"
 
 namespace flik
 {
     class StorePurchaseOverlay;
     
-    class StoreScene : public cocos2d::Scene
+    class StoreScene : public SceneEx
     {
     public:
         CREATE_FUNC(StoreScene);
@@ -24,6 +25,8 @@ namespace flik
         bool init();
         
         void update(float seconds);
+        
+        void onBackPressed();
     
     private:
         void setPurchaseOverlayVisible(bool visible, bool animated = true);

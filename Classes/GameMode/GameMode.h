@@ -65,6 +65,8 @@ namespace flik
         
         void addBonus(BonusType type);
         
+        virtual void onBackPressed();
+        
     protected:
         virtual void setGameState(GameState newState);
         MainGameScene* getGameScene() { return mGameScene; }

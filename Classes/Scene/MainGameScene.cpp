@@ -181,5 +181,12 @@ namespace flik
     {
         return mSideRails->getColorLayer(color);
     }
+    
+    void MainGameScene::onBackPressed()
+    {
+        if (mGameMode) {
+            mGameMode->onBackPressed();
+        }
+    }
 }
 

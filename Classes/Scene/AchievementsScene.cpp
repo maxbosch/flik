@@ -138,7 +138,7 @@ namespace flik
         
         backButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
             if (type == ui::Widget::TouchEventType::ENDED) {
-                SceneManager::popToRootSceneWithTransition<TransitionSlideInB>(kTransitionDuration);
+                SceneManager::popToRootSceneWithTransition<TransitionSlideInR>(kTransitionDuration);
             }
         });
         
@@ -220,5 +220,10 @@ namespace flik
     ssize_t AchievementsScene::numberOfCellsInTableView(TableView *table)
     {
         return mAchievements.size();
+    }
+    
+    void AchievementsScene::onBackPressed()
+    {
+        SceneManager::popToRootSceneWithTransition<TransitionSlideInR>(kTransitionDuration);
     }
 }

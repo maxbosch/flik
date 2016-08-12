@@ -16,6 +16,7 @@
 #include "PluginSdkboxPlay/PluginSdkboxPlay.h"
 #include "PluginIAP/PluginIAP.h"
 #include "GameServices.h"
+#include "SceneEx.h"
 
 //#include "lua_cocos2dx_auto.hpp"
 //#include "CCLuaEngine.h"
@@ -124,6 +125,18 @@ namespace flik
             
             UserDefault::getInstance()->setBoolForKey("installed", true);
         }
+        
+        // Set up back button
+        auto backListener = EventListenerKeyboard::create();
+        backListener->onKeyPressed = [](EventKeyboard::KeyCode keyCode, cocos2d::Event* event) {
+            if (keyCode == EventKeyboard::KeyCode::KEY_BACK) {
+                auto runningScene = dynamic_cast<SceneEx*>(Director::getInstance()->getRunningScene());
+                if (runningScene) {
+                    runningScene->onBackPressed();
+                }
+            }
+        };
+        Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(backListener, 1);
         
         // run
         SceneManager::runWithScene(level);

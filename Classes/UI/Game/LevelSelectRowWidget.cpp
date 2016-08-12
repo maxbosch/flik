@@ -32,7 +32,7 @@ namespace flik
             return false;
         }
         
-        auto levelText = Fonts::createLocalizedText(LocalizedString::getString("level_name_" + name), 25.0_dp);
+        auto levelText = Fonts::createLocalizedText(LocalizedString::getString("level_name_" + name), 21.0_dp);
         auto levelTextLayout = ui::RelativeLayoutParameter::create();
         levelTextLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
         levelTextLayout->setMargin(ui::Margin(37.0_dp, 22.0_dp, 0, 0));
@@ -47,39 +47,12 @@ namespace flik
         levelStatusContainerLayout->setMargin(ui::Margin(0, 0, 37.0_dp, 0));
         levelStatusContainer->setLayoutParameter(levelStatusContainerLayout);
         addChild(levelStatusContainer);
-        
-        /*std::string imageName = "level_locked.png";
-        if (levelInfo->getMaxLevelCompleted() == level) {
-            imageName = "level_current.png";
-            levelText->setColor(Uikitil::getColorFromHex("FACC89"));
-        } else if (levelInfo->getMaxLevelCompleted() > level) {
-            imageName = "level_complete.png";
-            levelText->setColor(Util::getColorFromHex("FF00A1"));
-        }
-        auto levelStatus = ui::ImageView::create(imageName);
+
+        auto levelStatus = ui::ImageView::create("level_current.png");
         auto levelStatusLayout = ui::RelativeLayoutParameter::create();
         levelStatusLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
         levelStatus->setLayoutParameter(levelStatusLayout);
-        levelStatusContainer->addChild(levelStatus);*/
-        
-        int sublevel = levelInfo->getSublevel(level);
-        auto levelStatus = ui::Text::create(fmt::sprintf("%dx", sublevel),
-                                            Fonts::getFontForString("0"), 18.0_dp);
-        auto levelStatusLayout = ui::RelativeLayoutParameter::create();
-        levelStatusLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
-        levelStatusLayout->setRelativeName("sublevel");
-        levelStatusLayout->setMargin(ui::Margin(0.0, 25.0_dp, 0.0, 0.0));
-        levelStatus->setLayoutParameter(levelStatusLayout);
         levelStatusContainer->addChild(levelStatus);
-        
-        auto starIcon = ui::ImageView::create("icon_rate_star.png");
-        starIcon->setScale(0.75);
-        auto starIconLayout = ui::RelativeLayoutParameter::create();
-        starIconLayout->setRelativeToWidgetName("sublevel");
-        starIconLayout->setAlign(RelativeAlign::LOCATION_RIGHT_OF_TOPALIGN);
-        starIconLayout->setMargin(ui::Margin(-2.0_dp, -5.0_dp, 0.0, 0.0));
-        starIcon->setLayoutParameter(starIconLayout);
-        levelStatusContainer->addChild(starIcon);
         
         
         setTouchEnabled(true);

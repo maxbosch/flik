@@ -127,7 +127,7 @@
 		66E7E5111D158C6C007DE4B9 /* LevelGameOverOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E50F1D158C6C007DE4B9 /* LevelGameOverOverlay.cpp */; };
 		66E7E5141D1591A5007DE4B9 /* ScoreWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E5121D1591A5007DE4B9 /* ScoreWidget.cpp */; };
 		66E7E5171D182910007DE4B9 /* LevelSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E5151D182910007DE4B9 /* LevelSelectScene.cpp */; };
-		66E7E51A1D182A97007DE4B9 /* LevelSelectOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E5181D182A97007DE4B9 /* LevelSelectOverlay.cpp */; };
+		66E802FB1D5CC0AB0039AFD3 /* SceneEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E802F91D5CC0AB0039AFD3 /* SceneEx.cpp */; };
 		6E2B4283A69F3BC8F3DAFC4E /* sdkbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6142E7B2D12A44A021E034 /* sdkbox.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -368,8 +368,8 @@
 		66E7E5131D1591A5007DE4B9 /* ScoreWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreWidget.h; sourceTree = "<group>"; };
 		66E7E5151D182910007DE4B9 /* LevelSelectScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelSelectScene.cpp; sourceTree = "<group>"; };
 		66E7E5161D182910007DE4B9 /* LevelSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectScene.h; sourceTree = "<group>"; };
-		66E7E5181D182A97007DE4B9 /* LevelSelectOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelSelectOverlay.cpp; sourceTree = "<group>"; };
-		66E7E5191D182A97007DE4B9 /* LevelSelectOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectOverlay.h; sourceTree = "<group>"; };
+		66E802F91D5CC0AB0039AFD3 /* SceneEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneEx.cpp; sourceTree = "<group>"; };
+		66E802FA1D5CC0AB0039AFD3 /* SceneEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneEx.h; sourceTree = "<group>"; };
 		810B4AE3B28A43C3512A6E57 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
 		81AC4D62869B4D7554A55D6A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
 		82184907863F3C226936A794 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
@@ -645,8 +645,6 @@
 				66E7E5101D158C6C007DE4B9 /* LevelGameOverOverlay.h */,
 				66114ED01D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp */,
 				66114ED11D12E1CA00B2C92B /* LevelObjectiveOverlay.h */,
-				66E7E5181D182A97007DE4B9 /* LevelSelectOverlay.cpp */,
-				66E7E5191D182A97007DE4B9 /* LevelSelectOverlay.h */,
 				6677234F1D18B0F800B1B74A /* LevelSelectRowWidget.cpp */,
 				667723501D18B0F800B1B74A /* LevelSelectRowWidget.h */,
 				66D655B11D10D58400F1B6E8 /* LevelsGameHUD.cpp */,
@@ -788,6 +786,8 @@
 				66CC6CA31D2FE29A00A60D8D /* GameServices.h */,
 				661401761D5955FD005497BD /* LayerMultiGradient.cpp */,
 				661401771D5955FD005497BD /* LayerMultiGradient.h */,
+				66E802F91D5CC0AB0039AFD3 /* SceneEx.cpp */,
+				66E802FA1D5CC0AB0039AFD3 /* SceneEx.h */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1074,11 +1074,11 @@
 				6634592C1D540EDC00F6E68F /* Behavior.cpp in Sources */,
 				6638949D1D09AEB60034892E /* MainGameScene.cpp in Sources */,
 				66522F141D4AD52900C6AF19 /* MaxOnBoardObjectiveTracker.cpp in Sources */,
-				66E7E51A1D182A97007DE4B9 /* LevelSelectOverlay.cpp in Sources */,
 				6638949F1D09AEB60034892E /* Literals.cpp in Sources */,
 				6638949E1D09AEB60034892E /* MainMenuScene.cpp in Sources */,
 				66114ED21D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp in Sources */,
 				66E3A6C51D01C08300A3125C /* MarathonGameMode.cpp in Sources */,
+				66E802FB1D5CC0AB0039AFD3 /* SceneEx.cpp in Sources */,
 				66D655BA1D12191500F1B6E8 /* TextObjectiveOverlay.cpp in Sources */,
 				66D655B31D10D58400F1B6E8 /* LevelsGameHUD.cpp in Sources */,
 				66442B2F1D0B851600AC5983 /* StorePurchaseOverlay.cpp in Sources */,

@@ -191,4 +191,9 @@ namespace flik
         
         return true;
     }
+    
+    void SettingsScene::onBackPressed()
+    {
+        SceneManager::popSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
+    }
 }

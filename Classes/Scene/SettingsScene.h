@@ -9,14 +9,17 @@
 #pragma once
 
 #include "cocos2d.h"
+#include "SceneEx.h"
 
 namespace flik
 {
-    class SettingsScene : public cocos2d::Scene
+    class SettingsScene : public SceneEx
     {
     public:
         CREATE_FUNC(SettingsScene);
         
         bool init();
+        
+        void onBackPressed();
     };
 }

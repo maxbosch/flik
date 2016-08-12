@@ -3,6 +3,7 @@
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 #include "Enums.h"
+#include "SceneEx.h"
 
 namespace flik
 {
@@ -21,7 +22,7 @@ namespace flik
         GameHUD* hud;
     };
     
-    class MainGameScene : public cocos2d::Scene
+    class MainGameScene : public SceneEx
     {
     public:
         // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
@@ -52,6 +53,8 @@ namespace flik
         
         void setColorEnabled(GamePieceType color, bool enabled);
         GoalLayer* getLayerForColor(GamePieceType color);
+        
+        void onBackPressed();
         
     private:
         cocos2d::TimerTargetCallback* mSpawnTimer;

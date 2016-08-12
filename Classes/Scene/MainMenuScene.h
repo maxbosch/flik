@@ -11,15 +11,18 @@
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 #include "Enums.h"
+#include "SceneEx.h"
 
 namespace flik
 {
-    class MainMenuScene : public cocos2d::Scene
+    class MainMenuScene : public SceneEx
     {
     public:
         CREATE_FUNC(MainMenuScene);
     
         bool init();
+        
+        void onBackPressed();
         
     private:
         void onGameModeSelected(GameModeType type);

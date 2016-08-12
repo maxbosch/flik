@@ -78,4 +78,9 @@ namespace flik
             SceneManager::pushSceneWithTransition<TransitionSlideInT>(gameScene, kTransitionDuration);
         }
     }
+    
+    void MainMenuScene::onBackPressed()
+    {
+        Director::getInstance()->end();
+    }
 }

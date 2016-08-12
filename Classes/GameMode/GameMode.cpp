@@ -11,6 +11,8 @@
 #include "Player.h"
 #include "GhostBonusBehavior.h"
 #include "RainbowBonusBehavior.h"
+#include "SceneManager.h"
+#include "Styles.h"
 
 namespace flik {
     bool GameMode::init()
@@ -149,6 +151,17 @@ namespace flik {
             case BonusType::Ghost:
                 addChild(GhostBonusBehavior::create(getGameScene(), 10));
                 break;
+        }
+    }
+    
+    void GameMode::onBackPressed()
+    {
+        if (getGameState() == GameState::Paused) {
+            resumeGame();
+        } else if (getGameState() == GameState::InProgress) {
+            pauseGame();
+        } else {
+            SceneManager::popSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
         }
     }
 }
