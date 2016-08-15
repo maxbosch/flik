@@ -19,9 +19,9 @@ namespace flik
     class LevelsGameMode : public GameMode
     {
     public:
-        static LevelsGameMode* create(const LevelDescription* levelDesc);
+        static LevelsGameMode* create(const LevelDescription* levelDesc, int sublevel);
         
-        bool init(const LevelDescription* levelDesc);
+        bool init(const LevelDescription* levelDesc, int sublevel);
         
         virtual void restartGame();
         
@@ -38,8 +38,11 @@ namespace flik
         
         std::vector<ObjectiveTracker*> getObjectives() { return mObjectives; }
         
+        int getSublevel() { return mSublevel; }
+        
     private:
         const LevelDescription* mLevelDesc;
+        int mSublevel;
         std::vector<ObjectiveTracker*> mObjectives;
         LevelProgress mProgress;
     };

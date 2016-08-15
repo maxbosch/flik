@@ -17,8 +17,8 @@ USING_NS_CC;
 namespace flik
 {
     static LevelInfo* sInstance = nullptr;
-    static const std::string kMaxLevelCompleted = "key_maxLevelCompleted";
-    
+    static const std::string kMaxLevelCompleted = "key_maxLevelCompleted_%d";
+    static const std::string kLevelScore = "key_levelScore_%d.%d";
     LevelInfo* LevelInfo::getInstance()
     {
         if (!sInstance) {
@@ -34,30 +34,23 @@ namespace flik
         ParseLevels(fileInfo);
     }
     
-    bool LevelInfo::isCompleted(int level)
+    bool LevelInfo::isCompleted(int level, int sublevel)
     {
-        return getMaxLevelCompleted() >= level;
+        return getMaxLevelCompleted(level) >= sublevel;
     }
     
-    int LevelInfo::getMaxLevelCompleted()
+    int LevelInfo::getMaxLevelCompleted(int level)
     {
-        return UserDefault::getInstance()->getIntegerForKey(kMaxLevelCompleted.c_str(), 1);
+        return UserDefault::getInstance()->getIntegerForKey(fmt::sprintf(kMaxLevelCompleted, level).c_str(), -1);
     }
     
-    void LevelInfo::completeLevel(int level)
+    void LevelInfo::completeLevel(int level, int sublevel, int score)
     {
-        auto& levelObj = mLevels[level-1];
-        auto& sublevels = levelObj.data["sublevels"];
-        int newSublevelNum = std::min<int>(sublevels.Size() - 1, getSublevel(level) + 1);
-        //return UserDefault::getInstance()->setIntegerForKey(kMaxLevelCompleted.c_str(), getMaxLevelCompleted() + 1);
-        UserDefault::getInstance()->setIntegerForKey(fmt::sprintf("sublevel_%d", level).c_str(), newSublevelNum);
-        
-        mLevels[level - 1].sublevelNum = newSublevelNum;
-    }
+        if (getMaxLevelCompleted(level) <= sublevel) {
+            UserDefault::getInstance()->setIntegerForKey(fmt::sprintf(kMaxLevelCompleted, level).c_str(), sublevel);
+        }
     
-    int LevelInfo::getSublevel(int level)
-    {
-        return UserDefault::getInstance()->getIntegerForKey(fmt::sprintf("sublevel_%d", level).c_str(), 0);
+        UserDefault::getInstance()->setIntegerForKey(fmt::sprintf(kLevelScore, level, sublevel).c_str(), score);
     }
     
     const LevelDescription* LevelInfo::getLevelDescription(int level)
@@ -67,7 +60,26 @@ namespace flik
     
     int LevelInfo::getNextLevel()
     {
-        return std::min(getMaxLevelCompleted() + 1, getMaxLevel());
+        //return std::min(getMaxLevelCompleted() + 1, getMaxLevel());
+        return 0;
+    }
+    
+    int LevelInfo::getLevelStatus(int level, int sublevel)
+    {
+        int maxLevel = getMaxLevelCompleted(level);
+        
+        if (maxLevel >= sublevel) {
+            return getLevelScore(level, sublevel);
+        } else if (maxLevel == (sublevel - 1)) {
+            return 0;
+        } else {
+            return -1;
+        }
+    }
+    
+    int LevelInfo::getLevelScore(int level, int sublevel)
+    {
+        return UserDefault::getInstance()->getIntegerForKey(fmt::sprintf(kLevelScore, level, sublevel).c_str(), 0);
     }
     
     void LevelInfo::ParseLevels(const std::string& json)
@@ -87,7 +99,6 @@ namespace flik
                 auto& levelObj = mLevels[i];
                 levelObj.levelNum = i + 1;
                 levelObj.data = level;
-                levelObj.sublevelNum = getSublevel(levelObj.levelNum);
             }
         }
     }

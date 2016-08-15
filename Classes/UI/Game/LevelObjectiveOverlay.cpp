@@ -21,14 +21,15 @@ namespace flik
     using RelativeAlign = ui::RelativeLayoutParameter::RelativeAlign;
     using LinearGravity = ui::LinearLayoutParameter::LinearGravity;
     
-    LevelObjectiveOverlay* LevelObjectiveOverlay::create(const std::string& title, const LevelDescription* levelDesc)
+    LevelObjectiveOverlay* LevelObjectiveOverlay::create(const std::string& title, const LevelDescription* levelDesc, int sublevel)
     {
-        return createWithParams<LevelObjectiveOverlay>(title, levelDesc);
+        return createWithParams<LevelObjectiveOverlay>(title, levelDesc, sublevel);
     }
     
-    bool LevelObjectiveOverlay::init(const std::string& title, const LevelDescription* levelDesc)
+    bool LevelObjectiveOverlay::init(const std::string& title, const LevelDescription* levelDesc, int sublevel)
     {
         mLevelDesc = levelDesc;
+        mSublevel = sublevel;
         
         return GameObjectiveOverlay::init(title);
     }
@@ -49,7 +50,7 @@ namespace flik
         titleLabel->setLayoutParameter(titleLabelLayout);
         titleContainer->addChild(titleLabel);
         
-        auto subtitleLabel = Fonts::createLocalizedText(LocalizedString::getString("game_mode_level", mLevelDesc->sublevelNum + 1), 18.0_dp);
+        auto subtitleLabel = Fonts::createLocalizedText(LocalizedString::getString("game_mode_level", mSublevel + 1), 18.0_dp);
         subtitleLabel->setColor(Color3B::WHITE);
         auto subtitleLabelLayout = ui::RelativeLayoutParameter::create();
         subtitleLabelLayout->setAlign(RelativeAlign::LOCATION_BELOW_CENTER);
@@ -63,7 +64,7 @@ namespace flik
     
     ui::Widget* LevelObjectiveOverlay::createObjectiveWidget()
     {
-        auto& level = mLevelDesc->data["sublevels"][mLevelDesc->sublevelNum];
+        auto& level = mLevelDesc->data["sublevels"][mSublevel];
         auto& objectives = level["objectives"];
         auto& objective = objectives[0];
         std::string text = "objective_" + std::string(objective["type"].GetString());

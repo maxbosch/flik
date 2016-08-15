@@ -133,10 +133,8 @@ namespace flik
         Fonts::updateLocalizedText(mTitleLabel, title);
     }
     
-    void LevelGameOverOverlay::setNextLevel(bool success, int level)
+    void LevelGameOverOverlay::setNextLevel(bool success, int level, int sublevel)
     {
-        int sublevel = LevelInfo::getInstance()->getSublevel(level);
-        
         if (success && level <= LevelInfo::getInstance()->getMaxLevel()) {
             Fonts::updateLocalizedText(mNextLevelButton, LocalizedString::getString("game_over_try_next"));
             

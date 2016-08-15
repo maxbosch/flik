@@ -1,5 +1,5 @@
 //
-//  LevelSelectScene.hpp
+//  GameSelectScene.hpp
 //  Flik
 //
 //  Created by Adam Eskreis on 6/20/16.
@@ -16,9 +16,9 @@ namespace flik
     class LevelSelectScene : public SceneEx
     {
     public:
-        CREATE_FUNC(LevelSelectScene);
+        static LevelSelectScene* create(int level);
         
-        bool init();
+        bool init(int level);
         
         void onBackPressed();
     };

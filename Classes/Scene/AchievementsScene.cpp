@@ -138,7 +138,7 @@ namespace flik
         
         backButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
             if (type == ui::Widget::TouchEventType::ENDED) {
-                SceneManager::popToRootSceneWithTransition<TransitionSlideInR>(kTransitionDuration);
+                onBackPressed();
             }
         });
         
@@ -224,6 +224,6 @@ namespace flik
     
     void AchievementsScene::onBackPressed()
     {
-        SceneManager::popToRootSceneWithTransition<TransitionSlideInR>(kTransitionDuration);
+        SceneManager::popSceneWithTransition<TransitionSlideInR>(kTransitionDuration);
     }
 }

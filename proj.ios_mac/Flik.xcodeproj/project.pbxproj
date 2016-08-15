@@ -78,6 +78,8 @@
 		6653CDAF1D2160B800721B17 /* FLIKMailComposePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6653CDAE1D2160B800721B17 /* FLIKMailComposePresenter.m */; };
 		665766871D2D3B5B0098D936 /* fonts.json in Resources */ = {isa = PBXBuildFile; fileRef = 665766861D2D3B5B0098D936 /* fonts.json */; };
 		6657668A1D2D3B7E0098D936 /* Fonts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665766881D2D3B7E0098D936 /* Fonts.cpp */; };
+		66583FD41D5D4AB40072E644 /* LevelSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66583FD21D5D4AB40072E644 /* LevelSelectScene.cpp */; };
+		66583FD71D5D4C910072E644 /* GameSelectRowWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66583FD51D5D4C910072E644 /* GameSelectRowWidget.cpp */; };
 		665D99ED1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */; };
 		665D99EE1D05B4A40051A9C9 /* TimedGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */; };
 		665D9A191D070D060051A9C9 /* 1x in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A141D070D060051A9C9 /* 1x */; };
@@ -126,7 +128,7 @@
 		66E7E50E1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E50C1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp */; };
 		66E7E5111D158C6C007DE4B9 /* LevelGameOverOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E50F1D158C6C007DE4B9 /* LevelGameOverOverlay.cpp */; };
 		66E7E5141D1591A5007DE4B9 /* ScoreWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E5121D1591A5007DE4B9 /* ScoreWidget.cpp */; };
-		66E7E5171D182910007DE4B9 /* LevelSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E5151D182910007DE4B9 /* LevelSelectScene.cpp */; };
+		66E7E5171D182910007DE4B9 /* GameSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E5151D182910007DE4B9 /* GameSelectScene.cpp */; };
 		66E802FB1D5CC0AB0039AFD3 /* SceneEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E802F91D5CC0AB0039AFD3 /* SceneEx.cpp */; };
 		6E2B4283A69F3BC8F3DAFC4E /* sdkbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6142E7B2D12A44A021E034 /* sdkbox.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
@@ -297,6 +299,10 @@
 		665766861D2D3B5B0098D936 /* fonts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fonts.json; sourceTree = "<group>"; };
 		665766881D2D3B7E0098D936 /* Fonts.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fonts.cpp; sourceTree = "<group>"; };
 		665766891D2D3B7E0098D936 /* Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fonts.h; sourceTree = "<group>"; };
+		66583FD21D5D4AB40072E644 /* LevelSelectScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelSelectScene.cpp; sourceTree = "<group>"; };
+		66583FD31D5D4AB40072E644 /* LevelSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectScene.h; sourceTree = "<group>"; };
+		66583FD51D5D4C910072E644 /* GameSelectRowWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameSelectRowWidget.cpp; sourceTree = "<group>"; };
+		66583FD61D5D4C910072E644 /* GameSelectRowWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSelectRowWidget.h; sourceTree = "<group>"; };
 		665D99EB1D05B4A40051A9C9 /* TimedGameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimedGameMode.cpp; sourceTree = "<group>"; };
 		665D99EC1D05B4A40051A9C9 /* TimedGameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimedGameMode.h; sourceTree = "<group>"; };
 		665D9A141D070D060051A9C9 /* 1x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 1x; sourceTree = "<group>"; };
@@ -366,8 +372,8 @@
 		66E7E5101D158C6C007DE4B9 /* LevelGameOverOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelGameOverOverlay.h; sourceTree = "<group>"; };
 		66E7E5121D1591A5007DE4B9 /* ScoreWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScoreWidget.cpp; sourceTree = "<group>"; };
 		66E7E5131D1591A5007DE4B9 /* ScoreWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreWidget.h; sourceTree = "<group>"; };
-		66E7E5151D182910007DE4B9 /* LevelSelectScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelSelectScene.cpp; sourceTree = "<group>"; };
-		66E7E5161D182910007DE4B9 /* LevelSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectScene.h; sourceTree = "<group>"; };
+		66E7E5151D182910007DE4B9 /* GameSelectScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameSelectScene.cpp; sourceTree = "<group>"; };
+		66E7E5161D182910007DE4B9 /* GameSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSelectScene.h; sourceTree = "<group>"; };
 		66E802F91D5CC0AB0039AFD3 /* SceneEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneEx.cpp; sourceTree = "<group>"; };
 		66E802FA1D5CC0AB0039AFD3 /* SceneEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneEx.h; sourceTree = "<group>"; };
 		810B4AE3B28A43C3512A6E57 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
@@ -641,6 +647,8 @@
 				66D655B51D118E6400F1B6E8 /* GameObjectiveOverlay.h */,
 				6638945B1D09AD9B0034892E /* GameOverWidget.cpp */,
 				6638945C1D09AD9B0034892E /* GameOverWidget.h */,
+				66583FD51D5D4C910072E644 /* GameSelectRowWidget.cpp */,
+				66583FD61D5D4C910072E644 /* GameSelectRowWidget.h */,
 				66E7E50F1D158C6C007DE4B9 /* LevelGameOverOverlay.cpp */,
 				66E7E5101D158C6C007DE4B9 /* LevelGameOverOverlay.h */,
 				66114ED01D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp */,
@@ -755,8 +763,10 @@
 				663894911D09AEB60034892E /* MainMenuScene.h */,
 				663894A21D09B0770034892E /* StoreScene.cpp */,
 				663894A31D09B0770034892E /* StoreScene.h */,
-				66E7E5151D182910007DE4B9 /* LevelSelectScene.cpp */,
-				66E7E5161D182910007DE4B9 /* LevelSelectScene.h */,
+				66E7E5151D182910007DE4B9 /* GameSelectScene.cpp */,
+				66E7E5161D182910007DE4B9 /* GameSelectScene.h */,
+				66583FD21D5D4AB40072E644 /* LevelSelectScene.cpp */,
+				66583FD31D5D4AB40072E644 /* LevelSelectScene.h */,
 				6653CD8D1D1C230A00721B17 /* SettingsScene.cpp */,
 				6653CD8E1D1C230A00721B17 /* SettingsScene.h */,
 			);
@@ -1066,7 +1076,7 @@
 				6638947D1D09AD9B0034892E /* MainMenuHUD.cpp in Sources */,
 				66522F0C1D4ACC5300C6AF19 /* OneTimeSpawner.cpp in Sources */,
 				6657668A1D2D3B7E0098D936 /* Fonts.cpp in Sources */,
-				66E7E5171D182910007DE4B9 /* LevelSelectScene.cpp in Sources */,
+				66E7E5171D182910007DE4B9 /* GameSelectScene.cpp in Sources */,
 				66CC6CA41D2FE29A00A60D8D /* GameServices.cpp in Sources */,
 				6638947A1D09AD9B0034892E /* MainMenuButtons.cpp in Sources */,
 				663894761D09AD9B0034892E /* MainGameHUD.cpp in Sources */,
@@ -1088,6 +1098,7 @@
 				66D655AD1D10C73100F1B6E8 /* LevelsGameMode.cpp in Sources */,
 				661401751D594954005497BD /* RainbowBonusBehavior.cpp in Sources */,
 				6638949C1D09AEB60034892E /* SideRailNode.cpp in Sources */,
+				66583FD71D5D4C910072E644 /* GameSelectRowWidget.cpp in Sources */,
 				66442B321D0B89DE00AC5983 /* StorePurchaseOptionWidget.cpp in Sources */,
 				66E3A6BD1D01C07100A3125C /* GameMode.cpp in Sources */,
 				66B92B721D0A3C6200DA1657 /* StoreProductWidget.cpp in Sources */,
@@ -1106,6 +1117,7 @@
 				6653CD8F1D1C230A00721B17 /* SettingsScene.cpp in Sources */,
 				6634592F1D540F2300F6E68F /* GhostBonusBehavior.cpp in Sources */,
 				66D84BE51D2351EC00BA4D53 /* SceneManager.cpp in Sources */,
+				66583FD41D5D4AB40072E644 /* LevelSelectScene.cpp in Sources */,
 				6638949A1D09AEB60034892E /* GamePiece.cpp in Sources */,
 				66114ECC1D12D77A00B2C92B /* ObjectiveItemWidget.cpp in Sources */,
 				66E7E50E1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp in Sources */,

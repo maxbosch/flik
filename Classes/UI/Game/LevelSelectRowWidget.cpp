@@ -20,19 +20,19 @@ namespace flik
 {
     using RelativeAlign = ui::RelativeLayoutParameter::RelativeAlign;
     
-    LevelSelectRowWidget* LevelSelectRowWidget::create(int level, const std::string& name)
+    LevelSelectRowWidget* LevelSelectRowWidget::create(int level, int sublevel)
     {
-        return createWithParams<LevelSelectRowWidget>(level, name);
+        return createWithParams<LevelSelectRowWidget>(level, sublevel);
     }
     
-    bool LevelSelectRowWidget::init(int level, const std::string& name)
+    bool LevelSelectRowWidget::init(int level, int sublevel)
     {
         if (!RelativeBox::init())
         {
             return false;
         }
         
-        auto levelText = Fonts::createLocalizedText(LocalizedString::getString("level_name_" + name), 21.0_dp);
+        auto levelText = Fonts::createLocalizedText(LocalizedString::getString("game_mode_level", sublevel + 1), 21.0_dp);
         auto levelTextLayout = ui::RelativeLayoutParameter::create();
         levelTextLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
         levelTextLayout->setMargin(ui::Margin(37.0_dp, 22.0_dp, 0, 0));
@@ -40,6 +40,7 @@ namespace flik
         addChild(levelText);
         
         auto levelInfo = LevelInfo::getInstance();
+        int levelStatus = levelInfo->getLevelStatus(level, sublevel);
         
         auto levelStatusContainer = ui::RelativeBox::create(Size(60.0_dp, 60.0_dp));
         auto levelStatusContainerLayout = ui::RelativeLayoutParameter::create();
@@ -47,22 +48,49 @@ namespace flik
         levelStatusContainerLayout->setMargin(ui::Margin(0, 0, 37.0_dp, 0));
         levelStatusContainer->setLayoutParameter(levelStatusContainerLayout);
         addChild(levelStatusContainer);
-
-        auto levelStatus = ui::ImageView::create("level_current.png");
-        auto levelStatusLayout = ui::RelativeLayoutParameter::create();
-        levelStatusLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
-        levelStatus->setLayoutParameter(levelStatusLayout);
-        levelStatusContainer->addChild(levelStatus);
         
+        if (levelStatus < 1) {
+            std::string image;
+            double rightMargin = 0;
+            if (levelStatus == -1) {
+                image = "level_locked.png";
+                rightMargin = 5.0_dp;
+            } else if (levelStatus == 0) {
+                image = "game_select_icon.png";
+            }
+            
+            auto levelStatus = ui::ImageView::create(image);
+            auto levelStatusLayout = ui::RelativeLayoutParameter::create();
+            levelStatusLayout->setAlign(RelativeAlign::PARENT_TOP_RIGHT);
+            levelStatusLayout->setMargin(ui::Margin(0, 5.0_dp, rightMargin, 0));
+            levelStatus->setLayoutParameter(levelStatusLayout);
+            levelStatusContainer->addChild(levelStatus);
+        } else {
+            auto starSize = Size(20, 19);
+            
+            auto starContainer = ui::HBox::create(Size(starSize.width * levelStatus, starSize.height));
+            auto starContainerLayout = ui::RelativeLayoutParameter::create();
+            starContainerLayout->setAlign(RelativeAlign::PARENT_TOP_RIGHT);
+            starContainerLayout->setMargin(ui::Margin(0, 10.0_dp, 43.0_dp, 0));
+            starContainer->setLayoutParameter(starContainerLayout);
+            levelStatusContainer->addChild(starContainer);
+            for (int i = 0; i < levelStatus; i++) {
+                auto image = ui::ImageView::create("star.png");
+                auto imageLayout = ui::LinearLayoutParameter::create();
+                imageLayout->setMargin(ui::Margin(4.0_dp, 0, 0, 0));
+                image->setLayoutParameter(imageLayout);
+                starContainer->addChild(image);
+            }
+        }
         
         setTouchEnabled(true);
-        addTouchEventListener([this, level](Ref* sender, TouchEventType type) {
+        addTouchEventListener([this, sublevel](Ref* sender, TouchEventType type) {
             if (type == TouchEventType::BEGAN) {
                 setBackGroundColor(Util::getColorFromHex("444444"));
                 setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
             } else {
                 if (type == TouchEventType::ENDED && onTapped) {
-                    onTapped(level);
+                    onTapped(sublevel);
                 }
                 
                 setBackGroundColor(Util::getColorFromHex("000000"));

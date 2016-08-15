@@ -18,7 +18,7 @@
 #include "LevelsGameMode.h"
 #include "LevelsGameHUD.h"
 #include "LevelTypes.h"
-#include "LevelSelectScene.h"
+#include "GameSelectScene.h"
 #include "SceneManager.h"
 
 USING_NS_CC;
@@ -62,10 +62,7 @@ namespace flik
                 
             case GameModeType::Levels:
             {
-                auto levelInfo = LevelInfo::getInstance();
-                auto levelDesc = levelInfo->getLevelDescription(levelInfo->getMaxLevelCompleted());
-                //gameScene = MainGameScene::create({LevelsGameMode::create(levelDesc), LevelsGameHUD::create(levelDesc)});
-                gameScene = LevelSelectScene::create();
+                gameScene = GameSelectScene::create();
                 break;
             }
                 

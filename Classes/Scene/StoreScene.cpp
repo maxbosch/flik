@@ -96,11 +96,7 @@ namespace flik
         
         closeButton->addTouchEventListener([this](Ref* sender, StoreProductWidget::TouchEventType type) {
             if (type == StoreProductWidget::TouchEventType::ENDED) {
-                if (mPurchaseOverlay->isVisible()) {
-                    setPurchaseOverlayVisible(false);
-                } else {
-                    SceneManager::popSceneWithTransition<TransitionSlideInT>(kTransitionDuration);
-                }
+                onBackPressed();
             }
         });
         

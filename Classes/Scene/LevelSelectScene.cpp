@@ -1,5 +1,5 @@
 //
-//  LevelSelectScene.cpp
+//  GameSelectScene.cpp
 //  Flik
 //
 //  Created by Adam Eskreis on 6/20/16.
@@ -17,6 +17,7 @@
 #include "MainGameScene.h"
 #include "SceneManager.h"
 #include "LocalizedString.h"
+#include "LevelTypes.h"
 
 USING_NS_CC;
 
@@ -25,12 +26,20 @@ namespace flik
     using RelativeAlign = ui::RelativeLayoutParameter::RelativeAlign;
     using LinearGravity = ui::LinearLayoutParameter::LinearGravity;
     
-    bool LevelSelectScene::init()
+    LevelSelectScene* LevelSelectScene::create(int level)
+    {
+        return createWithParams<LevelSelectScene>(level);
+    }
+    
+    bool LevelSelectScene::init(int level)
     {
         if (!Scene::init())
         {
             return false;
         }
+        
+        auto levelDesc = LevelInfo::getInstance()->getLevelDescription(level);
+        std::string levelName = levelDesc->data["name"].GetString();
         
         auto uiSize = Director::getInstance()->getVisibleSize();
         setContentSize(uiSize);
@@ -45,7 +54,7 @@ namespace flik
         innerContainer->setLayoutParameter(innerContainerLayout);
         container->addChild(innerContainer);
         
-        auto titleLabel = Fonts::createLocalizedText(LocalizedString::getString("levels_list_title"), 25.0_dp);
+        auto titleLabel = Fonts::createLocalizedText(LocalizedString::getString("level_name_" + levelName), 25.0_dp);
         auto titleLabelLayout = ui::LinearLayoutParameter::create();
         titleLabelLayout->setMargin(ui::Margin(0, 0, 0, 25.0_dp));
         titleLabelLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
@@ -63,15 +72,15 @@ namespace flik
         border1->setLayoutParameter(borderLayout1);
         innerContainer->addChild(border1);
         
-        auto exitButton = ui::Button::create("red_x_close.png");
+        auto exitButton = ui::Button::create("arrow_left.png");
         auto exitButtonLayout = ui::RelativeLayoutParameter::create();
-        exitButtonLayout->setAlign(RelativeAlign::PARENT_BOTTOM_CENTER_HORIZONTAL);
-        exitButtonLayout->setMargin(ui::Margin(0, 0, 0, 20.0_dp));
+        exitButtonLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
+        exitButtonLayout->setMargin(ui::Margin(20.0_dp, 20.0_dp, 0, 0));
         exitButton->setLayoutParameter(exitButtonLayout);
         container->addChild(exitButton);
         exitButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
             if (type == ui::Widget::TouchEventType::ENDED) {
-                SceneManager::popToRootSceneWithTransition<TransitionSlideInB>(kTransitionDuration);
+                onBackPressed();
             }
         });
         
@@ -94,14 +103,13 @@ namespace flik
         scrollViewLayout->setMargin(ui::Margin(5.0_dp, 25.0_dp, 5.0_dp, 0));
         scrollView->setLayoutParameter(scrollViewLayout);
         
-        for (int i = 1; i <= levelInfo->getMaxLevel(); i++) {
-            auto level = levelInfo->getLevelDescription(i);
-            auto row = LevelSelectRowWidget::create(i, level->data["name"].GetString());
+        auto& sublevels = levelDesc->data["sublevels"];
+        
+        for (int i = 0; i <= sublevels.Size(); i++) {
+            auto row = LevelSelectRowWidget::create(level, i);
             row->setContentSize(Size(scrollView->getContentSize().width, rowHeight));
-            row->onTapped = [this, levelInfo](int level) {
-                auto levelInfo = LevelInfo::getInstance();
-                auto levelDesc = levelInfo->getLevelDescription(level);
-                auto gameScene = MainGameScene::create({LevelsGameMode::create(levelDesc), LevelsGameHUD::create(levelDesc)});
+            row->onTapped = [this, levelDesc](int sublevel) {
+                auto gameScene = MainGameScene::create({LevelsGameMode::create(levelDesc, sublevel), LevelsGameHUD::create(levelDesc)});
                 SceneManager::pushSceneWithTransition<TransitionSlideInR>(gameScene, kTransitionDuration);
             };
             scrollView->addChild(row);
@@ -112,8 +120,10 @@ namespace flik
         return true;
     }
     
+    
+    
     void LevelSelectScene::onBackPressed()
     {
-        SceneManager::popToRootSceneWithTransition<TransitionSlideInB>(kTransitionDuration);
+        SceneManager::popSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
     }
 }

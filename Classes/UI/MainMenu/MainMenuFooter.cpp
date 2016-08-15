@@ -28,19 +28,19 @@ namespace flik
             return false;
         }
         
-        auto timestopPowerUpButton = PowerUpButton::create(PowerUpType::Timestop);
-        auto timestopPowerUpButtonLayout = ui::RelativeLayoutParameter::create();
-        timestopPowerUpButtonLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
-        timestopPowerUpButtonLayout->setMargin(ui::Margin(30.0_dp, 14.0_dp, 0, 0));
-        timestopPowerUpButton->setLayoutParameter(timestopPowerUpButtonLayout);
-        addChild(timestopPowerUpButton);
-        
-        auto targetPowerUpButton = PowerUpButton::create(PowerUpType::Target);
-        auto targetPowerUpButtonLayout = ui::RelativeLayoutParameter::create();
-        targetPowerUpButtonLayout->setAlign(RelativeAlign::PARENT_TOP_RIGHT);
-        targetPowerUpButtonLayout->setMargin(ui::Margin(0, 14.0_dp, 30.0_dp, 0));
-        targetPowerUpButton->setLayoutParameter(targetPowerUpButtonLayout);
-        addChild(targetPowerUpButton);
+//        auto timestopPowerUpButton = PowerUpButton::create(PowerUpType::Timestop);
+//        auto timestopPowerUpButtonLayout = ui::RelativeLayoutParameter::create();
+//        timestopPowerUpButtonLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
+//        timestopPowerUpButtonLayout->setMargin(ui::Margin(30.0_dp, 14.0_dp, 0, 0));
+//        timestopPowerUpButton->setLayoutParameter(timestopPowerUpButtonLayout);
+//        addChild(timestopPowerUpButton);
+//        
+//        auto targetPowerUpButton = PowerUpButton::create(PowerUpType::Target);
+//        auto targetPowerUpButtonLayout = ui::RelativeLayoutParameter::create();
+//        targetPowerUpButtonLayout->setAlign(RelativeAlign::PARENT_TOP_RIGHT);
+//        targetPowerUpButtonLayout->setMargin(ui::Margin(0, 14.0_dp, 30.0_dp, 0));
+//        targetPowerUpButton->setLayoutParameter(targetPowerUpButtonLayout);
+//        addChild(targetPowerUpButton);
         
         auto storeButtonContainer = ui::HBox::create();
         storeButtonContainer->setAnchorPoint(Vec2(0.5, 0.5));

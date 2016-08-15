@@ -8,3 +8,4 @@ bin
 *.xcworkspace
 **/xcuserdata
 *.framework
+._*

@@ -23,7 +23,7 @@ namespace flik
         bool init();
         
         void setTitle(const std::string& title);
-        void setNextLevel(bool success, int level);
+        void setNextLevel(bool success, int level, int sublevel);
         
         std::function<void()> onRestartTapped;
         std::function<void()> onHomeTapped;

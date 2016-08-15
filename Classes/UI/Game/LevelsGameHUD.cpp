@@ -58,8 +58,10 @@ namespace flik
     
     GameObjectiveOverlay* LevelsGameHUD::createObjectiveOverlay()
     {
+        auto gameMode = dynamic_cast<LevelsGameMode*>(getGameScene()->getGameMode());
+        
         auto name = LocalizedString::getString("level_name_" + std::string(mLevelDesc->data["name"].GetString()));
-        return LevelObjectiveOverlay::create(name, mLevelDesc);
+        return LevelObjectiveOverlay::create(name, mLevelDesc, gameMode->getSublevel());
     }
     
     cocos2d::ui::Widget* LevelsGameHUD::createGameOverOverlay()
@@ -81,8 +83,8 @@ namespace flik
         gameOverOverlay->onNextLevelTapped = [this]() {
             auto levelInfo = LevelInfo::getInstance();
             auto levelDesc = levelInfo->getLevelDescription(mLevelDesc->levelNum);
-            auto newScene = MainGameScene::create({LevelsGameMode::create(levelDesc), LevelsGameHUD::create(levelDesc)});
-            SceneManager::replaceSceneWithTransition<TransitionMoveInR>(newScene, kTransitionDuration);
+            //auto newScene = MainGameScene::create({LevelsGameMode::create(levelDesc), LevelsGameHUD::create(levelDesc)});
+            //SceneManager::replaceSceneWithTransition<TransitionMoveInR>(newScene, kTransitionDuration);
         };
         
         gameOverOverlay->onShowLevelListTapped = [this]() {
@@ -98,7 +100,7 @@ namespace flik
         
         auto gameMode = dynamic_cast<LevelsGameMode*>(getGameScene()->getGameMode());
         
-        gameOverOverlay->setNextLevel(gameMode->isObjectiveCompleted(), mLevelDesc->levelNum);
+        gameOverOverlay->setNextLevel(gameMode->isObjectiveCompleted(), mLevelDesc->levelNum, gameMode->getSublevel());
     }
     
     void LevelsGameHUD::update(float seconds)

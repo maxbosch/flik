@@ -20,7 +20,6 @@ namespace flik
     {
         int levelNum;
         rapidjson::Value data;
-        int sublevelNum;
     };
     
     struct ObjectiveIncrementUpdate
@@ -34,13 +33,14 @@ namespace flik
     public:
         static LevelInfo* getInstance();
         
-        bool isCompleted(int level);
-        int getSublevel(int level);
+        bool isCompleted(int level, int sublevel);
         const LevelDescription* getLevelDescription(int level);
-        void completeLevel(int level);
-        int getMaxLevelCompleted();
+        void completeLevel(int level, int sublevel, int score);
+        int getMaxLevelCompleted(int level);
         int getMaxLevel();
         int getNextLevel();
+        int getLevelStatus(int level, int sublevel);
+        int getLevelScore(int level, int sublevel);
         
     private:
         LevelInfo();

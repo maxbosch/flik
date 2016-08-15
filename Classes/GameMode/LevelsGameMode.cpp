@@ -27,12 +27,12 @@ USING_NS_CC;
 
 namespace flik
 {
-    LevelsGameMode* LevelsGameMode::create(const LevelDescription* levelDesc)
+    LevelsGameMode* LevelsGameMode::create(const LevelDescription* levelDesc, int sublevel)
     {
-        return createWithParams<LevelsGameMode>(levelDesc);
+        return createWithParams<LevelsGameMode>(levelDesc, sublevel);
     }
     
-    bool LevelsGameMode::init(const LevelDescription* levelDesc)
+    bool LevelsGameMode::init(const LevelDescription* levelDesc, int sublevel)
     {
         if (!GameMode::init())
         {
@@ -40,6 +40,7 @@ namespace flik
         }
         
         mLevelDesc = levelDesc;
+        mSublevel = sublevel;
         
         mProgress.setLevelDescription(levelDesc);
         
@@ -89,7 +90,7 @@ namespace flik
         
         auto uiSize = Director::getInstance()->getVisibleSize();
         auto& sublevels = mLevelDesc->data["sublevels"];
-        auto& level = sublevels[mLevelDesc->sublevelNum];
+        auto& level = sublevels[mSublevel];
         
         if (level.HasMember("time_limit")) {
             setGameTime(level["time_limit"].GetInt());
@@ -224,7 +225,7 @@ namespace flik
         
         if (state == GameState::Finished) {
             if (isObjectiveCompleted()) {
-                LevelInfo::getInstance()->completeLevel(mLevelDesc->levelNum);
+                LevelInfo::getInstance()->completeLevel(mLevelDesc->levelNum, mSublevel, 3);
             }
         }
     }
