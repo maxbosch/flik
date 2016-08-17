@@ -135,7 +135,7 @@ namespace flik
     
     void LevelGameOverOverlay::setNextLevel(bool success, int level, int sublevel)
     {
-        if (success && level <= LevelInfo::getInstance()->getMaxLevel()) {
+        if (success && sublevel < LevelInfo::getInstance()->getMaxLevel(level)) {
             Fonts::updateLocalizedText(mNextLevelButton, LocalizedString::getString("game_over_try_next"));
             
             mNextLevelButton->setVisible(true);

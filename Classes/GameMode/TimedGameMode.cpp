@@ -49,7 +49,9 @@ namespace flik
     void TimedGameMode::setGameState(GameState newState)
     {
         if (newState == GameState::Finished) {
-            Player::getMainPlayer()->recordScore("timed");
+            auto player = Player::getMainPlayer();
+            player->addCurrency(player->getCurrentScore());
+            player->recordScore("timed");
         }
         
         GameMode::setGameState(newState);

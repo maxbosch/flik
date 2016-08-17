@@ -9,3 +9,4 @@ bin
 **/xcuserdata
 *.framework
 ._*
+proj.android-studio/app/obj/**

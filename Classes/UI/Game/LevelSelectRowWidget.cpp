@@ -66,14 +66,15 @@ namespace flik
             levelStatus->setLayoutParameter(levelStatusLayout);
             levelStatusContainer->addChild(levelStatus);
         } else {
-            auto starSize = Size(20, 19);
+            auto starSize = Size(20.0_dp, 19.0_dp);
             
             auto starContainer = ui::HBox::create(Size(starSize.width * levelStatus, starSize.height));
             auto starContainerLayout = ui::RelativeLayoutParameter::create();
             starContainerLayout->setAlign(RelativeAlign::PARENT_TOP_RIGHT);
-            starContainerLayout->setMargin(ui::Margin(0, 10.0_dp, 43.0_dp, 0));
+            starContainerLayout->setMargin(ui::Margin(0, 10.0_dp, 8.0_dp, 0));
             starContainer->setLayoutParameter(starContainerLayout);
             levelStatusContainer->addChild(starContainer);
+            
             for (int i = 0; i < levelStatus; i++) {
                 auto image = ui::ImageView::create("star.png");
                 auto imageLayout = ui::LinearLayoutParameter::create();

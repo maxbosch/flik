@@ -7,14 +7,15 @@
     
     "game_mode_timed": "TIMED MODE",
     "game_mode_unlimited": "UNLIMITED MODE",
-    "game_mode_level": "LEVEL %d",
+    "game_mode_level": "Level %d",
     
     "objective": "Objective",
     "objective_timed": "Score as many points as you can before time runs out",
     "objective_unlimited": "Score as many points as you can before the board fills up",
-    "objective_collect_pieces": "Score %d Shapes",
-    "objective_clear": "Clear %d Shapes",
-    "objective_max": "Maximum %d Shapes at once",
+    "objective_game_intro": "Score {quantity} Shapes in {time_limit} seconds",
+    "objective_game_walls": "Score {quantity} Shapes in {time_limit} seconds.  Avoid the walls that are in your way",
+    "objective_game_clear": "Clear all {quantity} shapes off the board in {time_limit} seconds",
+    "objective_game_max": "Don't let more than {quantity} shapes remain on the board for {time_limit} seconds",
     
     "title_settings": "SETTINGS",
     "title_achievements": "ACHIEVEMENTS",

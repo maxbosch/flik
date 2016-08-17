@@ -6,6 +6,8 @@
 //
 //
 
+#include <boost/algorithm/string/case_conv.hpp>
+
 #include "LevelSelectScene.h"
 #include "Literals.h"
 #include "Styles.h"
@@ -26,6 +28,8 @@ namespace flik
     using RelativeAlign = ui::RelativeLayoutParameter::RelativeAlign;
     using LinearGravity = ui::LinearLayoutParameter::LinearGravity;
     
+    static const double kRowHeight = 80.0_dp;
+    
     LevelSelectScene* LevelSelectScene::create(int level)
     {
         return createWithParams<LevelSelectScene>(level);
@@ -39,6 +43,8 @@ namespace flik
         }
         
         auto levelDesc = LevelInfo::getInstance()->getLevelDescription(level);
+        mLevelDesc = levelDesc;
+        
         std::string levelName = levelDesc->data["name"].GetString();
         
         auto uiSize = Director::getInstance()->getVisibleSize();
@@ -54,7 +60,7 @@ namespace flik
         innerContainer->setLayoutParameter(innerContainerLayout);
         container->addChild(innerContainer);
         
-        auto titleLabel = Fonts::createLocalizedText(LocalizedString::getString("level_name_" + levelName), 25.0_dp);
+        auto titleLabel = Fonts::createLocalizedText(boost::to_upper_copy(LocalizedString::getString("level_name_" + levelName)), 25.0_dp);
         auto titleLabelLayout = ui::LinearLayoutParameter::create();
         titleLabelLayout->setMargin(ui::Margin(0, 0, 0, 25.0_dp));
         titleLabelLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
@@ -83,47 +89,52 @@ namespace flik
                 onBackPressed();
             }
         });
-        
-        
-        double rowHeight = 80.0_dp;
-        auto levelInfo = LevelInfo::getInstance();
-        
+       
         auto scrollView = ui::ScrollView::create();
-        scrollView->setContentSize(Size(uiSize.width - 50, 470.0_dp));
-        scrollView->setInnerContainerSize(Size(305.0_dp, rowHeight * levelInfo->getMaxLevel()));
+        scrollView->setContentSize(Size(uiSize.width - 50, 520.0_dp));
         scrollView->setLayoutType(ui::Layout::Type::VERTICAL);
         scrollView->setDirection(cocos2d::ui::ScrollView::Direction::VERTICAL);
         scrollView->setTouchEnabled(true);
-        scrollView->setScrollBarAutoHideEnabled(true);
         scrollView->setScrollBarEnabled(true);
+        scrollView->setScrollBarOpacity(255);
+        scrollView->setScrollBarAutoHideEnabled(false);
         scrollView->setScrollBarWidth(9.0_dp);
         scrollView->setScrollBarColor(kBlueBorderColor);
-        scrollView->setScrollBarOpacity(255);
+        
         auto scrollViewLayout = ui::LinearLayoutParameter::create();
         scrollViewLayout->setMargin(ui::Margin(5.0_dp, 25.0_dp, 5.0_dp, 0));
         scrollView->setLayoutParameter(scrollViewLayout);
         
-        auto& sublevels = levelDesc->data["sublevels"];
-        
-        for (int i = 0; i <= sublevels.Size(); i++) {
-            auto row = LevelSelectRowWidget::create(level, i);
-            row->setContentSize(Size(scrollView->getContentSize().width, rowHeight));
-            row->onTapped = [this, levelDesc](int sublevel) {
-                auto gameScene = MainGameScene::create({LevelsGameMode::create(levelDesc, sublevel), LevelsGameHUD::create(levelDesc)});
-                SceneManager::pushSceneWithTransition<TransitionSlideInR>(gameScene, kTransitionDuration);
-            };
-            scrollView->addChild(row);
-        }
+        mScrollView = scrollView;
         
         innerContainer->addChild(scrollView);
         
         return true;
     }
     
-    
-    
     void LevelSelectScene::onBackPressed()
     {
         SceneManager::popSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
+    }
+    
+    void LevelSelectScene::onAppear()
+    {
+        mScrollView->removeAllChildren();
+        
+        auto& sublevels = mLevelDesc->data["sublevels"];
+        for (int i = 0; i < sublevels.Size(); i++) {
+            auto row = LevelSelectRowWidget::create(mLevelDesc->levelNum, i);
+            row->setContentSize(Size(mScrollView->getContentSize().width, kRowHeight));
+            row->onTapped = [this](int sublevel) {
+                int status = LevelInfo::getInstance()->getLevelStatus(mLevelDesc->levelNum, sublevel);
+                if (status >= 0) {
+                    auto gameScene = MainGameScene::create({LevelsGameMode::create(mLevelDesc, sublevel), LevelsGameHUD::create(mLevelDesc)});
+                    SceneManager::pushSceneWithTransition<TransitionSlideInR>(gameScene, kTransitionDuration);
+                }
+            };
+            mScrollView->addChild(row);
+        }
+
+        mScrollView->setInnerContainerSize(Size(305.0_dp, kRowHeight * sublevels.Size()));
     }
 }

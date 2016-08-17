@@ -22,6 +22,7 @@
 #include "PiecesClearedObjectiveTracker.h"
 #include "MaxOnBoardObjectiveTracker.h"
 #include "Behavior.h"
+#include "Player.h"
 
 USING_NS_CC;
 
@@ -225,7 +226,54 @@ namespace flik
         
         if (state == GameState::Finished) {
             if (isObjectiveCompleted()) {
-                LevelInfo::getInstance()->completeLevel(mLevelDesc->levelNum, mSublevel, 3);
+                int score = 1;
+                std::string name = mLevelDesc->data["name"].GetString();
+                auto& sublevel = mLevelDesc->data["sublevels"][mSublevel];
+                
+                if (name == "intro" || name == "walls" || name == "clear") {
+                    
+                    int timeLimit = sublevel["time_limit"].GetInt();
+                    float remainingPercentage = (float)getTimeRemaining() / (float)timeLimit;
+                    if (remainingPercentage > 0.4) {
+                        score = 3;
+                    } else if (remainingPercentage > 0.2) {
+                        score = 2;
+                    } else {
+                        score = 1;
+                    }
+                } else if (name == "max") {
+                    int numPieces = (int) getGameScene()->getGameBoard()->getPieces().size();
+                    
+                    int maximum = sublevel["objectives"][0]["quantity"].GetInt();
+                    
+                    float remainingPercentage = (float)numPieces / (float)maximum;
+                    if (remainingPercentage < 0.7) {
+                        score = 3;
+                    } else if (remainingPercentage < 0.85) {
+                        score = 2;
+                    } else {
+                        score = 1;
+                    }
+                }
+                
+                auto levelInfo = LevelInfo::getInstance();
+                auto player = Player::getMainPlayer();
+                
+                int oldScore = levelInfo->getLevelStatus(mLevelDesc->levelNum, mSublevel);
+                if (oldScore < score) {
+                    auto maxSublevel = mLevelDesc->data["sublevels"].Size() - 1;
+                    int levelMultiplier = ceil((float)(mSublevel + 1) / 3.0f);
+                    if (mSublevel == maxSublevel) {
+                        levelMultiplier = 10;
+                    }
+                    
+                    for (int i = 1; i <= kMaxScore; i++) {
+                        if (oldScore < i && score >= i) {
+                            player->addCurrency(kCurrencyPerScore[i-1] * levelMultiplier);
+                        }
+                    }
+                }
+                LevelInfo::getInstance()->completeLevel(mLevelDesc->levelNum, mSublevel, score);
             }
         }
     }

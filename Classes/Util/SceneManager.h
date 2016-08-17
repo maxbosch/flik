@@ -13,6 +13,7 @@
 #include "cocos2d.h"
 
 #include "Animations.h"
+#include "SceneEx.h"
 
 USING_NS_CC;
 
@@ -28,6 +29,8 @@ namespace flik
             Director::getInstance()->runWithScene(scene);
             
             Animations::onSceneChanged(scene);
+            
+            notifySceneAppeared(scene);
         }
         
         static void pushScene(Scene* scene)
@@ -37,6 +40,8 @@ namespace flik
             Director::getInstance()->pushScene(scene);
             
             Animations::onSceneChanged(scene);
+            
+            notifySceneAppeared(scene);
         }
         
         template <typename T>
@@ -47,6 +52,8 @@ namespace flik
             Director::getInstance()->pushScene(T::create(duration, scene));
             
             Animations::onSceneChanged(scene);
+            
+            notifySceneAppeared(scene);
         }
         
         static void popScene()
@@ -62,6 +69,8 @@ namespace flik
             Director::getInstance()->replaceScene(backScene);
             
             Animations::onSceneChanged(backScene);
+            
+            notifySceneAppeared(backScene);
         }
         
         template <typename T>
@@ -78,6 +87,8 @@ namespace flik
             Director::getInstance()->replaceScene(T::create(duration, backScene));
             
             Animations::onSceneChanged(backScene);
+            
+            notifySceneAppeared(backScene);
         }
         
         static void replaceScene(Scene* scene)
@@ -88,6 +99,8 @@ namespace flik
             Director::getInstance()->replaceScene(scene);
             
             Animations::onSceneChanged(scene);
+            
+            notifySceneAppeared(scene);
         }
         
         template <typename T>
@@ -99,6 +112,8 @@ namespace flik
             Director::getInstance()->replaceScene(T::create(duration, scene));
             
             Animations::onSceneChanged(scene);
+            
+            notifySceneAppeared(scene);
         }
         
         static void popToRootScene()
@@ -111,6 +126,8 @@ namespace flik
             Director::getInstance()->replaceScene(backScene);
             
             Animations::onSceneChanged(backScene);
+            
+            notifySceneAppeared(backScene);
         }
         
         template <typename T>
@@ -124,6 +141,8 @@ namespace flik
             Director::getInstance()->replaceScene(T::create(duration, backScene));
             
             Animations::onSceneChanged(backScene);
+            
+            notifySceneAppeared(backScene);
         }
         
         static Scene* getActiveScene() {
@@ -132,6 +151,13 @@ namespace flik
             }
             
             return nullptr;
+        }
+        
+        static void notifySceneAppeared(Scene* scene) {
+            auto sceneEx = dynamic_cast<SceneEx*>(scene);
+            if (sceneEx) {
+                sceneEx->onAppear();
+            }
         }
         
     private:

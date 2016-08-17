@@ -37,10 +37,11 @@ namespace flik
         const LevelDescription* getLevelDescription(int level);
         void completeLevel(int level, int sublevel, int score);
         int getMaxLevelCompleted(int level);
-        int getMaxLevel();
+        int getMaxLevel(int level);
         int getNextLevel();
         int getLevelStatus(int level, int sublevel);
         int getLevelScore(int level, int sublevel);
+        int getNumGames() { return (int) mLevels.size(); }
         
     private:
         LevelInfo();
@@ -49,6 +50,9 @@ namespace flik
         
         std::vector<LevelDescription> mLevels;
     };
+    
+    static const int kMaxScore = 3;
+    static const int kCurrencyPerScore[] { 10, 20, 50 };
     
     class LevelProgress
     {

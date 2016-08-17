@@ -6,6 +6,8 @@
 //
 //
 
+#include <boost/algorithm/string/case_conv.hpp>
+
 #include "LevelObjectiveOverlay.h"
 #include "Util.h"
 #include "LevelTypes.h"
@@ -13,6 +15,9 @@
 #include "Styles.h"
 #include "LocalizedString.h"
 #include "Literals.h"
+#include "format.h"
+
+using namespace fmt::literals;
 
 USING_NS_CC;
 
@@ -50,7 +55,7 @@ namespace flik
         titleLabel->setLayoutParameter(titleLabelLayout);
         titleContainer->addChild(titleLabel);
         
-        auto subtitleLabel = Fonts::createLocalizedText(LocalizedString::getString("game_mode_level", mSublevel + 1), 18.0_dp);
+        auto subtitleLabel = Fonts::createLocalizedText(boost::to_upper_copy(LocalizedString::getString("game_mode_level", mSublevel + 1)), 18.0_dp);
         subtitleLabel->setColor(Color3B::WHITE);
         auto subtitleLabelLayout = ui::RelativeLayoutParameter::create();
         subtitleLabelLayout->setAlign(RelativeAlign::LOCATION_BELOW_CENTER);
@@ -67,10 +72,14 @@ namespace flik
         auto& level = mLevelDesc->data["sublevels"][mSublevel];
         auto& objectives = level["objectives"];
         auto& objective = objectives[0];
-        std::string text = "objective_" + std::string(objective["type"].GetString());
         
-        auto widget = Fonts::createLocalizedText(LocalizedString::getString(text, objective["quantity"].GetInt()), 25.0_dp);
-        widget->setColor(kGoldColor);
+        std::string name = mLevelDesc->data["name"].GetString();
+        std::string text = LocalizedString::getString("objective_game_" + name);
+        
+        auto widget = Fonts::createLocalizedText(fmt::format(text,
+                                                             "quantity"_a=objective["quantity"].GetInt(),
+                                                             "time_limit"_a=level["time_limit"].GetInt()), 18.0_dp);
+        //widget->setColor(kGoldColor);
         widget->setTextAreaSize(Size(250.0_dp, 80.0_dp));
         widget->setTextHorizontalAlignment(TextHAlignment::CENTER);
         return widget;

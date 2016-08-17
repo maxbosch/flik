@@ -26,6 +26,8 @@ namespace flik
     using RelativeAlign = ui::RelativeLayoutParameter::RelativeAlign;
     using LinearGravity = ui::LinearLayoutParameter::LinearGravity;
     
+    static const double kRowHeight = 80.0_dp;
+    
     bool GameSelectScene::init()
     {
         if (!Scene::init())
@@ -76,35 +78,22 @@ namespace flik
             }
         });
         
-        
-        double rowHeight = 80.0_dp;
-        auto levelInfo = LevelInfo::getInstance();
-        
         auto scrollView = ui::ScrollView::create();
-        scrollView->setContentSize(Size(uiSize.width - 50, 470.0_dp));
-        scrollView->setInnerContainerSize(Size(305.0_dp, rowHeight * levelInfo->getMaxLevel()));
+        scrollView->setContentSize(Size(uiSize.width - 50, 520.0_dp));
+        
         scrollView->setLayoutType(ui::Layout::Type::VERTICAL);
         scrollView->setDirection(cocos2d::ui::ScrollView::Direction::VERTICAL);
         scrollView->setTouchEnabled(true);
-        scrollView->setScrollBarAutoHideEnabled(true);
-        scrollView->setScrollBarEnabled(true);
-        scrollView->setScrollBarWidth(9.0_dp);
-        scrollView->setScrollBarColor(kBlueBorderColor);
-        scrollView->setScrollBarOpacity(255);
+//        scrollView->setScrollBarEnabled(true);
+//        scrollView->setScrollBarOpacity(255);
+//        scrollView->setScrollBarAutoHideEnabled(false);
+//        scrollView->setScrollBarWidth(9.0_dp);
+//        scrollView->setScrollBarColor(kBlueBorderColor);
+        
         auto scrollViewLayout = ui::LinearLayoutParameter::create();
         scrollViewLayout->setMargin(ui::Margin(5.0_dp, 25.0_dp, 5.0_dp, 0));
         scrollView->setLayoutParameter(scrollViewLayout);
-        
-        for (int i = 1; i <= levelInfo->getMaxLevel(); i++) {
-            auto level = levelInfo->getLevelDescription(i);
-            auto row = GameSelectRowWidget::create(i, level->data["name"].GetString());
-            row->setContentSize(Size(scrollView->getContentSize().width, rowHeight));
-            row->onTapped = [this, levelInfo](int level) {
-                auto levelsScene = LevelSelectScene::create(level);
-                SceneManager::pushSceneWithTransition<TransitionSlideInR>(levelsScene, kTransitionDuration);
-            };
-            scrollView->addChild(row);
-        }
+        mScrollView = scrollView;
         
         innerContainer->addChild(scrollView);
         
@@ -114,5 +103,24 @@ namespace flik
     void GameSelectScene::onBackPressed()
     {
         SceneManager::popToRootSceneWithTransition<TransitionSlideInB>(kTransitionDuration);
+    }
+    
+    void GameSelectScene::onAppear()
+    {
+        auto levelInfo = LevelInfo::getInstance();
+        
+        mScrollView->removeAllChildren();
+        for (int i = 0; i < levelInfo->getNumGames(); i++) {
+            auto level = levelInfo->getLevelDescription(i);
+            auto row = GameSelectRowWidget::create(i, level->data["name"].GetString());
+            row->setContentSize(Size(mScrollView->getContentSize().width, kRowHeight));
+            row->onTapped = [this, levelInfo](int level) {
+                auto levelsScene = LevelSelectScene::create(level);
+                SceneManager::pushSceneWithTransition<TransitionSlideInR>(levelsScene, kTransitionDuration);
+            };
+            mScrollView->addChild(row);
+        }
+
+        mScrollView->setInnerContainerSize(Size(305.0_dp, kRowHeight * levelInfo->getNumGames()));
     }
 }

@@ -16,5 +16,7 @@ namespace flik
     {
     public:
         virtual void onBackPressed();
+        
+        virtual void onAppear();
     };
 }

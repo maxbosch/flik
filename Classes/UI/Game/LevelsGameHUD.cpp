@@ -73,7 +73,7 @@ namespace flik
             }
         };
         gameOverOverlay->onHomeTapped = [this]() {
-            SceneManager::popToRootSceneWithTransition<TransitionSlideInB>(kTransitionDuration);
+            SceneManager::popSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
         };
         
         gameOverOverlay->onAchievementsTapped = [this]() {
@@ -83,8 +83,9 @@ namespace flik
         gameOverOverlay->onNextLevelTapped = [this]() {
             auto levelInfo = LevelInfo::getInstance();
             auto levelDesc = levelInfo->getLevelDescription(mLevelDesc->levelNum);
-            //auto newScene = MainGameScene::create({LevelsGameMode::create(levelDesc), LevelsGameHUD::create(levelDesc)});
-            //SceneManager::replaceSceneWithTransition<TransitionMoveInR>(newScene, kTransitionDuration);
+            auto gameMode = dynamic_cast<LevelsGameMode*>(getGameScene()->getGameMode());
+            auto newScene = MainGameScene::create({LevelsGameMode::create(levelDesc, gameMode->getSublevel() + 1), LevelsGameHUD::create(levelDesc)});
+            SceneManager::replaceSceneWithTransition<TransitionMoveInR>(newScene, kTransitionDuration);
         };
         
         gameOverOverlay->onShowLevelListTapped = [this]() {

@@ -50,12 +50,14 @@ namespace flik
             UserDefault::getInstance()->setIntegerForKey(fmt::sprintf(kMaxLevelCompleted, level).c_str(), sublevel);
         }
     
-        UserDefault::getInstance()->setIntegerForKey(fmt::sprintf(kLevelScore, level, sublevel).c_str(), score);
+        if (score > getLevelStatus(level, sublevel)) {
+            UserDefault::getInstance()->setIntegerForKey(fmt::sprintf(kLevelScore, level, sublevel).c_str(), score);
+        }
     }
     
     const LevelDescription* LevelInfo::getLevelDescription(int level)
     {
-        return &mLevels[level - 1];
+        return &mLevels[level];
     }
     
     int LevelInfo::getNextLevel()
@@ -97,14 +99,16 @@ namespace flik
                 auto& level = levels[i];
                 
                 auto& levelObj = mLevels[i];
-                levelObj.levelNum = i + 1;
+                levelObj.levelNum = i;
                 levelObj.data = level;
             }
         }
     }
     
-    int LevelInfo::getMaxLevel() {
-        return (int) mLevels.size();
+    int LevelInfo::getMaxLevel(int level) {
+        auto& levelDesc = mLevels[level];
+        auto& sublevels = levelDesc.data["sublevels"];
+        return sublevels.Size() - 1;
     }
     
     /** LevelProgress */

@@ -9,6 +9,7 @@
 #pragma once
 
 #include "cocos2d.h"
+#include "ui/CocosGUI.h"
 #include "SceneEx.h"
 
 namespace flik
@@ -21,5 +22,9 @@ namespace flik
         bool init();
         
         void onBackPressed();
+        void onAppear();
+        
+    private:
+        cocos2d::ui::ScrollView* mScrollView;
     };
 }

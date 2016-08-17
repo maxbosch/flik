@@ -89,13 +89,13 @@ namespace flik
             title->setLayoutParameter(titleLayout);
             checkboxContainer->addChild(title);
             
-            auto checkbox = ui::CheckBox::create("checkbox_off.png", "checkbox_on.png", "", "", "");
+            auto checkbox = ui::CheckBox::create("checkbox_off.png", "checkbox_on.png", "checkbox_on.png", "", "");
             auto checkboxLayout = ui::RelativeLayoutParameter::create();
             checkboxLayout->setAlign(RelativeAlign::PARENT_RIGHT_CENTER_VERTICAL);
             checkboxLayout->setMargin(ui::Margin(0, 0, 21.0_dp, 0));
             checkbox->setLayoutParameter(checkboxLayout);
             checkboxContainer->addChild(checkbox);
-            checkbox->setEnabled(UserDefault::getInstance()->getBoolForKey(key.c_str(), defaultValue));
+            checkbox->setSelected(UserDefault::getInstance()->getBoolForKey(key.c_str(), defaultValue));
             checkbox->setTouchEnabled(true);
             
             checkbox->addTouchEventListener([checkbox, key](Ref* sender, ui::Widget::TouchEventType type) {

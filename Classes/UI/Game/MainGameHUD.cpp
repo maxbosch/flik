@@ -136,7 +136,7 @@ namespace flik
                 }
             };
             objectiveOverlay->onExitButtonTapped = [this]() {
-                SceneManager::popToRootSceneWithTransition<TransitionSlideInB>(kTransitionDuration);
+                getGameScene()->getGameMode()->onBackPressed();
             };
             objectiveOverlay->setVisible(false);
             mObjectiveOverlay = objectiveOverlay;

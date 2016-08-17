@@ -13,4 +13,8 @@ namespace flik
     void SceneEx::onBackPressed()
     {
     }
+    
+    void SceneEx::onAppear()
+    {
+    }
 }

@@ -42,7 +42,10 @@ namespace flik {
     void MarathonGameMode::setGameState(GameState newState)
     {
         if (newState == GameState::Finished) {
-            Player::getMainPlayer()->recordScore("marathon");
+            auto player = Player::getMainPlayer();
+            
+            player->addCurrency(player->getCurrentScore());
+            player->recordScore("marathon");
         }
         
         GameMode::setGameState(newState);
