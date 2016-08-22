@@ -22,18 +22,16 @@ namespace flik
         
         bool init();
         
-        void setTitle(const std::string& title);
-        
-        void setTopScore(int score);
-        void setCurrentScore(int score);
+        void show(int gameScore, int topScore);
         
         std::function<void()> onRestartTapped;
         std::function<void()> onHomeTapped;
         
         
     private:
-        cocos2d::ui::Text* mTitleLabel;
-        ScoreWidget* mScore;
-        ScoreWidget* mTopScore;
+        cocos2d::ui::VBox* mContentContainer;
+        
+        void createDefaulteWidget(int gameScore, int topScore);
+        void createNewTopScoreWidget(int gameScore, int topScore);
     };
 }

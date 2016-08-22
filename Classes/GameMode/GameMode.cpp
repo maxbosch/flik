@@ -35,6 +35,12 @@ namespace flik {
     {
         mGameState = newState;
         
+        if (newState == GameState::Finished) {
+            if (mSpawner) {
+                mSpawner->stop(getGameScene());
+            }
+        }
+        
         if (onGameStateChanged) {
             onGameStateChanged(newState);
         }
@@ -132,6 +138,11 @@ namespace flik {
     
     void GameMode::setSpawner(PieceSpawner* spawner)
     {
+        if (mSpawner) {
+            mSpawner->removeFromParent();
+            mSpawner = nullptr;
+        }
+        
         mSpawner = std::move(spawner);
         addChild(spawner);
     }

@@ -25,8 +25,13 @@
     
     "game_over": "Game Over",
     "game_over_success": "NICE JOB!",
-    "game_over_try_next": "NEXT\nLEVEL",
+    "game_over_try_next": "Next",
+    "game_over_play_again": "Play Again",
     "restart": "Restart",
+    "game_over_new_high_score": "New High Score!",
+    "game_over_previous_best": "Previous Best",
+    "game_over_high_score": "High Score",
+    "game_over_your_score": "Your Score",
     
     "level_success": "SUCCESS",
     "level_failed": "LEVEL FAILED",

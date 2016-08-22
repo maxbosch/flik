@@ -41,14 +41,14 @@ namespace flik {
     
     void MarathonGameMode::setGameState(GameState newState)
     {
+        GameMode::setGameState(newState);
+        
         if (newState == GameState::Finished) {
             auto player = Player::getMainPlayer();
             
             player->addCurrency(player->getCurrentScore());
             player->recordScore("marathon");
         }
-        
-        GameMode::setGameState(newState);
     }
     
     int MarathonGameMode::getTopScore()
@@ -82,6 +82,6 @@ namespace flik {
     {
         GameMode::setGameScene(scene);
         
-        addBonus(BonusType::Rainbow);
+        //addBonus(BonusType::Rainbow);
     }
 }

@@ -23,7 +23,8 @@ namespace flik
     TimedGameMode* TimedGameMode::createWithTime(float seconds)
     {
         auto obj = TimedGameMode::create();
-        obj->setGameTime(seconds);
+        //obj->setGameTime(seconds);
+        obj->setGameTime(1);
         return obj;
     }
     
@@ -48,13 +49,13 @@ namespace flik
     
     void TimedGameMode::setGameState(GameState newState)
     {
+        GameMode::setGameState(newState);
+        
         if (newState == GameState::Finished) {
             auto player = Player::getMainPlayer();
             player->addCurrency(player->getCurrentScore());
             player->recordScore("timed");
         }
-        
-        GameMode::setGameState(newState);
     }
     
     int TimedGameMode::getTopScore()

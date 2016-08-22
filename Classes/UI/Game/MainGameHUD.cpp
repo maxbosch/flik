@@ -65,7 +65,7 @@ namespace flik
         header->setTouchEnabled(true);
         header->addTouchEventListener([this](Ref* sender, TouchEventType type) {
             if (type == TouchEventType::ENDED) {
-                getGameScene()->pauseGame();
+                //getGameScene()->pauseGame();
             }
         });
         header->onPowerUpTapped = [this](PowerUpType type) {
@@ -214,8 +214,6 @@ namespace flik
     void MainGameHUD::onShowGameOverScreen()
     {
         auto gameOverScreen = dynamic_cast<DefaultGameOverOverlay*>(mGameOverScreen);
-        gameOverScreen->setTitle(LocalizedString::getString("game_over_success"));
-        gameOverScreen->setTopScore(getGameScene()->getGameMode()->getTopScore());
-        gameOverScreen->setCurrentScore(Player::getMainPlayer()->getCurrentScore());
+        gameOverScreen->show(Player::getMainPlayer()->getCurrentScore(), getGameScene()->getGameMode()->getTopScore());
     }
 }

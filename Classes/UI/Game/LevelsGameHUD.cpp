@@ -12,7 +12,7 @@
 #include "MainGameHeader.h"
 #include "Literals.h"
 #include "Events.h"
-#include "LevelGameOverOverlay.h"
+#include "LevelSuccessGameOverOverlay.h"
 #include "MainGameScene.h"
 #include "PluginSdkboxPlay/PluginSdkboxPlay.h"
 #include "LevelsGameMode.h"
@@ -66,18 +66,11 @@ namespace flik
     
     cocos2d::ui::Widget* LevelsGameHUD::createGameOverOverlay()
     {
-        auto gameOverOverlay = LevelGameOverOverlay::create();
+        auto gameOverOverlay = LevelSuccessGameOverOverlay::create();
         gameOverOverlay->onRestartTapped = [this]() {
             if (getGameScene()) {
                 getGameScene()->requestRestart();
             }
-        };
-        gameOverOverlay->onHomeTapped = [this]() {
-            SceneManager::popSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
-        };
-        
-        gameOverOverlay->onAchievementsTapped = [this]() {
-            SceneManager::pushSceneWithTransition<TransitionSlideInL>(AchievementsScene::create(), kTransitionDuration);
         };
         
         gameOverOverlay->onNextLevelTapped = [this]() {
@@ -97,11 +90,11 @@ namespace flik
 
     void LevelsGameHUD::onShowGameOverScreen()
     {
-        auto gameOverOverlay = dynamic_cast<LevelGameOverOverlay*>(mGameOverScreen);
-        
-        auto gameMode = dynamic_cast<LevelsGameMode*>(getGameScene()->getGameMode());
-        
-        gameOverOverlay->setNextLevel(gameMode->isObjectiveCompleted(), mLevelDesc->levelNum, gameMode->getSublevel());
+        auto gameOverOverlay = dynamic_cast<LevelSuccessGameOverOverlay*>(mGameOverScreen);
+        gameOverOverlay->show(2, 50);
+//        auto gameMode = dynamic_cast<LevelsGameMode*>(getGameScene()->getGameMode());
+//        
+//        gameOverOverlay->setNextLevel(gameMode->isObjectiveCompleted(), mLevelDesc->levelNum, gameMode->getSublevel());
     }
     
     void LevelsGameHUD::update(float seconds)

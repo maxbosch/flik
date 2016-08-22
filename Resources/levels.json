@@ -2,7 +2,7 @@
 	"levels": [{
 		"name": "intro",
 		"sublevels": [{
-			"time_limit": 10,
+			"time_limit": 1,
 			"objectives": [{
 				"type": "clear",
 				"quantity": 5

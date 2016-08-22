@@ -12,6 +12,8 @@
 #include "Styles.h"
 #include "Literals.h"
 #include "ScoreWidget.h"
+#include "Fonts.h"
+#include "LocalizedString.h"
 
 USING_NS_CC;
 
@@ -27,105 +29,161 @@ namespace flik
             return false;
         }
         
+        if (!RelativeBox::init())
+        {
+            return false;
+        }
+        
         auto uiSize = Director::getInstance()->getVisibleSize();
         setContentSize(uiSize);
         
         auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, 0.8 * 255), uiSize.width, uiSize.height);
         addChild(overlayBackground);
         
-        auto innerContainer = ui::RelativeBox::create(Size(305.0_dp, 455.0_dp));
-        innerContainer->ignoreContentAdaptWithSize(false);
-        auto innerContainerLayout = ui::RelativeLayoutParameter::create();
-        innerContainerLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
-        innerContainer->setLayoutParameter(innerContainerLayout);
-        addChild(innerContainer);
-        
-        auto backgroundImage = ui::Scale9Sprite::create(Rect(34.0_dp, 34.0_dp, 32.0_dp, 32.0_dp), "blue_border_9.png");
-        backgroundImage->setAnchorPoint(Vec2());
-        innerContainer->addChild(backgroundImage);
-        
-        auto titleLabel = Fonts::createLocalizedText("", 18.0_dp);
-        titleLabel->setColor(Color3B::WHITE);
-        auto titleLabelLayout = ui::RelativeLayoutParameter::create();
-        titleLabelLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
-        titleLabelLayout->setMargin(ui::Margin(0, 35.0_dp, 0, 0));
-        titleLabelLayout->setRelativeName("title");
-        titleLabel->setLayoutParameter(titleLabelLayout);
-        innerContainer->addChild(titleLabel);
-        mTitleLabel = titleLabel;
-        
-        auto border1 = ui::HBox::create(Size(210.0_dp, 3.0_dp));
-        border1->setBackGroundColor(kBlueBorderColor);
-        border1->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
-        auto borderLayout1 = ui::RelativeLayoutParameter::create();
-        borderLayout1->setRelativeToWidgetName("title");
-        borderLayout1->setRelativeName("border");
-        borderLayout1->setAlign(RelativeAlign::LOCATION_BELOW_CENTER);
-        borderLayout1->setMargin(ui::Margin(0, 45.0_dp, 0, 0));
-        border1->setLayoutParameter(borderLayout1);
-        innerContainer->addChild(border1);
-        
-        auto restartButton = ui::Button::create("pause_restart.png");
-        auto restartButtonLayout = ui::RelativeLayoutParameter::create();
-        restartButtonLayout->setAlign(RelativeAlign::PARENT_LEFT_BOTTOM);
-        restartButtonLayout->setMargin(ui::Margin(30.0_dp, 0, 0, 35.0_dp));
-        restartButton->setLayoutParameter(restartButtonLayout);
-        restartButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
+        // Buttons
+        auto replayButton = ui::Button::create("game_over_replay.png");
+        auto replayButtonLayout = ui::RelativeLayoutParameter::create();
+        replayButtonLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
+        replayButtonLayout->setMargin(ui::Margin(35.0_dp, 60.0_dp, 0, 0));
+        replayButtonLayout->setRelativeName("replay_button");
+        replayButton->setLayoutParameter(replayButtonLayout);
+        addChild(replayButton);
+        replayButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
             if (type == ui::Widget::TouchEventType::ENDED && onRestartTapped) {
                 onRestartTapped();
             }
         });
-        innerContainer->addChild(restartButton);
         
-        auto homeButton = ui::Button::create("pause_home.png");
-        auto homeButtonLayout = ui::RelativeLayoutParameter::create();
-        homeButtonLayout->setAlign(RelativeAlign::PARENT_RIGHT_BOTTOM);
-        homeButtonLayout->setMargin(ui::Margin(0, 0, 30.0_dp, 35.0_dp));
-        homeButton->setLayoutParameter(homeButtonLayout);
-        homeButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
+        auto replayText = Fonts::createLocalizedText(LocalizedString::getString("game_over_play_again"), 25.0_dp);
+        replayText->setColor(Color3B::WHITE);
+        auto replayTextLayout = ui::RelativeLayoutParameter::create();
+        replayTextLayout->setAlign(RelativeAlign::LOCATION_RIGHT_OF_CENTER);
+        replayTextLayout->setMargin(ui::Margin(15.0_dp, 0, 0, 0));
+        replayTextLayout->setRelativeToWidgetName("replay_button");
+        replayText->setLayoutParameter(replayTextLayout);
+        addChild(replayText);
+        replayText->setTouchEnabled(true);
+        replayText->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
+            if (type == ui::Widget::TouchEventType::ENDED && onRestartTapped) {
+                onRestartTapped();
+            }
+        });
+        
+        auto listButton = ui::Button::create("game_over_home.png");
+        auto listButtonLayout = ui::RelativeLayoutParameter::create();
+        listButtonLayout->setAlign(RelativeAlign::PARENT_TOP_RIGHT);
+        listButtonLayout->setMargin(ui::Margin(0, 60.0_dp, 35.0_dp, 0));
+        listButton->setLayoutParameter(listButtonLayout);
+        addChild(listButton);
+        listButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
             if (type == ui::Widget::TouchEventType::ENDED && onHomeTapped) {
                 onHomeTapped();
             }
         });
-        innerContainer->addChild(homeButton);
         
-        auto score = ScoreWidget::create("Current");
-        auto scoreLayout = ui::RelativeLayoutParameter::create();
-        scoreLayout->setAlign(RelativeAlign::LOCATION_BELOW_LEFTALIGN);
-        scoreLayout->setRelativeToWidgetName("border");
-        scoreLayout->setMargin(ui::Margin(20.0_dp, 75.0_dp, 0, 0));
-        score->setLayoutParameter(scoreLayout);
-        innerContainer->addChild(score);
-        mScore = score;
-        
-        auto topscore = ScoreWidget::create("Best");
-        auto topscoreLayout = ui::RelativeLayoutParameter::create();
-        topscoreLayout->setAlign(RelativeAlign::LOCATION_BELOW_RIGHTALIGN);
-        topscoreLayout->setRelativeToWidgetName("border");
-        topscoreLayout->setMargin(ui::Margin(0, 75.0_dp, 20.0_dp, 0));
-        topscore->setLayoutParameter(topscoreLayout);
-        innerContainer->addChild(topscore);
-        mTopScore = topscore;
-        
-        innerContainer->forceDoLayout();
-        //innerContainer->setContentSize(Size(305.0_dp, startButton->getBoundingBox().getMaxY() + 30.0_dp));
-        backgroundImage->setContentSize(innerContainer->getContentSize());
+        auto contentContainer = ui::VBox::create(Size(uiSize.width, uiSize.height - 190.0_dp));
+        auto contentContainerLayout = ui::RelativeLayoutParameter::create();
+        contentContainerLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
+        contentContainerLayout->setMargin(ui::Margin(0, 190.0_dp, 0, 0));
+        contentContainer->setLayoutParameter(contentContainerLayout);
+        addChild(contentContainer);
+        mContentContainer = contentContainer;
         
         return true;
     }
     
-    void DefaultGameOverOverlay::setTitle(const std::string& title)
+    void DefaultGameOverOverlay::show(int gameScore, int topScore)
     {
-        Fonts::updateLocalizedText(mTitleLabel, title);
+        mContentContainer->removeAllChildren();
+        
+        if (gameScore > topScore) {
+            createNewTopScoreWidget(gameScore, topScore);
+        } else {
+            createDefaulteWidget(gameScore, topScore);
+        }
     }
     
-    void DefaultGameOverOverlay::setTopScore(int score)
+    void DefaultGameOverOverlay::createDefaulteWidget(int gameScore, int topScore)
     {
-        mTopScore->setScore(score);
+        auto image = ui::ImageView::create("game_over_fail.png");
+        auto imageLayout = ui::LinearLayoutParameter::create();
+        imageLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
+        imageLayout->setMargin(ui::Margin(0, 15.0_dp, 0, 0));
+        image->setLayoutParameter(imageLayout);
+        mContentContainer->addChild(image);
+        
+        auto newScoreCopy = Fonts::createLocalizedText(LocalizedString::getString("game_over_your_score"), 25.0_dp);
+        newScoreCopy->setColor(kPinkColor);
+        auto newScoreCopyLayout = ui::LinearLayoutParameter::create();
+        newScoreCopyLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
+        newScoreCopyLayout->setMargin(ui::Margin(0, 25.0_dp, 0, 0));
+        newScoreCopy->setLayoutParameter(newScoreCopyLayout);
+        mContentContainer->addChild(newScoreCopy);
+        
+        auto newScoreValue = Fonts::createLocalizedText(boost::lexical_cast<std::string>(gameScore), 36.0_dp);
+        newScoreValue->setColor(kPinkColor);
+        auto newScoreValueLayout = ui::LinearLayoutParameter::create();
+        newScoreValueLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
+        newScoreValueLayout->setMargin(ui::Margin(0, 10.0_dp, 0, 0));
+        newScoreValue->setLayoutParameter(newScoreValueLayout);
+        mContentContainer->addChild(newScoreValue);
+        
+        auto oldScoreCopy = Fonts::createLocalizedText(LocalizedString::getString("game_over_high_score"), 18.0_dp);
+        oldScoreCopy->setColor(kOrangeColor);
+        auto oldScoreCopyLayout = ui::LinearLayoutParameter::create();
+        oldScoreCopyLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
+        oldScoreCopyLayout->setMargin(ui::Margin(0, 130.0_dp, 0, 0));
+        oldScoreCopy->setLayoutParameter(oldScoreCopyLayout);
+        mContentContainer->addChild(oldScoreCopy);
+        
+        auto oldScoreValue = Fonts::createLocalizedText(boost::lexical_cast<std::string>(topScore), 25.0_dp);
+        oldScoreValue->setColor(kOrangeColor);
+        auto oldScoreValueLayout = ui::LinearLayoutParameter::create();
+        oldScoreValueLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
+        oldScoreValueLayout->setMargin(ui::Margin(0, 8.0_dp, 0, 0));
+        oldScoreValue->setLayoutParameter(oldScoreValueLayout);
+        mContentContainer->addChild(oldScoreValue);
     }
     
-    void DefaultGameOverOverlay::setCurrentScore(int score)
+    void DefaultGameOverOverlay::createNewTopScoreWidget(int gameScore, int topScore)
     {
-        mScore->setScore(score);
+        auto newScoreCopy = Fonts::createLocalizedText(LocalizedString::getString("game_over_new_high_score"), 25.0_dp);
+        newScoreCopy->setColor(kStarColor);
+        auto newScoreCopyLayout = ui::LinearLayoutParameter::create();
+        newScoreCopyLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
+        newScoreCopy->setLayoutParameter(newScoreCopyLayout);
+        mContentContainer->addChild(newScoreCopy);
+        
+        auto newScoreValue = Fonts::createLocalizedText(boost::lexical_cast<std::string>(gameScore), 36.0_dp);
+        newScoreValue->setColor(kStarColor);
+        auto newScoreValueLayout = ui::LinearLayoutParameter::create();
+        newScoreValueLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
+        newScoreValueLayout->setMargin(ui::Margin(0, 15.0_dp, 0, 0));
+        newScoreValue->setLayoutParameter(newScoreValueLayout);
+        mContentContainer->addChild(newScoreValue);
+        
+        auto trophyImage = ui::ImageView::create("trophy.png");
+        auto trophyImageLayout = ui::LinearLayoutParameter::create();
+        trophyImageLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
+        trophyImageLayout->setMargin(ui::Margin(0, 15.0_dp, 0, 0));
+        trophyImage->setLayoutParameter(trophyImageLayout);
+        mContentContainer->addChild(trophyImage);
+        
+        auto oldScoreCopy = Fonts::createLocalizedText(LocalizedString::getString("game_over_previous_best"), 18.0_dp);
+        oldScoreCopy->setColor(kOrangeColor);
+        auto oldScoreCopyLayout = ui::LinearLayoutParameter::create();
+        oldScoreCopyLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
+        oldScoreCopyLayout->setMargin(ui::Margin(0, 54.0_dp, 0, 0));
+        oldScoreCopy->setLayoutParameter(oldScoreCopyLayout);
+        mContentContainer->addChild(oldScoreCopy);
+        
+        auto oldScoreValue = Fonts::createLocalizedText(boost::lexical_cast<std::string>(topScore), 25.0_dp);
+        oldScoreValue->setColor(kOrangeColor);
+        auto oldScoreValueLayout = ui::LinearLayoutParameter::create();
+        oldScoreValueLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
+        oldScoreValueLayout->setMargin(ui::Margin(0, 8.0_dp, 0, 0));
+        oldScoreValue->setLayoutParameter(oldScoreValueLayout);
+        mContentContainer->addChild(oldScoreValue);
+        
     }
 }

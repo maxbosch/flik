@@ -34,6 +34,7 @@
 		66114ED21D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66114ED01D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp */; };
 		661401751D594954005497BD /* RainbowBonusBehavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661401731D594954005497BD /* RainbowBonusBehavior.cpp */; };
 		661401781D5955FD005497BD /* LayerMultiGradient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661401761D5955FD005497BD /* LayerMultiGradient.cpp */; };
+		6626819D1D65315000F9D0D3 /* LevelSuccessGameOverOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6626819B1D65315000F9D0D3 /* LevelSuccessGameOverOverlay.cpp */; };
 		663459231D522F9F00F6E68F /* DialogMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663459211D522F9F00F6E68F /* DialogMessage.cpp */; };
 		6634592A1D5406A500F6E68F /* GoalLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663459281D5406A500F6E68F /* GoalLayer.cpp */; };
 		6634592C1D540EDC00F6E68F /* Behavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6634592B1D540EDC00F6E68F /* Behavior.cpp */; };
@@ -215,6 +216,8 @@
 		661401741D594954005497BD /* RainbowBonusBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RainbowBonusBehavior.h; sourceTree = "<group>"; };
 		661401761D5955FD005497BD /* LayerMultiGradient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayerMultiGradient.cpp; sourceTree = "<group>"; };
 		661401771D5955FD005497BD /* LayerMultiGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerMultiGradient.h; sourceTree = "<group>"; };
+		6626819B1D65315000F9D0D3 /* LevelSuccessGameOverOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelSuccessGameOverOverlay.cpp; sourceTree = "<group>"; };
+		6626819C1D65315000F9D0D3 /* LevelSuccessGameOverOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSuccessGameOverOverlay.h; sourceTree = "<group>"; };
 		663459211D522F9F00F6E68F /* DialogMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DialogMessage.cpp; sourceTree = "<group>"; };
 		663459221D522F9F00F6E68F /* DialogMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogMessage.h; sourceTree = "<group>"; };
 		663459271D537DBC00F6E68F /* Behavior.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Behavior.h; sourceTree = "<group>"; };
@@ -651,6 +654,8 @@
 				66583FD61D5D4C910072E644 /* GameSelectRowWidget.h */,
 				66E7E50F1D158C6C007DE4B9 /* LevelGameOverOverlay.cpp */,
 				66E7E5101D158C6C007DE4B9 /* LevelGameOverOverlay.h */,
+				6626819B1D65315000F9D0D3 /* LevelSuccessGameOverOverlay.cpp */,
+				6626819C1D65315000F9D0D3 /* LevelSuccessGameOverOverlay.h */,
 				66114ED01D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp */,
 				66114ED11D12E1CA00B2C92B /* LevelObjectiveOverlay.h */,
 				6677234F1D18B0F800B1B74A /* LevelSelectRowWidget.cpp */,
@@ -1115,6 +1120,7 @@
 				6638947E1D09AD9B0034892E /* PowerUpButton.cpp in Sources */,
 				660726E91D5B65830072A7A3 /* DisableColorBehavior.cpp in Sources */,
 				6653CD8F1D1C230A00721B17 /* SettingsScene.cpp in Sources */,
+				6626819D1D65315000F9D0D3 /* LevelSuccessGameOverOverlay.cpp in Sources */,
 				6634592F1D540F2300F6E68F /* GhostBonusBehavior.cpp in Sources */,
 				66D84BE51D2351EC00BA4D53 /* SceneManager.cpp in Sources */,
 				66583FD41D5D4AB40072E644 /* LevelSelectScene.cpp in Sources */,
@@ -1168,8 +1174,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Adam Eskreis (83A8BQ45VY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Adam Eskreis (83A8BQ45VY)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1219,7 +1225,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aeskreis.flik;
 				PRODUCT_NAME = Flik;
-				PROVISIONING_PROFILE = "6818b898-ee2e-4fdd-9ed4-7b71d23f36e3";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1236,8 +1242,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Adam Eskreis (YK656P6CH5)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Adam Eskreis (YK656P6CH5)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1285,7 +1291,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aeskreis.flik;
 				PRODUCT_NAME = Flik;
-				PROVISIONING_PROFILE = "cb14b6a8-7883-4890-bb27-4bab142c6005";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
