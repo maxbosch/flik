@@ -25,7 +25,7 @@ namespace flik
         
         void setScore(int score);
         
-        std::function<void(PowerUpType type)> onPowerUpTapped;
+        std::function<void()> onPauseTapped;
         
         void setScoreVisible(bool visible);
         

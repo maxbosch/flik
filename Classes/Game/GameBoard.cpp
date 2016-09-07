@@ -17,6 +17,7 @@ namespace flik
 {
     static const float kVelocityDamping = 0.4;
     static const int kPieceTag = 0xF00F;
+    static const float kMaxVelocity = 1000.0f;
     
     bool GameBoard::init()
     {
@@ -42,7 +43,7 @@ namespace flik
     void GameBoard::addPiece(GamePiece* piece)
     {
         piece->setTag(kPieceTag);
-        addChild(piece);
+        addChild(piece, mPieceZIndexCounter++);
     }
     
     void GameBoard::update(float seconds)
@@ -110,7 +111,7 @@ namespace flik
                         auto& selected = mSelectedPieces.back();
                         selected.velocityTracker.Reset();
                         selected.velocityTracker.AddPoint(touch->getLocation());
-                        selected.piece->getPhysicsBody()->setVelocity(Vec2());
+                        selected.piece->getPhysicsBodyBox2D()->SetLinearVelocity(b2Vec2(0, 0));
                         break;
                     }
                 }
@@ -127,6 +128,7 @@ namespace flik
                 if (selected.startLocation == touch->getStartLocation()) {
                     selected.velocityTracker.AddPoint(touch->getLocation());
                     selected.piece->setPosition(selected.piece->getPosition() + touch->getDelta());
+                    selected.piece->getPhysicsBodyBox2D()->SetLinearVelocity(b2Vec2(0, 0));
                     constrainPieceToGameBounds(selected.piece);
                     break;
                 }
@@ -137,10 +139,10 @@ namespace flik
     void GameBoard::onTouchesEnded(const std::vector<Touch*>& touches, Event *unused_event)
     {
         for (auto touch : touches) {
-            mSelectedPieces.erase(std::remove_if(mSelectedPieces.begin(), mSelectedPieces.end(), [touch](SelectedGamePiece& selected) -> bool {
+            mSelectedPieces.erase(std::remove_if(mSelectedPieces.begin(), mSelectedPieces.end(), [this, touch](SelectedGamePiece& selected) -> bool {
                 bool isTouched = selected.startLocation == touch->getStartLocation();
                 if (isTouched) {
-                    selected.piece->getPhysicsBody()->setVelocity(selected.velocityTracker.GetVelocity() * kVelocityDamping);
+                    onPieceTouchEnd(selected);
                 }
                 return isTouched;
             }), mSelectedPieces.end());
@@ -151,6 +153,25 @@ namespace flik
     void GameBoard::onTouchesCancelled(const std::vector<Touch*>& touches, Event *unused_event)
     {
         onTouchesEnded(touches, unused_event);
+    }
+    
+    void GameBoard::forceReleasePiece(GamePiece* piece)
+    {
+        mSelectedPieces.erase(std::remove_if(mSelectedPieces.begin(), mSelectedPieces.end(), [this, piece](SelectedGamePiece& selected) -> bool {
+            if (selected.piece == piece) {
+                onPieceTouchEnd(selected);
+            }
+            return selected.piece == piece;
+        }), mSelectedPieces.end());
+    }
+    
+    void GameBoard::onPieceTouchEnd(SelectedGamePiece& selected)
+    {
+        auto velocity = (selected.velocityTracker.GetVelocity() * kVelocityDamping);
+        auto velocityX = std::max(std::min<float>(velocity.x, kMaxVelocity), -kMaxVelocity);
+        auto velocityY = std::max(std::min<float>(velocity.y, kMaxVelocity), -kMaxVelocity);
+        selected.piece->getPhysicsBodyBox2D()->SetLinearVelocity(b2Vec2(velocityX * kInversePixelsToMeters, velocityY * kInversePixelsToMeters));
+
     }
     
     void GameBoard::constrainPieceToGameBounds(GamePiece* piece)

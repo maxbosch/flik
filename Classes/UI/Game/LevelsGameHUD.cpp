@@ -12,7 +12,7 @@
 #include "MainGameHeader.h"
 #include "Literals.h"
 #include "Events.h"
-#include "LevelSuccessGameOverOverlay.h"
+#include "LevelGameOverOverlay.h"
 #include "MainGameScene.h"
 #include "PluginSdkboxPlay/PluginSdkboxPlay.h"
 #include "LevelsGameMode.h"
@@ -66,7 +66,7 @@ namespace flik
     
     cocos2d::ui::Widget* LevelsGameHUD::createGameOverOverlay()
     {
-        auto gameOverOverlay = LevelSuccessGameOverOverlay::create();
+        auto gameOverOverlay = LevelGameOverOverlay::create();
         gameOverOverlay->onRestartTapped = [this]() {
             if (getGameScene()) {
                 getGameScene()->requestRestart();
@@ -90,10 +90,11 @@ namespace flik
 
     void LevelsGameHUD::onShowGameOverScreen()
     {
-        auto gameOverOverlay = dynamic_cast<LevelSuccessGameOverOverlay*>(mGameOverScreen);
-        gameOverOverlay->show(2, 50);
-//        auto gameMode = dynamic_cast<LevelsGameMode*>(getGameScene()->getGameMode());
-//        
+        auto gameOverOverlay = dynamic_cast<LevelGameOverOverlay*>(mGameOverScreen);
+        auto gameMode = dynamic_cast<LevelsGameMode*>(getGameScene()->getGameMode());
+        
+        gameOverOverlay->show(gameMode->getSublevel(), gameMode->isObjectiveCompleted(), gameMode->getScore(), gameMode->getPointsEarned());
+//
 //        gameOverOverlay->setNextLevel(gameMode->isObjectiveCompleted(), mLevelDesc->levelNum, gameMode->getSublevel());
     }
     

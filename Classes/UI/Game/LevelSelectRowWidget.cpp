@@ -34,8 +34,8 @@ namespace flik
         
         auto levelText = Fonts::createLocalizedText(LocalizedString::getString("game_mode_level", sublevel + 1), 21.0_dp);
         auto levelTextLayout = ui::RelativeLayoutParameter::create();
-        levelTextLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
-        levelTextLayout->setMargin(ui::Margin(37.0_dp, 22.0_dp, 0, 0));
+        levelTextLayout->setAlign(RelativeAlign::PARENT_LEFT_CENTER_VERTICAL);
+        levelTextLayout->setMargin(ui::Margin(37.0_dp, 0, 0, 0));
         levelText->setLayoutParameter(levelTextLayout);
         addChild(levelText);
         
@@ -61,7 +61,7 @@ namespace flik
             
             auto levelStatus = ui::ImageView::create(image);
             auto levelStatusLayout = ui::RelativeLayoutParameter::create();
-            levelStatusLayout->setAlign(RelativeAlign::PARENT_TOP_RIGHT);
+            levelStatusLayout->setAlign(RelativeAlign::PARENT_RIGHT_CENTER_VERTICAL);
             levelStatusLayout->setMargin(ui::Margin(0, 5.0_dp, rightMargin, 0));
             levelStatus->setLayoutParameter(levelStatusLayout);
             levelStatusContainer->addChild(levelStatus);
@@ -70,7 +70,7 @@ namespace flik
             
             auto starContainer = ui::HBox::create(Size(starSize.width * levelStatus, starSize.height));
             auto starContainerLayout = ui::RelativeLayoutParameter::create();
-            starContainerLayout->setAlign(RelativeAlign::PARENT_TOP_RIGHT);
+            starContainerLayout->setAlign(RelativeAlign::PARENT_RIGHT_CENTER_VERTICAL);
             starContainerLayout->setMargin(ui::Margin(0, 10.0_dp, 8.0_dp, 0));
             starContainer->setLayoutParameter(starContainerLayout);
             levelStatusContainer->addChild(starContainer);
@@ -82,6 +82,10 @@ namespace flik
                 image->setLayoutParameter(imageLayout);
                 starContainer->addChild(image);
             }
+        }
+        
+        if (levelStatus == kMaxScore) {
+            levelText->setColor(kYellowColor);
         }
         
         setTouchEnabled(true);

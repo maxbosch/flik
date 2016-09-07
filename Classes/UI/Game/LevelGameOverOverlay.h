@@ -1,8 +1,8 @@
 //
-//  LevelGameOverOverlay.hpp
+//  LevelSuccessGameOverOverlay.hpp
 //  Flik
 //
-//  Created by Adam Eskreis on 6/18/16.
+//  Created by Adam Eskreis on 8/17/16.
 //
 //
 
@@ -13,8 +13,6 @@
 
 namespace flik
 {
-    class ScoreWidget;
-    
     class LevelGameOverOverlay : public cocos2d::ui::RelativeBox
     {
     public:
@@ -22,18 +20,21 @@ namespace flik
         
         bool init();
         
-        void setTitle(const std::string& title);
-        void setNextLevel(bool success, int level, int sublevel);
+        void show(int level, bool success, int score, int pointsEarned);
         
         std::function<void()> onRestartTapped;
-        std::function<void()> onHomeTapped;
-        std::function<void()> onAchievementsTapped;
         std::function<void()> onNextLevelTapped;
         std::function<void()> onShowLevelListTapped;
         
     private:
-        cocos2d::ui::Text* mTitleLabel;
-        cocos2d::ui::Button* mAchievementsButton;
-        cocos2d::ui::Button* mNextLevelButton;
+        std::vector<cocos2d::ui::ImageView*> mStarWidgets;
+        cocos2d::ui::Text* mPointsLabel;
+        cocos2d::ui::RelativeBox* mContentContainer;
+        
+        void animateStar(int maxStar, int star = 1);
+        void animatePoints(int points);
+        
+        void createSuccessWidget(int level, int score, int pointsEarned);
+        void createFailureWidget(int level);
     };
 }

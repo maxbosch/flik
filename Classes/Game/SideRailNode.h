@@ -31,21 +31,22 @@ namespace flik
     };
     
     class GoalLayer;
+    class MainGameScene;
     
     class SideRailNode : public cocos2d::Node
     {
     public:
         
-        bool init(const cocos2d::Size& gameBoardSize);
+        bool init(MainGameScene* mainGameScene, const cocos2d::Size& gameBoardSize);
     
-        static SideRailNode* create(const cocos2d::Size& gameBoardSize);
+        static SideRailNode* create(MainGameScene* mainGameScene, const cocos2d::Size& gameBoardSize);
         
         GoalLayer* getColorLayer(GamePieceType color) { return mBoxes[color]; }
         
         cocos2d::Rect getInnerBoundingBox() { return mInnerBox->getBoundingBox(); }
         
     private:
-        void calculateRails();
+        void calculateRails(MainGameScene* mainGameScene);
         
         std::map<GamePieceType, GoalLayer *> mBoxes;
         cocos2d::LayerColor* mOuterBox;

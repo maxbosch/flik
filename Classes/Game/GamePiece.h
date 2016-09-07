@@ -12,6 +12,7 @@
 #include "VelocityTracker.h"
 #include "Physics.h"
 #include "Enums.h"
+#include "PhysicsNode.h"
 
 USING_NS_CC;
 
@@ -20,7 +21,7 @@ namespace flik
     class MainGameScene;
     
     
-    class GamePiece : public Node
+    class GamePiece : public PhysicsNode
     {
     public:
         
@@ -35,7 +36,7 @@ namespace flik
         
         bool mPressed = false;
         
-        void setGameScene(MainGameScene* gameScene) { mGameScene = gameScene; }
+        void setGameScene(MainGameScene* gameScene);
         
         void update(float delta);
         
@@ -46,7 +47,7 @@ namespace flik
     private:
         
         EventListenerPhysicsContact* mContactListener;
-        PhysicsBody* mPhysicsBody;
+//        PhysicsBody* mPhysicsBody;
         MainGameScene* mGameScene;
         int mType;
     };

@@ -1,24 +1,24 @@
 //
-//  LevelGameOverOverlay.cpp
+//  LevelSuccessGameOverOverlay.cpp
 //  Flik
 //
-//  Created by Adam Eskreis on 6/18/16.
+//  Created by Adam Eskreis on 8/17/16.
 //
 //
 
 #include "LevelGameOverOverlay.h"
+#include "Util.h"
 #include "Styles.h"
 #include "Literals.h"
-#include "ScoreWidget.h"
-#include "LevelTypes.h"
+#include "Fonts.h"
 #include "LocalizedString.h"
+#include "Animations.h"
 
 USING_NS_CC;
 
 namespace flik
 {
     using RelativeAlign = ui::RelativeLayoutParameter::RelativeAlign;
-    using LinearGravity = ui::LinearLayoutParameter::LinearGravity;
     
     bool LevelGameOverOverlay::init()
     {
@@ -33,122 +33,206 @@ namespace flik
         auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, 0.8 * 255), uiSize.width, uiSize.height);
         addChild(overlayBackground);
         
-        auto innerContainer = ui::RelativeBox::create(Size(305.0_dp, 455.0_dp));
-        innerContainer->ignoreContentAdaptWithSize(false);
-        auto innerContainerLayout = ui::RelativeLayoutParameter::create();
-        innerContainerLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
-        innerContainer->setLayoutParameter(innerContainerLayout);
-        addChild(innerContainer);
-        
-        auto backgroundImage = ui::Scale9Sprite::create(Rect(34.0_dp, 34.0_dp, 32.0_dp, 32.0_dp), "blue_border_9.png");
-        backgroundImage->setAnchorPoint(Vec2());
-        backgroundImage->setContentSize(innerContainer->getContentSize());
-        innerContainer->addChild(backgroundImage);
-        
-        auto titleLabel = Fonts::createLocalizedText("", 18.0_dp);
-        titleLabel->setColor(Color3B::WHITE);
-        auto titleLabelLayout = ui::RelativeLayoutParameter::create();
-        titleLabelLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
-        titleLabelLayout->setMargin(ui::Margin(0, 35.0_dp, 0, 0));
-        titleLabelLayout->setRelativeName("title");
-        titleLabel->setLayoutParameter(titleLabelLayout);
-        innerContainer->addChild(titleLabel);
-        mTitleLabel = titleLabel;
-        
-        auto border1 = ui::HBox::create(Size(210.0_dp, 3.0_dp));
-        border1->setBackGroundColor(kBlueBorderColor);
-        border1->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
-        auto borderLayout1 = ui::RelativeLayoutParameter::create();
-        borderLayout1->setRelativeToWidgetName("title");
-        borderLayout1->setRelativeName("border");
-        borderLayout1->setAlign(RelativeAlign::LOCATION_BELOW_CENTER);
-        borderLayout1->setMargin(ui::Margin(0, 45.0_dp, 0, 0));
-        border1->setLayoutParameter(borderLayout1);
-        innerContainer->addChild(border1);
-        
-        auto restartButton = ui::Button::create("pause_restart.png");
-        auto restartButtonLayout = ui::RelativeLayoutParameter::create();
-        restartButtonLayout->setAlign(RelativeAlign::PARENT_LEFT_BOTTOM);
-        restartButtonLayout->setMargin(ui::Margin(30.0_dp, 0, 0, 45.0_dp));
-        restartButton->setLayoutParameter(restartButtonLayout);
-        restartButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
+        // Buttons
+        auto replayButton = ui::Button::create("game_over_replay.png");
+        auto replayButtonLayout = ui::RelativeLayoutParameter::create();
+        replayButtonLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
+        replayButtonLayout->setMargin(ui::Margin(35.0_dp, 60.0_dp, 0, 0));
+        replayButtonLayout->setRelativeName("replay_button");
+        replayButton->setLayoutParameter(replayButtonLayout);
+        addChild(replayButton);
+        replayButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
             if (type == ui::Widget::TouchEventType::ENDED && onRestartTapped) {
                 onRestartTapped();
             }
         });
-        innerContainer->addChild(restartButton);
         
-        auto homeButton = ui::Button::create("levels_list_button.png");
-        auto homeButtonLayout = ui::RelativeLayoutParameter::create();
-        homeButtonLayout->setAlign(RelativeAlign::PARENT_RIGHT_BOTTOM);
-        homeButtonLayout->setMargin(ui::Margin(0, 0, 30.0_dp, 45.0_dp));
-        homeButton->setLayoutParameter(homeButtonLayout);
-        homeButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
-            if (type == ui::Widget::TouchEventType::ENDED && onHomeTapped) {
-                onHomeTapped();
+        auto replayText = Fonts::createLocalizedText(LocalizedString::getString("game_over_play_again"), 25.0_dp);
+        replayText->setColor(Color3B::WHITE);
+        auto replayTextLayout = ui::RelativeLayoutParameter::create();
+        replayTextLayout->setAlign(RelativeAlign::LOCATION_RIGHT_OF_CENTER);
+        replayTextLayout->setMargin(ui::Margin(15.0_dp, 0, 0, 0));
+        replayTextLayout->setRelativeToWidgetName("replay_button");
+        replayText->setLayoutParameter(replayTextLayout);
+        addChild(replayText);
+        replayText->setTouchEnabled(true);
+        replayText->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
+            if (type == ui::Widget::TouchEventType::ENDED && onRestartTapped) {
+                onRestartTapped();
             }
         });
-        innerContainer->addChild(homeButton);
         
-        auto achievementsButton = ui::Button::create("pause_achievements.png");
-        auto achievementsButtonLayout = ui::RelativeLayoutParameter::create();
-        achievementsButtonLayout->setAlign(RelativeAlign::LOCATION_BELOW_CENTER);
-        achievementsButtonLayout->setRelativeToWidgetName("border");
-        achievementsButtonLayout->setMargin(ui::Margin(0, 45.0_dp, 0, 0));
-        achievementsButton->setLayoutParameter(achievementsButtonLayout);
-        achievementsButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
-            if (type == ui::Widget::TouchEventType::ENDED && onAchievementsTapped) {
-                onAchievementsTapped();
+        auto listButton = ui::Button::create("level_success_list.png");
+        auto listButtonLayout = ui::RelativeLayoutParameter::create();
+        listButtonLayout->setAlign(RelativeAlign::PARENT_TOP_RIGHT);
+        listButtonLayout->setMargin(ui::Margin(0, 60.0_dp, 45.0_dp, 0));
+        listButton->setLayoutParameter(listButtonLayout);
+        addChild(listButton);
+        listButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
+            if (type == ui::Widget::TouchEventType::ENDED && onShowLevelListTapped) {
+                onShowLevelListTapped();
             }
         });
-        innerContainer->addChild(achievementsButton);
-        mAchievementsButton = achievementsButton;
         
-        auto nextLevelButton = ui::Button::create("pink_button_fill_large.png");
-        nextLevelButton->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
-        nextLevelButton->setTitleFontSize(18.0_dp);
-        nextLevelButton->setTitleColor(Color3B::WHITE);
-        
-        auto nextLevelButtonLayout = ui::RelativeLayoutParameter::create();
-        nextLevelButtonLayout->setAlign(RelativeAlign::LOCATION_BELOW_CENTER);
-        nextLevelButtonLayout->setRelativeToWidgetName("border");
-        nextLevelButtonLayout->setMargin(ui::Margin(0, 45.0_dp, 0, 0));
-        nextLevelButton->setLayoutParameter(nextLevelButtonLayout);
-        nextLevelButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
-            if (type == ui::Widget::TouchEventType::ENDED && onNextLevelTapped) {
-                onNextLevelTapped();
-            }
-        });
-        innerContainer->addChild(nextLevelButton);
-        mNextLevelButton = nextLevelButton;
-        
-        innerContainer->forceDoLayout();
-        //innerContainer->setContentSize(Size(305.0_dp, startButton->getBoundingBox().getMaxY() + 30.0_dp));
+        auto contentContainer = ui::RelativeBox::create(uiSize);
+        auto contentContainerLayout = ui::RelativeLayoutParameter::create();
+        contentContainerLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
+        contentContainer->setLayoutParameter(contentContainerLayout);
+        addChild(contentContainer);
+        mContentContainer = contentContainer;
         
         return true;
     }
     
-    void LevelGameOverOverlay::setTitle(const std::string& title)
+    void LevelGameOverOverlay::show(int level, bool success, int score, int pointsEarned)
     {
-        Fonts::updateLocalizedText(mTitleLabel, title);
-    }
-    
-    void LevelGameOverOverlay::setNextLevel(bool success, int level, int sublevel)
-    {
-        if (success && sublevel < LevelInfo::getInstance()->getMaxLevel(level)) {
-            Fonts::updateLocalizedText(mNextLevelButton, LocalizedString::getString("game_over_try_next"));
-            
-            mNextLevelButton->setVisible(true);
-            mAchievementsButton->setVisible(false);
-        } else {
-            mAchievementsButton->setVisible(true);
-            mNextLevelButton->setVisible(false);
-        }
+        mContentContainer->removeAllChildren();
         
         if (success) {
-            Fonts::updateLocalizedText(mTitleLabel, LocalizedString::getString("level_success"));
+            createSuccessWidget(level, score, pointsEarned);
+            animateStar(score);
+            animatePoints(pointsEarned);
         } else {
-            Fonts::updateLocalizedText(mTitleLabel, LocalizedString::getString("level_failed"));
+            createFailureWidget(level);
         }
+    }
+    
+    void LevelGameOverOverlay::animateStar(int maxStar, int star)
+    {
+        if (star <= maxStar) {
+            scheduleOnce([this, star, maxStar](float t) {
+                Animations::animate(0.5, [this, star, maxStar](float t) {
+                    auto widget = mStarWidgets[star - 1];
+                    widget->setScale(t);
+                }, [this, star, maxStar](bool complete) {
+                    animateStar(maxStar, star + 1);
+                }, OvershootCurve);
+            }, 0.3, "star_animation_delay");
+        }
+    }
+    
+    void LevelGameOverOverlay::animatePoints(int points)
+    {
+        mPointsLabel->setString("+0");
+        
+        scheduleOnce([this, points](float t) {
+            float duration = ((float)points / 10.0f) * 0.1;
+            Animations::animate(duration, [this, points](float t) {
+                int pointsAdjusted = (t * points);
+                mPointsLabel->setString("+" + boost::lexical_cast<std::string>(pointsAdjusted));
+            }, [this, points](bool complete) {
+                mPointsLabel->setString("+" + boost::lexical_cast<std::string>(points));
+            }, OvershootCurve);
+        }, 0.3, "points_animation_delay");
+    }
+    
+    void LevelGameOverOverlay::createSuccessWidget(int level, int score, int pointsEarned)
+    {
+        auto nextButton = ui::RelativeBox::create(Size(125.0_dp, 48.0_dp));
+        auto nextButtonLayout = ui::RelativeLayoutParameter::create();
+        nextButtonLayout->setAlign(RelativeAlign::PARENT_RIGHT_BOTTOM);
+        nextButtonLayout->setMargin(ui::Margin(0, 0, 30.0_dp, 30.0_dp));
+        nextButton->setLayoutParameter(nextButtonLayout);
+        mContentContainer->addChild(nextButton);
+        nextButton->setTouchEnabled(true);
+        nextButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
+            if (type == ui::Widget::TouchEventType::ENDED && onNextLevelTapped) {
+                onNextLevelTapped();
+            }
+        });
+        
+        auto nextButtonImage = ui::ImageView::create("next_arrow.png");
+        auto nextButtonImageLayout = ui::RelativeLayoutParameter::create();
+        nextButtonImageLayout->setAlign(RelativeAlign::PARENT_RIGHT_CENTER_VERTICAL);
+        nextButtonImage->setLayoutParameter(nextButtonImageLayout);
+        nextButton->addChild(nextButtonImage);
+        
+        auto nextButtonLabel = Fonts::createLocalizedText(LocalizedString::getString("game_over_try_next"), 25.0_dp);
+        nextButtonLabel->setColor(Color3B::WHITE);
+        auto nextButtonLabelLayout = ui::RelativeLayoutParameter::create();
+        nextButtonLabelLayout->setAlign(RelativeAlign::PARENT_LEFT_CENTER_VERTICAL);
+        nextButtonLabel->setLayoutParameter(nextButtonLabelLayout);
+        nextButton->addChild(nextButtonLabel);
+        
+        // Middle Container
+        auto levelCompleteLabel = Fonts::createLocalizedText(LocalizedString::getString("game_over_level_complete", level + 1), 30.0_dp);
+        levelCompleteLabel->setColor(kYellowColor);
+        auto levelCompleteLabelLayout = ui::RelativeLayoutParameter::create();
+        levelCompleteLabelLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
+        levelCompleteLabelLayout->setRelativeName("level_complete");
+        levelCompleteLabelLayout->setMargin(ui::Margin(0, 175.0_dp, 0, 0));
+        levelCompleteLabel->setLayoutParameter(levelCompleteLabelLayout);
+        mContentContainer->addChild(levelCompleteLabel);
+        
+        auto middleContainer = ui::RelativeBox::create(Size(305.0_dp, 270.0_dp));
+        auto middleContainerLayout = ui::RelativeLayoutParameter::create();
+        middleContainerLayout->setAlign(RelativeAlign::LOCATION_BELOW_CENTER);
+        middleContainerLayout->setRelativeToWidgetName("level_complete");
+        middleContainerLayout->setMargin(ui::Margin(0, 20.0_dp, 0, 0));
+        middleContainer->setLayoutParameter(middleContainerLayout);
+        mContentContainer->addChild(middleContainer);
+        
+        auto starsContainer = ui::RelativeBox::create(Size(305.0_dp, 195.5_dp));
+        starsContainer->setBackGroundImage("level_success_star_box.png");
+        auto starsContainerLayout = ui::RelativeLayoutParameter::create();
+        starsContainerLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
+        starsContainerLayout->setMargin(ui::Margin(0, 75.0_dp, 0, 0));
+        starsContainer->setLayoutParameter(starsContainerLayout);
+        middleContainer->addChild(starsContainer);
+        
+        for (int i = 0; i < 3; i++) {
+            auto starEmpty = ui::ImageView::create("star_large_empty.png");
+            auto starEmptyLayout = ui::RelativeLayoutParameter::create();
+            starEmptyLayout->setAlign(RelativeAlign::PARENT_LEFT_BOTTOM);
+            starEmptyLayout->setMargin(ui::Margin(67.0_dp + (i * 65.0_dp), 0, 0, 47.5_dp));
+            starEmpty->setLayoutParameter(starEmptyLayout);
+            starsContainer->addChild(starEmpty);
+            
+            auto starFull = ui::ImageView::create("star_large.png");
+            starFull->setScale(0.0f);
+            auto starFullLayout = ui::RelativeLayoutParameter::create();
+            starFullLayout->setAlign(RelativeAlign::PARENT_LEFT_BOTTOM);
+            starFullLayout->setMargin(ui::Margin(67.0_dp + (i * 65.0_dp), 0, 0, 47.5_dp));
+            starFull->setLayoutParameter(starFullLayout);
+            starsContainer->addChild(starFull);
+            mStarWidgets.push_back(starFull);
+        }
+        
+        auto pointsBubble = ui::RelativeBox::create(Size(152.5_dp, 152.5_dp));
+        pointsBubble->setBackGroundImage("game_over_points_container.png");
+        auto pointsBubbleLayout = ui::RelativeLayoutParameter::create();
+        pointsBubbleLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
+        pointsBubble->setLayoutParameter(pointsBubbleLayout);
+        middleContainer->addChild(pointsBubble);
+        
+        auto pointsLabel = Fonts::createLocalizedText("+123", 48.0_dp);
+        pointsLabel->setTextColor(Color4B(kStarColor));
+        auto pointsLabelLayout = ui::RelativeLayoutParameter::create();
+        pointsLabelLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
+        pointsLabel->setLayoutParameter(pointsLabelLayout);
+        pointsBubble->addChild(pointsLabel);
+        mPointsLabel = pointsLabel;
+    }
+    
+    void LevelGameOverOverlay::createFailureWidget(int level)
+    {
+        auto levelCompleteLabel = Fonts::createLocalizedText(LocalizedString::getString("game_over_level_failed", level + 1), 30.0_dp);
+        levelCompleteLabel->setColor(kPinkColor);
+        auto levelCompleteLabelLayout = ui::RelativeLayoutParameter::create();
+        levelCompleteLabelLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
+        levelCompleteLabelLayout->setRelativeName("level_failed");
+        levelCompleteLabelLayout->setMargin(ui::Margin(0, 200.0_dp, 0, 0));
+        levelCompleteLabel->setLayoutParameter(levelCompleteLabelLayout);
+        mContentContainer->addChild(levelCompleteLabel);
+        
+        auto image = ui::ImageView::create("game_over_fail.png");
+        auto imageLayout = ui::RelativeLayoutParameter::create();
+        imageLayout->setAlign(RelativeAlign::LOCATION_BELOW_CENTER);
+        imageLayout->setRelativeToWidgetName("level_failed");
+        imageLayout->setMargin(ui::Margin(0, 20.0_dp, 0, 0));
+        image->setLayoutParameter(imageLayout);
+        mContentContainer->addChild(image);
+        
+        
     }
 }

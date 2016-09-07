@@ -23,6 +23,7 @@
 #include "MaxOnBoardObjectiveTracker.h"
 #include "Behavior.h"
 #include "Player.h"
+#include "PhysicsNode.h"
 
 USING_NS_CC;
 
@@ -178,21 +179,32 @@ namespace flik
                         auto layer = LayerColor::create(Color4B(Color3B::WHITE));
                         layer->setContentSize(size);
                         layer->setPosition(position);
-                        layer->setAnchorPoint(Vec2(0, 0));
+                        layer->setAnchorPoint(Vec2(0.5, 0.5));
                         layer->setRotation(rotation);
                         layer->ignoreAnchorPointForPosition(false);
-                        
-                        auto physicsBody = PhysicsBody::createBox(layer->getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.0f));
-                        physicsBody->setRotationOffset(layer->getRotation());
-                        physicsBody->setDynamic(false);
-                        physicsBody->setCategoryBitmask(collision::BlackRail);
-                        physicsBody->setContactTestBitmask(collision::All);
-                        physicsBody->setCollisionBitmask(collision::All);
-                        physicsBody->setRotationEnable(true);
-                        layer->setPhysicsBody(physicsBody);
-                        
                         getGameScene()->getGameBoard()->addChild(layer);
                         
+//                        auto physicsBody = PhysicsBody::createBox(layer->getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.0f));
+//                        physicsBody->setRotationOffset(layer->getRotation());
+//                        physicsBody->setDynamic(false);
+//                        physicsBody->setCategoryBitmask(collision::BlackRail);
+//                        physicsBody->setContactTestBitmask(collision::All);
+//                        physicsBody->setCollisionBitmask(collision::All);
+//                        physicsBody->setRotationEnable(true);
+//                        layer->setPhysicsBody(physicsBody);
+                        
+                        auto physicsNode = PhysicsNode::create();
+                        physicsNode->setContentSize(size);
+                        physicsNode->setPosition(position);
+                        physicsNode->setAnchorPoint(Vec2(0.5, 0.5));
+                        physicsNode->setRotation(rotation);
+                        physicsNode->setImpenetrable(true);
+                        
+                        b2BodyDef bodyDef;
+                        bodyDef.type = b2_staticBody;
+                        physicsNode->createPhysicsBody(getGameScene()->getPhysicsWorldBox2D(), &bodyDef);
+                        physicsNode->addBoxFixture(size, 1.0, 0.0, 0.5, collision::BlackRail, collision::All);
+                        getGameScene()->getGameBoard()->addChild(physicsNode);
                     }
                 }
             }
@@ -222,8 +234,6 @@ namespace flik
     
     void LevelsGameMode::setGameState(GameState state)
     {
-        GameMode::setGameState(state);
-        
         if (state == GameState::Finished) {
             if (isObjectiveCompleted()) {
                 int score = 1;
@@ -256,9 +266,12 @@ namespace flik
                     }
                 }
                 
+                mScore = score;
+                
                 auto levelInfo = LevelInfo::getInstance();
                 auto player = Player::getMainPlayer();
                 
+                mPointsEarned = 0;
                 int oldScore = levelInfo->getLevelStatus(mLevelDesc->levelNum, mSublevel);
                 if (oldScore < score) {
                     auto maxSublevel = mLevelDesc->data["sublevels"].Size() - 1;
@@ -269,12 +282,18 @@ namespace flik
                     
                     for (int i = 1; i <= kMaxScore; i++) {
                         if (oldScore < i && score >= i) {
-                            player->addCurrency(kCurrencyPerScore[i-1] * levelMultiplier);
+                            mPointsEarned += kCurrencyPerScore[i-1] * levelMultiplier;
+                            
                         }
                     }
                 }
+                
+                player->addCurrency(mPointsEarned);
+                
                 LevelInfo::getInstance()->completeLevel(mLevelDesc->levelNum, mSublevel, score);
             }
         }
+        
+        GameMode::setGameState(state);
     }
 }

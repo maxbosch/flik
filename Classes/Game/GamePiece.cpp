@@ -29,7 +29,7 @@ namespace flik
     
     static const float kDeceleration = 0.7;
     
-    static const float kVelocityEpsilon = 20.0f;
+    static const float kVelocityEpsilon = 20.0f * kInversePixelsToMeters;
     
     GamePiece* GamePiece::create(const cocos2d::Vec2& position, GamePieceType pieceType)
     {
@@ -59,17 +59,18 @@ namespace flik
         
         addChild(sprite);
         
-        auto physicsBody = PhysicsBody::createBox(getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.0f));
-        physicsBody->setGravityEnable(false);
-        physicsBody->setRotationEnable(false);
-
-        physicsBody->setCollisionBitmask(collision::PieceCollisionMasks[(int)pieceType]);
-        physicsBody->setContactTestBitmask(collision::PieceContactMasks[(int)pieceType]);
-        physicsBody->setCategoryBitmask(collision::PieceCategoryMasks[(int)pieceType]);
-        setPhysicsBody(physicsBody);
-        mPhysicsBody = physicsBody;
+//        auto physicsBody = PhysicsBody::createBox(getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.0f));
+//        physicsBody->setGravityEnable(false);
+//        physicsBody->setRotationEnable(false);
+//
+//        physicsBody->setCollisionBitmask(collision::PieceCollisionMasks[(int)pieceType]);
+//        physicsBody->setContactTestBitmask(collision::PieceContactMasks[(int)pieceType]);
+//        physicsBody->setCategoryBitmask(collision::PieceCategoryMasks[(int)pieceType]);
+//        setPhysicsBody(physicsBody);
+//        mPhysicsBody = physicsBody;
         
-        mType = physicsBody->getCategoryBitmask();
+//        mType = physicsBody->getCategoryBitmask();
+        mType = (int) pieceType;
         
         this->scheduleUpdate();
         
@@ -77,31 +78,46 @@ namespace flik
         return true;
     }
     
+    void GamePiece::setGameScene(MainGameScene* gameScene)
+    {
+        mGameScene = gameScene;
+        
+        b2BodyDef bodyDef;
+        bodyDef.type = b2BodyType::b2_dynamicBody;
+        bodyDef.fixedRotation = true;
+        bodyDef.awake  = true;
+        bodyDef.bullet = true;
+        
+        createPhysicsBody(gameScene->getPhysicsWorldBox2D(), &bodyDef);
+        addBoxFixture(getContentSize(), 1.0f, 0.0f, 0.3f, collision::PieceCategoryMasks[mType], collision::PieceCollisionMasks[mType]);
+    }
+    
     void GamePiece::update(float delta)
     {
-        Node::update(delta);
+        PhysicsNode::update(delta);
+        auto physicsBody = getPhysicsBodyBox2D();
         
-        auto velocity = mPhysicsBody->getVelocity();
+        auto velocity = physicsBody->GetLinearVelocity();
         if (fabsf(velocity.x) < kVelocityEpsilon && fabsf(velocity.y) < kVelocityEpsilon) {
-            mPhysicsBody->setVelocity(Vec2());
+            physicsBody->SetLinearVelocity(b2Vec2(0, 0));
         } else {
-            auto deltaVelocity = velocity * (delta * kDeceleration);
-            mPhysicsBody->setVelocity(velocity - deltaVelocity);
+            auto deltaVelocity = ((delta * kDeceleration) * velocity);
+            physicsBody->SetLinearVelocity(velocity - deltaVelocity);
         }
     }
     
-    bool GamePiece::onContactBegin(PhysicsContact& contact)
-    {
-        return true;
-    }
-    
-    void GamePiece::onPostContactSolve(PhysicsContact& contact, const PhysicsContactPostSolve& solve)
-    {
-        if (contact.getShapeA() == mPhysicsBody->getShape(0) ||
-            contact.getShapeB() == mPhysicsBody->getShape(0)) {
-            mPhysicsBody->setVelocity(Vec2(0, 0));
-        }
-    }
+//    bool GamePiece::onContactBegin(PhysicsContact& contact)
+//    {
+//        return true;
+//    }
+//    
+//    void GamePiece::onPostContactSolve(PhysicsContact& contact, const PhysicsContactPostSolve& solve)
+//    {
+//        if (contact.getShapeA() == mPhysicsBody->getShape(0) ||
+//            contact.getShapeB() == mPhysicsBody->getShape(0)) {
+//            mPhysicsBody->setVelocity(Vec2(0, 0));
+//        }
+//    }
     
     Rect GamePiece::getTouchBoundingBox()
     {

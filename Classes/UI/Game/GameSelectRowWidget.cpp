@@ -35,8 +35,8 @@ namespace flik
         auto levelText = Fonts::createLocalizedText(LocalizedString::getString("level_name_" + name), 21.0_dp);
         levelText->setTextVerticalAlignment(TextVAlignment::CENTER);
         auto levelTextLayout = ui::RelativeLayoutParameter::create();
-        levelTextLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
-        levelTextLayout->setMargin(ui::Margin(37.0_dp, 22.0_dp, 0, 0));
+        levelTextLayout->setAlign(RelativeAlign::PARENT_LEFT_CENTER_VERTICAL);
+        levelTextLayout->setMargin(ui::Margin(37.0_dp, 0, 0, 0));
         levelText->setLayoutParameter(levelTextLayout);
         addChild(levelText);
         

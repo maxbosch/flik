@@ -68,8 +68,8 @@ namespace flik
                 //getGameScene()->pauseGame();
             }
         });
-        header->onPowerUpTapped = [this](PowerUpType type) {
-            getGameScene()->getGameMode()->handlePowerUp(type);
+        header->onPauseTapped = [this]() {
+            getGameScene()->getGameMode()->pauseGame();
         };
         //header->setGlobalZOrder(2);
         mHeader = header;

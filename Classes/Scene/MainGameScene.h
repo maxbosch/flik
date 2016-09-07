@@ -4,6 +4,7 @@
 #include "ui/CocosGUI.h"
 #include "Enums.h"
 #include "SceneEx.h"
+#include "box2d/Box2D.h"
 
 namespace flik
 {
@@ -22,7 +23,7 @@ namespace flik
         GameHUD* hud;
     };
     
-    class MainGameScene : public SceneEx
+    class MainGameScene : public SceneEx, public b2ContactListener
     {
     public:
         // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
@@ -56,12 +57,21 @@ namespace flik
         
         void onBackPressed();
         
+        std::shared_ptr<b2World>& getPhysicsWorldBox2D() { return mPhysicsWorldBox2D; }
+        
+        void render(cocos2d::Renderer *renderer);
+        
+        /* b2ContactListener methods */
+        void BeginContact(b2Contact* contact);
+        
     private:
         cocos2d::TimerTargetCallback* mSpawnTimer;
         SideRailNode* mSideRails;
         GameBoard* mGameBoard;
         GameHUD* mGameHUD = nullptr;
         GameMode* mGameMode = nullptr;
+        
+        std::shared_ptr<b2World> mPhysicsWorldBox2D = nullptr;
     
         cocos2d::Vec2 findOpenSpawnPosition();
         void restartGame();

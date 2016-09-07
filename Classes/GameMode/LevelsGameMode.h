@@ -40,10 +40,15 @@ namespace flik
         
         int getSublevel() { return mSublevel; }
         
+        int getScore() { return mScore; }
+        int getPointsEarned() { return mPointsEarned; }
+        
     private:
         const LevelDescription* mLevelDesc;
         int mSublevel;
         std::vector<ObjectiveTracker*> mObjectives;
         LevelProgress mProgress;
+        int mScore;
+        int mPointsEarned;
     };
 }

@@ -12,6 +12,8 @@
 #include "Literals.h"
 #include "Util.h"
 #include "GoalLayer.h"
+#include "MainGameScene.h"
+#include "PhysicsNode.h"
 
 #include <boost/geometry.hpp>
 #include <boost/geometry/geometries/geometries.hpp>
@@ -44,12 +46,12 @@ namespace flik
     static const BoxDesc Boxes[] = { RedBoxDesc, BlueBoxDesc, GreenBoxDesc, YellowBoxDesc };
     static const int kNumBoxes = 4;
     
-    SideRailNode* SideRailNode::create(const Size& gameBoardSize)
+    SideRailNode* SideRailNode::create(MainGameScene* mainGameScene, const Size& gameBoardSize)
     {
-        return createWithParams<SideRailNode>(gameBoardSize);
+        return createWithParams<SideRailNode>(mainGameScene, gameBoardSize);
     }
     
-    bool SideRailNode::init(const Size& gameBoardSize)
+    bool SideRailNode::init(MainGameScene* mainGameScene, const Size& gameBoardSize)
     {
         if (!Node::init())
         {
@@ -88,12 +90,12 @@ namespace flik
         addChild(innerBox);
         mInnerBox = innerBox;
         
-        calculateRails();
+        calculateRails(mainGameScene);
         
         return true;
     }
     
-    void SideRailNode::calculateRails()
+    void SideRailNode::calculateRails(MainGameScene* mainGameScene)
     {
         auto red = mBoxes[GamePieceType::RedPiece];
         auto blue = mBoxes[GamePieceType::BluePiece];
@@ -107,7 +109,8 @@ namespace flik
         
         double left, right, top, bottom;
         
-        float buffer = 100.0_dp;
+        float buffer = 0.0_dp;
+        auto physicsWorld = mainGameScene->getPhysicsWorldBox2D();
         
         auto getBoxGeo = [](LayerColor* box, GeoPolygon& output) {
             auto bounds = box->getBoundingBox();
@@ -116,18 +119,25 @@ namespace flik
         };
         
         auto createRailNode = [&](double left, double bottom, double right, double top, int categoryMask, int contactMask, int collisionMask, Color4B debugColor = Color4B(0, 0, 0, 255)) {
-            auto railNode = Node::create();
+            auto railNode = PhysicsNode::create();
             railNode->setPosition(Vec2(left, bottom));
             railNode->setContentSize(Size(right - left, top - bottom));
             railNode->setAnchorPoint(Vec2(0, 0));
             railNode->ignoreAnchorPointForPosition(false);
            
-            auto physicsBody = PhysicsBody::createBox(railNode->getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.0f));
-            physicsBody->setDynamic(false);
-            physicsBody->setCategoryBitmask(categoryMask);
-            physicsBody->setContactTestBitmask(contactMask);
-            physicsBody->setCollisionBitmask(collisionMask);
-            railNode->setPhysicsBody(physicsBody);
+//            auto physicsBody = PhysicsBody::createBox(railNode->getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.0f));
+//            physicsBody->setDynamic(false);
+//            physicsBody->setCategoryBitmask(categoryMask);
+//            physicsBody->setContactTestBitmask(contactMask);
+//            physicsBody->setCollisionBitmask(collisionMask);
+//            railNode->setPhysicsBody(physicsBody);
+            
+            b2BodyDef bodyDef;
+            bodyDef.type = b2BodyType::b2_staticBody;
+            bodyDef.fixedRotation = true;
+            railNode->createPhysicsBody(physicsWorld, &bodyDef);
+            railNode->addBoxFixture(railNode->getContentSize(), 1.0, 0.0, 0.5, categoryMask, collisionMask);
+            
             
 #if DEBUG_DRAW
             auto debugLayer = LayerColor::create(debugColor, railNode->getContentSize().width, railNode->getContentSize().height);
@@ -146,8 +156,8 @@ namespace flik
         {
             left = redBounds.getMaxX();
             right = blueBounds.getMinX();
-            top = redBounds.getMaxY() + buffer;
-            bottom = top - mRailSize - buffer;
+            top = redBounds.getMaxY();
+            bottom = top - mRailSize;
             
             createRailNode(left, bottom, right, top, collision::BlackRail, collision::All, collision::All);
         }

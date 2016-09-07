@@ -2,7 +2,7 @@
 	"levels": [{
 		"name": "intro",
 		"sublevels": [{
-			"time_limit": 60,
+			"time_limit": 10,
 			"objectives": [{
 				"type": "clear",
 				"quantity": 5
@@ -12,7 +12,7 @@
 				"initial_count": 5
 			}
 		}, {
-			"time_limit": 60,
+			"time_limit": 30,
 			"objectives": [{
 				"type": "clear",
 				"quantity": 25
@@ -82,7 +82,7 @@
 				"initial_count": 5
 			}
 		}, {
-			"time_limit": 60,
+			"time_limit": 75,
 			"objectives": [{
 				"type": "clear",
 				"quantity": 125
@@ -92,7 +92,7 @@
 				"initial_count": 5
 			}
 		}, {
-			"time_limit": 45,
+			"time_limit": 60,
 			"objectives": [{
 				"type": "clear",
 				"quantity": 125

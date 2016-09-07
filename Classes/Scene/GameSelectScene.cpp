@@ -39,6 +39,8 @@ namespace flik
         setContentSize(uiSize);
         
         auto container = ui::RelativeBox::create(uiSize);
+        container->setBackGroundColor(Color3B::BLACK);
+        container->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         addChild(container);
         
         auto innerContainer = ui::VBox::create(Size(uiSize.width - 30, uiSize.height));

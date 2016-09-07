@@ -11,10 +11,13 @@
 #include "Util.h"
 #include "Events.h"
 #include "GoalLayer.h"
+#include "GLES-Render.h"
 
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
+
+#define DEBUG_PHYSICS 0
 
 namespace flik
 {
@@ -40,7 +43,7 @@ namespace flik
         
         mGameBoard = mGameHUD->getGameBoard();
        
-        auto sideRailNode = SideRailNode::create(mGameBoard->getContentSize());
+        auto sideRailNode = SideRailNode::create(this, mGameBoard->getContentSize());
         sideRailNode->setPosition(0, 0);
         sideRailNode->setAnchorPoint(Vec2(0, 0));
         mSideRails = sideRailNode;
@@ -84,15 +87,32 @@ namespace flik
     // on "init" you need to initialize your instance
     bool MainGameScene::init(const LevelParams& params)
     {
-        if ( !Scene::initWithPhysics() )
+        if ( !Scene::init() )
         {
             return false;
         }
         
-        auto physicsWorld = getPhysicsWorld();
-        physicsWorld->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_CONTACT);
-        physicsWorld->setSubsteps(2);
+//        auto physicsWorld = getPhysicsWorld();
+//        physicsWorld->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_CONTACT);
+//        physicsWorld->setSubsteps(10);
+
         //physicsWorld->setSpeed(1.0 / 120.0);
+       
+        mPhysicsWorldBox2D = std::shared_ptr<b2World>(new b2World(b2Vec2(0, 0)));
+        //mPhysicsWorldBox2D->SetContinuousPhysics(true);
+        mPhysicsWorldBox2D->SetContactListener(this);
+        
+#if DEBUG_PHYSICS && DEBUG
+        b2Draw *m_debugDraw = new GLESDebugDraw(kPixelsToMeters);
+        uint32 flags = 0;
+        flags += b2Draw::e_shapeBit;
+        flags += b2Draw::e_jointBit;
+        flags += b2Draw::e_aabbBit;
+        flags += b2Draw::e_pairBit;
+        flags += b2Draw::e_centerOfMassBit;
+        m_debugDraw->SetFlags(flags);
+        mPhysicsWorldBox2D->SetDebugDraw(m_debugDraw);
+#endif
         
         setGameHUD(params.hud);
         
@@ -119,6 +139,8 @@ namespace flik
     
     void MainGameScene::update(float delta)
     {
+        mPhysicsWorldBox2D->Step(delta, 1, 1);
+        
         Node::update(delta);
         
         if (mGameHUD) {
@@ -186,6 +208,36 @@ namespace flik
     {
         if (mGameMode) {
             mGameMode->onBackPressed();
+        }
+    }
+    
+    void MainGameScene::render(Renderer *renderer)
+    {
+        SceneEx::render(renderer);
+        
+#if DEBUG_PHYSICS && DEBUG
+        mPhysicsWorldBox2D->DrawDebugData();
+#endif
+    }
+    
+    void MainGameScene::BeginContact(b2Contact* contact)
+    {
+        if (contact->IsTouching()) {
+            auto fixtureA = contact->GetFixtureA();
+            auto fixtureANode = reinterpret_cast<PhysicsNode*>(fixtureA->GetBody()->GetUserData());
+            auto fixtureAPiece = dynamic_cast<GamePiece*>(fixtureANode);
+            
+            auto fixtureB = contact->GetFixtureB();
+            auto fixtureBNode = reinterpret_cast<PhysicsNode*>(fixtureB->GetBody()->GetUserData());
+            auto fixtureBPiece = dynamic_cast<GamePiece*>(fixtureBNode);
+            
+            if (fixtureAPiece && !fixtureBPiece) {
+                mGameBoard->forceReleasePiece(fixtureAPiece);
+            }
+            
+            if (fixtureBPiece && !fixtureAPiece) {
+                mGameBoard->forceReleasePiece(fixtureBPiece);
+            }
         }
     }
 }

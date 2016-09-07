@@ -32,6 +32,8 @@
     "game_over_previous_best": "Previous Best",
     "game_over_high_score": "High Score",
     "game_over_your_score": "Your Score",
+    "game_over_level_complete": "Level %d Complete!",
+    "game_over_level_failed": "Level %d Failed!",
     
     "level_success": "SUCCESS",
     "level_failed": "LEVEL FAILED",

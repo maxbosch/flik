@@ -77,7 +77,9 @@ namespace flik
     
     cocos2d::ui::Text* Fonts::createLocalizedText(const std::string& content, float size)
     {
-        return cocos2d::ui::Text::create(content, getFontForString(content), size);
+        auto text = cocos2d::ui::Text::create(content, getFontForString(content), size);
+        return text;
+                                          
     }
     
     void Fonts::updateLocalizedText(cocos2d::ui::Text* text, const std::string& content)

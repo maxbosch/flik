@@ -46,9 +46,15 @@ namespace flik
         
         void clearBoard(bool notify = false);
         
+        void forceReleasePiece(GamePiece* piece);
+        
     private:
+        float mPieceZIndexCounter = 0;
+        
         std::vector<SelectedGamePiece> mSelectedPieces;
         
         void constrainPieceToGameBounds(GamePiece* piece);
+        
+        void onPieceTouchEnd(SelectedGamePiece& selected);
     };
 }
