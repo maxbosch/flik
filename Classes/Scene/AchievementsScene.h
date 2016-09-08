@@ -31,6 +31,6 @@ namespace flik
         void onBackPressed();
         
     private:
-        TAchievementList mAchievements;
+        TLocalAchievementList mAchievements;
     };
 };

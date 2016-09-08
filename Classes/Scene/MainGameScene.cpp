@@ -76,7 +76,15 @@ namespace flik
             getEventDispatcher()->removeEventListenersForTarget(piece);
         });
         
-        Player::getMainPlayer()->handleEndOfGameAchievements(mGameMode->getGameModeType());
+        std::vector<std::string> achievements;
+        Player::getMainPlayer()->handleEndOfGameAchievements(mGameMode->getGameModeType(), achievements);
+        
+        if (achievements.size() > 0) {
+            auto mainGameHUD = dynamic_cast<MainGameHUD*>(mGameHUD);
+            if (mainGameHUD) {
+                mainGameHUD->showAchievements(achievements);
+            }
+        }
     }
     
     MainGameScene* MainGameScene::create(const LevelParams& params)

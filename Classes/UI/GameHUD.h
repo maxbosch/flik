@@ -28,6 +28,7 @@ namespace flik
         
         virtual GameBoard* getGameBoard() = 0;
         
+                
         
     protected:
         MainGameScene* getGameScene() { return mGameScene; }

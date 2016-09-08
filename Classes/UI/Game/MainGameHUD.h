@@ -36,6 +36,8 @@ namespace flik
         
         GameBoard* getGameBoard();
         
+        void showAchievements(const std::vector<std::string>& achievements) { mPendingAchievements = achievements; }
+        
     protected:
         cocos2d::ui::Widget* mGameOverScreen;
         GameBoard* mGameBoard;
@@ -47,5 +49,10 @@ namespace flik
         virtual GameObjectiveOverlay* createObjectiveOverlay();
         virtual cocos2d::ui::Widget* createGameOverOverlay();
         virtual void onShowGameOverScreen();
+        
+    private:
+        std::vector<std::string> mPendingAchievements;
+        
+        void showAchievement(int index);
     };
 }

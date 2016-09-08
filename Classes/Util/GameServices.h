@@ -17,6 +17,7 @@
 namespace flik
 {
     typedef std::vector<Achievement> TAchievementList;
+    typedef std::vector<LocalAchievement> TLocalAchievementList;
     typedef std::function<void(const TAchievementList& achievements, int error)> TAchievementsCallback;
     
     class GameServices : public sdkbox::SdkboxPlayListener
@@ -27,6 +28,12 @@ namespace flik
         void initialize();
         
         void getAchievements(TAchievementsCallback callback, bool force = false);
+        const TLocalAchievementList getLocalAchievements() { return mLocalAchievements; }
+        const LocalAchievement* getAchievementByName(const std::string& name);
+        
+        void incrementAchievement(const AchievementIncrement& increment);
+        int getAchievementStatus(const std::string& achievement);
+        bool isComplete(const std::string& achievement);
         
         /** SdkboxPlayListener */
         void onConnectionStatusChanged( int status );
@@ -41,6 +48,7 @@ namespace flik
         
         TAchievementsCallback mAchievementsCallback;
         TAchievementList mAchievements;
+        TLocalAchievementList mLocalAchievements;
         bool mAchievementsLoaded;
     };
 }

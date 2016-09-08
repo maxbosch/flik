@@ -8,6 +8,8 @@
 
 #include "Player.h"
 #include "cocos2d.h"
+#include "Achievement.h"
+#include "GameServices.h"
 
 USING_NS_CC;
 
@@ -94,32 +96,35 @@ namespace flik
         UserDefault::getInstance()->setIntegerForKey(kCurrencyKey.c_str(), newCount);
     }
     
-    void Player::handleEndOfGameAchievements(GameModeType type)
+    void Player::handleEndOfGameAchievements(GameModeType type, std::vector<std::string>& earnedAchievements)
     {
         int score = this->getCurrentScore();
+        
+        std::vector<AchievementIncrement> increments;
         
         switch (type) {
             case GameModeType::Timed:
             {
-                sdkbox::PluginSdkboxPlay::unlockAchievement("play_timed_game_1");
-                sdkbox::PluginSdkboxPlay::incrementAchievement("play_timed_game_5", 20);
-                sdkbox::PluginSdkboxPlay::incrementAchievement("play_timed_game_20", 5);
                 sdkbox::PluginSdkboxPlay::submitScore("score_timed", score);
                 
+                increments.push_back({"play_timed_game_1", 100});
+                increments.push_back({"play_timed_game_5", 20});
+                increments.push_back({"play_timed_game_20", 5});
+                
                 if (score >= 25) {
-                    sdkbox::PluginSdkboxPlay::unlockAchievement("score_timed_25");
+                    increments.push_back({"score_timed_25", 100});
                 }
                 
                 if (score >= 50) {
-                    sdkbox::PluginSdkboxPlay::unlockAchievement("score_timed_50");
+                    increments.push_back({"score_timed_50", 100});
                 }
                 
                 if (score >= 75) {
-                    sdkbox::PluginSdkboxPlay::unlockAchievement("score_timed_75");
+                    increments.push_back({"score_timed_75", 100});
                 }
                 
                 if (score >= 100) {
-                    sdkbox::PluginSdkboxPlay::unlockAchievement("score_timed_100");
+                    increments.push_back({"score_timed_100", 100});
                 }
                 
                 break;
@@ -127,10 +132,11 @@ namespace flik
                 
             case GameModeType::Unlimited:
             {
-                sdkbox::PluginSdkboxPlay::unlockAchievement("play_unlimited_game_1");
-                sdkbox::PluginSdkboxPlay::incrementAchievement("play_unlimited_game_5", 20);
-                sdkbox::PluginSdkboxPlay::incrementAchievement("play_unlimited_game_20", 5);
                 sdkbox::PluginSdkboxPlay::submitScore("score_unlimited", score);
+                
+                increments.push_back({"play_unlimited_game_1", 100});
+                increments.push_back({"play_unlimited_game_5", 20});
+                increments.push_back({"play_unlimited_game_20", 5});
                 
                 if (score >= 50) {
                     sdkbox::PluginSdkboxPlay::unlockAchievement("score_unlimited_50");
@@ -153,6 +159,22 @@ namespace flik
  
             default:
                 break;
+        }
+        
+        auto gameServices = GameServices::getInstance();
+        
+        for (auto& increment : increments) {
+            sdkbox::PluginSdkboxPlay::incrementAchievement(increment.name, increment.amount);
+            
+            auto achievement = gameServices->getAchievementByName(increment.name);
+            if (achievement) {
+                bool wasComplete = gameServices->isComplete(increment.name);
+                gameServices->incrementAchievement(increment);
+                if (!wasComplete && gameServices->isComplete(increment.name)) {
+                    earnedAchievements.push_back(increment.name);
+                    addCurrency(achievement->bonus);
+                }
+            }
         }
     }
 }

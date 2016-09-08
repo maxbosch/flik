@@ -82,15 +82,15 @@ namespace flik
             return true;
         }
         
-        void setAchievement(Achievement& achievement)
+        void setAchievement(LocalAchievement& achievement)
         {
-            if (achievement.percentage == 100) {
+            if (GameServices::getInstance()->isComplete(achievement.name)) {
                 mCompletionImage->loadTexture("achievement_complete.png");
             } else {
                 mCompletionImage->loadTexture("achievement_incomplete.png");
             }
             
-            Fonts::updateLocalizedText(mNameText, achievement.name);
+            Fonts::updateLocalizedText(mNameText, LocalizedString::getString("achievement_" + achievement.name));
         }
         
     private:
@@ -184,15 +184,8 @@ namespace flik
         
         auto achievementsTable = TableView::create(this, Size(uiSize.width, scrollViewHeight));
         addChild(achievementsTable);
-        GameServices::getInstance()->getAchievements([this, achievementsTable](const TAchievementList& achievements, int result) {
-            if (result == RESULT_OK) {
-                mAchievements = achievements;
-                achievementsTable->reloadData();
-            } else {
-                // Show error dialog;
-                auto error = LocalizedString::getString("error_load_failed", LocalizedString::getString("word_achievements"));
-            }
-        });
+        mAchievements = GameServices::getInstance()->getLocalAchievements();
+        achievementsTable->reloadData();
         
         return true;
     }
@@ -211,7 +204,7 @@ namespace flik
         }
         
         if (mAchievements.size() > idx) {
-            cell->setAchievement(mAchievements[idx]);
+            cell->setAchievement(mAchievements[mAchievements.size() - idx - 1]);
         }
         
         return cell;

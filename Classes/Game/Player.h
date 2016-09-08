@@ -36,7 +36,7 @@ namespace flik
         void addCurrency(int amount);
         void removeCurrency(int amount);
         
-        void handleEndOfGameAchievements(GameModeType type);
+        void handleEndOfGameAchievements(GameModeType type, std::vector<std::string>& earnedAchievements);
         
         
     private:

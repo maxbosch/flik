@@ -11,6 +11,8 @@
 #include "Errors.h"
 #include <rapidjson/document.h>
 
+USING_NS_CC;
+
 namespace flik
 {
     static GameServices* sInstance = nullptr;
@@ -29,12 +31,47 @@ namespace flik
     {
     }
     
+    bool GameServices::isComplete(const std::string& achievement)
+    {
+        return getAchievementStatus(achievement) >= 100;
+    }
+    
     void GameServices::initialize()
     {
         sdkbox::PluginSdkboxPlay::init();
         sdkbox::PluginSdkboxPlay::setListener(this);
         
         sdkbox::PluginSdkboxPlay::signin();
+        
+        auto achievementJson = cocos2d::FileUtils::getInstance()->getStringFromFile("achievements.json");
+        rapidjson::Document doc;
+        doc.Parse<0>(achievementJson.c_str());
+        if (doc.GetParseError() == rapidjson::ParseErrorCode::kParseErrorNone) {
+            auto& achievementsObj = doc["achievements"];
+            for (int i = 0; i < achievementsObj.Size(); i++) {
+                auto& achievementObj = achievementsObj[i];
+                mLocalAchievements.push_back({
+                    achievementObj["name"].GetString(),
+                    achievementObj["bonus"].GetInt()
+                });
+            }
+        }
+    }
+    
+    const LocalAchievement* GameServices::getAchievementByName(const std::string& name)
+    {
+        for (auto& achievement : mLocalAchievements) {
+            if (achievement.name == name) {
+                return &achievement;
+            }
+        }
+        
+        return nullptr;
+    }
+    
+    int GameServices::getAchievementStatus(const std::string& achievement)
+    {
+        return UserDefault::getInstance()->getIntegerForKey(("achievement_percent_" + achievement).c_str(), 0);
     }
     
     void GameServices::getAchievements(TAchievementsCallback callback, bool force)
@@ -47,6 +84,13 @@ namespace flik
                 callback(mAchievements, RESULT_OK);
             }
         }
+    }
+    
+    void GameServices::incrementAchievement(const AchievementIncrement& increment)
+    {
+        std::string key = "achievement_percent_" + increment.name;
+        int currentStatus = getAchievementStatus(increment.name);
+        UserDefault::getInstance()->setIntegerForKey(key.c_str(), std::min(100, currentStatus + increment.amount));
     }
     
     /** SdkboxPlayListener */

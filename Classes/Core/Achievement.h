@@ -25,6 +25,18 @@ namespace flik
         Incremental = 1
     };
     
+    struct AchievementIncrement
+    {
+        std::string name;
+        int amount;
+    };
+    
+    struct LocalAchievement
+    {
+        std::string name;
+        int bonus;
+    };
+    
     struct Achievement
     {
         std::string id;

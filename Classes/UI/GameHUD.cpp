@@ -7,3 +7,8 @@
 //
 
 #include "GameHUD.h"
+
+namespace flik
+{
+    
+}

@@ -30,6 +30,7 @@
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		5C05403BB2316A413887BF45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82184907863F3C226936A794 /* SystemConfiguration.framework */; };
 		660726E91D5B65830072A7A3 /* DisableColorBehavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660726E71D5B65830072A7A3 /* DisableColorBehavior.cpp */; };
+		660956C11D80518C0063BFDF /* AchievementOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660956BF1D80518C0063BFDF /* AchievementOverlay.cpp */; };
 		660DD9E61D6C8ADE00698B93 /* 2x in Resources */ = {isa = PBXBuildFile; fileRef = 660DD9E51D6C8ADE00698B93 /* 2x */; };
 		66114ECC1D12D77A00B2C92B /* ObjectiveItemWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66114ECA1D12D77A00B2C92B /* ObjectiveItemWidget.cpp */; };
 		66114ED21D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66114ED01D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp */; };
@@ -100,6 +101,7 @@
 		668304AD1D48F72D0036BFA7 /* TimedSpawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 668304AB1D48F72D0036BFA7 /* TimedSpawner.cpp */; };
 		668304B01D48F73D0036BFA7 /* IncreasingTimedSpawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 668304AE1D48F73D0036BFA7 /* IncreasingTimedSpawner.cpp */; };
 		668304B31D48F74B0036BFA7 /* ReplaceSpawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 668304B11D48F74B0036BFA7 /* ReplaceSpawner.cpp */; };
+		668313F91D80E0BA00645341 /* achievements.json in Resources */ = {isa = PBXBuildFile; fileRef = 668313F81D80E0BA00645341 /* achievements.json */; };
 		66A92EF21D0F81D8004F78D3 /* GameBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A92EF01D0F81D8004F78D3 /* GameBoard.cpp */; };
 		66B92B721D0A3C6200DA1657 /* StoreProductWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */; };
 		66CC6CA01D2FDDD600A60D8D /* lua in Resources */ = {isa = PBXBuildFile; fileRef = 66CC6C9F1D2FDDD600A60D8D /* lua */; };
@@ -209,6 +211,8 @@
 		653B48C1B5B985AED8C487F1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		660726E71D5B65830072A7A3 /* DisableColorBehavior.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DisableColorBehavior.cpp; sourceTree = "<group>"; };
 		660726E81D5B65830072A7A3 /* DisableColorBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisableColorBehavior.h; sourceTree = "<group>"; };
+		660956BF1D80518C0063BFDF /* AchievementOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AchievementOverlay.cpp; sourceTree = "<group>"; };
+		660956C01D80518C0063BFDF /* AchievementOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementOverlay.h; sourceTree = "<group>"; };
 		660DD9E51D6C8ADE00698B93 /* 2x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 2x; sourceTree = "<group>"; };
 		66114ECA1D12D77A00B2C92B /* ObjectiveItemWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectiveItemWidget.cpp; sourceTree = "<group>"; };
 		66114ECB1D12D77A00B2C92B /* ObjectiveItemWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveItemWidget.h; sourceTree = "<group>"; };
@@ -329,6 +333,7 @@
 		668304B11D48F74B0036BFA7 /* ReplaceSpawner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReplaceSpawner.cpp; sourceTree = "<group>"; };
 		668304B21D48F74B0036BFA7 /* ReplaceSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplaceSpawner.h; sourceTree = "<group>"; };
 		668304B41D48F7780036BFA7 /* PieceSpawner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PieceSpawner.h; sourceTree = "<group>"; };
+		668313F81D80E0BA00645341 /* achievements.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = achievements.json; sourceTree = "<group>"; };
 		66A92EF01D0F81D8004F78D3 /* GameBoard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameBoard.cpp; sourceTree = "<group>"; };
 		66A92EF11D0F81D8004F78D3 /* GameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoard.h; sourceTree = "<group>"; };
 		66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoreProductWidget.cpp; sourceTree = "<group>"; };
@@ -563,6 +568,7 @@
 				66CC6C9F1D2FDDD600A60D8D /* lua */,
 				66E3457D1D1379120075CB46 /* levels.json */,
 				665766861D2D3B5B0098D936 /* fonts.json */,
+				668313F81D80E0BA00645341 /* achievements.json */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -683,6 +689,8 @@
 				663894661D09AD9B0034892E /* TimedGameHUD.h */,
 				66D7CF771D24A2950000DE33 /* TutorialGameHUD.cpp */,
 				66D7CF781D24A2950000DE33 /* TutorialGameHUD.h */,
+				660956BF1D80518C0063BFDF /* AchievementOverlay.cpp */,
+				660956C01D80518C0063BFDF /* AchievementOverlay.h */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -1025,6 +1033,7 @@
 				665D9A211D070D060051A9C9 /* fonts in Resources */,
 				665D9A1F1D070D060051A9C9 /* 4x in Resources */,
 				66CC6CA01D2FDDD600A60D8D /* lua in Resources */,
+				668313F91D80E0BA00645341 /* achievements.json in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				665D9A1D1D070D060051A9C9 /* 3x in Resources */,
 				665D9A191D070D060051A9C9 /* 1x in Resources */,
@@ -1125,6 +1134,7 @@
 				663894A11D09AEB60034892E /* VelocityTracker.cpp in Sources */,
 				66D655B01D10CC2100F1B6E8 /* LevelTypes.cpp in Sources */,
 				66D7CF731D249CC70000DE33 /* TutorialGameMode.cpp in Sources */,
+				660956C11D80518C0063BFDF /* AchievementOverlay.cpp in Sources */,
 				66CC6CB81D30678800A60D8D /* format.cc in Sources */,
 				6638947E1D09AD9B0034892E /* PowerUpButton.cpp in Sources */,
 				660726E91D5B65830072A7A3 /* DisableColorBehavior.cpp in Sources */,

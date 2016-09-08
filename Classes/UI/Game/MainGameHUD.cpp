@@ -25,6 +25,7 @@
 #include "SettingsScene.h"
 #include "LocalizedString.h"
 #include "AchievementsScene.h"
+#include "AchievementOverlay.h"
 
 #include <boost/lexical_cast.hpp>
 
@@ -172,8 +173,12 @@ namespace flik
     {
         switch (newState) {
             case GameState::Finished:
-                onShowGameOverScreen();
-                mGameOverScreen->setVisible(true);
+                if (mPendingAchievements.size() > 0) {
+                    showAchievement(0);
+                } else {
+                    onShowGameOverScreen();
+                    mGameOverScreen->setVisible(true);
+                }
                 break;
             case GameState::Paused:
                 mPauseOverlay->setVisible(true);
@@ -215,5 +220,23 @@ namespace flik
     {
         auto gameOverScreen = dynamic_cast<DefaultGameOverOverlay*>(mGameOverScreen);
         gameOverScreen->show(Player::getMainPlayer()->getCurrentScore(), getGameScene()->getGameMode()->getTopScore());
+    }
+    
+    void MainGameHUD::showAchievement(int index)
+    {
+        if (index < mPendingAchievements.size()) {
+            auto achievementOverlay = AchievementOverlay::create(mPendingAchievements[index]);
+            achievementOverlay->onNextLevelTapped = [this, index, achievementOverlay]() {
+                showAchievement(index + 1);
+                achievementOverlay->removeFromParent();
+            };
+            
+            addChild(achievementOverlay, 3);
+        } else {
+            mPendingAchievements.clear();
+            
+            onShowGameOverScreen();
+            mGameOverScreen->setVisible(true);
+        }
     }
 }
