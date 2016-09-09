@@ -104,111 +104,392 @@
 		}]
 	}, {
 		"name": "walls",
-		"sublevels": [{
-			"time_limit": 10,
-			"objectives": [{
-				"type": "clear",
-				"quantity": 10
-			}],
-			"obstacles": [{
-				"type": "wall",
-				"colors": [],
-				"position": {
-					"x": 50,
-					"y": 45
-				},
-				"size": {
-					"width": 40,
-					"height": 10
-				},
-				"rotation": 0
-			}],
-			"spawner": {
-				"type": "replace",
-				"initial_count": 5
+		"sublevels": [
+			{
+				"time_limit": 10,
+				"objectives": [{
+					"type": "clear",
+					"quantity": 10
+				}],
+				"obstacles": [{
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 45
+					},
+					"size": {
+						"width": 40,
+						"height": 10
+					},
+					"rotation": 0
+				}],
+				"spawner": {
+					"type": "replace",
+					"initial_count": 5
+				}
+			}, 
+			{
+				"time_limit": 15,
+				"objectives": [{
+					"type": "clear",
+					"quantity": 20
+				}],
+				"obstacles": [{
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 45
+					},
+					"size": {
+						"width": 40,
+						"height": 10
+					},
+					"rotation": 0
+				}],
+				"spawner": {
+					"type": "replace",
+					"initial_count": 5
+				}
+			}, 
+			{
+				"time_limit": 45,
+				"objectives": [{
+					"type": "clear",
+					"quantity": 50
+				}],
+				"obstacles": [{
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 45
+					},
+					"size": {
+						"width": 40,
+						"height": 10
+					},
+					"rotation": 0
+				}],
+				"spawner": {
+					"type": "replace",
+					"initial_count": 5
+				}
+			}, 
+			{
+				"time_limit": 45,
+				"objectives": [{
+					"type": "clear",
+					"quantity": 50
+				}],
+				"obstacles": [{
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 35
+					},
+					"size": {
+						"width": 40,
+						"height": 5
+					},
+					"rotation": 45
+				}, {
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 65
+					},
+					"size": {
+						"width": 40,
+						"height": 5
+					},
+					"rotation": 45
+				}],
+				"spawner": {
+					"type": "replace",
+					"initial_count": 5
+				}
+			},
+			{
+				"time_limit": 60,
+				"objectives": [{
+					"type": "clear",
+					"quantity": 75
+				}],
+				"obstacles": [{
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 35
+					},
+					"size": {
+						"width": 40,
+						"height": 5
+					},
+					"rotation": 45
+				}, {
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 65
+					},
+					"size": {
+						"width": 40,
+						"height": 5
+					},
+					"rotation": 45
+				}],
+				"spawner": {
+					"type": "replace",
+					"initial_count": 5
+				}
+			},
+			{
+				"time_limit": 50,
+				"objectives": [{
+					"type": "clear",
+					"quantity": 75
+				}],
+				"obstacles": [{
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 35
+					},
+					"size": {
+						"width": 40,
+						"height": 5
+					},
+					"rotation": 45
+				}, {
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 65
+					},
+					"size": {
+						"width": 40,
+						"height": 5
+					},
+					"rotation": 45
+				}],
+				"spawner": {
+					"type": "replace",
+					"initial_count": 5
+				}
+			},
+			{
+				"time_limit": 45,
+				"objectives": [{
+					"type": "clear",
+					"quantity": 50
+				}],
+				"obstacles": [{
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 35
+					},
+					"size": {
+						"width": 50,
+						"height": 3
+					},
+					"rotation": 0
+				}, {
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 65
+					},
+					"size": {
+						"width": 50,
+						"height": 3
+					},
+					"rotation": 0
+				}, {
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 50
+					},
+					"size": {
+						"width": 50,
+						"height": 3
+					},
+					"rotation": 0
+				}],
+				"spawner": {
+					"type": "replace",
+					"initial_count": 5
+				}
+			},
+			{
+				"time_limit": 60,
+				"objectives": [{
+					"type": "clear",
+					"quantity": 75
+				}],
+				"obstacles": [{
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 35
+					},
+					"size": {
+						"width": 50,
+						"height": 3
+					},
+					"rotation": 0
+				}, {
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 65
+					},
+					"size": {
+						"width": 50,
+						"height": 3
+					},
+					"rotation": 0
+				}, {
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 50
+					},
+					"size": {
+						"width": 50,
+						"height": 3
+					},
+					"rotation": 0
+				}],
+				"spawner": {
+					"type": "replace",
+					"initial_count": 5
+				}
+			},
+			{
+				"time_limit": 50,
+				"objectives": [{
+					"type": "clear",
+					"quantity": 75
+				}],
+				"obstacles": [{
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 35
+					},
+					"size": {
+						"width": 50,
+						"height": 3
+					},
+					"rotation": 0
+				}, {
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 65
+					},
+					"size": {
+						"width": 50,
+						"height": 3
+					},
+					"rotation": 0
+				}, {
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 50,
+						"y": 50
+					},
+					"size": {
+						"width": 50,
+						"height": 3
+					},
+					"rotation": 0
+				}],
+				"spawner": {
+					"type": "replace",
+					"initial_count": 5
+				}
+			},
+			{
+				"time_limit": 60,
+				"objectives": [{
+					"type": "clear",
+					"quantity": 100
+				}],
+				"obstacles": [{
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 25,
+						"y": 15
+					},
+					"size": {
+						"width": 30,
+						"height": 3
+					},
+					"rotation": 45
+				}, {
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 75,
+						"y": 15
+					},
+					"size": {
+						"width": 30,
+						"height": 3
+					},
+					"rotation": 135
+				}, {
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 25,
+						"y": 75
+					},
+					"size": {
+						"width": 30,
+						"height": 3
+					},
+					"rotation": 135
+				}, {
+					"type": "wall",
+					"colors": [],
+					"position": {
+						"x": 75,
+						"y": 75
+					},
+					"size": {
+						"width": 30,
+						"height": 3
+					},
+					"rotation": 45
+				}],
+				"spawner": {
+					"type": "replace",
+					"initial_count": 5
+				}
 			}
-		}, {
-			"time_limit": 15,
-			"objectives": [{
-				"type": "clear",
-				"quantity": 20
-			}],
-			"obstacles": [{
-				"type": "wall",
-				"colors": [],
-				"position": {
-					"x": 50,
-					"y": 45
-				},
-				"size": {
-					"width": 40,
-					"height": 10
-				},
-				"rotation": 0
-			}],
-			"spawner": {
-				"type": "replace",
-				"initial_count": 5
-			}
-		}, {
-			"time_limit": 45,
-			"objectives": [{
-				"type": "clear",
-				"quantity": 50
-			}],
-			"obstacles": [{
-				"type": "wall",
-				"colors": [],
-				"position": {
-					"x": 30,
-					"y": 45
-				},
-				"size": {
-					"width": 40,
-					"height": 10
-				},
-				"rotation": 0
-			}],
-			"spawner": {
-				"type": "replace",
-				"initial_count": 5
-			}
-		}, {
-			"time_limit": 45,
-			"objectives": [{
-				"type": "clear",
-				"quantity": 50
-			}],
-			"obstacles": [{
-				"type": "wall",
-				"colors": [],
-				"position": {
-					"x": 50,
-					"y": 35
-				},
-				"size": {
-					"width": 30,
-					"height": 5
-				},
-				"rotation": 45
-			}, {
-				"type": "wall",
-				"colors": [],
-				"position": {
-					"x": 50,
-					"y": 65
-				},
-				"size": {
-					"width": 30,
-					"height": 5
-				},
-				"rotation": 135
-			}],
-			"spawner": {
-				"type": "replace",
-				"initial_count": 5
-			}
-		}]
+		]
 	}, {
 		"name": "clear",
 		"sublevels": [{
@@ -315,10 +596,34 @@
 	}, {
 		"name": "max",
 		"sublevels": [{
+			"time_limit": 20,
+			"objectives": [{
+				"type": "max",
+				"quantity": 30
+			}],
+			"spawner": {
+				"type": "timed",
+				"initial_count": 5,
+				"count": 1,
+				"interval": 1
+			}
+		}, {
 			"time_limit": 25,
 			"objectives": [{
 				"type": "max",
-				"quantity": 20
+				"quantity": 30
+			}],
+			"spawner": {
+				"type": "timed",
+				"initial_count": 5,
+				"count": 2,
+				"interval": 1
+			}
+		}, {
+			"time_limit": 25,
+			"objectives": [{
+				"type": "max",
+				"quantity": 25
 			}],
 			"spawner": {
 				"type": "timed",

@@ -127,7 +127,7 @@ namespace flik
             row->setContentSize(Size(mScrollView->getContentSize().width, kRowHeight));
             row->onTapped = [this](int sublevel) {
                 int status = LevelInfo::getInstance()->getLevelStatus(mLevelDesc->levelNum, sublevel);
-                if (status >= 0 || true) {
+                if (status >= 0) {
                     auto gameScene = MainGameScene::create({LevelsGameMode::create(mLevelDesc, sublevel), LevelsGameHUD::create(mLevelDesc)});
                     SceneManager::pushSceneWithTransition<TransitionSlideInR>(gameScene, kTransitionDuration);
                 }
