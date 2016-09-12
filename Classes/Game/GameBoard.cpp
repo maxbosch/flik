@@ -12,6 +12,7 @@
 #include "GamePiece.h"
 #include "Literals.h"
 #include "Events.h"
+#include "MainGameScene.h"
 
 namespace flik
 {
@@ -126,10 +127,54 @@ namespace flik
         for (auto touch : touches) {
             for (auto& selected : mSelectedPieces) {
                 if (selected.startLocation == touch->getStartLocation()) {
+                    auto lastPosition = selected.piece->getPosition();
                     selected.velocityTracker.AddPoint(touch->getLocation());
-                    selected.piece->setPosition(selected.piece->getPosition() + touch->getDelta());
-                    selected.piece->getPhysicsBodyBox2D()->SetLinearVelocity(b2Vec2(0, 0));
+                    auto newPosition = lastPosition + touch->getDelta();
+                    
                     constrainPieceToGameBounds(selected.piece);
+                    if (newPosition.distance(lastPosition) < 75.0_dp) {
+                        selected.piece->setPosition(newPosition);
+                        
+                        auto pieceBounds = selected.piece->getBoundingBox();
+                        
+                        // if the user tries to drag the piece inside the bounds of a wall, we reject it
+                        for (auto child : getChildren()) {
+                            auto obstacle = dynamic_cast<PhysicsNode*>(child);
+                            if (obstacle && obstacle->getTag() != kPieceTag) {
+                                auto obstacleBounds = obstacle->getBoundingBox();
+                                if (pieceBounds.intersectsRect(obstacleBounds)) {
+                                    Vec2 newPosition;
+                                    
+                                    float halfWidth = selected.piece->getContentSize().width;
+                                    float halfHeight = selected.piece->getContentSize().height;
+                                    
+                                    if (pieceBounds.getMinX() > obstacleBounds.getMinX() && pieceBounds.getMaxX() < obstacleBounds.getMaxX()) {
+                                        newPosition.x = selected.piece->getPositionX();
+                                    } else if (pieceBounds.getMinX() < obstacleBounds.getMinX()) {
+                                        newPosition.x = obstacleBounds.getMinX() - halfWidth;
+                                    } else if (pieceBounds.getMaxX() > obstacleBounds.getMaxX()) {
+                                        newPosition.x = obstacleBounds.getMaxX() + halfWidth;
+                                    }
+                                    
+                                    if (pieceBounds.getMinY() > obstacleBounds.getMinY() && pieceBounds.getMaxY() < obstacleBounds.getMaxY()) {
+                                        newPosition.y = selected.piece->getPositionY();
+                                    } else if (pieceBounds.getMinY() < obstacleBounds.getMinY()) {
+                                        newPosition.y = obstacleBounds.getMinY() - halfHeight;
+                                    } else if (pieceBounds.getMaxY() > obstacleBounds.getMaxY()) {
+                                        newPosition.y = obstacleBounds.getMaxY() + halfHeight;
+                                    }
+                                    selected.piece->setPosition(newPosition);
+                                    
+                                    onTouchesEnded(touches, unused_event);
+                                    
+                                    break;
+                                }
+                            }
+                        }
+                    } else {
+                        onTouchesEnded(touches, unused_event);
+                    }
+                    
                     break;
                 }
             }

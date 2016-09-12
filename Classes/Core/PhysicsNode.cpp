@@ -55,7 +55,7 @@ namespace flik
 
     void PhysicsNode::update(float time)
     {
-        if (mPhysicsBodyBox2D) {
+        if (mPhysicsBodyBox2D && mPhysicsBodyBox2D->IsAwake()) {
             auto x = (mPhysicsBodyBox2D->GetPosition().x * kPixelsToMeters) - (getContentSize().width * (0.5 - getAnchorPoint().x));
             auto y = (mPhysicsBodyBox2D->GetPosition().y * kPixelsToMeters) - (getContentSize().height * (0.5 - getAnchorPoint().y));
             
@@ -87,7 +87,7 @@ namespace flik
             
             mPhysicsBodyBox2D->SetTransform(position, -getRotation() * kDeg2Rad);
             
-            mPhysicsBodyBox2D->SetLinearVelocity(b2Vec2(0, 0));
+            mPhysicsBodyBox2D->SetAwake(false);
         }
     }
 }

@@ -230,23 +230,6 @@ namespace flik
     
     void MainGameScene::BeginContact(b2Contact* contact)
     {
-        if (contact->IsTouching()) {
-            auto fixtureA = contact->GetFixtureA();
-            auto fixtureANode = reinterpret_cast<PhysicsNode*>(fixtureA->GetBody()->GetUserData());
-            auto fixtureAPiece = dynamic_cast<GamePiece*>(fixtureANode);
-            
-            auto fixtureB = contact->GetFixtureB();
-            auto fixtureBNode = reinterpret_cast<PhysicsNode*>(fixtureB->GetBody()->GetUserData());
-            auto fixtureBPiece = dynamic_cast<GamePiece*>(fixtureBNode);
-            
-            if (fixtureAPiece && !fixtureBPiece) {
-                mGameBoard->forceReleasePiece(fixtureAPiece);
-            }
-            
-            if (fixtureBPiece && !fixtureAPiece) {
-                mGameBoard->forceReleasePiece(fixtureBPiece);
-            }
-        }
     }
 }
 
