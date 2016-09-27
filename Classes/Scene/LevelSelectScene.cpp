@@ -16,7 +16,7 @@
 #include "LevelSelectRowWidget.h"
 #include "LevelsGameMode.h"
 #include "LevelsGameHUD.h"
-#include "MainGameScene.h"
+#include "LevelGameScene.h"
 #include "SceneManager.h"
 #include "LocalizedString.h"
 #include "LevelTypes.h"
@@ -128,7 +128,7 @@ namespace flik
             row->onTapped = [this](int sublevel) {
                 int status = LevelInfo::getInstance()->getLevelStatus(mLevelDesc->levelNum, sublevel);
                 if (status >= 0) {
-                    auto gameScene = MainGameScene::create({LevelsGameMode::create(mLevelDesc, sublevel), LevelsGameHUD::create(mLevelDesc)});
+                    auto gameScene = LevelGameScene::create(mLevelDesc, sublevel);
                     SceneManager::pushSceneWithTransition<TransitionSlideInR>(gameScene, kTransitionDuration);
                 }
             };

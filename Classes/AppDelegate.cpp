@@ -124,6 +124,12 @@ namespace flik
             level = MainGameScene::create(params);
             
             UserDefault::getInstance()->setBoolForKey("installed", true);
+            
+            Player::getMainPlayer()->addPowerUp(BonusType::AddTime, 5);
+            Player::getMainPlayer()->addPowerUp(BonusType::Gravity, 5);
+            Player::getMainPlayer()->addPowerUp(BonusType::Rainbow, 5);
+            Player::getMainPlayer()->addPowerUp(BonusType::DoubleUp, 5);
+            Player::getMainPlayer()->addPowerUp(BonusType::Ghost, 5);
         }
         
         // Set up back button

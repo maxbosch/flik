@@ -124,6 +124,7 @@ namespace flik
             railNode->setContentSize(Size(right - left, top - bottom));
             railNode->setAnchorPoint(Vec2(0, 0));
             railNode->ignoreAnchorPointForPosition(false);
+            addChild(railNode);
            
 //            auto physicsBody = PhysicsBody::createBox(railNode->getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.0f));
 //            physicsBody->setDynamic(false);
@@ -147,7 +148,7 @@ namespace flik
             railNode->addChild(debugLayer);
 #endif
             
-            addChild(railNode);
+            
             
             return railNode;
         };

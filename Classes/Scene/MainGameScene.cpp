@@ -110,7 +110,7 @@ namespace flik
         //mPhysicsWorldBox2D->SetContinuousPhysics(true);
         mPhysicsWorldBox2D->SetContactListener(this);
         
-#if DEBUG_PHYSICS && DEBUG
+#if DEBUG_PHYSICS
         b2Draw *m_debugDraw = new GLESDebugDraw(kPixelsToMeters);
         uint32 flags = 0;
         flags += b2Draw::e_shapeBit;
@@ -147,7 +147,7 @@ namespace flik
     
     void MainGameScene::update(float delta)
     {
-        mPhysicsWorldBox2D->Step(delta, 1, 1);
+        mPhysicsWorldBox2D->Step(1.0 / 60.0, 1, 1);
         
         Node::update(delta);
         
@@ -223,13 +223,18 @@ namespace flik
     {
         SceneEx::render(renderer);
         
-#if DEBUG_PHYSICS && DEBUG
+#if DEBUG_PHYSICS
         mPhysicsWorldBox2D->DrawDebugData();
 #endif
     }
     
     void MainGameScene::BeginContact(b2Contact* contact)
     {
+    }
+    
+    void MainGameScene::reloadScene()
+    {
+        Player::getMainPlayer()->resetScore();
     }
 }
 

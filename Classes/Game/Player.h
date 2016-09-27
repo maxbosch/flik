@@ -28,9 +28,9 @@ namespace flik
         void addScore(int amount);
         int getCurrentScore() { return mCurrentScore; }
         void recordScore(std::string key);
-        int getPowerUpCount(PowerUpType type);
-        void consumePowerUp(PowerUpType type, int count);
-        void addPowerUp(PowerUpType type, int count);
+        int getPowerUpCount(BonusType type);
+        void consumePowerUp(BonusType type, int count);
+        void addPowerUp(BonusType type, int count);
         
         int getCurrencyAmount();
         void addCurrency(int amount);
@@ -38,10 +38,13 @@ namespace flik
         
         void handleEndOfGameAchievements(GameModeType type, std::vector<std::string>& earnedAchievements);
         
+        void setLastBonusChoices(const std::vector<BonusType>& bonuses);
+        const std::vector<BonusType>& getLastBonusChoices();
         
     private:
         Player();
         
         int mCurrentScore;
+        std::vector<BonusType> mLastBonusChoices;
     };
 }

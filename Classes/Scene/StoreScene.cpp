@@ -15,8 +15,10 @@
 #include "SceneManager.h"
 #include "Animations.h"
 #include "LocalizedString.h"
+#include "BuyPowerupRowWidget.h"
 
 USING_NS_CC;
+USING_NS_CC_EXT;
 
 namespace flik
 {
@@ -61,7 +63,7 @@ namespace flik
         productsCopy->setLayoutParameter(productsCopyLayout);
         storeGUI->addChild(productsCopy);
         
-        auto productsContainer = ui::RelativeBox::create(Size(uiSize.width, 200.0_dp));
+        auto productsContainer = ui::RelativeBox::create(Size(uiSize.width, 350.0_dp));
         auto productsContainerLayout = ui::RelativeLayoutParameter::create();
         productsContainerLayout->setRelativeToWidgetName("products_copy");
         productsContainerLayout->setAlign(RelativeAlign::LOCATION_BELOW_CENTER);
@@ -70,19 +72,9 @@ namespace flik
         storeGUI->addChild(productsContainer);
         mProductsContainer = productsContainer;
         
-        auto timeStopProduct = StoreProductWidget::create(PowerUpType::Timestop, 1000, 5, LocalizedString::getString("store_product_time_stops"));
-        auto timeStopsProductLayout = ui::RelativeLayoutParameter::create();
-        timeStopsProductLayout->setAlign(RelativeAlign::PARENT_LEFT_CENTER_VERTICAL);
-        timeStopsProductLayout->setMargin(ui::Margin(40.0_dp, 0, 0, 0));
-        timeStopProduct->setLayoutParameter(timeStopsProductLayout);
-        productsContainer->addChild(timeStopProduct);
-        
-        auto targetProduct = StoreProductWidget::create(PowerUpType::Target, 500, 5, LocalizedString::getString("store_product_board_clears"));
-        auto targetProductLayout = ui::RelativeLayoutParameter::create();
-        targetProductLayout->setAlign(RelativeAlign::PARENT_RIGHT_CENTER_VERTICAL);
-        targetProductLayout->setMargin(ui::Margin(0, 0, 40.0_dp, 0));
-        targetProduct->setLayoutParameter(targetProductLayout);
-        productsContainer->addChild(targetProduct);
+        auto productsTable = TableView::create(this, productsContainer->getContentSize());
+        productsContainer->addChild(productsTable);
+        productsTable->reloadData();
         
         auto closeButton = ui::Button::create("arrow_down.png");
         closeButton->setRotation(180);
@@ -108,9 +100,6 @@ namespace flik
         storeGUI->addChild(storePurchaseOverlay);
         mPurchaseOverlay = storePurchaseOverlay;
         setPurchaseOverlayVisible(false, false);
-        
-        timeStopProduct->onProductPurchaseRequested = CC_CALLBACK_3(StoreScene::onProductPurchaseRequested, this);
-        targetProduct->onProductPurchaseRequested = CC_CALLBACK_3(StoreScene::onProductPurchaseRequested, this);
         
         pointsButton->addTouchEventListener([this](Ref* sender, StoreProductWidget::TouchEventType type) {
             if (type == StoreProductWidget::TouchEventType::ENDED) {
@@ -163,7 +152,7 @@ namespace flik
         auto player = Player::getMainPlayer();
         if (player->getCurrencyAmount() >= cost) {
             player->removeCurrency(cost);
-            player->addPowerUp(type, quantity);
+            //player->addPowerUp(type, quantity);
         } else {
             setPurchaseOverlayVisible(true);
         }
@@ -176,5 +165,42 @@ namespace flik
         } else {
             SceneManager::popSceneWithTransition<TransitionSlideInT>(kTransitionDuration);
         }
+    }
+    
+    /* TableViewDataSource */
+    /* TableViewDataSource methods */
+    Size StoreScene::cellSizeForTable(TableView *table)
+    {
+        return Size(getContentSize().width, ChoosePowerupRowWidget::getCellHeight());
+    }
+    
+    TableViewCell* StoreScene::tableCellAtIndex(TableView *table, ssize_t idx)
+    {
+        auto cell = dynamic_cast<BuyPowerupRowWidget*>(table->dequeueCell());
+        if (cell == nullptr) {
+            cell = BuyPowerupRowWidget::create();
+            cell->onBuyItemRequested = [this, table](BonusType type, int cost) {
+                auto player = Player::getMainPlayer();
+                if (player->getCurrencyAmount() >= cost) {
+                    player->removeCurrency(cost);
+                    player->addPowerUp(type, 1);
+                    
+                    int idx = (static_cast<int>(BonusType::Count) - 1) - static_cast<int>(type);
+                    table->updateCellAtIndex(idx);
+                } else {
+                    setPurchaseOverlayVisible(true);
+                }
+            };
+        }
+        
+        BonusType btype = static_cast<BonusType>((static_cast<int>(BonusType::Count) - 1) - idx);
+        cell->setData(btype, false);
+        
+        return cell;
+    }
+    
+    ssize_t StoreScene::numberOfCellsInTableView(TableView *table)
+    {
+        return (ssize_t) BonusType::Count;
     }
 }

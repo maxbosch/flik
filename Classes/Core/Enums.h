@@ -44,8 +44,28 @@ namespace flik
 
     enum class BonusType
     {
+        None = -1,
+        AddTime,
         Ghost,
+        DoubleUp,
+        Gravity,
         Rainbow,
-        AddTime
+        Count
+    };
+    
+    static std::map<BonusType, std::string> kBonusStrings {
+        std::pair<BonusType, std::string>(BonusType::Ghost, "ghost"),
+        std::pair<BonusType, std::string>(BonusType::Rainbow, "rainbow"),
+        std::pair<BonusType, std::string>(BonusType::AddTime, "add_time"),
+        std::pair<BonusType, std::string>(BonusType::DoubleUp, "double_up"),
+        std::pair<BonusType, std::string>(BonusType::Gravity, "gravity")
+    };
+    
+    static std::map<BonusType, int> kBonusCosts {
+        std::pair<BonusType, int>(BonusType::Ghost, 500),
+        std::pair<BonusType, int>(BonusType::Rainbow, 1000),
+        std::pair<BonusType, int>(BonusType::AddTime, 500),
+        std::pair<BonusType, int>(BonusType::DoubleUp, 750),
+        std::pair<BonusType, int>(BonusType::Gravity, 750)
     };
 }

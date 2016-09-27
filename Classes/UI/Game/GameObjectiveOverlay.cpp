@@ -15,6 +15,10 @@
 #include "BlurredBackgroundWidget.h"
 #include "Animations.h"
 #include "LocalizedString.h"
+#include "BonusBar.h"
+#include "ChoosePowerupScene.h"
+#include "SceneManager.h"
+#include "Player.h"
 
 USING_NS_CC;
 
@@ -52,29 +56,18 @@ namespace flik
         mContentContainer = innerContainer;
     
         innerContainer->addChild(createTitleWidget(title));
-    
-        auto borderLayout = ui::LinearLayoutParameter::create();
-        borderLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
         
-        auto border1 = ui::HBox::create(Size(210.0_dp, 3.0_dp));
-        border1->setBackGroundColor(kBlueBorderColor);
-        border1->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
-        auto borderLayout1 = ui::LinearLayoutParameter::create();
-        borderLayout1->setGravity(LinearGravity::CENTER_HORIZONTAL);
-        border1->setLayoutParameter(borderLayout1);
-        innerContainer->addChild(border1);
-        
-        auto objectiveTextLabel = Fonts::createLocalizedText(LocalizedString::getString("objective"), 15.0_dp);
+        /*auto objectiveTextLabel = Fonts::createLocalizedText(LocalizedString::getString("objective"), 15.0_dp);
         auto objectiveTextLabelLayout = ui::LinearLayoutParameter::create();
         objectiveTextLabelLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
-        objectiveTextLabelLayout->setMargin(ui::Margin(0, 45.0_dp, 0, 20.0_dp));
+        objectiveTextLabelLayout->setMargin(ui::Margin(0, 20.0_dp, 0, 20.0_dp));
         objectiveTextLabel->setLayoutParameter(objectiveTextLabelLayout);
-        innerContainer->addChild(objectiveTextLabel);
+        innerContainer->addChild(objectiveTextLabel);*/
         
         auto objectiveWidget = createObjectiveWidget();
         auto objectiveContainerLayout = ui::LinearLayoutParameter::create();
         objectiveContainerLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
-        objectiveContainerLayout->setMargin(ui::Margin(0, 10.0_dp, 0, 0));
+        objectiveContainerLayout->setMargin(ui::Margin(0, 23.0_dp, 0, 30.0_dp));
         objectiveWidget->setLayoutParameter(objectiveContainerLayout);
         innerContainer->addChild(objectiveWidget);
         
@@ -83,8 +76,48 @@ namespace flik
         border2->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         auto borderLayout2 = ui::LinearLayoutParameter::create();
         borderLayout2->setGravity(LinearGravity::CENTER_HORIZONTAL);
-        border2->setLayoutParameter(borderLayout1);
+        border2->setLayoutParameter(borderLayout2);
         innerContainer->addChild(border2);
+        
+        auto bonusContainer = ui::VBox::create(Size(250.0_dp, 85.0_dp));
+        auto bonusContainerLayout = ui::LinearLayoutParameter::create();
+        bonusContainerLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
+        bonusContainerLayout->setMargin(ui::Margin(0, 30.0_dp, 0, 30.0_dp));
+        bonusContainer->setLayoutParameter(bonusContainerLayout);
+        innerContainer->addChild(bonusContainer);
+        
+        auto chooseBonusText = Fonts::createLocalizedText(LocalizedString::getString("choose_bonus"), 15.0_dp);
+        chooseBonusText->setColor(kPinkColor);
+        auto chooseBonusTextLayout = ui::LinearLayoutParameter::create();
+        chooseBonusTextLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
+        chooseBonusText->setLayoutParameter(chooseBonusTextLayout);
+        bonusContainer->addChild(chooseBonusText);
+        
+        auto bonusBar = BonusBar::create(Size(bonusContainer->getContentSize().width, 47.5_dp));
+        auto bonusBarLayout = ui::LinearLayoutParameter::create();
+        bonusBarLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
+        bonusBarLayout->setMargin(ui::Margin(0, 15.0_dp, 0, 0));
+        bonusBar->setLayoutParameter(bonusBarLayout);
+        bonusContainer->addChild(bonusBar);
+        
+        mCurrentBonuses = Player::getMainPlayer()->getLastBonusChoices();
+        
+        auto openChooseScene = [this]() {
+            auto scene = ChoosePowerupScene::create(mCurrentBonuses);
+            scene->onPowerupsChosen = [this](const std::vector<BonusType>& bonuses) {
+                mBonusBar->setBonuses(bonuses);
+                mCurrentBonuses = bonuses;
+            };
+            SceneManager::pushSceneWithTransition<TransitionSlideInR>(scene, kTransitionDuration);
+        };
+        
+        bonusBar->onBonusTapped = [this, openChooseScene](BonusType bonus) {
+            openChooseScene();
+        };
+        bonusBar->onAddBonusTapped = openChooseScene;
+        bonusBar->setTouchEnabled(true);
+        bonusBar->setBonuses(mCurrentBonuses);
+        mBonusBar = bonusBar;
         
         auto startButton = ui::Button::create("pink_button_fill_large.png");
         startButton->setTitleFontSize(18.0_dp);
@@ -92,13 +125,13 @@ namespace flik
         startButton->setTitleColor(Color3B::WHITE);
         auto startButtonLayout = ui::LinearLayoutParameter::create();
         startButtonLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
-        startButtonLayout->setMargin(ui::Margin(0, 35.0_dp, 0, 30.0_dp));
+        startButtonLayout->setMargin(ui::Margin(0, 0, 0, 30.0_dp));
         startButton->setLayoutParameter(startButtonLayout);
         innerContainer->addChild(startButton);
         
         startButton->addTouchEventListener([this](Ref* sender, TouchEventType type) {
             if (type == TouchEventType::ENDED && onStartButtonTapped) {
-                onStartButtonTapped();
+                onStartButtonTapped(mCurrentBonuses);
             }
         });
         
@@ -137,9 +170,10 @@ namespace flik
     
     cocos2d::ui::Widget* GameObjectiveOverlay::createTitleWidget(const std::string& title)
     {
-        auto titleLabel = Fonts::createLocalizedText(boost::to_upper_copy(title), 18.0_dp);
+        auto titleLabel = Fonts::createLocalizedText(title, 25.0_dp);
+        titleLabel->setColor(kGoldColor);
         auto titleLabelLayout = ui::LinearLayoutParameter::create();
-        titleLabelLayout->setMargin(ui::Margin(0, 45.0_dp, 0, 45.0_dp));
+        titleLabelLayout->setMargin(ui::Margin(0, 45.0_dp, 0, 0));
         titleLabelLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
         titleLabel->setLayoutParameter(titleLabelLayout);
         return titleLabel;

@@ -11,6 +11,7 @@
 #include "Player.h"
 #include "GhostBonusBehavior.h"
 #include "RainbowBonusBehavior.h"
+#include "ScoreMultiplierBonusBehavior.h"
 #include "SceneManager.h"
 #include "Styles.h"
 
@@ -61,6 +62,10 @@ namespace flik {
     {
         setGameState(GameState::Starting);
         
+        mBonuses.push_back(BonusType::AddTime);
+        mBonuses.push_back(BonusType::Ghost);
+        mBonuses.push_back(BonusType::Rainbow);
+        
         getGameScene()->clearPieces();
         
         Player::getMainPlayer()->resetScore();
@@ -79,7 +84,7 @@ namespace flik {
     void GameMode::handlePowerUp(PowerUpType type)
     {
         bool used = false;
-        auto availableCount = Player::getMainPlayer()->getPowerUpCount(type);
+        /*auto availableCount = Player::getMainPlayer()->getPowerUpCount(type);
         if (availableCount == 0) {
             // Bring user to store
         } else {
@@ -106,7 +111,7 @@ namespace flik {
                 auto player = Player::getMainPlayer();
                 player->consumePowerUp(type, 1);
             }
-        }
+        }*/
     }
     
     void GameMode::update(float seconds)
@@ -161,6 +166,13 @@ namespace flik {
                 
             case BonusType::Ghost:
                 addChild(GhostBonusBehavior::create(getGameScene(), 10));
+                break;
+                
+            case BonusType::DoubleUp:
+                addChild(ScoreMultiplierBonusBehavior::create(getGameScene(), 10, 2));
+                break;
+                
+            case BonusType::Gravity:
                 break;
         }
     }

@@ -32,7 +32,7 @@ namespace flik
         auto textWidget = Fonts::createLocalizedText(mText, 15.0_dp);
         textWidget->setColor(Color3B::WHITE);
         textWidget->setTextHorizontalAlignment(TextHAlignment::CENTER);
-        textWidget->setTextAreaSize(Size(250.0_dp, 80.0_dp));
+        textWidget->setTextAreaSize(Size(250.0_dp, 40.0_dp));
         return textWidget;
     }
 }

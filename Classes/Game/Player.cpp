@@ -18,10 +18,6 @@ namespace flik
     static Player* sPlayerInstance = nullptr;
     
     static std::string kTopScoreKey = "key_topScore";
-    static std::map<PowerUpType, std::string> kPowerUpCountKeys {
-        std::pair<PowerUpType, std::string>(PowerUpType::Timestop, "key_powerUpTimestopCount"),
-        std::pair<PowerUpType, std::string>(PowerUpType::Target, "key_powerUpTargetCount")
-    };
     static std::string kCurrencyKey = "key_currency";
     
     Player* Player::getMainPlayer()
@@ -62,21 +58,24 @@ namespace flik
         }
     }
     
-    int Player::getPowerUpCount(PowerUpType type)
+    int Player::getPowerUpCount(BonusType type)
     {
-        return UserDefault::getInstance()->getIntegerForKey(kPowerUpCountKeys[type].c_str(), 0);
+        std::string key = "key_" + kBonusStrings[type];
+        return UserDefault::getInstance()->getIntegerForKey(key.c_str(), 0);
     }
     
-    void Player::consumePowerUp(PowerUpType type, int count)
+    void Player::consumePowerUp(BonusType type, int count)
     {
         int newCount = getPowerUpCount(type) - count;
-        UserDefault::getInstance()->setIntegerForKey(kPowerUpCountKeys[type].c_str(), newCount);
+        std::string key = "key_" + kBonusStrings[type];
+        UserDefault::getInstance()->setIntegerForKey(key.c_str(), newCount);
     }
     
-    void Player::addPowerUp(PowerUpType type, int count)
+    void Player::addPowerUp(BonusType type, int count)
     {
         int newCount = getPowerUpCount(type) + count;
-        UserDefault::getInstance()->setIntegerForKey(kPowerUpCountKeys[type].c_str(), newCount);
+        std::string key = "key_" + kBonusStrings[type];
+        UserDefault::getInstance()->setIntegerForKey(key.c_str(), newCount);
     }
     
     int Player::getCurrencyAmount()
@@ -176,5 +175,19 @@ namespace flik
                 }
             }
         }
+    }
+    
+    void Player::setLastBonusChoices(const std::vector<BonusType>& bonuses)
+    {
+        mLastBonusChoices = bonuses;
+    }
+    
+    const std::vector<BonusType>& Player::getLastBonusChoices()
+    {
+        mLastBonusChoices.erase(std::remove_if(mLastBonusChoices.begin(), mLastBonusChoices.end(), [this](BonusType& type) {
+            return getPowerUpCount(type) == 0;
+        }), mLastBonusChoices.end());
+        
+        return mLastBonusChoices;
     }
 }

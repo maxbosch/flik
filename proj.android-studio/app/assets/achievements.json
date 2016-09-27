@@ -1,0 +1,60 @@
+{
+	"achievements": [
+		{
+			"name": "play_timed_game_1",
+			"bonus": 50
+		},
+		{
+			"name": "play_timed_game_5",
+			"bonus": 100
+		},
+		{
+			"name": "play_timed_game_20",
+			"bonus": 250
+		},
+		{
+			"name": "score_timed_25",
+			"bonus": 50
+		},
+		{
+			"name": "score_timed_50",
+			"bonus": 100
+		},
+		{
+			"name": "score_timed_75",
+			"bonus": 300
+		},
+		{
+			"name": "score_timed_100",
+			"bonus": 1000
+		},
+		{
+			"name": "play_unlimited_game_1",
+			"bonus": 50
+		},
+		{
+			"name": "play_unlimited_game_5",
+			"bonus": 100
+		},
+		{
+			"name": "play_unlimited_game_20",
+			"bonus": 250
+		},
+		{
+			"name": "score_unlimited_50",
+			"bonus": 50
+		},
+		{
+			"name": "score_unlimited_100",
+			"bonus": 100
+		},
+		{
+			"name": "score_unlimited_150",
+			"bonus": 300
+		},
+		{
+			"name": "score_unlimited_200",
+			"bonus": 1000
+		}
+	]
+}

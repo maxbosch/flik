@@ -33,7 +33,7 @@ namespace flik
         static MainGameScene* create(const LevelParams& params);
         
         void update(float delta);
-        void requestRestart();
+        virtual void requestRestart();
         void spawnPiece(const cocos2d::Vec2& position, GamePieceType pieceType = GamePieceType::RandomPiece);
         void clearPieces();
         int getPiecesCount();
@@ -63,6 +63,8 @@ namespace flik
         
         /* b2ContactListener methods */
         void BeginContact(b2Contact* contact);
+        
+        virtual void reloadScene();
         
     private:
         cocos2d::TimerTargetCallback* mSpawnTimer;

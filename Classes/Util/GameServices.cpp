@@ -38,10 +38,10 @@ namespace flik
     
     void GameServices::initialize()
     {
-        sdkbox::PluginSdkboxPlay::init();
-        sdkbox::PluginSdkboxPlay::setListener(this);
+        //sdkbox::PluginSdkboxPlay::init();
+        //sdkbox::PluginSdkboxPlay::setListener(this);
         
-        sdkbox::PluginSdkboxPlay::signin();
+        //sdkbox::PluginSdkboxPlay::signin();
         
         auto achievementJson = cocos2d::FileUtils::getInstance()->getStringFromFile("achievements.json");
         rapidjson::Document doc;

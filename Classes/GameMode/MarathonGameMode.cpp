@@ -29,7 +29,7 @@ namespace flik {
         
         auto pieceRemovedListener = EventListenerCustom::create(kPieceRemovedEvent, [this](EventCustom* event) {
             if (getGameState() == GameState::InProgress) {
-                Player::getMainPlayer()->addScore(1);
+                Player::getMainPlayer()->addScore(1 * getScoreMultiplier());
             }
         });
         getEventDispatcher()->addEventListenerWithSceneGraphPriority(pieceRemovedListener, this);

@@ -18,5 +18,7 @@ namespace flik
         static GhostBonusBehavior* create(MainGameScene* scene, float duration);
         
         bool init(MainGameScene* scene, float duration);
+        
+        void onExpire(MainGameScene* scene);
     };
 }

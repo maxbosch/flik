@@ -60,12 +60,12 @@ namespace flik
             if (type == TouchEventType::ENDED) {
                 // TODO: Add e-commerce code
                 
-                sdkbox::IAP::purchase(productName);
+                //sdkbox::IAP::purchase(productName);
                 
-                /*auto player = Player::getMainPlayer();
+                auto player = Player::getMainPlayer();
                 if (player->getCurrencyAmount() + pointsCount < kMaxCurrencyAmount) {
                     player->addCurrency(pointsCount);
-                }*/
+                }
             }
         });
         

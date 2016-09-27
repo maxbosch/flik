@@ -11,6 +11,8 @@
 #include "Events.h"
 #include "GamePiece.h"
 #include "Physics.h"
+#include "MainGameScene.h"
+#include "GameBoard.h"
 
 USING_NS_CC;
 
@@ -28,16 +30,32 @@ namespace flik
             return false;
         }
         
-        auto pieceAddedListener = EventListenerCustom::create(kPieceAddedEvent, [this](EventCustom* event) {
-            int mask = collision::AllPieces;
+        auto makeGhostPiece = [](GamePiece* piece){
+            piece->setPieceCollisionEnabled(false);
             
+            piece->setOpacity(128);
+        };
+        
+        auto pieceAddedListener = EventListenerCustom::create(kPieceAddedEvent, [this, makeGhostPiece](EventCustom* event) {
             auto piece = reinterpret_cast<GamePiece*>(event->getUserData());
-            auto piecePhysicsBody = piece->getPhysicsBody();
-            piecePhysicsBody->setCollisionBitmask(piecePhysicsBody->getCollisionBitmask() ^ mask);
-            piecePhysicsBody->setContactTestBitmask(piecePhysicsBody->getContactTestBitmask() ^ mask);
+            makeGhostPiece(piece);
         });
         getEventDispatcher()->addEventListenerWithSceneGraphPriority(pieceAddedListener, this);
         
+        auto& pieces = scene->getGameBoard()->getPieces();
+        for (auto piece : pieces) {
+            makeGhostPiece(piece);
+        }
+        
         return true;
+    }
+    
+    void GhostBonusBehavior::onExpire(MainGameScene* scene)
+    {
+        auto& pieces = scene->getGameBoard()->getPieces();
+        for (auto piece : pieces) {
+            piece->setPieceCollisionEnabled(true);
+            piece->setOpacity(255);
+        }
     }
 }

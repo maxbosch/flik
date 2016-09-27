@@ -13,6 +13,9 @@
 
 namespace flik
 {
+    class BonusBar;
+    enum class BonusType;
+    
     class GameObjectiveOverlay : public cocos2d::ui::RelativeBox
     {
     public:
@@ -21,12 +24,14 @@ namespace flik
         virtual cocos2d::ui::Widget* createTitleWidget(const std::string& title);
         virtual cocos2d::ui::Widget* createObjectiveWidget() = 0;
         
-        std::function<void()> onStartButtonTapped;
+        std::function<void(const std::vector<BonusType>&)> onStartButtonTapped;
         std::function<void()> onExitButtonTapped;
         
     protected:
         void performIntroAnimation();
         
         cocos2d::ui::Widget* mContentContainer;
+        BonusBar* mBonusBar;
+        std::vector<BonusType> mCurrentBonuses;
     };
 }

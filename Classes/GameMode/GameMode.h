@@ -67,6 +67,11 @@ namespace flik
         
         virtual void onBackPressed();
         
+        const std::vector<BonusType>& getBonuses() { return mBonuses; }
+        
+        int getScoreMultiplier() { return mScoreMultiplier; }
+        void setScoreMultiplier(int multiplier) { mScoreMultiplier = multiplier; }
+        
     protected:
         virtual void setGameState(GameState newState);
         MainGameScene* getGameScene() { return mGameScene; }
@@ -84,7 +89,10 @@ namespace flik
         
         float mTimeRemaining = 0.0f;
         float mGameTime = 0.0f;
+        std::vector<BonusType> mBonuses;
         
         PieceSpawner* mSpawner;
+        
+        int mScoreMultiplier = 1;
     };
 }

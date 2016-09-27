@@ -37,6 +37,7 @@
 		661401751D594954005497BD /* RainbowBonusBehavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661401731D594954005497BD /* RainbowBonusBehavior.cpp */; };
 		661401781D5955FD005497BD /* LayerMultiGradient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661401761D5955FD005497BD /* LayerMultiGradient.cpp */; };
 		6626819D1D65315000F9D0D3 /* LevelGameOverOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6626819B1D65315000F9D0D3 /* LevelGameOverOverlay.cpp */; };
+		662EB8741D9165380022B18B /* ChoosePowerupScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 662EB8721D9165380022B18B /* ChoosePowerupScene.cpp */; };
 		663459231D522F9F00F6E68F /* DialogMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663459211D522F9F00F6E68F /* DialogMessage.cpp */; };
 		6634592A1D5406A500F6E68F /* GoalLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663459281D5406A500F6E68F /* GoalLayer.cpp */; };
 		6634592C1D540EDC00F6E68F /* Behavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6634592B1D540EDC00F6E68F /* Behavior.cpp */; };
@@ -61,6 +62,8 @@
 		663894A01D09AEB60034892E /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894951D09AEB60034892E /* Util.cpp */; };
 		663894A11D09AEB60034892E /* VelocityTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894971D09AEB60034892E /* VelocityTracker.cpp */; };
 		663894A41D09B0770034892E /* StoreScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663894A21D09B0770034892E /* StoreScene.cpp */; };
+		663AACC21D88C4080028A9EA /* ScoreMultiplierBonusBehavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663AACC01D88C4080028A9EA /* ScoreMultiplierBonusBehavior.cpp */; };
+		663AACC51D88C6200028A9EA /* GravityBonusBehavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663AACC31D88C6200028A9EA /* GravityBonusBehavior.cpp */; };
 		663CC17D1D22B0FA00A423A1 /* PlatformUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663CC16C1D22048500A423A1 /* PlatformUtil.cpp */; };
 		66442B291D0B83B100AC5983 /* string in Resources */ = {isa = PBXBuildFile; fileRef = 66442B281D0B83B100AC5983 /* string */; };
 		66442B2C1D0B84C100AC5983 /* LocalizedString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66442B2A1D0B84C100AC5983 /* LocalizedString.cpp */; };
@@ -72,7 +75,6 @@
 		66442B3E1D0DD41900AC5983 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66442B3C1D0DD41900AC5983 /* AppDelegate.cpp */; };
 		66442B3F1D0DE7AF00AC5983 /* PluginSdkboxPlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 412342C0B9B05982BF6E2B64 /* PluginSdkboxPlay.framework */; };
 		66442B411D0DE7C800AC5983 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66442B401D0DE7C800AC5983 /* GameKit.framework */; };
-		664F99611D392796007C9ED7 /* libluacocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66CC6CB91D33DF0500A60D8D /* libluacocos2d iOS.a */; };
 		66522F0C1D4ACC5300C6AF19 /* OneTimeSpawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66522F0A1D4ACC5300C6AF19 /* OneTimeSpawner.cpp */; };
 		66522F111D4AD27F00C6AF19 /* PiecesClearedObjectiveTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66522F0F1D4AD27F00C6AF19 /* PiecesClearedObjectiveTracker.cpp */; };
 		66522F141D4AD52900C6AF19 /* MaxOnBoardObjectiveTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66522F121D4AD52900C6AF19 /* MaxOnBoardObjectiveTracker.cpp */; };
@@ -93,6 +95,9 @@
 		665D9A201D070D060051A9C9 /* 4x in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A171D070D060051A9C9 /* 4x */; };
 		665D9A211D070D060051A9C9 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A181D070D060051A9C9 /* fonts */; };
 		665D9A221D070D060051A9C9 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 665D9A181D070D060051A9C9 /* fonts */; };
+		665F65EE1D9AA1AA00759CF3 /* TimedGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665F65EC1D9AA1AA00759CF3 /* TimedGameScene.cpp */; };
+		665F65F11D9AA1B300759CF3 /* MarathonGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665F65EF1D9AA1B300759CF3 /* MarathonGameScene.cpp */; };
+		665F65F41D9AA5AD00759CF3 /* LevelGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665F65F21D9AA5AD00759CF3 /* LevelGameScene.cpp */; };
 		666106FB1D0795A9004F6263 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 666106FA1D0795A9004F6263 /* Images.xcassets */; };
 		666EC0261D1A069500FE138F /* shaders in Resources */ = {isa = PBXBuildFile; fileRef = 666EC0251D1A069500FE138F /* shaders */; };
 		666EC0291D1A096600FE138F /* BlurredBackgroundWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666EC0271D1A096600FE138F /* BlurredBackgroundWidget.cpp */; };
@@ -102,7 +107,9 @@
 		668304B01D48F73D0036BFA7 /* IncreasingTimedSpawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 668304AE1D48F73D0036BFA7 /* IncreasingTimedSpawner.cpp */; };
 		668304B31D48F74B0036BFA7 /* ReplaceSpawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 668304B11D48F74B0036BFA7 /* ReplaceSpawner.cpp */; };
 		668313F91D80E0BA00645341 /* achievements.json in Resources */ = {isa = PBXBuildFile; fileRef = 668313F81D80E0BA00645341 /* achievements.json */; };
+		6696CC3C1D8778B900F3008A /* BonusBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6696CC3A1D8778B900F3008A /* BonusBar.cpp */; };
 		66A92EF21D0F81D8004F78D3 /* GameBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A92EF01D0F81D8004F78D3 /* GameBoard.cpp */; };
+		66B422831D9355C2004571E6 /* ChoosePowerupRowWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B422811D9355C2004571E6 /* ChoosePowerupRowWidget.cpp */; };
 		66B92B721D0A3C6200DA1657 /* StoreProductWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */; };
 		66CC6CA01D2FDDD600A60D8D /* lua in Resources */ = {isa = PBXBuildFile; fileRef = 66CC6C9F1D2FDDD600A60D8D /* lua */; };
 		66CC6CA41D2FE29A00A60D8D /* GameServices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66CC6CA21D2FE29A00A60D8D /* GameServices.cpp */; };
@@ -116,11 +123,11 @@
 		66D7CF731D249CC70000DE33 /* TutorialGameMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D7CF711D249CC70000DE33 /* TutorialGameMode.cpp */; };
 		66D7CF791D24A2950000DE33 /* TutorialGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D7CF771D24A2950000DE33 /* TutorialGameHUD.cpp */; };
 		66D7CF851D270C0D0000DE33 /* Animations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D7CF831D270C0D0000DE33 /* Animations.cpp */; };
-		66D7CF8A1D273C8C0000DE33 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7CF891D273C8C0000DE33 /* libcocos2d iOS.a */; };
 		66D7CF8B1D29C2300000DE33 /* PluginIAP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF7B48E78461F0E96925226C /* PluginIAP.framework */; };
 		66D7CF8D1D29C2400000DE33 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7CF8C1D29C2400000DE33 /* StoreKit.framework */; };
 		66D7CF901D2BDD5A0000DE33 /* AchievementsScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D7CF8E1D2BDD5A0000DE33 /* AchievementsScene.cpp */; };
 		66D84BE51D2351EC00BA4D53 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D84BE31D2351EC00BA4D53 /* SceneManager.cpp */; };
+		66D97D2A1D9B30710001F546 /* BuyPowerupRowWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D97D281D9B30710001F546 /* BuyPowerupRowWidget.cpp */; };
 		66DB27581D74FF55005BF1CD /* PhysicsNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB27561D74FF55005BF1CD /* PhysicsNode.cpp */; };
 		66DB287E1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
 		66DB287F1D01CB4900E1E4C9 /* GameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */; };
@@ -134,6 +141,8 @@
 		66E7E5171D182910007DE4B9 /* GameSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E5151D182910007DE4B9 /* GameSelectScene.cpp */; };
 		66E802FB1D5CC0AB0039AFD3 /* SceneEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E802F91D5CC0AB0039AFD3 /* SceneEx.cpp */; };
 		66F247981D770E4D009BD1DF /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66F247961D770E4D009BD1DF /* GLES-Render.cpp */; };
+		66FBAEE81D8B6822008891A4 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FBAEE71D8B6822008891A4 /* libcocos2d iOS.a */; };
+		66FBAEEA1D8B6BCB008891A4 /* libcocos2d iOS Simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FBAEE91D8B6BCB008891A4 /* libcocos2d iOS Simulator.a */; };
 		6E2B4283A69F3BC8F3DAFC4E /* sdkbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6142E7B2D12A44A021E034 /* sdkbox.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -224,6 +233,8 @@
 		661401771D5955FD005497BD /* LayerMultiGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerMultiGradient.h; sourceTree = "<group>"; };
 		6626819B1D65315000F9D0D3 /* LevelGameOverOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelGameOverOverlay.cpp; sourceTree = "<group>"; };
 		6626819C1D65315000F9D0D3 /* LevelGameOverOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelGameOverOverlay.h; sourceTree = "<group>"; };
+		662EB8721D9165380022B18B /* ChoosePowerupScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChoosePowerupScene.cpp; sourceTree = "<group>"; };
+		662EB8731D9165380022B18B /* ChoosePowerupScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePowerupScene.h; sourceTree = "<group>"; };
 		663459211D522F9F00F6E68F /* DialogMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DialogMessage.cpp; sourceTree = "<group>"; };
 		663459221D522F9F00F6E68F /* DialogMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogMessage.h; sourceTree = "<group>"; };
 		663459271D537DBC00F6E68F /* Behavior.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Behavior.h; sourceTree = "<group>"; };
@@ -276,6 +287,10 @@
 		663894981D09AEB60034892E /* VelocityTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VelocityTracker.h; sourceTree = "<group>"; };
 		663894A21D09B0770034892E /* StoreScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoreScene.cpp; sourceTree = "<group>"; };
 		663894A31D09B0770034892E /* StoreScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreScene.h; sourceTree = "<group>"; };
+		663AACC01D88C4080028A9EA /* ScoreMultiplierBonusBehavior.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScoreMultiplierBonusBehavior.cpp; sourceTree = "<group>"; };
+		663AACC11D88C4080028A9EA /* ScoreMultiplierBonusBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreMultiplierBonusBehavior.h; sourceTree = "<group>"; };
+		663AACC31D88C6200028A9EA /* GravityBonusBehavior.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GravityBonusBehavior.cpp; sourceTree = "<group>"; };
+		663AACC41D88C6200028A9EA /* GravityBonusBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GravityBonusBehavior.h; sourceTree = "<group>"; };
 		663CC16C1D22048500A423A1 /* PlatformUtil.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlatformUtil.cpp; sourceTree = "<group>"; };
 		663CC1761D22B0D600A423A1 /* Flik-androiddev */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Flik-androiddev"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66442B281D0B83B100AC5983 /* string */ = {isa = PBXFileReference; lastKnownFileType = folder; path = string; sourceTree = "<group>"; };
@@ -318,6 +333,12 @@
 		665D9A161D070D060051A9C9 /* 3x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 3x; sourceTree = "<group>"; };
 		665D9A171D070D060051A9C9 /* 4x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = 4x; sourceTree = "<group>"; };
 		665D9A181D070D060051A9C9 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		665F65EC1D9AA1AA00759CF3 /* TimedGameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimedGameScene.cpp; sourceTree = "<group>"; };
+		665F65ED1D9AA1AA00759CF3 /* TimedGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimedGameScene.h; sourceTree = "<group>"; };
+		665F65EF1D9AA1B300759CF3 /* MarathonGameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MarathonGameScene.cpp; sourceTree = "<group>"; };
+		665F65F01D9AA1B300759CF3 /* MarathonGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarathonGameScene.h; sourceTree = "<group>"; };
+		665F65F21D9AA5AD00759CF3 /* LevelGameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelGameScene.cpp; sourceTree = "<group>"; };
+		665F65F31D9AA5AD00759CF3 /* LevelGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelGameScene.h; sourceTree = "<group>"; };
 		666106FA1D0795A9004F6263 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Flik-mobile/Images.xcassets"; sourceTree = SOURCE_ROOT; };
 		666EC0251D1A069500FE138F /* shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shaders; sourceTree = "<group>"; };
 		666EC0271D1A096600FE138F /* BlurredBackgroundWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlurredBackgroundWidget.cpp; sourceTree = "<group>"; };
@@ -334,8 +355,12 @@
 		668304B21D48F74B0036BFA7 /* ReplaceSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplaceSpawner.h; sourceTree = "<group>"; };
 		668304B41D48F7780036BFA7 /* PieceSpawner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PieceSpawner.h; sourceTree = "<group>"; };
 		668313F81D80E0BA00645341 /* achievements.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = achievements.json; sourceTree = "<group>"; };
+		6696CC3A1D8778B900F3008A /* BonusBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BonusBar.cpp; sourceTree = "<group>"; };
+		6696CC3B1D8778B900F3008A /* BonusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BonusBar.h; sourceTree = "<group>"; };
 		66A92EF01D0F81D8004F78D3 /* GameBoard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameBoard.cpp; sourceTree = "<group>"; };
 		66A92EF11D0F81D8004F78D3 /* GameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoard.h; sourceTree = "<group>"; };
+		66B422811D9355C2004571E6 /* ChoosePowerupRowWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChoosePowerupRowWidget.cpp; sourceTree = "<group>"; };
+		66B422821D9355C2004571E6 /* ChoosePowerupRowWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePowerupRowWidget.h; sourceTree = "<group>"; };
 		66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoreProductWidget.cpp; sourceTree = "<group>"; };
 		66B92B711D0A3C6200DA1657 /* StoreProductWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreProductWidget.h; sourceTree = "<group>"; };
 		66CC6C9F1D2FDDD600A60D8D /* lua */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lua; sourceTree = "<group>"; };
@@ -370,6 +395,8 @@
 		66D7CF8F1D2BDD5A0000DE33 /* AchievementsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementsScene.h; sourceTree = "<group>"; };
 		66D84BE31D2351EC00BA4D53 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
 		66D84BE41D2351EC00BA4D53 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneManager.h; sourceTree = "<group>"; };
+		66D97D281D9B30710001F546 /* BuyPowerupRowWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BuyPowerupRowWidget.cpp; sourceTree = "<group>"; };
+		66D97D291D9B30710001F546 /* BuyPowerupRowWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuyPowerupRowWidget.h; sourceTree = "<group>"; };
 		66DB27561D74FF55005BF1CD /* PhysicsNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicsNode.cpp; sourceTree = "<group>"; };
 		66DB27571D74FF55005BF1CD /* PhysicsNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsNode.h; sourceTree = "<group>"; };
 		66DB287C1D01CB4900E1E4C9 /* GameHUD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameHUD.cpp; sourceTree = "<group>"; };
@@ -389,6 +416,10 @@
 		66E802FA1D5CC0AB0039AFD3 /* SceneEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneEx.h; sourceTree = "<group>"; };
 		66F247961D770E4D009BD1DF /* GLES-Render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "GLES-Render.cpp"; sourceTree = "<group>"; };
 		66F247971D770E4D009BD1DF /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
+		66FBAEE11D8B65F4008891A4 /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "../../../../../Users/adam/Library/Developer/Xcode/DerivedData/cocos2d_libs-bjgnoggugtrnrkfkbovgugqmuptd/Build/Products/Debug/libcocos2d Mac.a"; sourceTree = "<group>"; };
+		66FBAEE31D8B663C008891A4 /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "../cocos2d/prebuilt/libcocos2d Mac.a"; sourceTree = "<group>"; };
+		66FBAEE71D8B6822008891A4 /* libcocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS.a"; path = "../cocos2d/prebuilt/libcocos2d iOS.a"; sourceTree = "<group>"; };
+		66FBAEE91D8B6BCB008891A4 /* libcocos2d iOS Simulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS Simulator.a"; path = "../cocos2d/prebuilt/libcocos2d iOS Simulator.a"; sourceTree = "<group>"; };
 		810B4AE3B28A43C3512A6E57 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
 		81AC4D62869B4D7554A55D6A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
 		82184907863F3C226936A794 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
@@ -416,9 +447,9 @@
 				66442B411D0DE7C800AC5983 /* GameKit.framework in Frameworks */,
 				ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */,
 				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
-				66D7CF8A1D273C8C0000DE33 /* libcocos2d iOS.a in Frameworks */,
-				664F99611D392796007C9ED7 /* libluacocos2d iOS.a in Frameworks */,
 				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
+				66FBAEEA1D8B6BCB008891A4 /* libcocos2d iOS Simulator.a in Frameworks */,
+				66FBAEE81D8B6822008891A4 /* libcocos2d iOS.a in Frameworks */,
 				66442B3F1D0DE7AF00AC5983 /* PluginSdkboxPlay.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -509,6 +540,10 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				66FBAEE91D8B6BCB008891A4 /* libcocos2d iOS Simulator.a */,
+				66FBAEE71D8B6822008891A4 /* libcocos2d iOS.a */,
+				66FBAEE31D8B663C008891A4 /* libcocos2d Mac.a */,
+				66FBAEE11D8B65F4008891A4 /* libcocos2d Mac.a */,
 				664F99301D352CAF007C9ED7 /* liblua.a */,
 				66CC6CB91D33DF0500A60D8D /* libluacocos2d iOS.a */,
 				66D7CF8C1D29C2400000DE33 /* StoreKit.framework */,
@@ -648,6 +683,10 @@
 				661401741D594954005497BD /* RainbowBonusBehavior.h */,
 				660726E71D5B65830072A7A3 /* DisableColorBehavior.cpp */,
 				660726E81D5B65830072A7A3 /* DisableColorBehavior.h */,
+				663AACC01D88C4080028A9EA /* ScoreMultiplierBonusBehavior.cpp */,
+				663AACC11D88C4080028A9EA /* ScoreMultiplierBonusBehavior.h */,
+				663AACC31D88C6200028A9EA /* GravityBonusBehavior.cpp */,
+				663AACC41D88C6200028A9EA /* GravityBonusBehavior.h */,
 			);
 			path = Behavior;
 			sourceTree = "<group>";
@@ -655,6 +694,10 @@
 		6638945A1D09AD9B0034892E /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				660956BF1D80518C0063BFDF /* AchievementOverlay.cpp */,
+				660956C01D80518C0063BFDF /* AchievementOverlay.h */,
+				6696CC3A1D8778B900F3008A /* BonusBar.cpp */,
+				6696CC3B1D8778B900F3008A /* BonusBar.h */,
 				66E7E50C1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp */,
 				66E7E50D1D158C58007DE4B9 /* DefaultGameOverOverlay.h */,
 				66D655B41D118E6400F1B6E8 /* GameObjectiveOverlay.cpp */,
@@ -689,8 +732,8 @@
 				663894661D09AD9B0034892E /* TimedGameHUD.h */,
 				66D7CF771D24A2950000DE33 /* TutorialGameHUD.cpp */,
 				66D7CF781D24A2950000DE33 /* TutorialGameHUD.h */,
-				660956BF1D80518C0063BFDF /* AchievementOverlay.cpp */,
-				660956C01D80518C0063BFDF /* AchievementOverlay.h */,
+				662EB8721D9165380022B18B /* ChoosePowerupScene.cpp */,
+				662EB8731D9165380022B18B /* ChoosePowerupScene.h */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -732,6 +775,10 @@
 				666EC0281D1A096600FE138F /* BlurredBackgroundWidget.h */,
 				663459211D522F9F00F6E68F /* DialogMessage.cpp */,
 				663459221D522F9F00F6E68F /* DialogMessage.h */,
+				66B422811D9355C2004571E6 /* ChoosePowerupRowWidget.cpp */,
+				66B422821D9355C2004571E6 /* ChoosePowerupRowWidget.h */,
+				66D97D281D9B30710001F546 /* BuyPowerupRowWidget.cpp */,
+				66D97D291D9B30710001F546 /* BuyPowerupRowWidget.h */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -791,6 +838,12 @@
 				66583FD31D5D4AB40072E644 /* LevelSelectScene.h */,
 				6653CD8D1D1C230A00721B17 /* SettingsScene.cpp */,
 				6653CD8E1D1C230A00721B17 /* SettingsScene.h */,
+				665F65EC1D9AA1AA00759CF3 /* TimedGameScene.cpp */,
+				665F65ED1D9AA1AA00759CF3 /* TimedGameScene.h */,
+				665F65EF1D9AA1B300759CF3 /* MarathonGameScene.cpp */,
+				665F65F01D9AA1B300759CF3 /* MarathonGameScene.h */,
+				665F65F21D9AA5AD00759CF3 /* LevelGameScene.cpp */,
+				665F65F31D9AA5AD00759CF3 /* LevelGameScene.h */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -1105,6 +1158,7 @@
 				6634592C1D540EDC00F6E68F /* Behavior.cpp in Sources */,
 				6638949D1D09AEB60034892E /* MainGameScene.cpp in Sources */,
 				66522F141D4AD52900C6AF19 /* MaxOnBoardObjectiveTracker.cpp in Sources */,
+				6696CC3C1D8778B900F3008A /* BonusBar.cpp in Sources */,
 				6638949F1D09AEB60034892E /* Literals.cpp in Sources */,
 				6638949E1D09AEB60034892E /* MainMenuScene.cpp in Sources */,
 				66114ED21D12E1CA00B2C92B /* LevelObjectiveOverlay.cpp in Sources */,
@@ -1114,18 +1168,22 @@
 				66D655BA1D12191500F1B6E8 /* TextObjectiveOverlay.cpp in Sources */,
 				66D655B31D10D58400F1B6E8 /* LevelsGameHUD.cpp in Sources */,
 				66442B2F1D0B851600AC5983 /* StorePurchaseOverlay.cpp in Sources */,
+				665F65F41D9AA5AD00759CF3 /* LevelGameScene.cpp in Sources */,
 				663894791D09AD9B0034892E /* TimedGameHUD.cpp in Sources */,
 				668304AD1D48F72D0036BFA7 /* TimedSpawner.cpp in Sources */,
 				66D7CF791D24A2950000DE33 /* TutorialGameHUD.cpp in Sources */,
 				66D655AD1D10C73100F1B6E8 /* LevelsGameMode.cpp in Sources */,
 				661401751D594954005497BD /* RainbowBonusBehavior.cpp in Sources */,
+				662EB8741D9165380022B18B /* ChoosePowerupScene.cpp in Sources */,
 				6638949C1D09AEB60034892E /* SideRailNode.cpp in Sources */,
 				66583FD71D5D4C910072E644 /* GameSelectRowWidget.cpp in Sources */,
+				665F65F11D9AA1B300759CF3 /* MarathonGameScene.cpp in Sources */,
 				66442B321D0B89DE00AC5983 /* StorePurchaseOptionWidget.cpp in Sources */,
 				66E3A6BD1D01C07100A3125C /* GameMode.cpp in Sources */,
 				66B92B721D0A3C6200DA1657 /* StoreProductWidget.cpp in Sources */,
 				661401781D5955FD005497BD /* LayerMultiGradient.cpp in Sources */,
 				66D3544A1D74708C001859B2 /* B2PhysicsComponent.cpp in Sources */,
+				66B422831D9355C2004571E6 /* ChoosePowerupRowWidget.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				66D7CF901D2BDD5A0000DE33 /* AchievementsScene.cpp in Sources */,
 				668304B01D48F73D0036BFA7 /* IncreasingTimedSpawner.cpp in Sources */,
@@ -1137,6 +1195,7 @@
 				660956C11D80518C0063BFDF /* AchievementOverlay.cpp in Sources */,
 				66CC6CB81D30678800A60D8D /* format.cc in Sources */,
 				6638947E1D09AD9B0034892E /* PowerUpButton.cpp in Sources */,
+				665F65EE1D9AA1AA00759CF3 /* TimedGameScene.cpp in Sources */,
 				660726E91D5B65830072A7A3 /* DisableColorBehavior.cpp in Sources */,
 				6653CD8F1D1C230A00721B17 /* SettingsScene.cpp in Sources */,
 				6626819D1D65315000F9D0D3 /* LevelGameOverOverlay.cpp in Sources */,
@@ -1144,12 +1203,15 @@
 				66D84BE51D2351EC00BA4D53 /* SceneManager.cpp in Sources */,
 				66583FD41D5D4AB40072E644 /* LevelSelectScene.cpp in Sources */,
 				6638949A1D09AEB60034892E /* GamePiece.cpp in Sources */,
+				663AACC21D88C4080028A9EA /* ScoreMultiplierBonusBehavior.cpp in Sources */,
 				66114ECC1D12D77A00B2C92B /* ObjectiveItemWidget.cpp in Sources */,
 				66DB27581D74FF55005BF1CD /* PhysicsNode.cpp in Sources */,
+				663AACC51D88C6200028A9EA /* GravityBonusBehavior.cpp in Sources */,
 				66E7E50E1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp in Sources */,
 				6638947B1D09AD9B0034892E /* MainMenuFooter.cpp in Sources */,
 				663459231D522F9F00F6E68F /* DialogMessage.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				66D97D2A1D9B30710001F546 /* BuyPowerupRowWidget.cpp in Sources */,
 				666EC0291D1A096600FE138F /* BlurredBackgroundWidget.cpp in Sources */,
 				667723541D18BBF000B1B74A /* SpawnRandomizer.cpp in Sources */,
 				667723511D18B0F800B1B74A /* LevelSelectRowWidget.cpp in Sources */,
@@ -1233,8 +1295,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"\"sdkbox.framework\"",
 					"\"PluginAchievement.framework\"",
-					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/prebuilt/ios",
-					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/external/lua/lua/prebuilt/ios",
+					"$(SRCROOT)/../cocos2d/prebuilt",
 				);
 				OTHER_CFLAGS = "-DSDKBOX_ENABLED";
 				OTHER_LDFLAGS = (
@@ -1301,8 +1362,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"\"sdkbox.framework\"",
 					"\"PluginAchievement.framework\"",
-					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/prebuilt/ios",
-					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/external/lua/lua/prebuilt/ios",
+					"$(SRCROOT)/../cocos2d/prebuilt",
 				);
 				OTHER_CFLAGS = "-DSDKBOX_ENABLED";
 				OTHER_LDFLAGS = (

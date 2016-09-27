@@ -10,6 +10,7 @@
 #include "Util.h"
 #include "Styles.h"
 #include "Physics.h"
+#include "PhysicsNode.h"
 
 USING_NS_CC;
 
@@ -44,7 +45,7 @@ namespace flik
         mColorLayer->setContentSize(contentSize);
     }
     
-    void GoalLayer::addCollisionNode(Node* collisionNode)
+    void GoalLayer::addCollisionNode(PhysicsNode* collisionNode)
     {
         mCollisionNodes.push_back(collisionNode);
     }
@@ -61,17 +62,20 @@ namespace flik
         mEnabled = enabled;
         
         for (auto node : mCollisionNodes) {
-            auto physicsBody = node->getPhysicsBody();
+            auto physicsBody = node->getPhysicsBodyBox2D();
+            auto& fixture = physicsBody->GetFixtureList()[0];
             if (enabled) {
                 mColorLayer->setColor(mColor);
-                physicsBody->setCategoryBitmask(mCategoryBitmask);
-                physicsBody->setContactTestBitmask(mCollisionBitmask);
-                physicsBody->setCollisionBitmask(mContactTestBitmask);
+                b2Filter filter;
+                filter.categoryBits = mCategoryBitmask;
+                filter.maskBits = mCollisionBitmask;
+                fixture.SetFilterData(filter);
             } else {
                 mColorLayer->setColor(kBlackColor);
-                physicsBody->setCategoryBitmask(collision::BlackRail);
-                physicsBody->setContactTestBitmask(collision::AllPieces);
-                physicsBody->setCollisionBitmask(collision::AllPieces);
+                b2Filter filter;
+                filter.categoryBits = collision::BlackRail;
+                filter.maskBits = collision::AllPieces;
+                fixture.SetFilterData(filter);
             }
         }
     }
@@ -79,20 +83,24 @@ namespace flik
     void GoalLayer::overrideCollisionFlags(int categoryMask, int contactTestMask, int collisionMask)
     {
         for (auto node : mCollisionNodes) {
-            auto physicsBody = node->getPhysicsBody();
-            physicsBody->setCategoryBitmask(categoryMask);
-            physicsBody->setContactTestBitmask(collisionMask);
-            physicsBody->setCollisionBitmask(contactTestMask);
+            auto physicsBody = node->getPhysicsBodyBox2D();
+            auto& fixture = physicsBody->GetFixtureList()[0];
+            b2Filter filter;
+            filter.categoryBits = categoryMask;
+            filter.maskBits = collisionMask;
+            fixture.SetFilterData(filter);
         }
     }
     
     void GoalLayer::resetCollisionFlags()
     {
         for (auto node : mCollisionNodes) {
-            auto physicsBody = node->getPhysicsBody();
-            physicsBody->setCategoryBitmask(mCategoryBitmask);
-            physicsBody->setContactTestBitmask(mCollisionBitmask);
-            physicsBody->setCollisionBitmask(mContactTestBitmask);
+            auto physicsBody = node->getPhysicsBodyBox2D();
+            auto& fixture = physicsBody->GetFixtureList()[0];
+            b2Filter filter;
+            filter.categoryBits = mCategoryBitmask;
+            filter.maskBits = mCollisionBitmask;
+            fixture.SetFilterData(filter);
         }
     }
     

@@ -18,6 +18,7 @@ namespace flik
     class MainGameHeader;
     class PauseOverlayWidget;
     class GameObjectiveOverlay;
+    class BonusBar;
     
     class MainGameHUD : public GameHUD
     {
@@ -45,10 +46,12 @@ namespace flik
         PauseOverlayWidget* mPauseOverlay;
         GameObjectiveOverlay* mObjectiveOverlay;
         cocos2d::ui::Layout* mTimerBar;
+        BonusBar* mBonusBar;
         
         virtual GameObjectiveOverlay* createObjectiveOverlay();
         virtual cocos2d::ui::Widget* createGameOverOverlay();
         virtual void onShowGameOverScreen();
+        void showObjectiveOverlay();
         
     private:
         std::vector<std::string> mPendingAchievements;

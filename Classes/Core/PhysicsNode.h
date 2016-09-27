@@ -36,6 +36,8 @@ namespace flik
         bool isImpenetrable() { return mImepentrable; }
         void setImpenetrable(bool b) { mImepentrable = b; }
         
+        void setParent(Node* parent);
+        
     private:
         std::shared_ptr<b2World> mWorld;
         b2Body* mPhysicsBodyBox2D = nullptr;

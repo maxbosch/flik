@@ -55,14 +55,19 @@ namespace flik
 
     void PhysicsNode::update(float time)
     {
-        if (mPhysicsBodyBox2D && mPhysicsBodyBox2D->IsAwake()) {
-            auto x = (mPhysicsBodyBox2D->GetPosition().x * kPixelsToMeters) - (getContentSize().width * (0.5 - getAnchorPoint().x));
-            auto y = (mPhysicsBodyBox2D->GetPosition().y * kPixelsToMeters) - (getContentSize().height * (0.5 - getAnchorPoint().y));
-            
-            Node::setPosition(x, y);
-        }
-        
         Node::update(time);
+        
+        if (mPhysicsBodyBox2D && getParent() != nullptr) {
+            if (mPhysicsBodyBox2D->IsAwake()) {
+                auto x = (mPhysicsBodyBox2D->GetPosition().x * kPixelsToMeters) - (getContentSize().width * (0.5 - getAnchorPoint().x));
+                auto y = (mPhysicsBodyBox2D->GetPosition().y * kPixelsToMeters) - (getContentSize().height * (0.5 - getAnchorPoint().y));
+                Vec2 position = getParent()->convertToNodeSpace(Vec2(x, y));
+                
+                Node::setPosition(position.x, position.y);
+            } else {
+                updateBodyPosition();
+            }
+        }
     }
     
     void PhysicsNode::setPosition(const Vec2& position)
@@ -81,13 +86,21 @@ namespace flik
     
     void PhysicsNode::updateBodyPosition()
     {
-        if (mPhysicsBodyBox2D) {
-            b2Vec2 position((getPositionX() + (getContentSize().width * (0.5 - getAnchorPoint().x))) * kInversePixelsToMeters,
-                                  (getPositionY() + (getContentSize().height * (0.5 - getAnchorPoint().y))) * kInversePixelsToMeters);
-            
+        if (mPhysicsBodyBox2D && getParent() != nullptr) {
+            Vec2 worldPosition = getParent()->convertToWorldSpace(getPosition());
+            b2Vec2 position((worldPosition.x + (getContentSize().width * (0.5 - getAnchorPoint().x))) * kInversePixelsToMeters,
+                            (worldPosition.y + (getContentSize().height * (0.5 - getAnchorPoint().y))) * kInversePixelsToMeters);
+
             mPhysicsBodyBox2D->SetTransform(position, -getRotation() * kDeg2Rad);
             
             mPhysicsBodyBox2D->SetAwake(false);
         }
+    }
+    
+    void PhysicsNode::setParent(Node* parent)
+    {
+        Node::setParent(parent);
+        
+        updateBodyPosition();
     }
 }

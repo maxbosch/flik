@@ -44,11 +44,19 @@ namespace flik
         
         int getType() { return mType; }
         
+        void setOpacity(float opacity);
+        
+        void setPieceCollisionEnabled(bool enabled);
+        
     private:
         
         EventListenerPhysicsContact* mContactListener;
 //        PhysicsBody* mPhysicsBody;
         MainGameScene* mGameScene;
         int mType;
+        cocos2d::Sprite* mSprite;
+        
+        int mCategoryMask;
+        int mCollisionMask;
     };
 }

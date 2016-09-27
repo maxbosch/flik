@@ -55,22 +55,13 @@ namespace flik
         
         auto sprite = Sprite::create(PieceSprites[(int)pieceType]);
         sprite->setAnchorPoint(Vec2(0, 0));
-        //sprite->setGlobalZOrder(0);
-        
+        mSprite = sprite;
+
         addChild(sprite);
-        
-//        auto physicsBody = PhysicsBody::createBox(getContentSize(), PhysicsMaterial(1.0f, 0.5f, 0.0f));
-//        physicsBody->setGravityEnable(false);
-//        physicsBody->setRotationEnable(false);
-//
-//        physicsBody->setCollisionBitmask(collision::PieceCollisionMasks[(int)pieceType]);
-//        physicsBody->setContactTestBitmask(collision::PieceContactMasks[(int)pieceType]);
-//        physicsBody->setCategoryBitmask(collision::PieceCategoryMasks[(int)pieceType]);
-//        setPhysicsBody(physicsBody);
-//        mPhysicsBody = physicsBody;
-        
-//        mType = physicsBody->getCategoryBitmask();
+
         mType = (int) pieceType;
+        mCategoryMask = collision::PieceCategoryMasks[mType];
+        mCollisionMask = collision::PieceCollisionMasks[mType];
         
         this->scheduleUpdate();
         
@@ -82,6 +73,7 @@ namespace flik
     {
         mGameScene = gameScene;
         
+        
         b2BodyDef bodyDef;
         bodyDef.type = b2BodyType::b2_dynamicBody;
         bodyDef.fixedRotation = true;
@@ -89,7 +81,7 @@ namespace flik
         bodyDef.bullet = true;
         
         createPhysicsBody(gameScene->getPhysicsWorldBox2D(), &bodyDef);
-        addBoxFixture(getContentSize(), 1.0f, 0.0f, 0.3f, collision::PieceCategoryMasks[mType], collision::PieceCollisionMasks[mType]);
+        addBoxFixture(getContentSize(), 1.0f, 0.0f, 0.3f, mCategoryMask, mCollisionMask);
     }
     
     void GamePiece::update(float delta)
@@ -123,7 +115,30 @@ namespace flik
     {
         auto bb = getBoundingBox();
         double padding = 20.0_dp;
-        bb.setRect(bb.origin.x - padding, bb.origin.y - padding, bb.size.width + (padding * 2), bb.size.height + (padding * 2));
+        bb.setRect(bb.origin.x - padding, (bb.origin.y - padding) + getParent()->getPositionY(), bb.size.width + (padding * 2), bb.size.height + (padding * 2));
         return bb;
+    }
+    
+    void GamePiece::setOpacity(float opacity)
+    {
+        Node::setOpacity(opacity);
+        
+        mSprite->setOpacity(opacity);
+    }
+    
+    void GamePiece::setPieceCollisionEnabled(bool enabled)
+    {
+        auto piecePhysicsBody = getPhysicsBodyBox2D();
+        auto& fixture = piecePhysicsBody->GetFixtureList()[0];
+        
+        auto filterData = fixture.GetFilterData();
+        
+        if (enabled) {
+            filterData.maskBits = mCollisionMask;
+        } else {
+            filterData.maskBits = mCollisionMask ^ collision::AllPieces;
+        }
+        
+        fixture.SetFilterData(filterData);
     }
 }

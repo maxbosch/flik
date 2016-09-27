@@ -36,6 +36,14 @@ namespace flik
         
         getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
         
+        auto pieceRemovedListener = EventListenerCustom::create(kPieceRemovedEvent, [this](EventCustom* event) {
+            auto piece = reinterpret_cast<GamePiece*>(event->getUserData());
+            mSelectedPieces.erase(std::remove_if(mSelectedPieces.begin(), mSelectedPieces.end(), [this, piece](SelectedGamePiece& selected) -> bool {
+                return selected.piece == piece;
+            }), mSelectedPieces.end());
+        });
+        getEventDispatcher()->addEventListenerWithSceneGraphPriority(pieceRemovedListener, this);
+        
         scheduleUpdate();
         
         return true;
@@ -54,7 +62,7 @@ namespace flik
         auto visibleBounds = Rect(Vec2(), Director::getInstance()->getOpenGLView()->getDesignResolutionSize());
 
         for (auto piece : this->getPieces()) {
-            bool outsideBounds = !getParent()->getBoundingBox().intersectsRect(piece->getBoundingBox());
+            bool outsideBounds = !getBoundingBox().intersectsRect(piece->getBoundingBox());
             if (outsideBounds) {
                 EventCustom eventObj(kPieceRemovedEvent);
                 eventObj.setUserData(piece);
@@ -131,8 +139,7 @@ namespace flik
                     selected.velocityTracker.AddPoint(touch->getLocation());
                     auto newPosition = lastPosition + touch->getDelta();
                     
-                    constrainPieceToGameBounds(selected.piece);
-                    if (newPosition.distance(lastPosition) < 75.0_dp) {
+                    if (newPosition.distance(lastPosition) < 100.0_dp) {
                         selected.piece->setPosition(newPosition);
                         
                         auto pieceBounds = selected.piece->getBoundingBox();
@@ -142,35 +149,28 @@ namespace flik
                             auto obstacle = dynamic_cast<PhysicsNode*>(child);
                             if (obstacle && obstacle->getTag() != kPieceTag) {
                                 auto obstacleBounds = obstacle->getBoundingBox();
-                                if (pieceBounds.intersectsRect(obstacleBounds)) {
-                                    Vec2 newPosition;
-                                    
-                                    float halfWidth = selected.piece->getContentSize().width;
-                                    float halfHeight = selected.piece->getContentSize().height;
-                                    
-                                    if (pieceBounds.getMinX() > obstacleBounds.getMinX() && pieceBounds.getMaxX() < obstacleBounds.getMaxX()) {
-                                        newPosition.x = selected.piece->getPositionX();
-                                    } else if (pieceBounds.getMinX() < obstacleBounds.getMinX()) {
-                                        newPosition.x = obstacleBounds.getMinX() - halfWidth;
-                                    } else if (pieceBounds.getMaxX() > obstacleBounds.getMaxX()) {
-                                        newPosition.x = obstacleBounds.getMaxX() + halfWidth;
+                                if (obstacleBounds.containsPoint(newPosition)) {
+                                    float xOffset = 0, yOffset = 0;
+                                    if (obstacleBounds.getMinX() > pieceBounds.getMinX()) {
+                                        xOffset = obstacleBounds.getMinX() - pieceBounds.getMinX();
+                                    } else if (obstacleBounds.getMaxX() < pieceBounds.getMaxX()) {
+                                        xOffset = obstacleBounds.getMaxX() - pieceBounds.getMaxX();
                                     }
                                     
-                                    if (pieceBounds.getMinY() > obstacleBounds.getMinY() && pieceBounds.getMaxY() < obstacleBounds.getMaxY()) {
-                                        newPosition.y = selected.piece->getPositionY();
-                                    } else if (pieceBounds.getMinY() < obstacleBounds.getMinY()) {
-                                        newPosition.y = obstacleBounds.getMinY() - halfHeight;
-                                    } else if (pieceBounds.getMaxY() > obstacleBounds.getMaxY()) {
-                                        newPosition.y = obstacleBounds.getMaxY() + halfHeight;
+                                    if (obstacleBounds.getMinY() > pieceBounds.getMinY()) {
+                                        yOffset = obstacleBounds.getMinY() - pieceBounds.getMinY();
+                                    } else if (obstacleBounds.getMaxY() < pieceBounds.getMaxY()) {
+                                        yOffset = obstacleBounds.getMaxY() - pieceBounds.getMaxY();
                                     }
-                                    selected.piece->setPosition(newPosition);
                                     
-                                    onTouchesEnded(touches, unused_event);
+                                    selected.piece->setPosition(newPosition + Vec2(xOffset, yOffset));
                                     
                                     break;
                                 }
                             }
                         }
+                        
+                        constrainPieceToGameBounds(selected.piece);
                     } else {
                         onTouchesEnded(touches, unused_event);
                     }
@@ -221,7 +221,7 @@ namespace flik
     
     void GameBoard::constrainPieceToGameBounds(GamePiece* piece)
     {
-        auto boardBounds = this->getBoundingBox();
+        auto boardBounds = Rect(Vec2(), getContentSize());
         auto pieceBounds = piece->getBoundingBox();
         
         float xOffset = 0, yOffset = 0;

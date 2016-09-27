@@ -14,6 +14,8 @@
 
 namespace flik
 {
+    class PhysicsNode;
+    
     class GoalLayer : public cocos2d::Node
     {
     public:
@@ -25,7 +27,7 @@ namespace flik
         
         void setEnabled(bool enabled);
         
-        void addCollisionNode(cocos2d::Node* collisionNode);
+        void addCollisionNode(PhysicsNode* collisionNode);
         
         void setCollisionFlags(int categoryMask, int contactTestMask, int collisionMask);
         void overrideCollisionFlags(int categoryMask, int contactTestMask, int collisionMask);
@@ -48,7 +50,7 @@ namespace flik
         int mCollisionBitmask;
         int mContactTestBitmask;
         
-        std::vector<cocos2d::Node*> mCollisionNodes;
+        std::vector<PhysicsNode*> mCollisionNodes;
         
         LayerMultiGradient* mColorLayer;
         cocos2d::Sprite* mSprite;

@@ -10,9 +10,8 @@
 #include "Styles.h"
 #include "MainMenuHUD.h"
 #include "MainGameScene.h"
-#include "TimedGameMode.h"
-#include "TimedGameHUD.h"
-#include "MarathonGameMode.h"
+#include "TimedGameScene.h"
+#include "MarathonGameScene.h"
 #include "TimedGameMode.h"
 #include "StoreScene.h"
 #include "LevelsGameMode.h"
@@ -50,14 +49,12 @@ namespace flik
         switch (type) {
             case GameModeType::Timed:
             {
-                auto gameMode = TimedGameMode::create();
-                gameMode->setGameTime(60);
-                gameScene = MainGameScene::create({gameMode, TimedGameHUD::create()});
+                gameScene = TimedGameScene::create();
                 break;
             }
                 
             case GameModeType::Unlimited:
-                gameScene = MainGameScene::create({MarathonGameMode::create(), MainGameHUD::create()});
+                gameScene = MarathonGameScene::create();
                 break;
                 
             case GameModeType::Levels:

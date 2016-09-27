@@ -4,6 +4,7 @@
 	"main_menu_mode_timed": "Timed",
     
     "levels_list_title": "GAMES",
+    "choose_bonus": "Choose Power-up",
     
     "game_mode_timed": "TIMED MODE",
     "game_mode_unlimited": "UNLIMITED MODE",
@@ -64,11 +65,29 @@
     "error_load_failed": "Failed to load %s. Please check your network connection and try again.",
     
     "word_achievements": "achievements",
+    "word_add": "add",
+    "word_buy": "buy",
     
     "level_name_intro": "Intro",
     "level_name_walls": "Walls",
     "level_name_max": "Max",
     "level_name_clear": "Clear",
+    
+    "power_ups_title": "Powerups",
+    "power_ups_choose_1": "Choose up to three",
+    "power_ups_choose_2": "Choose another for 500 points",
+    "power_ups_choose_3": "Choose another for 1000 points",
+    
+    "bonus_name_gravity": "Gravity",
+    "bonus_description_gravity": "Pieces will slowly move toward their goal for 10 seconds",
+    "bonus_name_add_time": "Add Time",
+    "bonus_description_add_time": "Adds 5 seconds in Timed games \nStops spawning for 5 seconds in Unlimited games",
+    "bonus_name_rainbow": "Rainbow",
+    "bonus_description_rainbow": "Pieces can be scored in any goal for the next 10 seconds",
+    "bonus_name_double_up": "Double Up",
+    "bonus_description_double_up": "All pieces scored are worth double for 10 seconds",
+    "bonus_name_ghost": "Ghost",
+    "bonus_description_ghost": "Pieces no longer collide with eachother for the next 10 seconds",
     
     "achievement_text": "New\n Achievement!",
     

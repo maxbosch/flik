@@ -78,9 +78,9 @@ namespace flik
         
         auto widget = Fonts::createLocalizedText(fmt::format(text,
                                                              "quantity"_a=objective["quantity"].GetInt(),
-                                                             "time_limit"_a=level["time_limit"].GetInt()), 18.0_dp);
+                                                             "time_limit"_a=level["time_limit"].GetInt()), 15.0_dp);
         //widget->setColor(kGoldColor);
-        widget->setTextAreaSize(Size(250.0_dp, 80.0_dp));
+        widget->setTextAreaSize(Size(250.0_dp, 0.0_dp));
         widget->setTextHorizontalAlignment(TextHAlignment::CENTER);
         return widget;
     }

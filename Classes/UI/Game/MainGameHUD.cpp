@@ -26,6 +26,8 @@
 #include "LocalizedString.h"
 #include "AchievementsScene.h"
 #include "AchievementOverlay.h"
+#include "BonusBar.h"
+#include "ChoosePowerupScene.h"
 
 #include <boost/lexical_cast.hpp>
 
@@ -75,6 +77,26 @@ namespace flik
         //header->setGlobalZOrder(2);
         mHeader = header;
         
+        mBonusBar = BonusBar::create(Size(uiSize.width, 70.0_dp));
+        mBonusBar->setBackGroundColor(Color3B::BLACK);
+        mBonusBar->setBackGroundColorType(BackGroundColorType::SOLID);
+        auto bonusBarLayout = ui::RelativeLayoutParameter::create();
+        bonusBarLayout->setAlign(RelativeAlign::PARENT_BOTTOM_CENTER_HORIZONTAL);
+        mBonusBar->setLayoutParameter(bonusBarLayout);
+        addChild(mBonusBar, 2);
+        mBonusBar->onBonusTapped = [this](BonusType bonus) {
+            auto gameMode = this->getGameScene()->getGameMode();
+            gameMode->addBonus(bonus);
+            Player::getMainPlayer()->consumePowerUp(bonus, 1);
+        };
+        mBonusBar->onAddBonusTapped = [this]() {
+            auto scene = ChoosePowerupScene::create(mBonusBar->getBonuses(), true);
+            scene->onPowerupsChosen = [this](const std::vector<BonusType>& bonuses) {
+                mBonusBar->setBonuses(bonuses);
+            };
+            SceneManager::pushSceneWithTransition<TransitionMoveInR>(scene, kTransitionDuration);
+        };
+        
         mGameOverScreen = createGameOverOverlay();
         auto gameOverScreenLayout = ui::RelativeLayoutParameter::create();
         gameOverScreenLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
@@ -85,9 +107,10 @@ namespace flik
         auto gameBoard = GameBoard::create();
         gameBoard->setBackGroundColor(Color3B::BLACK);
         gameBoard->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
-        gameBoard->setContentSize(Size(uiSize.width, uiSize.height - header->getContentSize().height));
+        gameBoard->setContentSize(Size(uiSize.width, uiSize.height - header->getContentSize().height - mBonusBar->getContentSize().height));
         auto gameBoardLayout = ui::RelativeLayoutParameter::create();
         gameBoardLayout->setAlign(RelativeAlign::PARENT_BOTTOM_CENTER_HORIZONTAL);
+        gameBoardLayout->setMargin(ui::Margin(0, 0, 0, mBonusBar->getContentSize().height));
         gameBoard->setLayoutParameter(gameBoardLayout);
         addChild(gameBoard, 1);
         mGameBoard = gameBoard;
@@ -109,8 +132,7 @@ namespace flik
             SceneManager::popToRootSceneWithTransition<TransitionSlideInB>(kTransitionDuration);
         };
         pauseOverlay->onRestartTapped = [this]() {
-            getGameScene()->unpauseGame();
-            getGameScene()->requestRestart();
+            getGameScene()->reloadScene();
         };
         pauseOverlay->onSettingsTapped = [this]() {
             SceneManager::pushSceneWithTransition<TransitionSlideInR>(SettingsScene::create(), 0.3);
@@ -124,15 +146,23 @@ namespace flik
         addChild(pauseOverlay, 3);
         mPauseOverlay = pauseOverlay;
         
+        showObjectiveOverlay();
+        
+        return true;
+    }
+    
+    void MainGameHUD::showObjectiveOverlay() {
         scheduleOnce([this](float time) {
             auto objectiveOverlay = createObjectiveOverlay();
             auto objectiveOverlayLayout = ui::RelativeLayoutParameter::create();
             objectiveOverlayLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
             objectiveOverlay->setLayoutParameter(objectiveOverlayLayout);
             addChild(objectiveOverlay, 3);
-            objectiveOverlay->onStartButtonTapped = [this]() {
+            objectiveOverlay->onStartButtonTapped = [this](const std::vector<BonusType>& bonuses) {
                 if (getGameScene()) {
                     mObjectiveOverlay->setVisible(false);
+                    mBonusBar->setBonuses(bonuses);
+                    mBonusBar->reset();
                     getGameScene()->requestRestart();
                 }
             };
@@ -141,12 +171,10 @@ namespace flik
             };
             objectiveOverlay->setVisible(false);
             mObjectiveOverlay = objectiveOverlay;
-
+            
             mObjectiveOverlay->setVisible(true);
             
         }, kTransitionDuration, "show_objective");
-        
-        return true;
     }
     
     void MainGameHUD::update(float time)
@@ -206,7 +234,7 @@ namespace flik
         auto gameOverOverlay = DefaultGameOverOverlay::create();
         gameOverOverlay->onRestartTapped = [this]() {
             if (getGameScene()) {
-                getGameScene()->requestRestart();
+                getGameScene()->reloadScene();
             }
         };
         gameOverOverlay->onHomeTapped = [this]() {

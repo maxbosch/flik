@@ -62,7 +62,7 @@ namespace flik
     {
         Button::update(seconds);
         
-        setCount(Player::getMainPlayer()->getPowerUpCount(mType));
+        //setCount(Player::getMainPlayer()->getPowerUpCount(mType));
     }
     
     void PowerUpButton::onEnter()
