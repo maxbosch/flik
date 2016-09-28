@@ -58,20 +58,6 @@ namespace flik
     void GameBoard::update(float seconds)
     {
         Node::update(seconds);
-        
-        auto visibleBounds = Rect(Vec2(), Director::getInstance()->getOpenGLView()->getDesignResolutionSize());
-
-        for (auto piece : this->getPieces()) {
-            bool outsideBounds = !getBoundingBox().intersectsRect(piece->getBoundingBox());
-            if (outsideBounds) {
-                EventCustom eventObj(kPieceRemovedEvent);
-                eventObj.setUserData(piece);
-                
-                getEventDispatcher()->dispatchEvent(&eventObj);
-                
-                piece->removeFromParent();
-            }
-        }
     }
     
     void GameBoard::clearBoard(bool notify)
@@ -120,6 +106,8 @@ namespace flik
                         auto& selected = mSelectedPieces.back();
                         selected.velocityTracker.Reset();
                         selected.velocityTracker.AddPoint(touch->getLocation());
+                        selected.piece->setDragging(true);
+                        selected.piece->setDecelerating(false);
                         selected.piece->getPhysicsBodyBox2D()->SetLinearVelocity(b2Vec2(0, 0));
                         break;
                     }
@@ -216,7 +204,8 @@ namespace flik
         auto velocityX = std::max(std::min<float>(velocity.x, kMaxVelocity), -kMaxVelocity);
         auto velocityY = std::max(std::min<float>(velocity.y, kMaxVelocity), -kMaxVelocity);
         selected.piece->getPhysicsBodyBox2D()->SetLinearVelocity(b2Vec2(velocityX * kInversePixelsToMeters, velocityY * kInversePixelsToMeters));
-
+        selected.piece->setDragging(false);
+        selected.piece->setDecelerating(true);
     }
     
     void GameBoard::constrainPieceToGameBounds(GamePiece* piece)

@@ -48,11 +48,19 @@ namespace flik
         
         void setPieceCollisionEnabled(bool enabled);
         
+        bool isDragging() { return mDragging; }
+        void setDragging(bool dragging) { mDragging = dragging; }
+        
+        bool isDecelerating() { return mDecelerating; }
+        void setDecelerating(bool decelerating) { mDecelerating = decelerating; }
+        
     private:
         
         EventListenerPhysicsContact* mContactListener;
 //        PhysicsBody* mPhysicsBody;
         MainGameScene* mGameScene;
+        bool mDragging = false;
+        bool mDecelerating = false;
         int mType;
         cocos2d::Sprite* mSprite;
         

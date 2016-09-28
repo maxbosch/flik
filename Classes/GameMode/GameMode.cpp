@@ -12,9 +12,12 @@
 #include "GhostBonusBehavior.h"
 #include "RainbowBonusBehavior.h"
 #include "ScoreMultiplierBonusBehavior.h"
+#include "GravityBonusBehavior.h"
 #include "SceneManager.h"
 #include "Styles.h"
-
+#include "GameBoard.h"
+#include "Events.h"
+#include "GamePiece.h"
 namespace flik {
     bool GameMode::init()
     {
@@ -138,6 +141,25 @@ namespace flik {
                     unscheduleUpdate();
                 }
             }
+            
+            if (mGameState == GameState::InProgress) {
+                auto visibleBounds = Rect(Vec2(), Director::getInstance()->getOpenGLView()->getDesignResolutionSize());
+                
+                auto gameBoard = getGameScene()->getGameBoard();
+                auto localBounds = Rect(Vec2(0, 0), gameBoard->getContentSize());
+                auto pieces = getGameScene()->getGameBoard()->getPieces();
+                for (auto piece : pieces) {
+                    bool outsideBounds = !localBounds.intersectsRect(piece->getBoundingBox());
+                    if (outsideBounds) {
+                        EventCustom eventObj(kPieceRemovedEvent);
+                        eventObj.setUserData(piece);
+                        
+                        getEventDispatcher()->dispatchEvent(&eventObj);
+                        
+                        piece->removeFromParent();
+                    }
+                }
+            }
         }
     }
     
@@ -173,6 +195,10 @@ namespace flik {
                 break;
                 
             case BonusType::Gravity:
+                addChild(GravityBonusBehavior::create(getGameScene(), 10));
+                break;
+                
+            default:
                 break;
         }
     }

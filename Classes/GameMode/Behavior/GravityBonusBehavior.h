@@ -23,6 +23,8 @@ namespace flik
         
         bool init(MainGameScene* scene, float duration);
         
+        void update(float time);
+        
         void onExpire(MainGameScene* scene);
         
     private:

@@ -90,11 +90,14 @@ namespace flik
         auto physicsBody = getPhysicsBodyBox2D();
         
         auto velocity = physicsBody->GetLinearVelocity();
-        if (fabsf(velocity.x) < kVelocityEpsilon && fabsf(velocity.y) < kVelocityEpsilon) {
-            physicsBody->SetLinearVelocity(b2Vec2(0, 0));
-        } else {
-            auto deltaVelocity = ((delta * kDeceleration) * velocity);
-            physicsBody->SetLinearVelocity(velocity - deltaVelocity);
+        if (isDecelerating()) {
+            if (fabsf(velocity.x) < kVelocityEpsilon && fabsf(velocity.y) < kVelocityEpsilon) {
+                physicsBody->SetLinearVelocity(b2Vec2(0, 0));
+                setDecelerating(false);
+            } else {
+                auto deltaVelocity = ((delta * kDeceleration) * velocity);
+                physicsBody->SetLinearVelocity(velocity - deltaVelocity);
+            }
         }
     }
     
