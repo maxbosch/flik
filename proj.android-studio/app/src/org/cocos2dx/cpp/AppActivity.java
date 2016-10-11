@@ -30,6 +30,7 @@ import android.util.Log;
 
 import com.aeskreis.flik.android.R;
 import com.crashlytics.android.Crashlytics;
+import com.sdkbox.plugin.SDKBox;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
@@ -72,4 +73,38 @@ public class AppActivity extends Cocos2dxActivity {
     static String getLanguage() {
         return Locale.getDefault().getLanguage();
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(!SDKBox.onActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        SDKBox.onStart();
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        SDKBox.onStop();
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SDKBox.onResume();
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SDKBox.onPause();
+    }
+    @Override
+    public void onBackPressed() {
+        if(!SDKBox.onBackPressed()) {
+            super.onBackPressed();
+        }
+    }
+
 }

@@ -125,11 +125,11 @@ namespace flik
             
             UserDefault::getInstance()->setBoolForKey("installed", true);
             
-            Player::getMainPlayer()->addPowerUp(BonusType::AddTime, 5);
-            Player::getMainPlayer()->addPowerUp(BonusType::Gravity, 5);
-            Player::getMainPlayer()->addPowerUp(BonusType::Rainbow, 5);
-            Player::getMainPlayer()->addPowerUp(BonusType::DoubleUp, 5);
-            Player::getMainPlayer()->addPowerUp(BonusType::Ghost, 5);
+            Player::getMainPlayer()->addPowerUp(BonusType::AddTime, 1);
+            Player::getMainPlayer()->addPowerUp(BonusType::Gravity, 1);
+            Player::getMainPlayer()->addPowerUp(BonusType::Rainbow, 1);
+            Player::getMainPlayer()->addPowerUp(BonusType::DoubleUp, 1);
+            Player::getMainPlayer()->addPowerUp(BonusType::Ghost, 1);
         }
         
         // Set up back button

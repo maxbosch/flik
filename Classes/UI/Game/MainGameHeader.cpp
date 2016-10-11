@@ -32,10 +32,11 @@ namespace flik
         setBackGroundColor(Color3B::BLACK);
         setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         
-        auto pauseButton = ui::Button::create("pause_icon.png");
+        auto pauseButton = ui::RelativeBox::create(Size(70.0_dp, 70.0_dp));
+        pauseButton->setTouchEnabled(true);
         auto pauseButtonLayout = ui::RelativeLayoutParameter::create();
-        pauseButtonLayout->setAlign(RelativeAlign::PARENT_RIGHT_CENTER_VERTICAL);
-        pauseButtonLayout->setMargin(ui::Margin(0, 22.0_dp, 30.0_dp, 0));
+        pauseButtonLayout->setAlign(RelativeAlign::PARENT_LEFT_CENTER_VERTICAL);
+        pauseButtonLayout->setMargin(ui::Margin(0, 0, 0, 0));
         pauseButton->setLayoutParameter(pauseButtonLayout);
         pauseButton->addTouchEventListener([this](Ref* sender, TouchEventType type) {
             if (type == TouchEventType::ENDED && onPauseTapped) {
@@ -44,10 +45,16 @@ namespace flik
         });
         addChild(pauseButton);
         
+        auto pauseButtonImage = ui::ImageView::create("pause_icon.png");
+        auto pauseButtonImageLayout = ui::RelativeLayoutParameter::create();
+        pauseButtonImageLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
+        pauseButtonImage->setLayoutParameter(pauseButtonImageLayout);
+        pauseButton->addChild(pauseButtonImage);
+        
         auto scoreLabel = Fonts::createLocalizedText("0", 25.0_dp);
         auto scoreLabelLayout = ui::RelativeLayoutParameter::create();
-        scoreLabelLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
-        scoreLabelLayout->setMargin(ui::Margin(0, 27.0_dp, 0, 0));
+        scoreLabelLayout->setAlign(RelativeAlign::PARENT_TOP_RIGHT);
+        scoreLabelLayout->setMargin(ui::Margin(0, 27.0_dp, 30.0_dp, 0));
         scoreLabel->setLayoutParameter(scoreLabelLayout);
         addChild(scoreLabel);
         mScoreLabel = scoreLabel;

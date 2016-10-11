@@ -43,6 +43,8 @@ namespace flik
         int getScore() { return mScore; }
         int getPointsEarned() { return mPointsEarned; }
         
+        void onBackPressed();
+        
     private:
         const LevelDescription* mLevelDesc;
         int mSublevel;

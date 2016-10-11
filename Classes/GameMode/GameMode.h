@@ -37,6 +37,8 @@ namespace flik
         
         virtual int getTopScore() = 0;
         
+        int getPreviousTopScore() { return mPreviousTopScore; }
+        
         virtual GameModeType getGameModeType() = 0;
         
         virtual void setGameScene(MainGameScene* gameScene)
@@ -83,6 +85,7 @@ namespace flik
         GameState mPausedState;
         std::map<PowerUpType, int> mPowerUpMaxPerGame;
         std::map<PowerUpType, int> mCurrentGamePowerUpUseCount;
+        int mPreviousTopScore;
         
         bool mTimeStopped;
         float mTimeStopRemaining;

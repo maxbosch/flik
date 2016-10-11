@@ -247,7 +247,8 @@ namespace flik
     void MainGameHUD::onShowGameOverScreen()
     {
         auto gameOverScreen = dynamic_cast<DefaultGameOverOverlay*>(mGameOverScreen);
-        gameOverScreen->show(Player::getMainPlayer()->getCurrentScore(), getGameScene()->getGameMode()->getTopScore());
+        auto gameMode = getGameScene()->getGameMode();
+        gameOverScreen->show(Player::getMainPlayer()->getCurrentScore(), gameMode->getPreviousTopScore());
     }
     
     void MainGameHUD::showAchievement(int index)
@@ -256,10 +257,11 @@ namespace flik
             auto achievementOverlay = AchievementOverlay::create(mPendingAchievements[index]);
             achievementOverlay->onNextLevelTapped = [this, index, achievementOverlay]() {
                 showAchievement(index + 1);
-                achievementOverlay->removeFromParent();
+                achievementOverlay->animateOut();
             };
-            
+
             addChild(achievementOverlay, 3);
+            achievementOverlay->animateIn();
         } else {
             mPendingAchievements.clear();
             

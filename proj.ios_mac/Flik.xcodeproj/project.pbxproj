@@ -1049,6 +1049,7 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = YK656P6CH5;
+						ProvisioningStyle = Manual;
 					};
 					663CC1751D22B0D600A423A1 = {
 						CreatedOnToolsVersion = 7.3;
@@ -1256,9 +1257,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Adam Eskreis (83A8BQ45VY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Adam Eskreis (83A8BQ45VY)";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = YK656P6CH5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
@@ -1283,9 +1285,6 @@
 					/usr/local/include,
 					"$(SRCROOT)/../cocos2d/extensions",
 					/usr/local/include/freetype2,
-					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/cocos/scripting/lua-bindings/auto",
-					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/external/lua/tolua",
-					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/cocos/scripting/lua-bindings/manual",
 					"$(SRCROOT)/../Classes/Lib/include",
 					"$(SRCROOT)/../Classes/Lib/include/box2d",
 				);
@@ -1308,7 +1307,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aeskreis.flik;
 				PRODUCT_NAME = Flik;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "6818b898-ee2e-4fdd-9ed4-7b71d23f36e3";
+				PROVISIONING_PROFILE_SPECIFIER = "Flik Dev";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1325,9 +1325,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Adam Eskreis (YK656P6CH5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Adam Eskreis (YK656P6CH5)";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = YK656P6CH5;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
@@ -1350,9 +1351,6 @@
 					/usr/local/include,
 					"$(SRCROOT)/../cocos2d/extensions",
 					/usr/local/include/freetype2,
-					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/cocos/scripting/lua-bindings/auto",
-					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/external/lua/tolua",
-					"/Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/cocos/scripting/lua-bindings/manual",
 					"$(SRCROOT)/../Classes/Lib/include",
 					"$(SRCROOT)/../Classes/Lib/include/box2d",
 				);
@@ -1375,7 +1373,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aeskreis.flik;
 				PRODUCT_NAME = Flik;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "738496e3-a003-4320-a149-8a0ffef5880c";
+				PROVISIONING_PROFILE_SPECIFIER = "Flik Ad Hoc";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";

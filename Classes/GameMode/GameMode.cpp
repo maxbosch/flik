@@ -79,6 +79,8 @@ namespace flik {
         
         mTimeRemaining = mGameTime;
         
+        mPreviousTopScore = getTopScore();
+        
         scheduleUpdate();
         
         setGameState(GameState::InProgress);
@@ -141,23 +143,23 @@ namespace flik {
                     unscheduleUpdate();
                 }
             }
+        }
+        
+        if (mGameState == GameState::InProgress) {
+            auto visibleBounds = Rect(Vec2(), Director::getInstance()->getOpenGLView()->getDesignResolutionSize());
             
-            if (mGameState == GameState::InProgress) {
-                auto visibleBounds = Rect(Vec2(), Director::getInstance()->getOpenGLView()->getDesignResolutionSize());
-                
-                auto gameBoard = getGameScene()->getGameBoard();
-                auto localBounds = Rect(Vec2(0, 0), gameBoard->getContentSize());
-                auto pieces = getGameScene()->getGameBoard()->getPieces();
-                for (auto piece : pieces) {
-                    bool outsideBounds = !localBounds.intersectsRect(piece->getBoundingBox());
-                    if (outsideBounds) {
-                        EventCustom eventObj(kPieceRemovedEvent);
-                        eventObj.setUserData(piece);
-                        
-                        getEventDispatcher()->dispatchEvent(&eventObj);
-                        
-                        piece->removeFromParent();
-                    }
+            auto gameBoard = getGameScene()->getGameBoard();
+            auto localBounds = Rect(Vec2(0, 0), gameBoard->getContentSize());
+            auto pieces = getGameScene()->getGameBoard()->getPieces();
+            for (auto piece : pieces) {
+                bool outsideBounds = !localBounds.intersectsRect(piece->getBoundingBox());
+                if (outsideBounds) {
+                    EventCustom eventObj(kPieceRemovedEvent);
+                    eventObj.setUserData(piece);
+                    
+                    getEventDispatcher()->dispatchEvent(&eventObj);
+                    
+                    piece->removeFromParent();
                 }
             }
         }
@@ -210,7 +212,7 @@ namespace flik {
         } else if (getGameState() == GameState::InProgress) {
             pauseGame();
         } else {
-            SceneManager::popSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
+            SceneManager::popSceneWithTransition<TransitionSlideInB>(kTransitionDuration);
         }
     }
 }

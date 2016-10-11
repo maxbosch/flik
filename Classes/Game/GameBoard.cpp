@@ -126,42 +126,38 @@ namespace flik
                     auto lastPosition = selected.piece->getPosition();
                     selected.velocityTracker.AddPoint(touch->getLocation());
                     auto newPosition = lastPosition + touch->getDelta();
+                
+                    selected.piece->setPosition(newPosition);
                     
-                    if (newPosition.distance(lastPosition) < 100.0_dp) {
-                        selected.piece->setPosition(newPosition);
-                        
-                        auto pieceBounds = selected.piece->getBoundingBox();
-                        
-                        // if the user tries to drag the piece inside the bounds of a wall, we reject it
-                        for (auto child : getChildren()) {
-                            auto obstacle = dynamic_cast<PhysicsNode*>(child);
-                            if (obstacle && obstacle->getTag() != kPieceTag) {
-                                auto obstacleBounds = obstacle->getBoundingBox();
-                                if (obstacleBounds.containsPoint(newPosition)) {
-                                    float xOffset = 0, yOffset = 0;
-                                    if (obstacleBounds.getMinX() > pieceBounds.getMinX()) {
-                                        xOffset = obstacleBounds.getMinX() - pieceBounds.getMinX();
-                                    } else if (obstacleBounds.getMaxX() < pieceBounds.getMaxX()) {
-                                        xOffset = obstacleBounds.getMaxX() - pieceBounds.getMaxX();
-                                    }
-                                    
-                                    if (obstacleBounds.getMinY() > pieceBounds.getMinY()) {
-                                        yOffset = obstacleBounds.getMinY() - pieceBounds.getMinY();
-                                    } else if (obstacleBounds.getMaxY() < pieceBounds.getMaxY()) {
-                                        yOffset = obstacleBounds.getMaxY() - pieceBounds.getMaxY();
-                                    }
-                                    
-                                    selected.piece->setPosition(newPosition + Vec2(xOffset, yOffset));
-                                    
-                                    break;
+                    /*auto pieceBounds = selected.piece->getBoundingBox();
+                    
+                    // if the user tries to drag the piece inside the bounds of a wall, we reject it
+                    for (auto child : getChildren()) {
+                        auto obstacle = dynamic_cast<PhysicsNode*>(child);
+                        if (obstacle && obstacle->getTag() != kPieceTag) {
+                            auto obstacleBounds = obstacle->getBoundingBox();
+                            if (obstacleBounds.containsPoint(newPosition)) {
+                                float xOffset = 0, yOffset = 0;
+                                if (obstacleBounds.getMinX() > pieceBounds.getMinX()) {
+                                    xOffset = obstacleBounds.getMinX() - pieceBounds.getMinX();
+                                } else if (obstacleBounds.getMaxX() < pieceBounds.getMaxX()) {
+                                    xOffset = obstacleBounds.getMaxX() - pieceBounds.getMaxX();
                                 }
+                                
+                                if (obstacleBounds.getMinY() > pieceBounds.getMinY()) {
+                                    yOffset = obstacleBounds.getMinY() - pieceBounds.getMinY();
+                                } else if (obstacleBounds.getMaxY() < pieceBounds.getMaxY()) {
+                                    yOffset = obstacleBounds.getMaxY() - pieceBounds.getMaxY();
+                                }
+                                
+                                selected.piece->setPosition(newPosition + Vec2(xOffset, yOffset));
+                                
+                                break;
                             }
                         }
-                        
-                        constrainPieceToGameBounds(selected.piece);
-                    } else {
-                        onTouchesEnded(touches, unused_event);
-                    }
+                    }*/
+                    
+                    constrainPieceToGameBounds(selected.piece);
                     
                     break;
                 }

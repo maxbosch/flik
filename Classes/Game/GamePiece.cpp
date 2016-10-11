@@ -86,11 +86,14 @@ namespace flik
     
     void GamePiece::update(float delta)
     {
-        PhysicsNode::update(delta);
+        if (!isDragging()) {
+            PhysicsNode::update(delta);
+        }
+            
         auto physicsBody = getPhysicsBodyBox2D();
         
         auto velocity = physicsBody->GetLinearVelocity();
-        if (isDecelerating()) {
+        if (isDecelerating() && !isDragging()) {
             if (fabsf(velocity.x) < kVelocityEpsilon && fabsf(velocity.y) < kVelocityEpsilon) {
                 physicsBody->SetLinearVelocity(b2Vec2(0, 0));
                 setDecelerating(false);

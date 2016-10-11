@@ -219,9 +219,9 @@ namespace flik
         }
     }
     
-    void MainGameScene::render(Renderer *renderer)
+    void MainGameScene::render(Renderer *renderer, const Mat4& eyeTransform, const Mat4* eyeProjection)
     {
-        SceneEx::render(renderer);
+        SceneEx::render(renderer, eyeTransform, eyeProjection);
         
 #if DEBUG_PHYSICS
         mPhysicsWorldBox2D->DrawDebugData();

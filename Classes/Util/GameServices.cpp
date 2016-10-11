@@ -78,7 +78,7 @@ namespace flik
     {
         if (!mAchievementsLoaded || force) {
             mAchievementsCallback = callback;
-            sdkbox::PluginSdkboxPlay::loadAchievements(true);
+            //sdkbox::PluginSdkboxPlay::loadAchievements(true);
         } else {
             if (callback) {
                 callback(mAchievements, RESULT_OK);
@@ -96,7 +96,7 @@ namespace flik
     /** SdkboxPlayListener */
     void GameServices::onConnectionStatusChanged( int status )
     {
-        sdkbox::PluginSdkboxPlay::loadAchievements(true);
+        //sdkbox::PluginSdkboxPlay::loadAchievements(true);
     }
     
     void GameServices::onScoreSubmitted( const std::string& leaderboard_name, int score, bool maxScoreAllTime, bool maxScoreWeek, bool maxScoreToday )

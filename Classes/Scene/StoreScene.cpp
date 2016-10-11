@@ -96,8 +96,8 @@ namespace flik
         
         auto storePurchaseOverlay = StorePurchaseOverlay::create();
         auto storePurchaseOverlayLayout = ui::RelativeLayoutParameter::create();
-        storePurchaseOverlayLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
-        //storePurchaseOverlayLayout->setMargin(ui::Margin(0, 0, 0, 0));
+        storePurchaseOverlayLayout->setAlign(RelativeAlign::PARENT_BOTTOM_CENTER_HORIZONTAL);
+        storePurchaseOverlayLayout->setMargin(ui::Margin(0, 0, 0, 35.0_dp));
         storePurchaseOverlay->setLayoutParameter(storePurchaseOverlayLayout);
         storeGUI->addChild(storePurchaseOverlay);
         mPurchaseOverlay = storePurchaseOverlay;

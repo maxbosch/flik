@@ -24,6 +24,7 @@
 #include "Behavior.h"
 #include "Player.h"
 #include "PhysicsNode.h"
+#include "SceneManager.h"
 
 USING_NS_CC;
 
@@ -295,5 +296,16 @@ namespace flik
         }
         
         GameMode::setGameState(state);
+    }
+    
+    void LevelsGameMode::onBackPressed()
+    {
+        if (getGameState() == GameState::Paused) {
+            resumeGame();
+        } else if (getGameState() == GameState::InProgress) {
+            pauseGame();
+        } else {
+            SceneManager::popSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
+        }
     }
 }

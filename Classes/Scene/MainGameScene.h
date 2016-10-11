@@ -59,7 +59,7 @@ namespace flik
         
         std::shared_ptr<b2World>& getPhysicsWorldBox2D() { return mPhysicsWorldBox2D; }
         
-        void render(cocos2d::Renderer *renderer);
+        void render(cocos2d::Renderer *renderer, const cocos2d::Mat4& eyeTransform, const cocos2d::Mat4* eyeProjection = nullptr);
         
         /* b2ContactListener methods */
         void BeginContact(b2Contact* contact);

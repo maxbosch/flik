@@ -46,9 +46,7 @@ namespace flik
         achievementsButton->setLayoutParameter(achievementsButtonLayout);
         achievementsButton->addTouchEventListener([this](Ref* sender, TouchEventType type) {
             if (type == TouchEventType::ENDED) {
-                if (sdkbox::PluginSdkboxPlay::isSignedIn() || true) {
-                    SceneManager::pushSceneWithTransition<TransitionSlideInL>(AchievementsScene::create(), kTransitionDuration);
-                }
+                SceneManager::pushSceneWithTransition<TransitionSlideInL>(AchievementsScene::create(), kTransitionDuration);
             }
         });
         addChild(achievementsButton);

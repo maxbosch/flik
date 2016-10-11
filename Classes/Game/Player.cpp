@@ -104,7 +104,7 @@ namespace flik
         switch (type) {
             case GameModeType::Timed:
             {
-                sdkbox::PluginSdkboxPlay::submitScore("score_timed", score);
+                //sdkbox::PluginSdkboxPlay::submitScore("score_timed", score);
                 
                 increments.push_back({"play_timed_game_1", 100});
                 increments.push_back({"play_timed_game_5", 20});
@@ -131,26 +131,26 @@ namespace flik
                 
             case GameModeType::Unlimited:
             {
-                sdkbox::PluginSdkboxPlay::submitScore("score_unlimited", score);
+                //sdkbox::PluginSdkboxPlay::submitScore("score_unlimited", score);
                 
                 increments.push_back({"play_unlimited_game_1", 100});
                 increments.push_back({"play_unlimited_game_5", 20});
                 increments.push_back({"play_unlimited_game_20", 5});
                 
                 if (score >= 50) {
-                    sdkbox::PluginSdkboxPlay::unlockAchievement("score_unlimited_50");
+                    increments.push_back({"score_unlimited_50", 100});
                 }
                 
                 if (score >= 100) {
-                    sdkbox::PluginSdkboxPlay::unlockAchievement("score_unlimited_100");
+                    increments.push_back({"score_unlimited_100", 100});
                 }
                 
                 if (score >= 150) {
-                    sdkbox::PluginSdkboxPlay::unlockAchievement("score_unlimited_150");
+                    increments.push_back({"score_unlimited_150", 100});
                 }
                 
                 if (score >= 200) {
-                    sdkbox::PluginSdkboxPlay::unlockAchievement("score_unlimited_200");
+                    increments.push_back({"score_unlimited_200", 100});
                 }
                 
                 break;
@@ -163,7 +163,7 @@ namespace flik
         auto gameServices = GameServices::getInstance();
         
         for (auto& increment : increments) {
-            sdkbox::PluginSdkboxPlay::incrementAchievement(increment.name, increment.amount);
+            //sdkbox::PluginSdkboxPlay::incrementAchievement(increment.name, increment.amount);
             
             auto achievement = gameServices->getAchievementByName(increment.name);
             if (achievement) {

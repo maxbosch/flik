@@ -67,7 +67,7 @@ namespace flik
         auto objectiveWidget = createObjectiveWidget();
         auto objectiveContainerLayout = ui::LinearLayoutParameter::create();
         objectiveContainerLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
-        objectiveContainerLayout->setMargin(ui::Margin(0, 23.0_dp, 0, 30.0_dp));
+        objectiveContainerLayout->setMargin(ui::Margin(0, 0, 0, 30.0_dp));
         objectiveWidget->setLayoutParameter(objectiveContainerLayout);
         innerContainer->addChild(objectiveWidget);
         
@@ -173,7 +173,7 @@ namespace flik
         auto titleLabel = Fonts::createLocalizedText(title, 25.0_dp);
         titleLabel->setColor(kGoldColor);
         auto titleLabelLayout = ui::LinearLayoutParameter::create();
-        titleLabelLayout->setMargin(ui::Margin(0, 45.0_dp, 0, 0));
+        titleLabelLayout->setMargin(ui::Margin(0, 45.0_dp, 0, 23.0_dp));
         titleLabelLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
         titleLabel->setLayoutParameter(titleLabelLayout);
         return titleLabel;

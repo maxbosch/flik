@@ -21,5 +21,11 @@ namespace flik
         bool init(const std::string& achievementName);
         
         std::function<void()> onNextLevelTapped;
+        
+        void animateIn();
+        void animateOut();
+        
+    private:
+        RelativeBox* mContainer;
     };
 }

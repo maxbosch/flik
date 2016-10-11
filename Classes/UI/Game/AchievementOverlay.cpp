@@ -12,6 +12,7 @@
 #include "Styles.h"
 #include "Fonts.h"
 #include "LocalizedString.h"
+#include "Animations.h"
 
 USING_NS_CC;
 
@@ -37,6 +38,10 @@ namespace flik
         auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, 0.8 * 255), uiSize.width, uiSize.height);
         addChild(overlayBackground);
         
+        auto container = ui::RelativeBox::create(uiSize);
+        addChild(container);
+        mContainer = container;
+        
         auto achievementNameText = Fonts::createLocalizedText(LocalizedString::getString("achievement_" + achievementName), 30.0_dp);
         achievementNameText->setColor(Color3B::WHITE);
         achievementNameText->setTextAreaSize(Size(uiSize.width - 40.0_dp, 100.0_dp));
@@ -45,13 +50,13 @@ namespace flik
         achievementNameTextLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
         achievementNameTextLayout->setMargin(ui::Margin(20.0_dp, 60.0_dp, 20.0_dp, 0));
         achievementNameText->setLayoutParameter(achievementNameTextLayout);
-        addChild(achievementNameText);
+        container->addChild(achievementNameText);
         
         auto achievementRibbon = ui::ImageView::create("success_ribbon.png");
         auto achievementRibbonLayout = ui::RelativeLayoutParameter::create();
         achievementRibbonLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
         achievementRibbon->setLayoutParameter(achievementRibbonLayout);
-        addChild(achievementRibbon);
+        container->addChild(achievementRibbon);
         
         auto achievementLabel = Fonts::createLocalizedText(LocalizedString::getString("achievement_text"), 25.0_dp);
         achievementLabel->setColor(kYellowColor);
@@ -65,7 +70,7 @@ namespace flik
         nextButtonLayout->setAlign(RelativeAlign::PARENT_RIGHT_BOTTOM);
         nextButtonLayout->setMargin(ui::Margin(0, 0, 30.0_dp, 30.0_dp));
         nextButton->setLayoutParameter(nextButtonLayout);
-        addChild(nextButton);
+        container->addChild(nextButton);
         nextButton->setTouchEnabled(true);
         nextButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
             if (type == ui::Widget::TouchEventType::ENDED && onNextLevelTapped) {
@@ -87,5 +92,27 @@ namespace flik
         nextButton->addChild(nextButtonLabel);
         
         return true;
+    }
+    
+    void AchievementOverlay::animateIn()
+    {
+        Animations::animate(kTransitionDuration, [this](float t) {
+            Mat4 transform;
+            Mat4::createTranslation(Vec3(getContentSize().width * (1.0f - t), 0, 0), &transform);
+            
+            mContainer->setAdditionalTransform(&transform);
+        }, nullptr, QuadraticEaseOutCurve);
+    }
+    
+    void AchievementOverlay::animateOut()
+    {
+        Animations::animate(kTransitionDuration, [this](float t) {
+            Mat4 transform;
+            Mat4::createTranslation(Vec3(-getContentSize().width * t, 0, 0), &transform);
+            
+            mContainer->setAdditionalTransform(&transform);
+        }, [this](bool finished) {
+            this->removeFromParent();
+        }, QuadraticEaseInCurve);
     }
 }
