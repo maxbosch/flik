@@ -236,5 +236,19 @@ namespace flik
     {
         Player::getMainPlayer()->resetScore();
     }
+    
+    void MainGameScene::onAppear()
+    {
+        if (mGameMode->getGameState() == GameState::Paused) {
+            //this->unpauseGame();
+        }
+    }
+    
+    void MainGameScene::onDisappear()
+    {
+        if (mGameMode->getGameState() == GameState::InProgress) {
+            //this->pauseGame();
+        }
+    }
 }
 

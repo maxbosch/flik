@@ -17,4 +17,8 @@ namespace flik
     void SceneEx::onAppear()
     {
     }
+    
+    void SceneEx::onDisappear()
+    {
+    }
 }

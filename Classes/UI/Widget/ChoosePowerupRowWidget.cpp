@@ -138,14 +138,6 @@ namespace flik
             mDescriptionLabel->setColor(kPinkColor);
             mCountLabel->setColor(kPinkColor);
         } else {
-            if (bonusCount == 0) {
-                mAddButton->loadTextureNormal("powerup_buy_button.png");
-                Fonts::updateLocalizedText(mAddButton, boost::to_upper_copy(LocalizedString::getString("word_buy")));
-            } else {
-                mAddButton->loadTextureNormal("powerup_add_button.png");
-                Fonts::updateLocalizedText(mAddButton, boost::to_upper_copy(LocalizedString::getString("word_add")));
-            }
-            
             mImage->loadTexture("powerup_" + name + "_white.png");
             
             mNameLabel->setColor(Color3B::WHITE);

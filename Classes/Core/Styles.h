@@ -30,4 +30,6 @@ namespace flik
     static const Color3B kPinkColor = Util::getColorFromHex("FD02A1");
     
     static const float kTransitionDuration = 0.3;
+    
+    static const float kOverlayBackgroundOpacity = 0.85 * 255;
 }

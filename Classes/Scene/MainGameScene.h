@@ -66,6 +66,9 @@ namespace flik
         
         virtual void reloadScene();
         
+        virtual void onAppear();
+        virtual void onDisappear();
+        
     private:
         cocos2d::TimerTargetCallback* mSpawnTimer;
         SideRailNode* mSideRails;

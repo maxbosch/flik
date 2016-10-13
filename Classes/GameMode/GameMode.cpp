@@ -149,9 +149,11 @@ namespace flik {
             auto visibleBounds = Rect(Vec2(), Director::getInstance()->getOpenGLView()->getDesignResolutionSize());
             
             auto gameBoard = getGameScene()->getGameBoard();
+            auto gameBoardPosition = gameBoard->getPosition();
             auto localBounds = Rect(Vec2(0, 0), gameBoard->getContentSize());
             auto pieces = getGameScene()->getGameBoard()->getPieces();
             for (auto piece : pieces) {
+                auto position = piece->getPosition();
                 bool outsideBounds = !localBounds.intersectsRect(piece->getBoundingBox());
                 if (outsideBounds) {
                     EventCustom eventObj(kPieceRemovedEvent);

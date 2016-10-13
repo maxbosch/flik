@@ -58,12 +58,11 @@ namespace flik
         Node::update(time);
         
         if (mPhysicsBodyBox2D && getParent() != nullptr) {
-            if (mPhysicsBodyBox2D->IsAwake()) {
+            if (mPhysicsBodyBox2D->GetType() == b2_dynamicBody && mPhysicsBodyBox2D->IsAwake()) {
                 auto x = (mPhysicsBodyBox2D->GetPosition().x * kPixelsToMeters) - (getContentSize().width * (0.5 - getAnchorPoint().x));
                 auto y = (mPhysicsBodyBox2D->GetPosition().y * kPixelsToMeters) - (getContentSize().height * (0.5 - getAnchorPoint().y));
-                Vec2 position = getParent()->convertToNodeSpace(Vec2(x, y));
                 
-                Node::setPosition(position.x, position.y);
+                Node::setPosition(x, y);
             } else {
                 updateBodyPosition();
             }
@@ -87,7 +86,7 @@ namespace flik
     void PhysicsNode::updateBodyPosition()
     {
         if (mPhysicsBodyBox2D && getParent() != nullptr) {
-            Vec2 worldPosition = getParent()->convertToWorldSpace(getPosition());
+            Vec2 worldPosition = getPosition();
             b2Vec2 position((worldPosition.x + (getContentSize().width * (0.5 - getAnchorPoint().x))) * kInversePixelsToMeters,
                             (worldPosition.y + (getContentSize().height * (0.5 - getAnchorPoint().y))) * kInversePixelsToMeters);
 

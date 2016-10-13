@@ -47,7 +47,6 @@ namespace flik
         setContentSize(Size(50.0_dp, 50.0_dp));
         setPosition(position);
         setAnchorPoint(Vec2(0.5, 0.5));
-        ignoreAnchorPointForPosition(false);
         
         if (pieceType == GamePieceType::RandomPiece) {
             pieceType = (GamePieceType) SpawnRandomizer::getInstance()->getRandomId();
@@ -93,7 +92,7 @@ namespace flik
         auto physicsBody = getPhysicsBodyBox2D();
         
         auto velocity = physicsBody->GetLinearVelocity();
-        if (isDecelerating() && !isDragging()) {
+        if (!isDragging()) {
             if (fabsf(velocity.x) < kVelocityEpsilon && fabsf(velocity.y) < kVelocityEpsilon) {
                 physicsBody->SetLinearVelocity(b2Vec2(0, 0));
                 setDecelerating(false);

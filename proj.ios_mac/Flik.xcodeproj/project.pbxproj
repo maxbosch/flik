@@ -29,6 +29,7 @@
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		5C05403BB2316A413887BF45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82184907863F3C226936A794 /* SystemConfiguration.framework */; };
+		66050FA01DAE73BF00E039DB /* TransitionEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66050F9E1DAE73BF00E039DB /* TransitionEx.cpp */; };
 		660726E91D5B65830072A7A3 /* DisableColorBehavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660726E71D5B65830072A7A3 /* DisableColorBehavior.cpp */; };
 		660956C11D80518C0063BFDF /* AchievementOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660956BF1D80518C0063BFDF /* AchievementOverlay.cpp */; };
 		660DD9E61D6C8ADE00698B93 /* 2x in Resources */ = {isa = PBXBuildFile; fileRef = 660DD9E51D6C8ADE00698B93 /* 2x */; };
@@ -218,6 +219,8 @@
 		5FFA4CFFB64615183C2B5DD7 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		60914756B5344F788670F9BD /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		653B48C1B5B985AED8C487F1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		66050F9E1DAE73BF00E039DB /* TransitionEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TransitionEx.cpp; sourceTree = "<group>"; };
+		66050F9F1DAE73BF00E039DB /* TransitionEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionEx.h; sourceTree = "<group>"; };
 		660726E71D5B65830072A7A3 /* DisableColorBehavior.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DisableColorBehavior.cpp; sourceTree = "<group>"; };
 		660726E81D5B65830072A7A3 /* DisableColorBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisableColorBehavior.h; sourceTree = "<group>"; };
 		660956BF1D80518C0063BFDF /* AchievementOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AchievementOverlay.cpp; sourceTree = "<group>"; };
@@ -873,6 +876,8 @@
 				661401771D5955FD005497BD /* LayerMultiGradient.h */,
 				66E802F91D5CC0AB0039AFD3 /* SceneEx.cpp */,
 				66E802FA1D5CC0AB0039AFD3 /* SceneEx.h */,
+				66050F9E1DAE73BF00E039DB /* TransitionEx.cpp */,
+				66050F9F1DAE73BF00E039DB /* TransitionEx.h */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1206,6 +1211,7 @@
 				6638949A1D09AEB60034892E /* GamePiece.cpp in Sources */,
 				663AACC21D88C4080028A9EA /* ScoreMultiplierBonusBehavior.cpp in Sources */,
 				66114ECC1D12D77A00B2C92B /* ObjectiveItemWidget.cpp in Sources */,
+				66050FA01DAE73BF00E039DB /* TransitionEx.cpp in Sources */,
 				66DB27581D74FF55005BF1CD /* PhysicsNode.cpp in Sources */,
 				663AACC51D88C6200028A9EA /* GravityBonusBehavior.cpp in Sources */,
 				66E7E50E1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp in Sources */,

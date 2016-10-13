@@ -9,6 +9,7 @@
 #include "PauseOverlayWidget.h"
 #include "PauseButtonsWidget.h"
 #include "Literals.h"
+#include "Styles.h"
 
 USING_NS_CC;
 
@@ -26,7 +27,7 @@ namespace flik
         auto uiSize = Director::getInstance()->getVisibleSize();
         setContentSize(uiSize);
         
-        auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, 0.8 * 255), uiSize.width, uiSize.height);
+        auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, kOverlayBackgroundOpacity), uiSize.width, uiSize.height);
         addChild(overlayBackground);
         
         auto pauseButtons = PauseButtonsWidget::create();

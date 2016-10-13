@@ -58,6 +58,8 @@ namespace flik {
     
     void MarathonGameMode::update(float seconds)
     {
+        GameMode::update(seconds);
+        
         if (getGameScene()->getPiecesCount() > 70) {
             // You lose
             setGameState(GameState::Finished);

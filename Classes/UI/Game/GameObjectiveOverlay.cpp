@@ -40,7 +40,7 @@ namespace flik
         //setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         
         //auto overlayBackground = BlurredBackgroundWidget::create();
-        auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, 0.8 * 255), uiSize.width, uiSize.height);
+        auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, kOverlayBackgroundOpacity), uiSize.width, uiSize.height);
         addChild(overlayBackground);
         
         auto innerContainer = ui::VBox::create(Size(305.0_dp, 475.0_dp));

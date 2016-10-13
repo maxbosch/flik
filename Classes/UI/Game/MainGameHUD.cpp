@@ -94,7 +94,7 @@ namespace flik
             scene->onPowerupsChosen = [this](const std::vector<BonusType>& bonuses) {
                 mBonusBar->setBonuses(bonuses);
             };
-            SceneManager::pushSceneWithTransition<TransitionMoveInR>(scene, kTransitionDuration);
+            SceneManager::pushSceneWithTransition<TransitionSlideInR>(scene, kTransitionDuration);
         };
         
         mGameOverScreen = createGameOverOverlay();

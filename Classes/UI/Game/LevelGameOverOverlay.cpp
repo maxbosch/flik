@@ -30,7 +30,7 @@ namespace flik
         auto uiSize = Director::getInstance()->getVisibleSize();
         setContentSize(uiSize);
         
-        auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, 0.8 * 255), uiSize.width, uiSize.height);
+        auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, kOverlayBackgroundOpacity), uiSize.width, uiSize.height);
         addChild(overlayBackground);
         
         // Buttons
@@ -91,7 +91,7 @@ namespace flik
         if (success) {
             createSuccessWidget(level, score, pointsEarned);
             animateStar(score);
-            animatePoints(pointsEarned);
+            //animatePoints(pointsEarned);
         } else {
             createFailureWidget(level);
         }
@@ -183,7 +183,7 @@ namespace flik
         for (int i = 0; i < 3; i++) {
             auto starEmpty = ui::ImageView::create("star_large_empty.png");
             auto starEmptyLayout = ui::RelativeLayoutParameter::create();
-            starEmptyLayout->setAlign(RelativeAlign::PARENT_LEFT_BOTTOM);
+            starEmptyLayout->setAlign(RelativeAlign::PARENT_LEFT_CENTER_VERTICAL);
             starEmptyLayout->setMargin(ui::Margin(67.0_dp + (i * 65.0_dp), 0, 0, 47.5_dp));
             starEmpty->setLayoutParameter(starEmptyLayout);
             starsContainer->addChild(starEmpty);
@@ -191,27 +191,12 @@ namespace flik
             auto starFull = ui::ImageView::create("star_large.png");
             starFull->setScale(0.0f);
             auto starFullLayout = ui::RelativeLayoutParameter::create();
-            starFullLayout->setAlign(RelativeAlign::PARENT_LEFT_BOTTOM);
+            starFullLayout->setAlign(RelativeAlign::PARENT_LEFT_CENTER_VERTICAL);
             starFullLayout->setMargin(ui::Margin(67.0_dp + (i * 65.0_dp), 0, 0, 47.5_dp));
             starFull->setLayoutParameter(starFullLayout);
             starsContainer->addChild(starFull);
             mStarWidgets.push_back(starFull);
         }
-        
-        auto pointsBubble = ui::RelativeBox::create(Size(152.5_dp, 152.5_dp));
-        pointsBubble->setBackGroundImage("game_over_points_container.png");
-        auto pointsBubbleLayout = ui::RelativeLayoutParameter::create();
-        pointsBubbleLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
-        pointsBubble->setLayoutParameter(pointsBubbleLayout);
-        middleContainer->addChild(pointsBubble);
-        
-        auto pointsLabel = Fonts::createLocalizedText("+123", 48.0_dp);
-        pointsLabel->setTextColor(Color4B(kStarColor));
-        auto pointsLabelLayout = ui::RelativeLayoutParameter::create();
-        pointsLabelLayout->setAlign(RelativeAlign::CENTER_IN_PARENT);
-        pointsLabel->setLayoutParameter(pointsLabelLayout);
-        pointsBubble->addChild(pointsLabel);
-        mPointsLabel = pointsLabel;
     }
     
     void LevelGameOverOverlay::createFailureWidget(int level)

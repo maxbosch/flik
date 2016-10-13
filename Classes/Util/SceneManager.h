@@ -26,6 +26,8 @@ namespace flik
         {
             sSceneStack.push(scene);
             
+            notifySceneDisappeared();
+            
             Director::getInstance()->runWithScene(scene);
             
             Animations::onSceneChanged(scene);
@@ -36,6 +38,8 @@ namespace flik
         static void pushScene(Scene* scene)
         {
             sSceneStack.push(scene);
+            
+            notifySceneDisappeared();
             
             Director::getInstance()->pushScene(scene);
             
@@ -48,6 +52,8 @@ namespace flik
         static void pushSceneWithTransition(Scene* scene, float duration)
         {
             sSceneStack.push(scene);
+            
+            notifySceneDisappeared();
             
             Director::getInstance()->pushScene(T::create(duration, scene));
             
@@ -63,6 +69,8 @@ namespace flik
                 Director::getInstance()->end();
                 return;
             }
+            
+            notifySceneDisappeared();
             
             auto backScene = sSceneStack.top();
             
@@ -82,6 +90,8 @@ namespace flik
                 return;
             }
             
+            notifySceneDisappeared();
+            
             auto backScene = sSceneStack.top();
             
             Director::getInstance()->replaceScene(T::create(duration, backScene));
@@ -96,6 +106,8 @@ namespace flik
             sSceneStack.pop();
             sSceneStack.push(scene);
             
+            notifySceneDisappeared();
+            
             Director::getInstance()->replaceScene(scene);
             
             Animations::onSceneChanged(scene);
@@ -109,6 +121,8 @@ namespace flik
             sSceneStack.pop();
             sSceneStack.push(scene);
             
+            notifySceneDisappeared();
+            
             Director::getInstance()->replaceScene(T::create(duration, scene));
             
             Animations::onSceneChanged(scene);
@@ -121,6 +135,8 @@ namespace flik
             while (sSceneStack.size() > 1) {
                 sSceneStack.pop();
             }
+            
+            notifySceneDisappeared();
             
             auto backScene = sSceneStack.top();
             Director::getInstance()->replaceScene(backScene);
@@ -137,12 +153,16 @@ namespace flik
                 sSceneStack.pop();
             }
             
+            notifySceneDisappeared();
+            
             auto backScene = sSceneStack.top();
             Director::getInstance()->replaceScene(T::create(duration, backScene));
             
             Animations::onSceneChanged(backScene);
             
             notifySceneAppeared(backScene);
+            
+            notifySceneDisappeared();
         }
         
         static Scene* getActiveScene() {
@@ -157,6 +177,16 @@ namespace flik
             auto sceneEx = dynamic_cast<SceneEx*>(scene);
             if (sceneEx) {
                 sceneEx->onAppear();
+            }
+        }
+        
+        static void notifySceneDisappeared() {
+            auto currentScene = Director::getInstance()->getRunningScene();
+            if (currentScene) {
+                auto sceneEx = dynamic_cast<SceneEx*>(currentScene);
+                if (sceneEx) {
+                    sceneEx->onDisappear();
+                }
             }
         }
         
