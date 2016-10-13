@@ -52,8 +52,7 @@ namespace flik
                 if (type == TouchEventType::ENDED && onBonusTapped) {
                     auto button = dynamic_cast<ui::Button*>(sender);
                     if (button->getTag() >= 0) {
-                        onBonusTapped(static_cast<BonusType>(button->getTag()));
-                        button->setEnabled(false);
+                        onBonusTapped(button, static_cast<BonusType>(button->getTag()));
                     } else {
                         onAddBonusTapped();
                     }

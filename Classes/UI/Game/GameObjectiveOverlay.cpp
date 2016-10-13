@@ -111,7 +111,7 @@ namespace flik
             SceneManager::pushSceneWithTransition<TransitionSlideInR>(scene, kTransitionDuration);
         };
         
-        bonusBar->onBonusTapped = [this, openChooseScene](BonusType bonus) {
+        bonusBar->onBonusTapped = [this, openChooseScene](cocos2d::ui::Button* sender, BonusType bonus) {
             openChooseScene();
         };
         bonusBar->onAddBonusTapped = openChooseScene;

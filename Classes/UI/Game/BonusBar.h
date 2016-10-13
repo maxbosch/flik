@@ -24,7 +24,7 @@ namespace flik
         void setBonuses(const std::vector<BonusType>& bonuses);
         void reset();
         
-        std::function<void(BonusType)> onBonusTapped;
+        std::function<void(cocos2d::ui::Button* sender, BonusType)> onBonusTapped;
         std::function<void()> onAddBonusTapped;
         
         void disableBonus(int bonus);

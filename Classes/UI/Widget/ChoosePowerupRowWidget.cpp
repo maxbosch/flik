@@ -113,9 +113,9 @@ namespace flik
         return true;
     }
     
-    void ChoosePowerupRowWidget::setLocked()
+    void ChoosePowerupRowWidget::setLocked(bool locked)
     {
-        mAddButton->setEnabled(false);
+        mAddButton->setEnabled(!locked);
     }
     
     void ChoosePowerupRowWidget::setData(BonusType type, bool selected)

@@ -35,6 +35,7 @@ namespace flik
         
     private:
         std::vector<BonusType> mCurrentBonuses;
+        std::vector<BonusType> mLockedBonuses;
         BonusBar* mBonusBar;
         bool mLockSelected;
         cocos2d::extension::TableView* mPowerupsTable;

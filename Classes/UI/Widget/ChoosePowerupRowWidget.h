@@ -23,7 +23,7 @@ namespace flik
         bool init();
         
         virtual void setData(BonusType type, bool selected);
-        void setLocked();
+        void setLocked(bool locked);
         
         static float getCellHeight();
         

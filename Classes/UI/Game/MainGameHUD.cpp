@@ -84,10 +84,11 @@ namespace flik
         bonusBarLayout->setAlign(RelativeAlign::PARENT_BOTTOM_CENTER_HORIZONTAL);
         mBonusBar->setLayoutParameter(bonusBarLayout);
         addChild(mBonusBar, 2);
-        mBonusBar->onBonusTapped = [this](BonusType bonus) {
+        mBonusBar->onBonusTapped = [this](cocos2d::ui::Button* sender, BonusType bonus) {
             auto gameMode = this->getGameScene()->getGameMode();
             gameMode->addBonus(bonus);
             Player::getMainPlayer()->consumePowerUp(bonus, 1);
+            sender->setEnabled(false);
         };
         mBonusBar->onAddBonusTapped = [this]() {
             auto scene = ChoosePowerupScene::create(mBonusBar->getBonuses(), true);

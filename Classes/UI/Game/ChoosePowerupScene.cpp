@@ -94,9 +94,10 @@ namespace flik
         container->addChild(powerupsTable);
         mPowerupsTable = powerupsTable;
         
-        mLockSelected = lockSelected;
+        if (lockSelected) {
+            mLockedBonuses = currentBonuses;
+        }
         powerupsTable->reloadData();
-        mLockSelected = false;
         
         mCurrentBonuses = currentBonuses;
         
@@ -158,9 +159,8 @@ namespace flik
         BonusType btype = static_cast<BonusType>((static_cast<int>(BonusType::Count) - 1) - idx);
         bool selected = std::find(mCurrentBonuses.begin(), mCurrentBonuses.end(), btype) != mCurrentBonuses.end();
         cell->setData(btype, selected);
-        if (selected && mLockSelected) {
-            cell->setLocked();
-        }
+        bool locked = std::find(mLockedBonuses.begin(), mLockedBonuses.end(), btype) != mLockedBonuses.end();
+        cell->setLocked(locked);
         
         return cell;
     }
