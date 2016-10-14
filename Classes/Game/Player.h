@@ -15,7 +15,7 @@
 
 namespace flik
 {
-    static const int kMaxCurrencyAmount = 99999;
+    static const int kMaxCurrencyAmount = 999999;
     
     class Player
     {

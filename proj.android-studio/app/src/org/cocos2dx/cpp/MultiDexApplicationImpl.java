@@ -1,6 +1,7 @@
 package org.cocos2dx.cpp;
 
 import android.app.Application;
+import android.content.Context;
 import android.support.multidex.MultiDex;
 
 /**
@@ -14,5 +15,12 @@ public class MultiDexApplicationImpl extends Application {
         MultiDex.install(this);
 
         super.onCreate();
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+
+        MultiDex.install(this);
     }
 }
