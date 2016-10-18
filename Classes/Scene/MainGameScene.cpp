@@ -147,7 +147,9 @@ namespace flik
     
     void MainGameScene::update(float delta)
     {
-        mPhysicsWorldBox2D->Step(1.0 / 60.0, 1, 1);
+        if (mGameMode && mGameMode->getGameState() == GameState::InProgress) {
+            mPhysicsWorldBox2D->Step(1.0 / 60.0, 1, 1);
+        }
         
         Node::update(delta);
         

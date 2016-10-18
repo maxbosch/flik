@@ -33,7 +33,7 @@ namespace flik
     public:
         static cocos2d::Vec2 getRandomPositionInRect(const cocos2d::Rect& rect)
         {
-            return cocos2d::Vec2(rect.size.width * cocos2d::random(0.0, 1.0), rect.size.height * cocos2d::random(0.0, 1.0));
+            return cocos2d::Vec2(rect.size.width * cocos2d::random(0.15, 0.85), rect.size.height * cocos2d::random(0.15, 0.85));
         }
         
         static cocos2d::Color3B getColorFromHex(const std::string& hex)

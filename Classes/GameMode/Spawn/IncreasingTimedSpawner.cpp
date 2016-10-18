@@ -14,16 +14,16 @@
 
 namespace flik
 {
-    IncreasingTimedSpawner* IncreasingTimedSpawner::create(int initialCount, float interval, int count,
+    IncreasingTimedSpawner* IncreasingTimedSpawner::create(int initialCount, float interval, int count, bool spawnWhenIdle,
                                                            float increaseInterval, int increaseAmount)
     {
-        return createWithParams<IncreasingTimedSpawner>(initialCount, interval, count, increaseInterval, increaseAmount);
+        return createWithParams<IncreasingTimedSpawner>(initialCount, interval, count, spawnWhenIdle, increaseInterval, increaseAmount);
     }
     
-    bool IncreasingTimedSpawner::init(int initialCount, float interval, int count,
+    bool IncreasingTimedSpawner::init(int initialCount, float interval, int count, bool spawnWhenIdle,
                                       float increaseInterval, int increaseAmount)
     {
-        if (!TimedSpawner::init(initialCount, interval, count))
+        if (!TimedSpawner::init(initialCount, interval, count, spawnWhenIdle))
         {
             return false;
         }

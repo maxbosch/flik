@@ -77,7 +77,7 @@ namespace flik
         bodyDef.type = b2BodyType::b2_dynamicBody;
         bodyDef.fixedRotation = true;
         bodyDef.awake  = true;
-        bodyDef.bullet = true;
+        //bodyDef.bullet = true;
         
         createPhysicsBody(gameScene->getPhysicsWorldBox2D(), &bodyDef);
         addBoxFixture(getContentSize(), 1.0f, 0.0f, 0.3f, mCategoryMask, mCollisionMask);
@@ -101,6 +101,8 @@ namespace flik
                 physicsBody->SetLinearVelocity(velocity - deltaVelocity);
             }
         }
+        
+        physicsBody->SetBullet(mDecelerating);
     }
     
 //    bool GamePiece::onContactBegin(PhysicsContact& contact)

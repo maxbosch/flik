@@ -19,6 +19,7 @@ USING_NS_CC;
 namespace flik {
     static const int kDefaultSpawnCount = 4;
     static const float kDefaultSpawnInterval = 4.0f;
+    static const bool kSpawnWhenIdle = true;
    
     bool MarathonGameMode::init()
     {
@@ -34,7 +35,7 @@ namespace flik {
         });
         getEventDispatcher()->addEventListenerWithSceneGraphPriority(pieceRemovedListener, this);
         
-        setSpawner(IncreasingTimedSpawner::create(kDefaultSpawnCount, kDefaultSpawnInterval, kDefaultSpawnCount, 10.0f, 1));
+        setSpawner(IncreasingTimedSpawner::create(kDefaultSpawnCount, kDefaultSpawnInterval, kDefaultSpawnCount, kSpawnWhenIdle, 10.0f, 1));
         
         return true;
     }

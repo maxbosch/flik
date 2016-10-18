@@ -92,7 +92,7 @@
 				"initial_count": 5
 			}
 		}, {
-			"time_limit": 60,
+			"time_limit": 1,
 			"objectives": [{
 				"type": "clear",
 				"quantity": 125

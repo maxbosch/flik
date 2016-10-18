@@ -18,9 +18,9 @@ namespace flik
     class TimedSpawner : public PieceSpawner
     {
     public:
-        static TimedSpawner* create(int initialCount, float interval, int count);
+        static TimedSpawner* create(int initialCount, float interval, int count, bool spawnWhenIdle);
         
-        bool init(int initialCount, float interval, int count);
+        bool init(int initialCount, float interval, int count, bool spawnWhenIdle);
         
         void setCount(int count) { mCount = count; }
         void setInterval(float interval) { mInterval = interval; }
@@ -42,6 +42,7 @@ namespace flik
         float mInterval = 0;
         float mTimeSinceSpawn = 0;
         MainGameScene* mScene;
+        bool mSpawnWhenIdle;
         
         cocos2d::EventListenerCustom* mPieceRemovedListener;
     };

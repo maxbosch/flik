@@ -69,7 +69,7 @@ namespace flik
         auto gameOverOverlay = LevelGameOverOverlay::create();
         gameOverOverlay->onRestartTapped = [this]() {
             if (getGameScene()) {
-                getGameScene()->requestRestart();
+                getGameScene()->reloadScene();
             }
         };
         
@@ -82,7 +82,7 @@ namespace flik
         };
         
         gameOverOverlay->onShowLevelListTapped = [this]() {
-            SceneManager::popSceneWithTransition<TransitionSlideInR>(kTransitionDuration);
+            SceneManager::popSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
         };
         
         return gameOverOverlay;
@@ -92,8 +92,9 @@ namespace flik
     {
         auto gameOverOverlay = dynamic_cast<LevelGameOverOverlay*>(mGameOverScreen);
         auto gameMode = dynamic_cast<LevelsGameMode*>(getGameScene()->getGameMode());
+        bool hasNext = !gameMode->isFinalLevel();
         
-        gameOverOverlay->show(gameMode->getSublevel(), gameMode->isObjectiveCompleted(), gameMode->getScore(), gameMode->getPointsEarned());
+        gameOverOverlay->show(gameMode->getSublevel(), gameMode->isObjectiveCompleted(), gameMode->getScore(), gameMode->getPointsEarned(), hasNext);
 //
 //        gameOverOverlay->setNextLevel(gameMode->isObjectiveCompleted(), mLevelDesc->levelNum, gameMode->getSublevel());
     }

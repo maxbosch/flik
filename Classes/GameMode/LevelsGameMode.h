@@ -45,6 +45,8 @@ namespace flik
         
         void onBackPressed();
         
+        bool isFinalLevel();
+        
     private:
         const LevelDescription* mLevelDesc;
         int mSublevel;

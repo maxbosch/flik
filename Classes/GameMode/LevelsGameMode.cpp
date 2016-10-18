@@ -112,7 +112,7 @@ namespace flik
                 int initialCount = spawner["initial_count"].GetInt();
                 int count = spawner["count"].GetInt();
                 float interval = spawner["interval"].GetDouble();
-                setSpawner(TimedSpawner::create(initialCount, interval, count));
+                setSpawner(TimedSpawner::create(initialCount, interval, count, false));
             }
         }
         
@@ -307,5 +307,10 @@ namespace flik
         } else {
             SceneManager::popSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
         }
+    }
+    
+    bool LevelsGameMode::isFinalLevel()
+    {
+        return mSublevel == mLevelDesc->data["sublevels"].Size() - 1;
     }
 }

@@ -15,10 +15,10 @@ namespace flik
     class IncreasingTimedSpawner : public TimedSpawner
     {
     public:
-        static IncreasingTimedSpawner* create(int initialCount, float interval, int count,
+        static IncreasingTimedSpawner* create(int initialCount, float interval, int count, bool spawnWhenIdle,
                                            float increaseInterval, int increaseAmount);
         
-        bool init(int initialCount, float interval, int count,
+        bool init(int initialCount, float interval, int count, bool spawnWhenIdle,
                   float increaseInterval, int increaseAmount);
         
         void setIncreaseAmount(int amount) { mIncreaseAmount = amount; }

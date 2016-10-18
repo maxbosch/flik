@@ -84,12 +84,12 @@ namespace flik
         return true;
     }
     
-    void LevelGameOverOverlay::show(int level, bool success, int score, int pointsEarned)
+    void LevelGameOverOverlay::show(int level, bool success, int score, int pointsEarned, bool hasNext)
     {
         mContentContainer->removeAllChildren();
         
         if (success) {
-            createSuccessWidget(level, score, pointsEarned);
+            createSuccessWidget(level, score, pointsEarned, hasNext);
             animateStar(score);
             //animatePoints(pointsEarned);
         } else {
@@ -126,34 +126,35 @@ namespace flik
         }, 0.3, "points_animation_delay");
     }
     
-    void LevelGameOverOverlay::createSuccessWidget(int level, int score, int pointsEarned)
+    void LevelGameOverOverlay::createSuccessWidget(int level, int score, int pointsEarned, bool hasNext)
     {
-        auto nextButton = ui::RelativeBox::create(Size(125.0_dp, 48.0_dp));
-        auto nextButtonLayout = ui::RelativeLayoutParameter::create();
-        nextButtonLayout->setAlign(RelativeAlign::PARENT_RIGHT_BOTTOM);
-        nextButtonLayout->setMargin(ui::Margin(0, 0, 30.0_dp, 30.0_dp));
-        nextButton->setLayoutParameter(nextButtonLayout);
-        mContentContainer->addChild(nextButton);
-        nextButton->setTouchEnabled(true);
-        nextButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
-            if (type == ui::Widget::TouchEventType::ENDED && onNextLevelTapped) {
-                onNextLevelTapped();
-            }
-        });
-        
-        auto nextButtonImage = ui::ImageView::create("next_arrow.png");
-        auto nextButtonImageLayout = ui::RelativeLayoutParameter::create();
-        nextButtonImageLayout->setAlign(RelativeAlign::PARENT_RIGHT_CENTER_VERTICAL);
-        nextButtonImage->setLayoutParameter(nextButtonImageLayout);
-        nextButton->addChild(nextButtonImage);
-        
-        auto nextButtonLabel = Fonts::createLocalizedText(LocalizedString::getString("game_over_try_next"), 25.0_dp);
-        nextButtonLabel->setColor(Color3B::WHITE);
-        auto nextButtonLabelLayout = ui::RelativeLayoutParameter::create();
-        nextButtonLabelLayout->setAlign(RelativeAlign::PARENT_LEFT_CENTER_VERTICAL);
-        nextButtonLabel->setLayoutParameter(nextButtonLabelLayout);
-        nextButton->addChild(nextButtonLabel);
-        
+        if (hasNext) {
+            auto nextButton = ui::RelativeBox::create(Size(125.0_dp, 48.0_dp));
+            auto nextButtonLayout = ui::RelativeLayoutParameter::create();
+            nextButtonLayout->setAlign(RelativeAlign::PARENT_RIGHT_BOTTOM);
+            nextButtonLayout->setMargin(ui::Margin(0, 0, 30.0_dp, 30.0_dp));
+            nextButton->setLayoutParameter(nextButtonLayout);
+            mContentContainer->addChild(nextButton);
+            nextButton->setTouchEnabled(true);
+            nextButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
+                if (type == ui::Widget::TouchEventType::ENDED && onNextLevelTapped) {
+                    onNextLevelTapped();
+                }
+            });
+            
+            auto nextButtonImage = ui::ImageView::create("next_arrow.png");
+            auto nextButtonImageLayout = ui::RelativeLayoutParameter::create();
+            nextButtonImageLayout->setAlign(RelativeAlign::PARENT_RIGHT_CENTER_VERTICAL);
+            nextButtonImage->setLayoutParameter(nextButtonImageLayout);
+            nextButton->addChild(nextButtonImage);
+            
+            auto nextButtonLabel = Fonts::createLocalizedText(LocalizedString::getString("game_over_try_next"), 25.0_dp);
+            nextButtonLabel->setColor(Color3B::WHITE);
+            auto nextButtonLabelLayout = ui::RelativeLayoutParameter::create();
+            nextButtonLabelLayout->setAlign(RelativeAlign::PARENT_LEFT_CENTER_VERTICAL);
+            nextButtonLabel->setLayoutParameter(nextButtonLabelLayout);
+            nextButton->addChild(nextButtonLabel);
+        }
         // Middle Container
         auto levelCompleteLabel = Fonts::createLocalizedText(LocalizedString::getString("game_over_level_complete", level + 1), 30.0_dp);
         levelCompleteLabel->setColor(kYellowColor);
