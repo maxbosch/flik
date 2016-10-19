@@ -112,6 +112,7 @@
 		66A92EF21D0F81D8004F78D3 /* GameBoard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A92EF01D0F81D8004F78D3 /* GameBoard.cpp */; };
 		66B422831D9355C2004571E6 /* ChoosePowerupRowWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B422811D9355C2004571E6 /* ChoosePowerupRowWidget.cpp */; };
 		66B92B721D0A3C6200DA1657 /* StoreProductWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */; };
+		66C58D781DB833F500A86FA4 /* OverlayBackgroundWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66C58D761DB833F500A86FA4 /* OverlayBackgroundWidget.cpp */; };
 		66CC6CA01D2FDDD600A60D8D /* lua in Resources */ = {isa = PBXBuildFile; fileRef = 66CC6C9F1D2FDDD600A60D8D /* lua */; };
 		66CC6CA41D2FE29A00A60D8D /* GameServices.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66CC6CA21D2FE29A00A60D8D /* GameServices.cpp */; };
 		66CC6CB81D30678800A60D8D /* format.cc in Sources */ = {isa = PBXBuildFile; fileRef = 66CC6CB61D30678800A60D8D /* format.cc */; };
@@ -366,6 +367,8 @@
 		66B422821D9355C2004571E6 /* ChoosePowerupRowWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePowerupRowWidget.h; sourceTree = "<group>"; };
 		66B92B701D0A3C6200DA1657 /* StoreProductWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoreProductWidget.cpp; sourceTree = "<group>"; };
 		66B92B711D0A3C6200DA1657 /* StoreProductWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreProductWidget.h; sourceTree = "<group>"; };
+		66C58D761DB833F500A86FA4 /* OverlayBackgroundWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OverlayBackgroundWidget.cpp; sourceTree = "<group>"; };
+		66C58D771DB833F500A86FA4 /* OverlayBackgroundWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayBackgroundWidget.h; sourceTree = "<group>"; };
 		66CC6C9F1D2FDDD600A60D8D /* lua */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lua; sourceTree = "<group>"; };
 		66CC6CA11D2FE0F400A60D8D /* Achievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Achievement.h; sourceTree = "<group>"; };
 		66CC6CA21D2FE29A00A60D8D /* GameServices.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameServices.cpp; sourceTree = "<group>"; };
@@ -782,6 +785,8 @@
 				66B422821D9355C2004571E6 /* ChoosePowerupRowWidget.h */,
 				66D97D281D9B30710001F546 /* BuyPowerupRowWidget.cpp */,
 				66D97D291D9B30710001F546 /* BuyPowerupRowWidget.h */,
+				66C58D761DB833F500A86FA4 /* OverlayBackgroundWidget.cpp */,
+				66C58D771DB833F500A86FA4 /* OverlayBackgroundWidget.h */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -1204,6 +1209,7 @@
 				665F65EE1D9AA1AA00759CF3 /* TimedGameScene.cpp in Sources */,
 				660726E91D5B65830072A7A3 /* DisableColorBehavior.cpp in Sources */,
 				6653CD8F1D1C230A00721B17 /* SettingsScene.cpp in Sources */,
+				66C58D781DB833F500A86FA4 /* OverlayBackgroundWidget.cpp in Sources */,
 				6626819D1D65315000F9D0D3 /* LevelGameOverOverlay.cpp in Sources */,
 				6634592F1D540F2300F6E68F /* GhostBonusBehavior.cpp in Sources */,
 				66D84BE51D2351EC00BA4D53 /* SceneManager.cpp in Sources */,
@@ -1331,8 +1337,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Adam Eskreis (83A8BQ45VY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Adam Eskreis (83A8BQ45VY)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Adam Eskreis (YK656P6CH5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Adam Eskreis (YK656P6CH5)";
 				COMPRESS_PNG_FILES = NO;
 				DEVELOPMENT_TEAM = YK656P6CH5;
 				ENABLE_BITCODE = NO;
@@ -1379,8 +1385,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aeskreis.flik;
 				PRODUCT_NAME = Flik;
-				PROVISIONING_PROFILE = "6818b898-ee2e-4fdd-9ed4-7b71d23f36e3";
-				PROVISIONING_PROFILE_SPECIFIER = "Flik Dev";
+				PROVISIONING_PROFILE = "738496e3-a003-4320-a149-8a0ffef5880c";
+				PROVISIONING_PROFILE_SPECIFIER = "Flik Ad Hoc";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";

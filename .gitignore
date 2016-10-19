@@ -10,3 +10,4 @@ bin
 *.framework
 ._*
 proj.android-studio/app/obj/**
+*.idea/

@@ -216,7 +216,7 @@
 			"spawner": {
 				"type": "timed",
 				"initial_count": 5,
-				"count": 1,
+				"count": 2,
 				"interval": 1
 			}
 		}, {
@@ -271,7 +271,7 @@
 			"time_limit": 25,
 			"objectives": [{
 				"type": "max",
-				"quantity": 15
+				"quantity": 30
 			}],
 			"spawner": {
 				"type": "timed",

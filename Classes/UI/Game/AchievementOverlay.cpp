@@ -13,6 +13,7 @@
 #include "Fonts.h"
 #include "LocalizedString.h"
 #include "Animations.h"
+#include "OverlayBackgroundWidget.h"
 
 USING_NS_CC;
 
@@ -35,8 +36,7 @@ namespace flik
         auto uiSize = Director::getInstance()->getVisibleSize();
         setContentSize(uiSize);
 
-        auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, kOverlayBackgroundOpacity), uiSize.width, uiSize.height);
-        addChild(overlayBackground);
+        addChild(OverlayBackgroundWidget::create());
         
         auto container = ui::RelativeBox::create(uiSize);
         addChild(container);

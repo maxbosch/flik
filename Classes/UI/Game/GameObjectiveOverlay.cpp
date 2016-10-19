@@ -19,6 +19,7 @@
 #include "ChoosePowerupScene.h"
 #include "SceneManager.h"
 #include "Player.h"
+#include "OverlayBackgroundWidget.h"
 
 USING_NS_CC;
 
@@ -39,9 +40,7 @@ namespace flik
         //setBackGroundColor(Color3B::BLACK);
         //setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         
-        //auto overlayBackground = BlurredBackgroundWidget::create();
-        auto overlayBackground = LayerColor::create(Color4B(0, 0, 0, kOverlayBackgroundOpacity), uiSize.width, uiSize.height);
-        addChild(overlayBackground);
+        addChild(OverlayBackgroundWidget::create());
         
         auto innerContainer = ui::VBox::create(Size(305.0_dp, 475.0_dp));
         innerContainer->ignoreContentAdaptWithSize(false);

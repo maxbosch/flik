@@ -123,17 +123,8 @@ namespace flik {
     {
         Node::update(seconds);
         
-        if (mTimeStopped) {
-            mTimeStopRemaining -= seconds;
-            
-            if (mTimeStopRemaining <= 0) {
-                mTimeStopRemaining = 0;
-                mTimeStopped = false;
-            }
-        }
-        
         if (mGameTime > 0) {
-            if (getGameState() == GameState::InProgress && !isTimeStopped()) {
+            if (getGameState() == GameState::InProgress && (!isTimeStopped() || mIgnoresTimestop)) {
                 mTimeRemaining -= seconds;
                 
                 if (mTimeRemaining <= 0) {
@@ -178,6 +169,14 @@ namespace flik {
         addChild(spawner);
     }
     
+    void GameMode::stopTime(float seconds)
+    {
+        mTimeStopped = true;
+        scheduleOnce([this](float t) {
+            mTimeStopped = false;
+        }, seconds, "stopTimeKey");
+    }
+    
     void GameMode::addBonus(BonusType type)
     {
         switch (type)
@@ -187,7 +186,7 @@ namespace flik {
                 break;
                 
             case BonusType::AddTime:
-                addGameTime(5);
+                stopTime(5);
                 break;
                 
             case BonusType::Ghost:

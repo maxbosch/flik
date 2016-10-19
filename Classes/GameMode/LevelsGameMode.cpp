@@ -130,6 +130,7 @@ namespace flik
                 auto objective = MaxOnBoardObjectiveTracker::create(getGameScene(), quantity);
                 mObjectives.push_back(objective);
                 addChild(objective);
+                setIgnoresTimestop(true);
             }
         }
         

@@ -74,10 +74,13 @@ namespace flik
         int getScoreMultiplier() { return mScoreMultiplier; }
         void setScoreMultiplier(int multiplier) { mScoreMultiplier = multiplier; }
         
+        void setIgnoresTimestop(bool b) { mIgnoresTimestop = b; }
+        
     protected:
         virtual void setGameState(GameState newState);
         MainGameScene* getGameScene() { return mGameScene; }
         void setPowerUpMaxPerGame(PowerUpType type, int max) { mPowerUpMaxPerGame[type] = max; }
+        void stopTime(float seconds);
         
     private:
         GameState mGameState;
@@ -87,8 +90,9 @@ namespace flik
         std::map<PowerUpType, int> mCurrentGamePowerUpUseCount;
         int mPreviousTopScore;
         
-        bool mTimeStopped;
+        bool mTimeStopped = false;
         float mTimeStopRemaining;
+        bool mIgnoresTimestop = false;
         
         float mTimeRemaining = 0.0f;
         float mGameTime = 0.0f;
