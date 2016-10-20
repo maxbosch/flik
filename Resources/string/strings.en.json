@@ -1,9 +1,9 @@
 {
-	"main_menu_mode_levels": "Games",
+	"main_menu_mode_levels": "Training",
 	"main_menu_mode_unlimited": "Unlimited",
 	"main_menu_mode_timed": "Timed",
     
-    "levels_list_title": "GAMES",
+    "levels_list_title": "TRAINING",
     "choose_bonus": "Choose Power-up",
     
     "game_mode_timed": "TIMED MODE",

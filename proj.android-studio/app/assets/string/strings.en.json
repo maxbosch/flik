@@ -1,9 +1,9 @@
 {
-	"main_menu_mode_levels": "Games",
+	"main_menu_mode_levels": "Training",
 	"main_menu_mode_unlimited": "Unlimited",
 	"main_menu_mode_timed": "Timed",
     
-    "levels_list_title": "GAMES",
+    "levels_list_title": "TRAINING",
     "choose_bonus": "Choose Power-up",
     
     "game_mode_timed": "TIMED MODE",
@@ -80,8 +80,8 @@
     
     "bonus_name_gravity": "Gravity",
     "bonus_description_gravity": "Pieces will slowly move toward their goal for 10 seconds",
-    "bonus_name_add_time": "Add Time",
-    "bonus_description_add_time": "Adds 5 seconds in Timed games \nStops spawning for 5 seconds in Unlimited games",
+    "bonus_name_add_time": "Time Warp",
+    "bonus_description_add_time": "Stops the clock or stops spawning for 5 seconds depending on game mode.",
     "bonus_name_rainbow": "Freedom",
     "bonus_description_rainbow": "Pieces can be scored in any goal for the next 10 seconds",
     "bonus_name_double_up": "Lightning Round",

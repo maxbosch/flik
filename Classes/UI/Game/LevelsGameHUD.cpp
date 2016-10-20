@@ -20,7 +20,7 @@
 #include "Styles.h"
 #include "LocalizedString.h"
 #include "AchievementsScene.h"
-#include "LevelsGameMode.h"
+#include "LevelGameScene.h"
 #include "ObjectiveTracker.h"
 
 namespace flik
@@ -77,7 +77,7 @@ namespace flik
             auto levelInfo = LevelInfo::getInstance();
             auto levelDesc = levelInfo->getLevelDescription(mLevelDesc->levelNum);
             auto gameMode = dynamic_cast<LevelsGameMode*>(getGameScene()->getGameMode());
-            auto newScene = MainGameScene::create({LevelsGameMode::create(levelDesc, gameMode->getSublevel() + 1), LevelsGameHUD::create(levelDesc)});
+            auto newScene = LevelGameScene::create(levelDesc, gameMode->getSublevel() + 1);
             SceneManager::replaceSceneWithTransition<TransitionMoveInR>(newScene, kTransitionDuration);
         };
         

@@ -12,12 +12,14 @@
 
 namespace flik
 {
+    class MainGameScene;
+    
     class PiecesClearedObjectiveTracker : public ObjectiveTracker
     {
     public:
-        static PiecesClearedObjectiveTracker* create(int required);
+        static PiecesClearedObjectiveTracker* create(MainGameScene* scene, int required);
         
-        bool init(int required);
+        bool init(MainGameScene* scene, int required);
         
         virtual int getCurrentValue()
         {

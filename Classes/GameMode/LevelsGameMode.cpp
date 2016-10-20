@@ -122,7 +122,7 @@ namespace flik
             std::string type = objective["type"].GetString();
             if (type == "clear") {
                 int quantity = objective["quantity"].GetInt();
-                auto objective = PiecesClearedObjectiveTracker::create(quantity);
+                auto objective = PiecesClearedObjectiveTracker::create(getGameScene(), quantity);
                 mObjectives.push_back(objective);
                 addChild(objective);
             } else if (type == "max") {

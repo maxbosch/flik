@@ -277,7 +277,7 @@
 				"type": "timed",
 				"initial_count": 5,
 				"count": 3,
-				"interval": 1
+				"interval": 2
 			}
 		}, {
 			"time_limit": 25,
@@ -289,7 +289,7 @@
 				"type": "timed",
 				"initial_count": 5,
 				"count": 4,
-				"interval": 1
+				"interval": 2
 			}
 		}, {
 			"time_limit": 25,
@@ -301,7 +301,7 @@
 				"type": "timed",
 				"initial_count": 5,
 				"count": 4,
-				"interval": 1.5
+				"interval": 2
 			}
 		}, {
 			"time_limit": 25,
@@ -313,7 +313,7 @@
 				"type": "timed",
 				"initial_count": 5,
 				"count": 4,
-				"interval": 1.5
+				"interval": 2
 			}
 		}, {
 			"time_limit": 25,
@@ -325,7 +325,7 @@
 				"type": "timed",
 				"initial_count": 5,
 				"count": 4,
-				"interval": 1
+				"interval": 1.5
 			}
 		}]
 	}]
