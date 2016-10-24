@@ -183,6 +183,7 @@ namespace flik
         int scrollViewHeight = uiSize.height - topScoreContainer->getContentSize().height - header->getContentSize().height - 1;
         
         auto achievementsTable = TableView::create(this, Size(uiSize.width, scrollViewHeight));
+        achievementsTable->setBounceable(false);
         addChild(achievementsTable);
         mAchievements = GameServices::getInstance()->getLocalAchievements();
         achievementsTable->reloadData();

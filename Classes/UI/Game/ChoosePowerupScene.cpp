@@ -81,16 +81,17 @@ namespace flik
         mBonusBar = bonusBar;
         mCurrentBonuses = currentBonuses;
         
-        auto border = ui::HBox::create(Size(210.0_dp, 3.0_dp));
+        auto border = ui::HBox::create(Size(uiSize.width, 3.0_dp));
         border->setBackGroundColor(kBlueBorderColor);
         border->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         auto borderLayout = ui::LinearLayoutParameter::create();
-        borderLayout->setMargin(ui::Margin(0, 30.0_dp, 0, 30.0_dp));
+        borderLayout->setMargin(ui::Margin(0, 30.0_dp, 0, 0));
         borderLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
         border->setLayoutParameter(borderLayout);
         container->addChild(border);
         
-        auto powerupsTable = TableView::create(this, Size(uiSize.width, uiSize.height - 215.0_dp));
+        auto powerupsTable = TableView::create(this, Size(uiSize.width, uiSize.height - 185.0_dp));
+        powerupsTable->setBounceable(false);
         container->addChild(powerupsTable);
         mPowerupsTable = powerupsTable;
         

@@ -47,8 +47,8 @@ namespace flik
         auto objectivesWidget = Fonts::createLocalizedText("", 20.0_dp);
         objectivesWidget->setColor(kGoldColor);
         auto objectivesWidgetLayout = ui::RelativeLayoutParameter::create();
-        objectivesWidgetLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
-        objectivesWidgetLayout->setMargin(ui::Margin(0, 30.0_dp, 0, 0));
+        objectivesWidgetLayout->setAlign(RelativeAlign::PARENT_RIGHT_CENTER_VERTICAL);
+        objectivesWidgetLayout->setMargin(ui::Margin(0, 0, 30.0_dp, 0));
         objectivesWidget->setLayoutParameter(objectivesWidgetLayout);
         mHeader->addChild(objectivesWidget);
         mObjectiveText = objectivesWidget;

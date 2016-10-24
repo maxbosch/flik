@@ -23,8 +23,7 @@ namespace flik
     TimedGameMode* TimedGameMode::createWithTime(float seconds)
     {
         auto obj = TimedGameMode::create();
-        //obj->setGameTime(seconds);
-        obj->setGameTime(1);
+        obj->setGameTime(seconds);
         return obj;
     }
     

@@ -60,7 +60,7 @@ namespace flik
         auto borderLayout = ui::LinearLayoutParameter::create();
         borderLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
         
-        auto border1 = ui::HBox::create(Size(260.0_dp, 3.0_dp));
+        auto border1 = ui::HBox::create(Size(uiSize.width, 3.0_dp));
         border1->setBackGroundColor(kBlueBorderColor);
         border1->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         auto borderLayout1 = ui::LinearLayoutParameter::create();
@@ -81,7 +81,7 @@ namespace flik
         });
         
         auto scrollView = ui::ScrollView::create();
-        scrollView->setContentSize(Size(uiSize.width - 50, 520.0_dp));
+        scrollView->setContentSize(Size(uiSize.width - 50, 545.0_dp));
         
         scrollView->setLayoutType(ui::Layout::Type::VERTICAL);
         scrollView->setDirection(cocos2d::ui::ScrollView::Direction::VERTICAL);
@@ -93,7 +93,7 @@ namespace flik
 //        scrollView->setScrollBarColor(kBlueBorderColor);
         
         auto scrollViewLayout = ui::LinearLayoutParameter::create();
-        scrollViewLayout->setMargin(ui::Margin(5.0_dp, 25.0_dp, 5.0_dp, 0));
+        scrollViewLayout->setMargin(ui::Margin(5.0_dp, 0, 5.0_dp, 0));
         scrollView->setLayoutParameter(scrollViewLayout);
         mScrollView = scrollView;
         

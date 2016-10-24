@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'Gotham Rounded'; /*a name to be used later*/
+    src: url('/css/font/gothamrnd_bold.otf'); /*URL to font*/
+}
+body {
+    background: #1D0023;
+    color: white;
+    font-family: 'Gotham Rounded', "SF UI Text", sans-serif;
+    overflow: hidden;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    float: left;
+    margin-left: 50px;
+    margin-top: 50px;
+    position: relative;
+}
+
+.contact-wrapper {
+    float: right;
+    margin-right: 50px;
+    margin-top: 50px;
+    font-size: 18px;
+    position: relative;
+}
+
+.center-content {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    position: relative;
+}
+
+.tagline {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.app-store-icons a {
+    margin: 0 10px;
+}
+
+#pieces {
+    position: absolute;
+}

@@ -64,7 +64,7 @@ namespace flik
         storeGUI->addChild(pointsButton);
         mPointsButton = pointsButton;
         
-        auto border1 = ui::HBox::create(Size(260.0_dp, 3.0_dp));
+        auto border1 = ui::HBox::create(Size(uiSize.width, 3.0_dp));
         border1->setBackGroundColor(kBlueBorderColor);
         border1->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
         auto borderLayout1 = ui::RelativeLayoutParameter::create();
@@ -85,8 +85,10 @@ namespace flik
         mProductsContainer = productsContainer;
         
         auto productsTable = TableView::create(this, productsContainer->getContentSize());
+        productsTable->setBounceable(false);
         productsContainer->addChild(productsTable);
         productsTable->reloadData();
+        mProductsTable = productsTable;
         
         closeButton->addTouchEventListener([this](Ref* sender, StoreProductWidget::TouchEventType type) {
             if (type == StoreProductWidget::TouchEventType::ENDED) {
@@ -125,12 +127,14 @@ namespace flik
     {
         if (animated) {
             if (visible) {
+                mProductsTable->setVisible(false);
                 mPurchaseOverlay->setVisible(true);
                 mPurchaseOverlay->setScale(0);
                 Animations::animate(kTransitionDuration, [this](float t) {
                     mPurchaseOverlay->setScale(t);
                 }, nullptr, OvershootCurve);
             } else {
+                mProductsTable->setVisible(true);
                 mPurchaseOverlay->setScale(1);
                 Animations::animate(0.2, [this](float t) {
                     mPurchaseOverlay->setScale(1.0 - t);
@@ -140,6 +144,7 @@ namespace flik
             }
         } else {
             mPurchaseOverlay->setVisible(visible);
+            mProductsTable->setVisible(!visible);
         }
         
         if (visible) {

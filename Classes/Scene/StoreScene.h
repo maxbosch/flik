@@ -42,5 +42,6 @@ namespace flik
         cocos2d::ui::Button* mCloseButton;
         cocos2d::ui::Button* mPointsButton;
         cocos2d::ui::Widget* mProductsContainer;
+        cocos2d::extension::TableView* mProductsTable;
     };
 }

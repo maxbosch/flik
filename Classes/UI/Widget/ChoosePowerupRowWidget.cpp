@@ -59,7 +59,7 @@ namespace flik
         mCountLabel = countLabel;
         
         auto addButton = ui::Button::create("powerup_add_button.png");
-        Fonts::updateLocalizedText(addButton, boost::to_upper_copy(LocalizedString::getString("word_add")));
+        //Fonts::updateLocalizedText(addButton, boost::to_upper_copy(LocalizedString::getString("word_add")));
         addButton->setTitleColor(Color3B::WHITE);
         addButton->setTitleFontSize(15.0_dp);
         auto addButtonLayout = ui::RelativeLayoutParameter::create();
@@ -139,7 +139,7 @@ namespace flik
             mCountLabel->setColor(kPinkColor);
         } else {
             mAddButton->loadTextureNormal("powerup_add_button.png");
-            Fonts::updateLocalizedText(mAddButton, boost::to_upper_copy(LocalizedString::getString("word_add")));
+            //Fonts::updateLocalizedText(mAddButton, boost::to_upper_copy(LocalizedString::getString("word_add")));
             
             mImage->loadTexture("powerup_" + name + "_white.png");
             

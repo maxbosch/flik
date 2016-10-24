@@ -11,7 +11,7 @@
 #include "Literals.h"
 #include "Util.h"
 #include "Enums.h"
-
+#include "Fonts.h"
 USING_NS_CC;
 
 namespace flik
@@ -24,7 +24,7 @@ namespace flik
         
         auto buyButton = this->getAddButton();
         buyButton->loadTextureNormal("purchase_button.png");
-        buyButton->setTitleText(boost::lexical_cast<std::string>(cost));
+        Fonts::updateLocalizedText(buyButton, boost::lexical_cast<std::string>(cost));
         buyButton->setTitleFontSize(15.0_dp);
         buyButton->setTitleColor(Util::getColorFromHex("FACC89"));
         

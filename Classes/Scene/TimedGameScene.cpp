@@ -16,7 +16,7 @@ namespace flik
     bool TimedGameScene::init()
     {
         auto gameMode = TimedGameMode::create();
-        gameMode->setGameTime(60);
+        gameMode->setGameTime(45);
         
         if (!MainGameScene::init({gameMode, TimedGameHUD::create()}))
         {

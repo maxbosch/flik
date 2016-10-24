@@ -28,6 +28,7 @@ namespace flik
     static const Color3B kStarColor = Util::getColorFromHex("FAFC02");
     static const Color3B kOrangeColor = Util::getColorFromHex("F5CC94");
     static const Color3B kPinkColor = Util::getColorFromHex("FD02A1");
+    static const Color3B kMaroonColor = Util::getColorFromHex("4D0030");
     
     static const float kTransitionDuration = 0.3;
     

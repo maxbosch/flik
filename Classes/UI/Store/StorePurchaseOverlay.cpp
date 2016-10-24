@@ -35,7 +35,7 @@ namespace flik
         auto backgroundImage = ui::Scale9Sprite::create(Rect(34.0_dp, 34.0_dp, 32.0_dp, 32.0_dp), "blue_border_9.png");
         backgroundImage->setPosition(Vec2(40.0_dp, 0));
         backgroundImage->setAnchorPoint(Vec2(0, 0));
-        backgroundImage->setContentSize(Size(uiSize.width - 80.0_dp, 475.0_dp));
+        backgroundImage->setContentSize(Size(uiSize.width - 70.0_dp, 480.0_dp));
         addChild(backgroundImage);
         
         auto titleLabel = Fonts::createLocalizedText(LocalizedString::getString("store_purchase_title"), 18.0_dp);
