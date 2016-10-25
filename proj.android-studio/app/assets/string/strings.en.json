@@ -1,9 +1,9 @@
 {
-	"main_menu_mode_levels": "Training",
+	"main_menu_mode_levels": "Games",
 	"main_menu_mode_unlimited": "Unlimited",
 	"main_menu_mode_timed": "Timed",
     
-    "levels_list_title": "TRAINING",
+    "levels_list_title": "GAMES",
     "choose_bonus": "Choose Power-up",
     
     "game_mode_timed": "TIMED MODE",
@@ -34,7 +34,7 @@
     "game_over_high_score": "High Score",
     "game_over_your_score": "Your Score",
     "game_over_level_complete": "Level %d Complete!",
-    "game_over_level_failed": "Level %d Failed!",
+    "game_over_level_failed": "Game Over!",
     
     "level_success": "SUCCESS",
     "level_failed": "LEVEL FAILED",

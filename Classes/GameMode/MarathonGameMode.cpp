@@ -61,7 +61,7 @@ namespace flik {
     {
         GameMode::update(seconds);
         
-        if (getGameScene()->getPiecesCount() > 70) {
+        if (getGameState() == GameState::InProgress && getGameScene()->getPiecesCount() > 60) {
             // You lose
             setGameState(GameState::Finished);
             return;
