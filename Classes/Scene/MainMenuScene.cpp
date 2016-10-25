@@ -38,7 +38,7 @@ namespace flik
             SceneManager::pushSceneWithTransition<TransitionSlideInB>(storeScene, kTransitionDuration);
         };
         addChild(hud);
-        hud->animateElements();
+        //hud->animateElements();
         
         return true;
     }
