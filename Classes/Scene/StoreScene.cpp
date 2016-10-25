@@ -75,20 +75,28 @@ namespace flik
         border1->setLayoutParameter(borderLayout1);
         storeGUI->addChild(border1);
         
-        auto productsContainer = ui::RelativeBox::create(Size(uiSize.width, 450.0_dp));
+        auto productsContainer = ui::RelativeBox::create(Size(uiSize.width, 510.0_dp));
         auto productsContainerLayout = ui::RelativeLayoutParameter::create();
         productsContainerLayout->setRelativeToWidgetName("border");
         productsContainerLayout->setAlign(RelativeAlign::LOCATION_BELOW_CENTER);
-        productsContainerLayout->setMargin(ui::Margin(0, 30.0_dp, 0, 0));
+        productsContainerLayout->setMargin(ui::Margin(0, 0, 0, 0));
         productsContainer->setLayoutParameter(productsContainerLayout);
         storeGUI->addChild(productsContainer);
         mProductsContainer = productsContainer;
         
-        auto productsTable = TableView::create(this, productsContainer->getContentSize());
-        productsTable->setBounceable(false);
+        auto productsTable = ui::ScrollView::create();
+        productsTable->setContentSize(productsContainer->getContentSize());
+        productsTable->setLayoutType(ui::Layout::Type::VERTICAL);
+        productsTable->setDirection(cocos2d::ui::ScrollView::Direction::VERTICAL);
+        productsTable->setBounceEnabled(false);
+        productsTable->setScrollBarEnabled(true);
+        productsTable->setScrollBarOpacity(255);
+        productsTable->setScrollBarAutoHideEnabled(false);
+        productsTable->setScrollBarWidth(9.0_dp);
+        productsTable->setScrollBarColor(kMaroonColor);
         productsContainer->addChild(productsTable);
-        productsTable->reloadData();
         mProductsTable = productsTable;
+        refreshProductsTable();
         
         closeButton->addTouchEventListener([this](Ref* sender, StoreProductWidget::TouchEventType type) {
             if (type == StoreProductWidget::TouchEventType::ENDED) {
@@ -174,40 +182,36 @@ namespace flik
         }
     }
     
-    /* TableViewDataSource */
-    /* TableViewDataSource methods */
-    Size StoreScene::cellSizeForTable(TableView *table)
+    void StoreScene::refreshProductsTable()
     {
-        return Size(getContentSize().width, ChoosePowerupRowWidget::getCellHeight());
-    }
-    
-    TableViewCell* StoreScene::tableCellAtIndex(TableView *table, ssize_t idx)
-    {
-        auto cell = dynamic_cast<BuyPowerupRowWidget*>(table->dequeueCell());
-        if (cell == nullptr) {
-            cell = BuyPowerupRowWidget::create();
-            cell->onBuyItemRequested = [this, table](BonusType type, int cost) {
+        mProductsTable->removeAllChildren();
+        
+        auto buffer = ui::HBox::create(Size(getContentSize().width, 30.0_dp));
+        mProductsTable->addChild(buffer);
+        
+        for (int i = 0; i < (int) BonusType::Count; i++) {
+            auto cell = BuyPowerupRowWidget::create();
+            cell->setContentSize(Size(getContentSize().width, ChoosePowerupRowWidget::getCellHeight()));
+            cell->onBuyItemRequested = [this](BonusType type, int cost) {
                 auto player = Player::getMainPlayer();
                 if (player->getCurrencyAmount() >= cost) {
                     player->removeCurrency(cost);
                     player->addPowerUp(type, 1);
                     
-                    int idx = (static_cast<int>(BonusType::Count) - 1) - static_cast<int>(type);
-                    table->updateCellAtIndex(idx);
+                    auto offset = mProductsTable->getInnerContainerPosition();
+                    this->refreshProductsTable();
+                    mProductsTable->setInnerContainerPosition(offset);
                 } else {
                     setPurchaseOverlayVisible(true);
                 }
             };
+            
+            BonusType btype = static_cast<BonusType>(i);
+            cell->setData(btype, false);
+            mProductsTable->addChild(cell);
         }
         
-        BonusType btype = static_cast<BonusType>((static_cast<int>(BonusType::Count) - 1) - idx);
-        cell->setData(btype, false);
-        
-        return cell;
-    }
-    
-    ssize_t StoreScene::numberOfCellsInTableView(TableView *table)
-    {
-        return (ssize_t) BonusType::Count;
+        mProductsTable->setInnerContainerSize(Size(mProductsTable->getContentSize().width,
+                                                   (BuyPowerupRowWidget::getCellHeight() * (int)BonusType::Count) + 30.0_dp));
     }
 }

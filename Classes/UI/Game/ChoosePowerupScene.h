@@ -12,12 +12,13 @@
 #include "Enums.h"
 #include "SceneEx.h"
 #include "GUI/CCScrollView/CCTableView.h"
+#include "ui/CocosGUI.h"
 
 namespace flik
 {
     class BonusBar;
     
-    class ChoosePowerupScene : public SceneEx, public cocos2d::extension::TableViewDataSource
+    class ChoosePowerupScene : public SceneEx
     {
     public:
         static ChoosePowerupScene* create(const std::vector<BonusType>& currentBonuses, bool lockSelected = false);
@@ -28,16 +29,13 @@ namespace flik
         void onAppear();
         std::function<void(const std::vector<BonusType>&)> onPowerupsChosen;
         
-        /* TableViewDataSource */
-        virtual cocos2d::Size cellSizeForTable(cocos2d::extension::TableView *table);
-        virtual cocos2d::extension::TableViewCell* tableCellAtIndex(cocos2d::extension::TableView *table, ssize_t idx);
-        virtual ssize_t numberOfCellsInTableView(cocos2d::extension::TableView *table);
-        
     private:
         std::vector<BonusType> mCurrentBonuses;
         std::vector<BonusType> mLockedBonuses;
         BonusBar* mBonusBar;
         bool mLockSelected;
-        cocos2d::extension::TableView* mPowerupsTable;
+        cocos2d::ui::ScrollView* mPowerupsTable;
+        
+        void refreshPowerupsTable();
     };
 }

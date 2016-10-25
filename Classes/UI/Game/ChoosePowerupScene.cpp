@@ -90,15 +90,23 @@ namespace flik
         border->setLayoutParameter(borderLayout);
         container->addChild(border);
         
-        auto powerupsTable = TableView::create(this, Size(uiSize.width, uiSize.height - 185.0_dp));
-        powerupsTable->setBounceable(false);
+        auto powerupsTable = ui::ScrollView::create();
+        powerupsTable->setContentSize(Size(uiSize.width, uiSize.height - 175.0_dp));
+        powerupsTable->setBounceEnabled(false);
+        powerupsTable->setLayoutType(ui::Layout::Type::VERTICAL);
+        powerupsTable->setDirection(cocos2d::ui::ScrollView::Direction::VERTICAL);
+        powerupsTable->setScrollBarEnabled(true);
+        powerupsTable->setScrollBarOpacity(255);
+        powerupsTable->setScrollBarAutoHideEnabled(false);
+        powerupsTable->setScrollBarWidth(9.0_dp);
+        powerupsTable->setScrollBarColor(kMaroonColor);
         container->addChild(powerupsTable);
         mPowerupsTable = powerupsTable;
         
         if (lockSelected) {
             mLockedBonuses = currentBonuses;
         }
-        powerupsTable->reloadData();
+        refreshPowerupsTable();
         
         mCurrentBonuses = currentBonuses;
         
@@ -114,22 +122,21 @@ namespace flik
     {
         SceneEx::onAppear();
         
-        mPowerupsTable->reloadData();
+        refreshPowerupsTable();
     }
     
-    /* TableViewDataSource methods */
-    Size ChoosePowerupScene::cellSizeForTable(TableView *table)
+    void ChoosePowerupScene::refreshPowerupsTable()
     {
-        return Size(getContentSize().width, ChoosePowerupRowWidget::getCellHeight());
-    }
-    
-    TableViewCell* ChoosePowerupScene::tableCellAtIndex(TableView *table, ssize_t idx)
-    {
-        auto cell = dynamic_cast<ChoosePowerupRowWidget*>(table->dequeueCell());
-        if (cell == nullptr) {
-            cell = ChoosePowerupRowWidget::create();
-            
-            cell->onAddButtonTapped = [this, table](BonusType type, bool b) {
+        mPowerupsTable->removeAllChildren();
+        
+        auto buffer = ui::HBox::create(Size(getContentSize().width, 30.0_dp));
+        mPowerupsTable->addChild(buffer);
+        
+        for (int i = 0; i < (int) BonusType::Count; i++) {
+            auto cell = ChoosePowerupRowWidget::create();
+            cell->setContentSize(Size(getContentSize().width, ChoosePowerupRowWidget::getCellHeight()));
+                
+            cell->onAddButtonTapped = [this](BonusType type, bool b) {
                 auto selected = std::find(mCurrentBonuses.begin(), mCurrentBonuses.end(), type);
                 if (selected == mCurrentBonuses.end()) {
                     if (mCurrentBonuses.size() < 3) {
@@ -147,27 +154,28 @@ namespace flik
                     Player::getMainPlayer()->setLastBonusChoices(mCurrentBonuses);
                 }
                 
-                int idx = (static_cast<int>(BonusType::Count) - 1) - static_cast<int>(type);
-                table->updateCellAtIndex(idx);
+                auto offset = mPowerupsTable->getInnerContainerPosition();
+                this->refreshPowerupsTable();
+                mPowerupsTable->setInnerContainerPosition(offset);
             };
-        
+            
             cell->onBuyButtonTapped = [this]() {
                 auto storeScene = StoreScene::create();
                 SceneManager::pushSceneWithTransition<TransitionSlideInB>(storeScene, kTransitionDuration);
             };
+            
+            BonusType btype = static_cast<BonusType>(i);
+            bool selected = std::find(mCurrentBonuses.begin(), mCurrentBonuses.end(), btype) != mCurrentBonuses.end();
+            cell->setData(btype, selected);
+            bool locked = std::find(mLockedBonuses.begin(), mLockedBonuses.end(), btype) != mLockedBonuses.end();
+            cell->setLocked(locked);
+            
+            mPowerupsTable->addChild(cell);
         }
         
-        BonusType btype = static_cast<BonusType>((static_cast<int>(BonusType::Count) - 1) - idx);
-        bool selected = std::find(mCurrentBonuses.begin(), mCurrentBonuses.end(), btype) != mCurrentBonuses.end();
-        cell->setData(btype, selected);
-        bool locked = std::find(mLockedBonuses.begin(), mLockedBonuses.end(), btype) != mLockedBonuses.end();
-        cell->setLocked(locked);
+        mPowerupsTable->setInnerContainerSize(Size(mPowerupsTable->getContentSize().width,
+                                                   (ChoosePowerupRowWidget::getCellHeight() * (int)BonusType::Count) + 30.0_dp));
         
-        return cell;
-    }
-    
-    ssize_t ChoosePowerupScene::numberOfCellsInTableView(TableView *table)
-    {
-        return (ssize_t) BonusType::Count;
+        
     }
 }

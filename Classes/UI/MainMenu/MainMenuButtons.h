@@ -22,5 +22,14 @@ namespace flik
         bool init();
         
         std::function<void(GameModeType type)> onGameModeSelected;
+        
+        void animateButtons();
+        
+    private:
+        cocos2d::ui::Button* mGamesButton;
+        cocos2d::ui::Button* mTimedButton;
+        cocos2d::ui::Button* mUnlimitedButton;
+        
+        
     };
 }

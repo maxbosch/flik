@@ -29,7 +29,7 @@ namespace flik
     
     bool ChoosePowerupRowWidget::init()
     {
-        if (!TableViewCell::init())
+        if (!Widget::init())
         {
             return false;
         }

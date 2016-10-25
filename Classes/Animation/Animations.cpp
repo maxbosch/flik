@@ -42,6 +42,8 @@ namespace flik
         
         void update(float t)
         {
+            Node::update(t);
+            
             for (auto& anim : mAnimationData) {
                 anim.elapsed += t;
                 
@@ -75,9 +77,19 @@ namespace flik
         }
         
         void removeFromParent() {
+            Node* parent = getParent();
+            
             Node::removeFromParent();
             
-            mAnimationData.clear();
+            if (parent) {
+                mAnimationData.clear();
+            }
+        }
+        
+        void setParent(Node* parent) {
+            Node::setParent(parent);
+            
+            scheduleUpdate();
         }
         
         static void addAnimationPending(float duration, AnimationStepFunction step, AnimationCompleteFunction complete,

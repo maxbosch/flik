@@ -14,6 +14,8 @@
 
 namespace flik
 {
+    class MainMenuButtons;
+    
     class MainMenuHUD : public cocos2d::ui::RelativeBox
     {
     public:
@@ -25,5 +27,12 @@ namespace flik
         
         std::function<void(GameModeType type)> onGameModeSelected;
         std::function<void()> onShowStoreTapped;
+        
+        void animateElements();
+        
+    private:
+        MainMenuButtons* mButtonsContainer;
+        cocos2d::ui::Widget* mHeader;
+        cocos2d::ui::Widget* mFooter;
     };
 }

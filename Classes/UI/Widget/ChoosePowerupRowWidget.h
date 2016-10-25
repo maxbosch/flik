@@ -15,7 +15,7 @@
 
 namespace flik
 {
-    class ChoosePowerupRowWidget : public cocos2d::extension::TableViewCell
+    class ChoosePowerupRowWidget : public cocos2d::ui::Widget
     {
     public:
         CREATE_FUNC(ChoosePowerupRowWidget);

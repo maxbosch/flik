@@ -13,6 +13,7 @@
 #include "LocalizedString.h"
 #include "Fonts.h"
 #include "LevelTypes.h"
+#include "Animations.h"
 
 #include <boost/lexical_cast.hpp>
 
@@ -63,6 +64,8 @@ namespace flik
         //levelsButtonLayout->setMargin(ui::Margin(0, 35.0_dp, 0, 0));
         levelsButton->setLayoutParameter(levelsButtonLayout);
         innerContainer->addChild(levelsButton);
+        levelsButton->setVisible(false);
+        mGamesButton = levelsButton;
         
         auto timedButton = createButton("timer_home.png", LocalizedString::getString("main_menu_mode_timed"), GameModeType::Timed);
         auto timedButtonLayout = ui::RelativeLayoutParameter::create();
@@ -70,14 +73,55 @@ namespace flik
         timedButtonLayout->setMargin(ui::Margin(0, 35.0_dp, 0, 0));
         timedButton->setLayoutParameter(timedButtonLayout);
         innerContainer->addChild(timedButton);
+        timedButton->setVisible(false);
+        mTimedButton = timedButton;
         
         auto unlimitedButton = createButton("unlimited_home.png", LocalizedString::getString("main_menu_mode_unlimited"), GameModeType::Unlimited);
         auto unlimitedButtonLayout = ui::RelativeLayoutParameter::create();
         unlimitedButtonLayout->setAlign(RelativeAlign::PARENT_TOP_RIGHT);
         unlimitedButtonLayout->setMargin(ui::Margin(0, 35.0_dp, 0, 0));
         unlimitedButton->setLayoutParameter(unlimitedButtonLayout);
+        unlimitedButton->setVisible(false);
         innerContainer->addChild(unlimitedButton);
+        mUnlimitedButton = unlimitedButton;
         
         return true;
+    }
+    
+    void MainMenuButtons::animateButtons()
+    {
+        mTimedButton->setVisible(true);
+        mUnlimitedButton->setVisible(true);
+        mGamesButton->setVisible(true);
+        
+        auto uiSize = Director::getInstance()->getVisibleSize();
+        
+        Mat4 transform;
+        
+        Mat4::createTranslation(Vec3(-uiSize.width, 0, 0), &transform);
+        mTimedButton->setAdditionalTransform(transform);
+        
+        Mat4::createTranslation(Vec3(uiSize.width, 0, 0), &transform);
+        mUnlimitedButton->setAdditionalTransform(transform);
+        
+        Mat4::createTranslation(Vec3(0, uiSize.height, 0), &transform);
+        mGamesButton->setAdditionalTransform(transform);
+        
+        Animations::animate(0.5, [this, uiSize](float t) {
+            Mat4 transform;
+            
+            Mat4::createTranslation(Vec3(-uiSize.width * (1.0 - t), 0, 0), &transform);
+            mTimedButton->setAdditionalTransform(transform);
+            
+            Mat4::createTranslation(Vec3(uiSize.width * (1.0 - t), 0, 0), &transform);
+            mUnlimitedButton->setAdditionalTransform(transform);
+            
+            Mat4::createTranslation(Vec3(0, -uiSize.height * (1.0 - t), 0), &transform);
+            mGamesButton->setAdditionalTransform(transform);
+        }, [this](bool finished) {
+            mTimedButton->setAdditionalTransform(Mat4());
+            mUnlimitedButton->setAdditionalTransform(Mat4());
+            mGamesButton->setAdditionalTransform(Mat4());
+        }, QuadraticEaseInCurve);
     }
 }

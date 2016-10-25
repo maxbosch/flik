@@ -28,7 +28,13 @@ namespace flik
         auto uiSize = Director::getInstance()->getVisibleSize();
         setContentSize(uiSize);
         
-        addChild(OverlayBackgroundWidget::create());
+        auto background = OverlayBackgroundWidget::create();
+        background->addTouchEventListener([this](Ref* sender, TouchEventType type) {
+            if (type == TouchEventType::ENDED && onBackTapped) {
+                onBackTapped();
+            }
+        });
+        addChild(background);
         
         auto pauseButtons = PauseButtonsWidget::create();
         auto pauseButtonsLayout = ui::RelativeLayoutParameter::create();
