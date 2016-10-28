@@ -12,6 +12,12 @@
 #include "MainMenuFooter.h"
 #include "Literals.h"
 #include "Animations.h"
+#include "CCSwipeGestureRecognizer.h"
+#include "SettingsScene.h"
+#include "AchievementsScene.h"
+#include "SceneManager.h"
+#include "Styles.h"
+
 USING_NS_CC;
 
 namespace flik
@@ -74,7 +80,25 @@ namespace flik
         addChild(footer);
         mFooter = footer;
         
+        auto swipeGesture = SwipeGestureRecognizer::create();
+        swipeGesture->setTarget(this, static_cast<SEL_CallFuncO>(&MainMenuHUD::onSwipe));
+        swipeGesture->setDirection(kSwipeGestureRecognizerDirectionRight | kSwipeGestureRecognizerDirectionLeft);
+        addChild(swipeGesture);
+        
         return true;
+    }
+    
+    void MainMenuHUD::onSwipe(Ref* gesture)
+    {
+        Swipe* swipeGesture = dynamic_cast<Swipe*>(gesture);
+        if (swipeGesture) {
+            if (swipeGesture->direction == kSwipeGestureRecognizerDirectionLeft) {
+                auto settingsScene = SettingsScene::create();
+                SceneManager::pushSceneWithTransition<TransitionSlideInR>(settingsScene, kTransitionDuration);
+            } else {
+                SceneManager::pushSceneWithTransition<TransitionSlideInL>(AchievementsScene::create(), kTransitionDuration);
+            }
+        }
     }
     
     void MainMenuHUD::animateElements()

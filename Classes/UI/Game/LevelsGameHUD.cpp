@@ -46,6 +46,7 @@ namespace flik
  
         auto objectivesWidget = Fonts::createLocalizedText("", 20.0_dp);
         objectivesWidget->setColor(kGoldColor);
+        objectivesWidget->setTextHorizontalAlignment(TextHAlignment::RIGHT);
         auto objectivesWidgetLayout = ui::RelativeLayoutParameter::create();
         objectivesWidgetLayout->setAlign(RelativeAlign::PARENT_RIGHT_CENTER_VERTICAL);
         objectivesWidgetLayout->setMargin(ui::Margin(0, 0, 30.0_dp, 0));
@@ -108,6 +109,7 @@ namespace flik
             if (gameMode) {
                 auto objective = gameMode->getObjectives()[0];
                 Fonts::updateLocalizedText(mObjectiveText, fmt::sprintf("%d/%d", objective->getCurrentValue(), objective->getTotalValue()));
+                mHeader->forceDoLayout();
             }
         }
     }

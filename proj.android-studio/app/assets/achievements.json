@@ -13,19 +13,19 @@
 			"bonus": 250
 		},
 		{
-			"name": "score_timed_25",
-			"bonus": 50
+			"name": "score_timed_100",
+			"bonus": 200
 		},
 		{
-			"name": "score_timed_50",
-			"bonus": 100
-		},
-		{
-			"name": "score_timed_75",
+			"name": "score_timed_125",
 			"bonus": 300
 		},
 		{
-			"name": "score_timed_100",
+			"name": "score_timed_150",
+			"bonus": 400
+		},
+		{
+			"name": "score_timed_200",
 			"bonus": 1000
 		},
 		{
@@ -41,19 +41,19 @@
 			"bonus": 250
 		},
 		{
-			"name": "score_unlimited_50",
-			"bonus": 50
-		},
-		{
-			"name": "score_unlimited_100",
-			"bonus": 100
-		},
-		{
 			"name": "score_unlimited_150",
-			"bonus": 300
+			"bonus": 200
 		},
 		{
 			"name": "score_unlimited_200",
+			"bonus": 300
+		},
+		{
+			"name": "score_unlimited_250",
+			"bonus": 400
+		},
+		{
+			"name": "score_unlimited_325",
 			"bonus": 1000
 		}
 	]

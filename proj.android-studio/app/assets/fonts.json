@@ -1,7 +1,0 @@
-{
-    "fonts": [
-        "gothamrnd_bold.otf",
-        "hirigana_bold.ttc"
-    ],
-    "fallback": "gothamrnd_bold.otf"
-}

@@ -34,5 +34,7 @@ namespace flik
         MainMenuButtons* mButtonsContainer;
         cocos2d::ui::Widget* mHeader;
         cocos2d::ui::Widget* mFooter;
+        
+        void onSwipe(Ref* gesture);
     };
 }

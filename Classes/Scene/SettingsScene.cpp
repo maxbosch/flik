@@ -14,6 +14,7 @@
 #include "PlatformUtil.h"
 #include "SceneManager.h"
 #include "LocalizedString.h"
+#include "CCSwipeGestureRecognizer.h"
 
 USING_NS_CC;
 
@@ -188,6 +189,13 @@ namespace flik
         label3Layout->setMargin(ui::Margin(0, 5.0_dp, 0, 0));
         label3->setLayoutParameter(label3Layout);
         madeInContainer->addChild(label3);
+        
+        auto swipeGesture = SwipeGestureRecognizer::create();
+        swipeGesture->setTarget([this](Ref* gesture) {
+            onBackPressed();
+        });
+        swipeGesture->setDirection(kSwipeGestureRecognizerDirectionRight);
+        addChild(swipeGesture);
         
         return true;
     }

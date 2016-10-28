@@ -94,15 +94,15 @@
     "achievement_play_timed_game_1": "Play 1 game in Timed mode",
     "achievement_play_timed_game_5": "Play 5 games in Timed mode",
     "achievement_play_timed_game_20": "Play 20 games in Timed mode",
-    "achievement_score_timed_25": "Score 25 points in Timed mode",
-    "achievement_score_timed_50": "Score 50 points in Timed mode",
-    "achievement_score_timed_75": "Score 75 points in Timed mode",
     "achievement_score_timed_100": "Score 100 points in Timed mode",
+    "achievement_score_timed_125": "Score 125 points in Timed mode",
+    "achievement_score_timed_150": "Score 150 points in Timed mode",
+    "achievement_score_timed_200": "Score 200 points in Timed mode",
     "achievement_play_unlimited_game_1": "Play 1 game in Unlimited mode",
     "achievement_play_unlimited_game_5": "Play 5 games in Unlimited mode",
     "achievement_play_unlimited_game_20": "Play 20 games in Unlimited mode",
-    "achievement_score_unlimited_50": "Score 50 points in Unlimited mode",
-    "achievement_score_unlimited_100": "Score 100 points in Unlimited mode",
-    "achievement_score_unlimited_150": "Score 150 points in Unlimited mode",
-    "achievement_score_unlimited_200": "Score 200 points in Unlimited mode"
+    "achievement_score_unlimited_150": "Score 100 points in Unlimited mode",
+    "achievement_score_unlimited_200": "Score 150 points in Unlimited mode",
+    "achievement_score_unlimited_250": "Score 200 points in Unlimited mode",
+    "achievement_score_unlimited_350": "Score 325 points in Unlimited mode"
 }

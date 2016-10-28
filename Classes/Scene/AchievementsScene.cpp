@@ -13,6 +13,7 @@
 #include "Player.h"
 #include "Errors.h"
 #include "LocalizedString.h"
+#include "CCSwipeGestureRecognizer.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -187,6 +188,13 @@ namespace flik
         addChild(achievementsTable);
         mAchievements = GameServices::getInstance()->getLocalAchievements();
         achievementsTable->reloadData();
+        
+        auto swipeGesture = SwipeGestureRecognizer::create();
+        swipeGesture->setTarget([this](Ref* gesture) {
+            onBackPressed();
+        });
+        swipeGesture->setDirection(kSwipeGestureRecognizerDirectionLeft);
+        addChild(swipeGesture);
         
         return true;
     }

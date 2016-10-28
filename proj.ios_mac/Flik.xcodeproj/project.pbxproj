@@ -66,6 +66,8 @@
 		663AACC21D88C4080028A9EA /* ScoreMultiplierBonusBehavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663AACC01D88C4080028A9EA /* ScoreMultiplierBonusBehavior.cpp */; };
 		663AACC51D88C6200028A9EA /* GravityBonusBehavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663AACC31D88C6200028A9EA /* GravityBonusBehavior.cpp */; };
 		663CC17D1D22B0FA00A423A1 /* PlatformUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663CC16C1D22048500A423A1 /* PlatformUtil.cpp */; };
+		664137F41DC2BBB40064457B /* CCGestureRecognizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 664137E81DC2BBB40064457B /* CCGestureRecognizer.cpp */; };
+		664137FA1DC2BE030064457B /* CCSwipeGestureRecognizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 664137F01DC2BBB40064457B /* CCSwipeGestureRecognizer.cpp */; };
 		66442B291D0B83B100AC5983 /* string in Resources */ = {isa = PBXBuildFile; fileRef = 66442B281D0B83B100AC5983 /* string */; };
 		66442B2C1D0B84C100AC5983 /* LocalizedString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66442B2A1D0B84C100AC5983 /* LocalizedString.cpp */; };
 		66442B2F1D0B851600AC5983 /* StorePurchaseOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66442B2D1D0B851600AC5983 /* StorePurchaseOverlay.cpp */; };
@@ -297,6 +299,10 @@
 		663AACC41D88C6200028A9EA /* GravityBonusBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GravityBonusBehavior.h; sourceTree = "<group>"; };
 		663CC16C1D22048500A423A1 /* PlatformUtil.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlatformUtil.cpp; sourceTree = "<group>"; };
 		663CC1761D22B0D600A423A1 /* Flik-androiddev */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Flik-androiddev"; sourceTree = BUILT_PRODUCTS_DIR; };
+		664137E81DC2BBB40064457B /* CCGestureRecognizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCGestureRecognizer.cpp; sourceTree = "<group>"; };
+		664137E91DC2BBB40064457B /* CCGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCGestureRecognizer.h; sourceTree = "<group>"; };
+		664137F01DC2BBB40064457B /* CCSwipeGestureRecognizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCSwipeGestureRecognizer.cpp; sourceTree = "<group>"; };
+		664137F11DC2BBB40064457B /* CCSwipeGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSwipeGestureRecognizer.h; sourceTree = "<group>"; };
 		66442B281D0B83B100AC5983 /* string */ = {isa = PBXFileReference; lastKnownFileType = folder; path = string; sourceTree = "<group>"; };
 		66442B2A1D0B84C100AC5983 /* LocalizedString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LocalizedString.cpp; sourceTree = "<group>"; };
 		66442B2B1D0B84C100AC5983 /* LocalizedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalizedString.h; sourceTree = "<group>"; };
@@ -859,6 +865,7 @@
 		663894921D09AEB60034892E /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				664137E71DC2BBB40064457B /* CCGestureRecognizer */,
 				66CC6CB51D30678800A60D8D /* Format */,
 				663894931D09AEB60034892E /* Literals.cpp */,
 				663894941D09AEB60034892E /* Literals.h */,
@@ -893,6 +900,17 @@
 				663CC16C1D22048500A423A1 /* PlatformUtil.cpp */,
 			);
 			path = Android;
+			sourceTree = "<group>";
+		};
+		664137E71DC2BBB40064457B /* CCGestureRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				664137E81DC2BBB40064457B /* CCGestureRecognizer.cpp */,
+				664137E91DC2BBB40064457B /* CCGestureRecognizer.h */,
+				664137F01DC2BBB40064457B /* CCSwipeGestureRecognizer.cpp */,
+				664137F11DC2BBB40064457B /* CCSwipeGestureRecognizer.h */,
+			);
+			path = CCGestureRecognizer;
 			sourceTree = "<group>";
 		};
 		66522F0D1D4AD12000C6AF19 /* Objective */ = {
@@ -1198,6 +1216,7 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				66D7CF901D2BDD5A0000DE33 /* AchievementsScene.cpp in Sources */,
 				668304B01D48F73D0036BFA7 /* IncreasingTimedSpawner.cpp in Sources */,
+				664137FA1DC2BE030064457B /* CCSwipeGestureRecognizer.cpp in Sources */,
 				66D7CF851D270C0D0000DE33 /* Animations.cpp in Sources */,
 				668304B31D48F74B0036BFA7 /* ReplaceSpawner.cpp in Sources */,
 				663894A11D09AEB60034892E /* VelocityTracker.cpp in Sources */,
@@ -1219,6 +1238,7 @@
 				66114ECC1D12D77A00B2C92B /* ObjectiveItemWidget.cpp in Sources */,
 				66050FA01DAE73BF00E039DB /* TransitionEx.cpp in Sources */,
 				66DB27581D74FF55005BF1CD /* PhysicsNode.cpp in Sources */,
+				664137F41DC2BBB40064457B /* CCGestureRecognizer.cpp in Sources */,
 				663AACC51D88C6200028A9EA /* GravityBonusBehavior.cpp in Sources */,
 				66E7E50E1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp in Sources */,
 				6638947B1D09AD9B0034892E /* MainMenuFooter.cpp in Sources */,

@@ -64,7 +64,7 @@ namespace flik
         //levelsButtonLayout->setMargin(ui::Margin(0, 35.0_dp, 0, 0));
         levelsButton->setLayoutParameter(levelsButtonLayout);
         innerContainer->addChild(levelsButton);
-        levelsButton->setVisible(false);
+        //levelsButton->setVisible(false);
         mGamesButton = levelsButton;
         
         auto timedButton = createButton("timer_home.png", LocalizedString::getString("main_menu_mode_timed"), GameModeType::Timed);
@@ -73,7 +73,7 @@ namespace flik
         timedButtonLayout->setMargin(ui::Margin(0, 35.0_dp, 0, 0));
         timedButton->setLayoutParameter(timedButtonLayout);
         innerContainer->addChild(timedButton);
-        timedButton->setVisible(false);
+        //timedButton->setVisible(false);
         mTimedButton = timedButton;
         
         auto unlimitedButton = createButton("unlimited_home.png", LocalizedString::getString("main_menu_mode_unlimited"), GameModeType::Unlimited);
@@ -81,7 +81,7 @@ namespace flik
         unlimitedButtonLayout->setAlign(RelativeAlign::PARENT_TOP_RIGHT);
         unlimitedButtonLayout->setMargin(ui::Margin(0, 35.0_dp, 0, 0));
         unlimitedButton->setLayoutParameter(unlimitedButtonLayout);
-        unlimitedButton->setVisible(false);
+        //unlimitedButton->setVisible(false);
         innerContainer->addChild(unlimitedButton);
         mUnlimitedButton = unlimitedButton;
         
