@@ -1,0 +1,219 @@
+{
+    "ios" : {
+        "sdkboxplay" : {
+            "enabled" : true,
+            "debug" : true,
+            "connect_on_start" : true,
+            "leaderboards" : [
+                {
+                    "id" : "grp.score.timed",
+                    "name" : "score_timed"
+                },
+                {
+                    "id" : "grp.score.unlimited",
+                    "name" : "score_unlimited"
+                }
+            ],
+            "achievements" : [
+                {
+                    "id" : "grp.play.timed.1",
+                    "name" : "play_timed_game_1",
+                    "incremental" : false
+                },
+                {
+                    "id" : "grp.play.timed.5",
+                    "name" : "play_timed_game_5",
+                    "incremental" : true
+                },
+                {
+                    "id" : "grp.play.timed.20",
+                    "name" : "play_timed_game_20",
+                    "incremental" : true
+                },
+                {
+                    "id" : "grp.play.unlimited.1",
+                    "name" : "play_unlimited_game_1",
+                    "incremental" : false
+                },
+                {
+                    "id" : "grp.play.unlimited.5",
+                    "name" : "play_unlimited_game_5",
+                    "incremental" : true
+                },
+                {
+                    "id" : "grp.play.unlimited.20",
+                    "name" : "play_unlimited_game_20",
+                    "incremental" : true
+                },
+                {
+                    "id" : "grp.score.timed.25",
+                    "name" : "score_timed_25",
+                    "incremental" : false
+                },
+                {
+                    "id" : "grp.score.timed.50",
+                    "name" : "score_timed_50",
+                    "incremental" : false
+                },
+                {
+                    "id" : "grp.score.timed.75",
+                    "name" : "score_timed_75",
+                    "incremental" : false
+                },
+                {
+                    "id" : "grp.score.timed.100",
+                    "name" : "score_timed_100",
+                    "incremental" : false
+                },
+                {
+                    "id" : "grp.score.unlimited.50",
+                    "name" : "score_unlimited_50",
+                    "incremental" : false
+                },
+                {
+                    "id" : "grp.score.unlimited.100",
+                    "name" : "score_unlimited_100",
+                    "incremental" : false
+                },
+                {
+                    "id" : "grp.score.unlimited.150",
+                    "name" : "score_unlimited_150",
+                    "incremental" : false
+                },
+                {
+                    "id" : "grp.score.unlimited.200",
+                    "name" : "score_unlimited_200",
+                    "incremental" : false
+                }
+            ]
+        },
+        "iap" : {
+            "enabled" : true,
+            "production" : "false",
+            "items" : {
+                "points_5000" : {
+                    "id" : "product.points.5000",
+                    "type" : "consumable"
+                },
+                "points_15000" : {
+                    "id" : "product.points.15000",
+                    "type" : "consumable"
+                },
+                "points_50000" : {
+                    "id" : "product.points.50000",
+                    "type" : "consumable"
+                }
+            }
+        }
+    },
+    "android" : {
+        "iap" : {
+            "enabled" : true,
+            "key" : "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoLvp3PjRH4M0oUxAHWORVmq7Ey1b2ENGcUaQnHbigCM7S6UWx3nm5XA+r6CsOK6Lm1Vv3OqbuwRYaHa1ofGzWqc7PHJWtqiwr7KYGIAldf3ltKj0IyQclQEM40NZxEXQbvDqcBkHFV+\/GgcHM8JYKRFkqLBmygwqDoLpN\/iisVe4YnFWS6i2+QfZL03zH1sT+p\/8c8\/o+sHA5SevIribGPe+29SSOhdD2PIHVL\/BaSEyyOrw\/VdK6ESk1Zh7uLwj4R9TwH83z4IiCRdAKOD1rE+dF4AReuNds8PDPCw+OksMS4xPtzN3\/JJb9yLTZs1Lwsx6TlC9FH\/+FirrpL3a8wIDAQAB",
+            "items" : {
+                "points_5000" : {
+                    "id" : "points_5000",
+                    "type" : "consumable"
+                },
+                "points_15000" : {
+                    "id" : "points_15000",
+                    "type" : "consumable"
+                },
+                "points_50000" : {
+                    "id" : "points_50000",
+                    "type" : "consumable"
+                }
+            }
+        },
+        "sdkboxplay" : {
+            "enabled" : true,
+            "debug" : true,
+            "connect_on_start" : true,
+            "leaderboards" : [
+                {
+                    "id" : "CgkIvPrHpOUMEAIQAA",
+                    "name" : "score_timed"
+                },
+                {
+                    "id" : "CgkIvPrHpOUMEAIQAQ",
+                    "name" : "score_unlimited"
+                }
+            ],
+            "achievements" : [
+                {
+                    "id" : "CgkIvPrHpOUMEAIQAg",
+                    "name" : "play_timed_game_1",
+                    "incremental" : false
+                },
+                {
+                    "id" : "CgkIvPrHpOUMEAIQCA",
+                    "name" : "play_timed_game_5",
+                    "incremental" : true
+                },
+                {
+                    "id" : "CgkIvPrHpOUMEAIQCA",
+                    "name" : "play_timed_game_20",
+                    "incremental" : true
+                },
+                {
+                    "id" : "CgkIvPrHpOUMEAIQBQ",
+                    "name" : "play_unlimited_game_1",
+                    "incremental" : false
+                },
+                {
+                    "id" : "CgkIvPrHpOUMEAIQBw",
+                    "name" : "play_unlimited_game_5",
+                    "incremental" : true
+                },
+                {
+                    "id" : "CgkIvPrHpOUMEAIQCQ",
+                    "name" : "play_unlimited_game_20",
+                    "incremental" : true
+                },
+                {
+                    "id" : "CgkIvPrHpOUMEAIQCg",
+                    "name" : "score_timed_25",
+                    "incremental" : false
+                },
+                {
+                    "id" : "CgkIvPrHpOUMEAIQCw",
+                    "name" : "score_timed_50",
+                    "incremental" : false
+                },
+                {
+                    "id" : "CgkIvPrHpOUMEAIQEA",
+                    "name" : "score_timed_75",
+                    "incremental" : false
+                },
+                {
+                    "id" : "CgkIvPrHpOUMEAIQDA",
+                    "name" : "score_timed_100",
+                    "incremental" : false
+                },
+                {
+                    "id" : "CgkIvPrHpOUMEAIQDQ",
+                    "name" : "score_unlimited_50",
+                    "incremental" : false
+                },
+                {
+                    "id" : "CgkIvPrHpOUMEAIQDg",
+                    "name" : "score_unlimited_100",
+                    "incremental" : false
+                },
+                {
+                    "id" : "CgkIvPrHpOUMEAIQDw",
+                    "name" : "score_unlimited_150",
+                    "incremental" : false
+                },
+                {
+                    "id" : "CgkIvPrHpOUMEAIQEQ",
+                    "name" : "score_unlimited_200",
+                    "incremental" : false
+                }
+            ]
+        }
+    },
+    "playphone" : [
+        
+    ]
+}

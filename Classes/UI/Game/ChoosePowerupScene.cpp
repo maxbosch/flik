@@ -137,13 +137,17 @@ namespace flik
             cell->setContentSize(Size(getContentSize().width, ChoosePowerupRowWidget::getCellHeight()));
                 
             cell->onAddButtonTapped = [this](BonusType type, bool b) {
+                auto child = dynamic_cast<ChoosePowerupRowWidget *>(mPowerupsTable->getChildren().at((int)type + 1));
+                
                 auto selected = std::find(mCurrentBonuses.begin(), mCurrentBonuses.end(), type);
                 if (selected == mCurrentBonuses.end()) {
                     if (mCurrentBonuses.size() < 3) {
                         mCurrentBonuses.push_back(type);
+                        child->setData(type, true);
                     }
                 } else {
                     mCurrentBonuses.erase(selected);
+                    child->setData(type, false);
                 }
                 
                 mBonusBar->setBonuses(mCurrentBonuses);
@@ -153,10 +157,6 @@ namespace flik
                     
                     Player::getMainPlayer()->setLastBonusChoices(mCurrentBonuses);
                 }
-                
-                auto offset = mPowerupsTable->getInnerContainerPosition();
-                this->refreshPowerupsTable();
-                mPowerupsTable->setInnerContainerPosition(offset);
             };
             
             cell->onBuyButtonTapped = [this]() {
