@@ -111,6 +111,22 @@ namespace flik
         return sublevels.Size() - 1;
     }
     
+    float LevelInfo::getGameCompletionPercentage(int level)
+    {
+        int maxLevel = getMaxLevel(level);
+        int maxScore = maxLevel;
+        int playerScore = 0;
+        
+        for (int i = 1; i <= maxLevel; i++) {
+            int status = getLevelScore(level, i);
+            if (status > 0) {
+                playerScore += 1;
+            }
+        }
+        
+        return (float)playerScore / (float)maxScore;
+    }
+    
     /** LevelProgress */
     
     void LevelProgress::setLevelDescription(const LevelDescription* levelDesc)
@@ -145,5 +161,4 @@ namespace flik
     void LevelProgress::reset()
     {
     }
-    
 }

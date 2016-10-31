@@ -158,6 +158,7 @@ namespace flik
         // Middle Container
         auto levelCompleteLabel = Fonts::createLocalizedText(LocalizedString::getString("game_over_level_complete", level + 1), 30.0_dp);
         levelCompleteLabel->setColor(kYellowColor);
+        levelCompleteLabel->setTextHorizontalAlignment(TextHAlignment::CENTER);
         auto levelCompleteLabelLayout = ui::RelativeLayoutParameter::create();
         levelCompleteLabelLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
         levelCompleteLabelLayout->setRelativeName("level_complete");
@@ -169,7 +170,7 @@ namespace flik
         auto middleContainerLayout = ui::RelativeLayoutParameter::create();
         middleContainerLayout->setAlign(RelativeAlign::LOCATION_BELOW_CENTER);
         middleContainerLayout->setRelativeToWidgetName("level_complete");
-        middleContainerLayout->setMargin(ui::Margin(0, 20.0_dp, 0, 0));
+        //middleContainerLayout->setMargin(ui::Margin(0, 20.0_dp, 0, 0));
         middleContainer->setLayoutParameter(middleContainerLayout);
         mContentContainer->addChild(middleContainer);
         
@@ -177,7 +178,7 @@ namespace flik
         starsContainer->setBackGroundImage("level_success_star_box.png");
         auto starsContainerLayout = ui::RelativeLayoutParameter::create();
         starsContainerLayout->setAlign(RelativeAlign::PARENT_TOP_CENTER_HORIZONTAL);
-        starsContainerLayout->setMargin(ui::Margin(0, 75.0_dp, 0, 0));
+        starsContainerLayout->setMargin(ui::Margin(0, 55.0_dp, 0, 0));
         starsContainer->setLayoutParameter(starsContainerLayout);
         middleContainer->addChild(starsContainer);
         

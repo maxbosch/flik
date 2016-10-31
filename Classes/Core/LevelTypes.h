@@ -43,6 +43,8 @@ namespace flik
         int getLevelScore(int level, int sublevel);
         int getNumGames() { return (int) mLevels.size(); }
         
+        float getGameCompletionPercentage(int level);
+        
     private:
         LevelInfo();
         

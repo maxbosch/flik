@@ -13,6 +13,8 @@
 #include "LevelTypes.h"
 #include "LocalizedString.h"
 #include "format.h"
+#include "LevelTypes.h"
+#include "PercentBubbleLayer.h"
 
 USING_NS_CC;
 
@@ -67,6 +69,20 @@ namespace flik
                 setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::NONE);
             }
         });
+        
+        float percent = LevelInfo::getInstance()->getGameCompletionPercentage(level);
+        
+        if (percent == 1.0) {
+            auto completeImage = ui::ImageView::create("level_complete.png");
+            completeImage->setAnchorPoint(Vec2(-0.1, -0.1));
+            levelStatus->addChild(completeImage);
+        } else {
+            auto levelStatusPercentBubble = PercentBubbleLayer::create();
+            levelStatusPercentBubble->setColor(kPinkColor);
+            levelStatusPercentBubble->setPercent(percent);
+            levelStatusPercentBubble->setContentSize(levelStatus->getContentSize());
+            levelStatus->addChild(levelStatusPercentBubble);
+        }
 
         return true;
     }

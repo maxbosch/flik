@@ -38,10 +38,10 @@ bool SwipeGestureRecognizer::init()
 
 bool SwipeGestureRecognizer::checkSwipeDirection(Vec2 p1, Vec2 p2, int & dir)
 {
-    bool right = p2.x-p1.x>=kSwipeMinDistance;
-    bool left = p1.x-p2.x>=kSwipeMinDistance;
-    bool down = p1.y-p2.y>=kSwipeMinDistance;
-    bool up = p2.y-p1.y>=kSwipeMinDistance;
+    bool right = p2.x-p1.x>=kSwipeMinDistance && std::abs(p2.y - p1.y) <= kSwipeMaxOppositeDistance;
+    bool left = p1.x-p2.x>=kSwipeMinDistance && std::abs(p2.y - p1.y) <= kSwipeMaxOppositeDistance;
+    bool down = p1.y-p2.y>=kSwipeMinDistance && std::abs(p2.x - p1.x) <= kSwipeMaxOppositeDistance;
+    bool up = p2.y-p1.y>=kSwipeMinDistance && std::abs(p2.x - p1.x) <= kSwipeMaxOppositeDistance;
     
     if (right) {
         if ((direction & kSwipeGestureRecognizerDirectionRight) == kSwipeGestureRecognizerDirectionRight) {

@@ -145,6 +145,7 @@
 		66E7E5171D182910007DE4B9 /* GameSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E5151D182910007DE4B9 /* GameSelectScene.cpp */; };
 		66E802FB1D5CC0AB0039AFD3 /* SceneEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E802F91D5CC0AB0039AFD3 /* SceneEx.cpp */; };
 		66F247981D770E4D009BD1DF /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66F247961D770E4D009BD1DF /* GLES-Render.cpp */; };
+		66F885A01DC8007900D56F59 /* PercentBubbleLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66F8859E1DC8007900D56F59 /* PercentBubbleLayer.cpp */; };
 		66FBAEE81D8B6822008891A4 /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FBAEE71D8B6822008891A4 /* libcocos2d iOS.a */; };
 		66FBAEEA1D8B6BCB008891A4 /* libcocos2d iOS Simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FBAEE91D8B6BCB008891A4 /* libcocos2d iOS Simulator.a */; };
 		6E2B4283A69F3BC8F3DAFC4E /* sdkbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6142E7B2D12A44A021E034 /* sdkbox.framework */; };
@@ -428,6 +429,8 @@
 		66E802FA1D5CC0AB0039AFD3 /* SceneEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneEx.h; sourceTree = "<group>"; };
 		66F247961D770E4D009BD1DF /* GLES-Render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "GLES-Render.cpp"; sourceTree = "<group>"; };
 		66F247971D770E4D009BD1DF /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
+		66F8859E1DC8007900D56F59 /* PercentBubbleLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PercentBubbleLayer.cpp; sourceTree = "<group>"; };
+		66F8859F1DC8007900D56F59 /* PercentBubbleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PercentBubbleLayer.h; sourceTree = "<group>"; };
 		66FBAEE11D8B65F4008891A4 /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "../../../../../Users/adam/Library/Developer/Xcode/DerivedData/cocos2d_libs-bjgnoggugtrnrkfkbovgugqmuptd/Build/Products/Debug/libcocos2d Mac.a"; sourceTree = "<group>"; };
 		66FBAEE31D8B663C008891A4 /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "../cocos2d/prebuilt/libcocos2d Mac.a"; sourceTree = "<group>"; };
 		66FBAEE71D8B6822008891A4 /* libcocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS.a"; path = "../cocos2d/prebuilt/libcocos2d iOS.a"; sourceTree = "<group>"; };
@@ -793,6 +796,8 @@
 				66D97D291D9B30710001F546 /* BuyPowerupRowWidget.h */,
 				66C58D761DB833F500A86FA4 /* OverlayBackgroundWidget.cpp */,
 				66C58D771DB833F500A86FA4 /* OverlayBackgroundWidget.h */,
+				66F8859E1DC8007900D56F59 /* PercentBubbleLayer.cpp */,
+				66F8859F1DC8007900D56F59 /* PercentBubbleLayer.h */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -1245,6 +1250,7 @@
 				663459231D522F9F00F6E68F /* DialogMessage.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				66D97D2A1D9B30710001F546 /* BuyPowerupRowWidget.cpp in Sources */,
+				66F885A01DC8007900D56F59 /* PercentBubbleLayer.cpp in Sources */,
 				666EC0291D1A096600FE138F /* BlurredBackgroundWidget.cpp in Sources */,
 				667723541D18BBF000B1B74A /* SpawnRandomizer.cpp in Sources */,
 				667723511D18B0F800B1B74A /* LevelSelectRowWidget.cpp in Sources */,
