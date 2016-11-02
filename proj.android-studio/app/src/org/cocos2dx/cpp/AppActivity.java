@@ -23,18 +23,29 @@ THE SOFTWARE.
 ****************************************************************************/
 package org.cocos2dx.cpp;
 
+import android.app.Application;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.JsonReader;
 import android.util.Log;
 
 import com.aeskreis.flik.android.R;
 import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
 import com.sdkbox.plugin.SDKBox;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONStringer;
+import org.json.JSONTokener;
 
+import java.util.Iterator;
 import java.util.Locale;
+import java.util.UUID;
 
 import io.fabric.sdk.android.Fabric;
 
@@ -44,7 +55,10 @@ public class AppActivity extends Cocos2dxActivity {
         super.onCreate(savedInstanceState);
 
         // Load crashlytics
-        Fabric fabric = new Fabric.Builder(this).appInstallIdentifier(getPackageName()).debuggable(true).kits(new Crashlytics()).build();
+        Fabric fabric = new Fabric.Builder(this).appInstallIdentifier(getPackageName()).debuggable(true)
+                .kits(new Crashlytics(), new Answers())
+                .build();
+
         Fabric.with(fabric);
 
         Log.d("Activity", "Fabric loaded");
@@ -65,6 +79,39 @@ public class AppActivity extends Cocos2dxActivity {
         getContext().startActivity(Intent.createChooser(intent, getContext().getString(R.string.email_us)));
     }
 
+    static void logEvent(String eventName, String attributesJson)
+    {
+        CustomEvent event = new CustomEvent(eventName);
+
+        // OS Specific properties
+        event.putCustomAttribute("os", "android");
+        event.putCustomAttribute("os_version", String.valueOf(Build.VERSION.SDK_INT));
+
+        JSONTokener reader = new JSONTokener(attributesJson);
+        try {
+            JSONObject attributesObject = new JSONObject(reader);
+            Iterator<String> keys = attributesObject.keys();
+            while (keys.hasNext()) {
+                String key = keys.next();
+                double number = attributesObject.optDouble(key, Double.NEGATIVE_INFINITY);
+                if (number != Double.NEGATIVE_INFINITY) {
+                    event.putCustomAttribute(key, number);
+                } else {
+                    String string = attributesObject.optString(key);
+                    if (string != null) {
+                        event.putCustomAttribute(key, string);
+                    }
+                }
+            }
+
+            Answers.getInstance().logCustom(event);
+
+            Log.d(AppActivity.getAppPackageName(), String.format("Analytics Event: %s, attributes: %s", eventName, attributesJson));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
     static String getAppPackageName()
     {
         return getContext().getPackageName();
@@ -72,6 +119,10 @@ public class AppActivity extends Cocos2dxActivity {
 
     static String getLanguage() {
         return Locale.getDefault().getLanguage();
+    }
+
+    static String newUUID() {
+        return UUID.randomUUID().toString();
     }
 
     @Override

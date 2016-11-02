@@ -15,6 +15,10 @@
 #include "Fonts.h"
 #include "LocalizedString.h"
 #include "OverlayBackgroundWidget.h"
+#include "Analytics.h"
+#include "MainGameScene.h"
+#include "GameMode.h"
+#include "Enums.h"
 
 USING_NS_CC;
 
@@ -100,6 +104,16 @@ namespace flik
             createNewTopScoreWidget(gameScore, topScore);
         } else {
             createDefaulteWidget(gameScore, topScore);
+        }
+        
+        auto gameScene = dynamic_cast<MainGameScene*>(Director::getInstance()->getRunningScene());
+        if (gameScene) {
+            PTree attributes;
+            attributes.add("mode", kGameModeStrings[gameScene->getGameMode()->getGameModeType()]);
+            attributes.add("score", gameScore);
+            attributes.add("rating", 0);
+            attributes.add("new_high_score", (int)(gameScore > topScore));
+            Analytics::logEvent("game_end", attributes);
         }
     }
     

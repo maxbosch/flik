@@ -15,6 +15,7 @@
 #include "Enums.h"
 #include "TutorialGameHUD.h"
 #include "MainGameScene.h"
+#include "Analytics.h"
 
 USING_NS_CC;
 
@@ -55,6 +56,8 @@ namespace flik
         spawnNextPiece();
         
         this->scheduleUpdate();
+        
+        Analytics::logEvent("tutorial_show");
     }
     
     void TutorialGameMode::spawnNextPiece()
@@ -74,6 +77,8 @@ namespace flik
                 nextPieceId++;
             } else {
                 setGameState(GameState::Finished);
+                
+                Analytics::logEvent("tutorial_complete");
             }
         }
     }

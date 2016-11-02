@@ -1,0 +1,76 @@
+AppDelegate 
+	- app open
+		- first_load - boolean
+		
+TutorialScene
+	- tutorial_show
+	- tutorial_complete
+
+MainMenuScene
+	- main_menu_play_game_mode
+		- mode - string (timed, unlimited, games)
+		
+	- main_menu_store
+	- main_menu_achievements
+	- main_menu_settings
+	
+GameSelectScene
+	- game_select_game
+		-type - integer (game id)
+		-completion - double (percentage)
+	- game_select_back
+	
+LevelSelectScene
+	- level_select_level
+		-game_type - integer (game id)
+		-level - integer (leve id)
+	- level_select_back
+
+MainGameScene
+	- game_start_button
+		- mode - string (timed, unlimited, games)
+		- powerups - string (names, comma separated)
+	- game_start_choose_powerups
+		- mode - string (timed, unlimited, games)
+		- powerups - string (names, comma separated)
+	- game_in_progress_choose_powerups
+		- mode - string (timed, unlimited, games)
+		- powerups - string (names, comma separated)
+	- game_pause
+	- game_pause_home
+	- game_pause_achievements
+	- game_pause_settings
+	- game_pause_restart
+	- game_pause_resume
+	- game_start_back
+		- mode - string (timed, unlimited, games)
+		
+ChoosePowerupScene
+	- choose_powerup_add_powerup
+		- powerup - string (name)
+		- quantity_remaining - integer
+		- store_opened - boolean
+	- choose_powerup_back
+		- powerups - string (names, comma separated)
+		
+StoreScene
+	- store_buy_product
+		- name - string (product name)
+	- store_buy_points
+		- quantity - integer
+		- product_sku - string
+
+AchievementsScene
+	- achievements_open
+
+SettingsScene
+	- settings_open
+	- settings_sound
+		- enabled - boolean
+	- settings_vibrations
+		- enabled - boolean
+	- settings_rate_us
+	- settings_email
+
+
+	

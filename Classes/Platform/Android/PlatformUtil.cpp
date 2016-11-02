@@ -78,4 +78,17 @@ namespace flik
         
         return "";
     }
+    
+    std::string PlatformUtil::newUUID()
+    {
+        JNIEnv *env = cocos2d::JniHelper::getEnv();
+        if (env) {
+            auto clazz = env->FindClass("org/cocos2dx/cpp/AppActivity");
+            auto methodId = env->GetStaticMethodID(clazz, "newUUID", "()Ljava/lang/String;");
+            jstring language = (jstring) env->CallStaticObjectMethod(clazz, methodId);
+            return env->GetStringUTFChars(language, NULL);
+        }
+        
+        return "";
+    }
 }

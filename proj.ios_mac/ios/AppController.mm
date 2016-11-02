@@ -24,6 +24,7 @@
 
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import <Crashlytics/Answers.h>
 
 #import "AppController.h"
 #import "platform/ios/CCEAGLView-ios.h"
@@ -42,6 +43,7 @@ static flik::AppDelegate es_sharedApplication;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     [Fabric with:@[[Crashlytics class]]];
+    [Fabric with:@[[Answers class]]];
 
     cocos2d::Application *app = cocos2d::Application::getInstance();
     app->initGLContextAttrs();

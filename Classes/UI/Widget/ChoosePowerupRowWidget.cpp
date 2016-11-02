@@ -81,7 +81,7 @@ namespace flik
                     }
                 } else {
                     if (onBuyButtonTapped) {
-                        onBuyButtonTapped();
+                        onBuyButtonTapped(mBonusType);
                     }
                 }
                 

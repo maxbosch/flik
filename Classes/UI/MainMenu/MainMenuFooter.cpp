@@ -13,6 +13,7 @@
 #include "Util.h"
 #include "Styles.h"
 #include "LocalizedString.h"
+#include "Analytics.h"
 
 USING_NS_CC;
 

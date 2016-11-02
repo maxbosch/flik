@@ -14,6 +14,7 @@
 #include "Styles.h"
 
 #include "PluginSdkboxPlay/PluginSdkboxPlay.h"
+#include "Analytics.h"
 
 USING_NS_CC;
 
@@ -47,6 +48,7 @@ namespace flik
         achievementsButton->addTouchEventListener([this](Ref* sender, TouchEventType type) {
             if (type == TouchEventType::ENDED) {
                 SceneManager::pushSceneWithTransition<TransitionSlideInL>(AchievementsScene::create(), kTransitionDuration);
+                Analytics::logEvent("main_menu_achievements");
             }
         });
         addChild(achievementsButton);
@@ -62,6 +64,7 @@ namespace flik
             if (type == TouchEventType::ENDED) {
                 auto settingsScene = SettingsScene::create();
                 SceneManager::pushSceneWithTransition<TransitionSlideInR>(settingsScene, kTransitionDuration);
+                Analytics::logEvent("main_menu_settings");
             }
         });
                 

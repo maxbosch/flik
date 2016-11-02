@@ -14,6 +14,10 @@
 #include "LocalizedString.h"
 #include "Animations.h"
 #include "OverlayBackgroundWidget.h"
+#include "MainGameScene.h"
+#include "GameMode.h"
+#include "Enums.h"
+#include "Analytics.h"
 
 USING_NS_CC;
 
@@ -94,6 +98,16 @@ namespace flik
             //animatePoints(pointsEarned);
         } else {
             createFailureWidget(level);
+        }
+        
+        auto gameScene = dynamic_cast<MainGameScene*>(Director::getInstance()->getRunningScene());
+        if (gameScene) {
+            PTree attributes;
+            attributes.add("mode", kGameModeStrings[gameScene->getGameMode()->getGameModeType()]);
+            attributes.add("score", (int) success);
+            attributes.add("rating", score);
+            attributes.add("new_high_score", 0);
+            Analytics::logEvent("game_end", attributes);
         }
     }
     

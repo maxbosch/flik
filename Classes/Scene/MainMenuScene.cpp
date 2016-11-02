@@ -19,6 +19,7 @@
 #include "LevelTypes.h"
 #include "GameSelectScene.h"
 #include "SceneManager.h"
+#include "Analytics.h"
 
 USING_NS_CC;
 
@@ -36,6 +37,8 @@ namespace flik
         hud->onShowStoreTapped = []() {
             auto storeScene = StoreScene::create();
             SceneManager::pushSceneWithTransition<TransitionSlideInB>(storeScene, kTransitionDuration);
+            
+            Analytics::logEvent("main_menu_store");
         };
         addChild(hud);
         //hud->animateElements();
@@ -68,6 +71,9 @@ namespace flik
                 break;
         }
         
+        PTree attributes;
+        attributes.add("mode", kGameModeStrings[type]);
+        Analytics::logEvent("main_menu_play_game_mode", attributes);
         
         if (gameScene) {
             SceneManager::pushSceneWithTransition<TransitionSlideInT>(gameScene, kTransitionDuration);

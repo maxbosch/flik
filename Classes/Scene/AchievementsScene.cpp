@@ -14,6 +14,7 @@
 #include "Errors.h"
 #include "LocalizedString.h"
 #include "CCSwipeGestureRecognizer.h"
+#include "Analytics.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -79,6 +80,8 @@ namespace flik
             borderLayout->setAlign(RelativeAlign::PARENT_BOTTOM_CENTER_HORIZONTAL);
             border->setLayoutParameter(borderLayout);
             container->addChild(border);
+            
+            Analytics::logEvent("achievements_open");
             
             return true;
         }

@@ -18,6 +18,7 @@
 #include "SceneManager.h"
 #include "LocalizedString.h"
 #include "LevelSelectScene.h"
+#include "Analytics.h"
 
 USING_NS_CC;
 
@@ -105,6 +106,8 @@ namespace flik
     void GameSelectScene::onBackPressed()
     {
         SceneManager::popToRootSceneWithTransition<TransitionSlideInB>(kTransitionDuration);
+        
+        Analytics::logEvent("game_select_back");
     }
     
     void GameSelectScene::onAppear()
@@ -119,6 +122,10 @@ namespace flik
             row->onTapped = [this, levelInfo](int level) {
                 auto levelsScene = LevelSelectScene::create(level);
                 SceneManager::pushSceneWithTransition<TransitionSlideInR>(levelsScene, kTransitionDuration);
+                
+                PTree attributes;
+                attributes.add("type", level);
+                Analytics::logEvent("game_select_game", attributes);
             };
             mScrollView->addChild(row);
         }

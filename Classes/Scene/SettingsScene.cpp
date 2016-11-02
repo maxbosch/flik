@@ -15,6 +15,7 @@
 #include "SceneManager.h"
 #include "LocalizedString.h"
 #include "CCSwipeGestureRecognizer.h"
+#include "Analytics.h"
 
 USING_NS_CC;
 
@@ -23,8 +24,8 @@ namespace flik
     using RelativeAlign = ui::RelativeLayoutParameter::RelativeAlign;
     using LinearGravity = ui::LinearLayoutParameter::LinearGravity;
     
-    static const std::string kSoundsEnabledKey = "key_soundsEnabled";
-    static const std::string kVibrationsEnabledKey = "key_vibrationsEnabled";
+    static const std::string kSoundsEnabledKey = "settings_sounds";
+    static const std::string kVibrationsEnabledKey = "settings_vibrations";
     
     bool SettingsScene::init()
     {
@@ -102,6 +103,10 @@ namespace flik
             checkbox->addTouchEventListener([checkbox, key](Ref* sender, ui::Widget::TouchEventType type) {
                 if (type == ui::Widget::TouchEventType::ENDED) {
                     UserDefault::getInstance()->setBoolForKey(key.c_str(), checkbox->isSelected());
+                    
+                    PTree attributes;
+                    attributes.add("selected", (int) checkbox->isSelected());
+                    Analytics::logEvent(key, attributes);
                 }
             });
 
@@ -157,11 +162,15 @@ namespace flik
         
         container->addChild(createLinkWidget("icon_rate_star.png", LocalizedString::getString("setting_rate_us"), []() {
             PlatformUtil::openURL(PlatformUtil::getStoreUrl());
+            
+            Analytics::logEvent("settings_rate_us");
         }));
     
         container->addChild(createLinkWidget("icon_email.png", LocalizedString::getString("setting_email_us"), []() {
             PlatformUtil::presentEmailCompose("feedback@playflik.com", LocalizedString::getString("feedback_email_subject"),
                                               LocalizedString::getString("feedback_email_body"));
+            
+            Analytics::logEvent("settings_email");
         }));
         
         // LOL MADE IN BROOKLYN
@@ -196,6 +205,8 @@ namespace flik
         });
         swipeGesture->setDirection(kSwipeGestureRecognizerDirectionRight);
         addChild(swipeGesture);
+        
+        Analytics::logEvent("settings_open");
         
         return true;
     }

@@ -28,6 +28,7 @@
 #include "AchievementOverlay.h"
 #include "BonusBar.h"
 #include "ChoosePowerupScene.h"
+#include "Analytics.h"
 
 #include <boost/lexical_cast.hpp>
 
@@ -73,6 +74,8 @@ namespace flik
         });
         header->onPauseTapped = [this]() {
             getGameScene()->getGameMode()->pauseGame();
+            
+            Analytics::logEvent("game_pause");
         };
         //header->setGlobalZOrder(2);
         mHeader = header;
@@ -89,6 +92,10 @@ namespace flik
             gameMode->addBonus(bonus);
             Player::getMainPlayer()->consumePowerUp(bonus, 1);
             sender->setEnabled(false);
+            
+            PTree attributes;
+            attributes.add("type", kBonusStrings[bonus]);
+            Analytics::logEvent("game_powerup_used", attributes);
         };
         mBonusBar->onAddBonusTapped = [this]() {
             auto scene = ChoosePowerupScene::create(mBonusBar->getBonuses(), true);
@@ -96,6 +103,11 @@ namespace flik
                 mBonusBar->setBonuses(bonuses);
             };
             SceneManager::pushSceneWithTransition<TransitionSlideInR>(scene, kTransitionDuration);
+            
+            PTree attributes;
+            attributes.add("poewrups", Util::bonusArrayString(mBonusBar->getBonuses()));
+            attributes.add("mode", kGameModeStrings[getGameScene()->getGameMode()->getGameModeType()]);
+            Analytics::logEvent("game_in_progress_choose_powerups", attributes);
         };
         
         mGameOverScreen = createGameOverOverlay();
@@ -128,17 +140,27 @@ namespace flik
         auto pauseOverlay = PauseOverlayWidget::create();
         pauseOverlay->onBackTapped = [this]() {
             getGameScene()->unpauseGame();
+            
+            Analytics::logEvent("game_pause_resume");
         };
         pauseOverlay->onHomeTapped = [this]() {
             SceneManager::popToRootSceneWithTransition<TransitionSlideInB>(kTransitionDuration);
+            
+            Analytics::logEvent("game_pause_home");
         };
         pauseOverlay->onRestartTapped = [this]() {
             getGameScene()->reloadScene();
+            
+            Analytics::logEvent("game_pause_restart");
         };
         pauseOverlay->onSettingsTapped = [this]() {
+            Analytics::logEvent("game_pause_settings");
+            
             SceneManager::pushSceneWithTransition<TransitionSlideInR>(SettingsScene::create(), 0.3);
         };
         pauseOverlay->onAchievementsTapped = [this]() {
+            Analytics::logEvent("game_pause_achievements");
+            
             SceneManager::pushSceneWithTransition<TransitionSlideInL>(AchievementsScene::create(), kTransitionDuration);
         };
         
@@ -165,10 +187,19 @@ namespace flik
                     mBonusBar->setBonuses(bonuses);
                     mBonusBar->reset();
                     getGameScene()->requestRestart();
+                    
+                    PTree attributes;
+                    attributes.add("poewrups", Util::bonusArrayString(bonuses));
+                    attributes.add("mode", kGameModeStrings[getGameScene()->getGameMode()->getGameModeType()]);
+                    Analytics::logEvent("game_start_button", attributes);
                 }
             };
             objectiveOverlay->onExitButtonTapped = [this]() {
                 getGameScene()->getGameMode()->onBackPressed();
+                
+                PTree attributes;
+                attributes.add("mode", kGameModeStrings[getGameScene()->getGameMode()->getGameModeType()]);
+                Analytics::logEvent("game_start_back", attributes);
             };
             objectiveOverlay->setVisible(false);
             mObjectiveOverlay = objectiveOverlay;
@@ -236,10 +267,20 @@ namespace flik
         gameOverOverlay->onRestartTapped = [this]() {
             if (getGameScene()) {
                 getGameScene()->reloadScene();
+                
+                PTree attributes;
+                attributes.add("mode", kGameModeStrings[getGameScene()->getGameMode()->getGameModeType()]);
+                Analytics::logEvent("game_end_restart", attributes);
             }
         };
         gameOverOverlay->onHomeTapped = [this]() {
             SceneManager::popToRootSceneWithTransition<TransitionSlideInB>(kTransitionDuration);
+            
+            if (getGameScene()) {
+                PTree attributes;
+                attributes.add("mode", kGameModeStrings[getGameScene()->getGameMode()->getGameModeType()]);
+                Analytics::logEvent("game_end_home", attributes);
+            }
         };
         
         return gameOverOverlay;

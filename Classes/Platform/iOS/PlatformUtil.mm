@@ -49,4 +49,9 @@ namespace flik
         NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
         return [[language substringToIndex:2] UTF8String];
     }
+    
+    std::string PlatformUtil::newUUID()
+    {
+        return [[[[NSUUID UUID] UUIDString] lowercaseString] UTF8String];
+    }
 }

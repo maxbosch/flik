@@ -18,6 +18,12 @@ namespace flik
         Tutorial
     };
     
+    static std::map<GameModeType, std::string> kGameModeStrings {
+        std::pair<GameModeType, std::string>(GameModeType::Unlimited, "unlimited"),
+        std::pair<GameModeType, std::string>(GameModeType::Timed, "timed"),
+        std::pair<GameModeType, std::string>(GameModeType::Levels, "games")
+    };
+    
     enum class PowerUpType
     {
         Timestop,

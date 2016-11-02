@@ -22,6 +22,7 @@
 #include "AchievementsScene.h"
 #include "LevelGameScene.h"
 #include "ObjectiveTracker.h"
+#include "Analytics.h"
 
 namespace flik
 {
@@ -71,6 +72,10 @@ namespace flik
         gameOverOverlay->onRestartTapped = [this]() {
             if (getGameScene()) {
                 getGameScene()->reloadScene();
+                
+                PTree attributes;
+                attributes.add("mode", kGameModeStrings[getGameScene()->getGameMode()->getGameModeType()]);
+                Analytics::logEvent("game_end_restart", attributes);
             }
         };
         
@@ -84,6 +89,12 @@ namespace flik
         
         gameOverOverlay->onShowLevelListTapped = [this]() {
             SceneManager::popSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
+            
+            if (getGameScene()) {
+                PTree attributes;
+                attributes.add("mode", kGameModeStrings[getGameScene()->getGameMode()->getGameModeType()]);
+                Analytics::logEvent("game_end_home", attributes);
+            }
         };
         
         return gameOverOverlay;

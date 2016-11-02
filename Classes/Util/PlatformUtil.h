@@ -19,5 +19,6 @@ namespace flik
         static std::string getStoreUrl();
         static void presentEmailCompose(const std::string& toAddress, const std::string& subject, const std::string& body);
         static std::string getLanguage();
+        static std::string newUUID();
     };
 }

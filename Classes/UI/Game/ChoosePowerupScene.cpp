@@ -18,6 +18,7 @@
 #include "Player.h"
 #include "ui/CocosGUI.h"
 #include "StoreScene.h"
+#include "Analytics.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -116,6 +117,10 @@ namespace flik
     void ChoosePowerupScene::onBackPressed()
     {
         SceneManager::popSceneWithTransition<TransitionSlideInL>(kTransitionDuration);
+        
+        PTree attributes;
+        attributes.add("powerups", Util::bonusArrayString(mCurrentBonuses));
+        Analytics::logEvent("choose_powerup_back", attributes);
     }
     
     void ChoosePowerupScene::onAppear()
@@ -140,15 +145,18 @@ namespace flik
                 auto child = dynamic_cast<ChoosePowerupRowWidget *>(mPowerupsTable->getChildren().at((int)type + 1));
                 
                 auto selected = std::find(mCurrentBonuses.begin(), mCurrentBonuses.end(), type);
+                bool newSelected = false;
+                
                 if (selected == mCurrentBonuses.end()) {
                     if (mCurrentBonuses.size() < 3) {
                         mCurrentBonuses.push_back(type);
-                        child->setData(type, true);
+                        newSelected = true;
                     }
                 } else {
                     mCurrentBonuses.erase(selected);
-                    child->setData(type, false);
                 }
+                
+                child->setData(type, newSelected);
                 
                 mBonusBar->setBonuses(mCurrentBonuses);
                 
@@ -157,11 +165,21 @@ namespace flik
                     
                     Player::getMainPlayer()->setLastBonusChoices(mCurrentBonuses);
                 }
+                
+                PTree attributes;
+                attributes.add("powerup", kBonusStrings[type]);
+                attributes.add("selected", (int)newSelected);
+                attributes.add("quantity_remaining", Player::getMainPlayer()->getPowerUpCount(type));
+                Analytics::logEvent("choose_powerup_add", attributes);
             };
             
-            cell->onBuyButtonTapped = [this]() {
+            cell->onBuyButtonTapped = [this](BonusType type) {
                 auto storeScene = StoreScene::create();
                 SceneManager::pushSceneWithTransition<TransitionSlideInB>(storeScene, kTransitionDuration);
+                
+                PTree attributes;
+                attributes.add("powerup", kBonusStrings[type]);
+                Analytics::logEvent("choose_powerup_buy", attributes);
             };
             
             BonusType btype = static_cast<BonusType>(i);

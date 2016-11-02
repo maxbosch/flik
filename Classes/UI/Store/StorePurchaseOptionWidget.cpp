@@ -18,6 +18,8 @@
 
 #include "PluginIAP/PluginIAP.h"
 
+#include "Analytics.h"
+
 USING_NS_CC;
 
 namespace flik
@@ -66,6 +68,11 @@ namespace flik
                 if (player->getCurrencyAmount() + pointsCount < kMaxCurrencyAmount) {
                     player->addCurrency(pointsCount);
                 }
+                
+                PTree attributes;
+                attributes.add("quantity", pointsCount);
+                attributes.add("product_sku", "");
+                Analytics::logEvent("store_buy_points", attributes);
             }
         });
         

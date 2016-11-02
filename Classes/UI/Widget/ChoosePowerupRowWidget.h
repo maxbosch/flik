@@ -28,7 +28,7 @@ namespace flik
         static float getCellHeight();
         
         std::function<void(BonusType, bool)> onAddButtonTapped;
-        std::function<void()> onBuyButtonTapped;
+        std::function<void(BonusType)> onBuyButtonTapped;
         
     protected:
         cocos2d::ui::Button* getAddButton() { return mAddButton; }

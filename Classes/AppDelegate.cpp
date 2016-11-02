@@ -18,6 +18,8 @@
 #include "GameServices.h"
 #include "SceneEx.h"
 
+#include "Analytics.h"
+
 //#include "lua_cocos2dx_auto.hpp"
 //#include "CCLuaEngine.h"
 
@@ -45,6 +47,7 @@ namespace flik
     }
     
     bool AppDelegate::applicationDidFinishLaunching() {
+        
         // Load configuration
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         sdkbox::init("f3c8fed09ca10e38e27b888cb9fe7261", "78e4d540c0a089d6");
@@ -115,8 +118,11 @@ namespace flik
         
         Scene* level;
         
+        int firstLoad = 0;
+        
         if (UserDefault::getInstance()->getBoolForKey("installed")) {
             level = MainMenuScene::create();
+            firstLoad = 1;
         } else {
             LevelParams params;
             params.hud = TutorialGameHUD::create();
@@ -147,6 +153,10 @@ namespace flik
         // run
         SceneManager::runWithScene(level);
         
+        PTree attributes;
+        attributes.add("first_load", firstLoad);
+        Analytics::logEvent("app_open");
+        
         return true;
     }
     
@@ -156,6 +166,8 @@ namespace flik
         
         // if you use SimpleAudioEngine, it must be pause
         // SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+    
+        Analytics::logEvent("app_minimize");
     }
     
     // this function will be called when the app is active again
@@ -164,7 +176,11 @@ namespace flik
         
         // if you use SimpleAudioEngine, it must resume here
         // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+   
+        Analytics::logEvent("app_maximize");
     }
+    
+    
 }
 
 

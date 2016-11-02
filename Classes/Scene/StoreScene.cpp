@@ -16,6 +16,7 @@
 #include "Animations.h"
 #include "LocalizedString.h"
 #include "BuyPowerupRowWidget.h"
+#include "Analytics.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -157,8 +158,12 @@ namespace flik
         
         if (visible) {
             mCloseButton->loadTextureNormal("red_x_close.png");
+            
+            Analytics::logEvent("store_purchase_overlay_open");
         } else {
             mCloseButton->loadTextureNormal("arrow_down.png");
+            
+            Analytics::logEvent("store_purchase_overlay_close");
         }
     }
     
@@ -179,6 +184,8 @@ namespace flik
             setPurchaseOverlayVisible(false);
         } else {
             SceneManager::popSceneWithTransition<TransitionSlideInT>(kTransitionDuration);
+            
+            Analytics::logEvent("store_back");
         }
     }
     
@@ -201,6 +208,10 @@ namespace flik
                     auto offset = mProductsTable->getInnerContainerPosition();
                     this->refreshProductsTable();
                     mProductsTable->setInnerContainerPosition(offset);
+                    
+                    PTree attributes;
+                    attributes.add("name", kBonusStrings[type]);
+                    Analytics::logEvent("store_buy_product", attributes);
                 } else {
                     setPurchaseOverlayVisible(true);
                 }

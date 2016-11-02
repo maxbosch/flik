@@ -29,6 +29,7 @@
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		5C05403BB2316A413887BF45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82184907863F3C226936A794 /* SystemConfiguration.framework */; };
+		6601BAFB1DCAA3120039CD7C /* Analytics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6601BAFA1DCAA3120039CD7C /* Analytics.cpp */; };
 		66050FA01DAE73BF00E039DB /* TransitionEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66050F9E1DAE73BF00E039DB /* TransitionEx.cpp */; };
 		660726E91D5B65830072A7A3 /* DisableColorBehavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660726E71D5B65830072A7A3 /* DisableColorBehavior.cpp */; };
 		660956C11D80518C0063BFDF /* AchievementOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660956BF1D80518C0063BFDF /* AchievementOverlay.cpp */; };
@@ -84,6 +85,8 @@
 		6653CD8F1D1C230A00721B17 /* SettingsScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6653CD8D1D1C230A00721B17 /* SettingsScene.cpp */; };
 		6653CDA91D215DE400721B17 /* PlatformUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6653CDA81D215DE400721B17 /* PlatformUtil.mm */; };
 		6653CDAF1D2160B800721B17 /* FLIKMailComposePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6653CDAE1D2160B800721B17 /* FLIKMailComposePresenter.m */; };
+		665618EB1DC94B8E00B18204 /* Analytics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 665618EA1DC94B8E00B18204 /* Analytics.mm */; };
+		665618EE1DC94E5500B18204 /* Analytics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665618EC1DC94E2300B18204 /* Analytics.cpp */; };
 		665766871D2D3B5B0098D936 /* fonts.json in Resources */ = {isa = PBXBuildFile; fileRef = 665766861D2D3B5B0098D936 /* fonts.json */; };
 		6657668A1D2D3B7E0098D936 /* Fonts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665766881D2D3B7E0098D936 /* Fonts.cpp */; };
 		66583FD41D5D4AB40072E644 /* LevelSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66583FD21D5D4AB40072E644 /* LevelSelectScene.cpp */; };
@@ -223,6 +226,8 @@
 		5FFA4CFFB64615183C2B5DD7 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		60914756B5344F788670F9BD /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		653B48C1B5B985AED8C487F1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		6601BAFA1DCAA3120039CD7C /* Analytics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Analytics.cpp; sourceTree = "<group>"; };
+		6601BAFC1DCAA5FB0039CD7C /* Version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Version.h; sourceTree = "<group>"; };
 		66050F9E1DAE73BF00E039DB /* TransitionEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TransitionEx.cpp; sourceTree = "<group>"; };
 		66050F9F1DAE73BF00E039DB /* TransitionEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionEx.h; sourceTree = "<group>"; };
 		660726E71D5B65830072A7A3 /* DisableColorBehavior.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DisableColorBehavior.cpp; sourceTree = "<group>"; };
@@ -331,6 +336,9 @@
 		6653CDAA1D215DF500721B17 /* PlatformUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlatformUtil.h; sourceTree = "<group>"; };
 		6653CDAD1D2160B800721B17 /* FLIKMailComposePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLIKMailComposePresenter.h; sourceTree = "<group>"; };
 		6653CDAE1D2160B800721B17 /* FLIKMailComposePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLIKMailComposePresenter.m; sourceTree = "<group>"; };
+		665618E91DC94A7C00B18204 /* Analytics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
+		665618EA1DC94B8E00B18204 /* Analytics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Analytics.mm; sourceTree = "<group>"; };
+		665618EC1DC94E2300B18204 /* Analytics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Analytics.cpp; sourceTree = "<group>"; };
 		665766861D2D3B5B0098D936 /* fonts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fonts.json; sourceTree = "<group>"; };
 		665766881D2D3B7E0098D936 /* Fonts.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fonts.cpp; sourceTree = "<group>"; };
 		665766891D2D3B7E0098D936 /* Fonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fonts.h; sourceTree = "<group>"; };
@@ -819,6 +827,7 @@
 				66DB27571D74FF55005BF1CD /* PhysicsNode.h */,
 				66F247961D770E4D009BD1DF /* GLES-Render.cpp */,
 				66F247971D770E4D009BD1DF /* GLES-Render.h */,
+				6601BAFC1DCAA5FB0039CD7C /* Version.h */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -872,6 +881,8 @@
 			children = (
 				664137E71DC2BBB40064457B /* CCGestureRecognizer */,
 				66CC6CB51D30678800A60D8D /* Format */,
+				6601BAFA1DCAA3120039CD7C /* Analytics.cpp */,
+				665618E91DC94A7C00B18204 /* Analytics.h */,
 				663894931D09AEB60034892E /* Literals.cpp */,
 				663894941D09AEB60034892E /* Literals.h */,
 				663894951D09AEB60034892E /* Util.cpp */,
@@ -903,6 +914,7 @@
 			isa = PBXGroup;
 			children = (
 				663CC16C1D22048500A423A1 /* PlatformUtil.cpp */,
+				665618EC1DC94E2300B18204 /* Analytics.cpp */,
 			);
 			path = Android;
 			sourceTree = "<group>";
@@ -945,6 +957,7 @@
 				6653CDA81D215DE400721B17 /* PlatformUtil.mm */,
 				6653CDAD1D2160B800721B17 /* FLIKMailComposePresenter.h */,
 				6653CDAE1D2160B800721B17 /* FLIKMailComposePresenter.m */,
+				665618EA1DC94B8E00B18204 /* Analytics.mm */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -1181,6 +1194,7 @@
 				6638947C1D09AD9B0034892E /* MainMenuHeader.cpp in Sources */,
 				663894751D09AD9B0034892E /* MainGameHeader.cpp in Sources */,
 				66A92EF21D0F81D8004F78D3 /* GameBoard.cpp in Sources */,
+				6601BAFB1DCAA3120039CD7C /* Analytics.cpp in Sources */,
 				6638947D1D09AD9B0034892E /* MainMenuHUD.cpp in Sources */,
 				66522F0C1D4ACC5300C6AF19 /* OneTimeSpawner.cpp in Sources */,
 				6657668A1D2D3B7E0098D936 /* Fonts.cpp in Sources */,
@@ -1253,6 +1267,7 @@
 				66F885A01DC8007900D56F59 /* PercentBubbleLayer.cpp in Sources */,
 				666EC0291D1A096600FE138F /* BlurredBackgroundWidget.cpp in Sources */,
 				667723541D18BBF000B1B74A /* SpawnRandomizer.cpp in Sources */,
+				665618EB1DC94B8E00B18204 /* Analytics.mm in Sources */,
 				667723511D18B0F800B1B74A /* LevelSelectRowWidget.cpp in Sources */,
 				6634592A1D5406A500F6E68F /* GoalLayer.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -1281,6 +1296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				663CC17D1D22B0FA00A423A1 /* PlatformUtil.cpp in Sources */,
+				665618EE1DC94E5500B18204 /* Analytics.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

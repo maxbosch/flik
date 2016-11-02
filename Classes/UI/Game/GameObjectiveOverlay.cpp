@@ -20,6 +20,9 @@
 #include "SceneManager.h"
 #include "Player.h"
 #include "OverlayBackgroundWidget.h"
+#include "Analytics.h"
+#include "MainGameScene.h"
+#include "GameMode.h"
 
 USING_NS_CC;
 
@@ -108,6 +111,14 @@ namespace flik
                 mCurrentBonuses = bonuses;
             };
             SceneManager::pushSceneWithTransition<TransitionSlideInR>(scene, kTransitionDuration);
+            
+            auto gameScene = dynamic_cast<MainGameScene*>(Director::getInstance()->getRunningScene());
+            if (gameScene) {
+                PTree attributes;
+                attributes.add("poewrups", Util::bonusArrayString(mCurrentBonuses));
+                attributes.add("mode", kGameModeStrings[gameScene->getGameMode()->getGameModeType()]);
+                Analytics::logEvent("game_start_choose_powerups", attributes);
+            }
         };
         
         bonusBar->onBonusTapped = [this, openChooseScene](cocos2d::ui::Button* sender, BonusType bonus) {

@@ -14,6 +14,8 @@
 #include <iomanip>
 #include <string>
 
+#include "Enums.h"
+
 namespace flik
 {
     template <typename T, typename ...Args>
@@ -68,6 +70,20 @@ namespace flik
             int b = startColor.b + (endColor.b - startColor.b) * t;
             
             return cocos2d::Color3B(r, g, b);
+        }
+        
+        static std::string bonusArrayString(const std::vector<BonusType>& bonuses)
+        {
+            std::string bonusString = "";
+            for (auto bonus : bonuses) {
+                if (bonusString.length() > 0) {
+                    bonusString += ",";
+                }
+                
+                bonusString += kBonusStrings[bonus];
+            }
+            
+            return bonusString;
         }
     };
 }
