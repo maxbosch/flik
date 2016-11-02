@@ -199,15 +199,14 @@ namespace flik
         for (int i = 0; i < (int) BonusType::Count; i++) {
             auto cell = BuyPowerupRowWidget::create();
             cell->setContentSize(Size(getContentSize().width, ChoosePowerupRowWidget::getCellHeight()));
-            cell->onBuyItemRequested = [this](BonusType type, int cost) {
+            cell->onBuyItemRequested = [this, i](BonusType type, int cost) {
                 auto player = Player::getMainPlayer();
                 if (player->getCurrencyAmount() >= cost) {
                     player->removeCurrency(cost);
                     player->addPowerUp(type, 1);
                     
-                    auto offset = mProductsTable->getInnerContainerPosition();
-                    this->refreshProductsTable();
-                    mProductsTable->setInnerContainerPosition(offset);
+                    auto child = dynamic_cast<BuyPowerupRowWidget *>(mProductsTable->getChildren().at((int)type + 1));
+                    child->setData(type, false);
                     
                     PTree attributes;
                     attributes.add("name", kBonusStrings[type]);
