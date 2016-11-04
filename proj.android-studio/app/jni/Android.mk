@@ -1,5 +1,4 @@
-LOCAL_PATH := $(call \
-my-dir)
+LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
@@ -12,7 +11,19 @@ LOCAL_MODULE := cocos2dcpp_shared
 
 LOCAL_MODULE_FILENAME := libcocos2dcpp
 
-FILE_LIST := $(shell find $(LOCAL_PATH)/../../../Classes/ -type f -name "*.c*" -not -path "../../../Classes/Platform/iOS/*" -not -name "._*")
+FILE_LIST := $(shell \
+find \
+$(LOCAL_PATH)/../../../Classes/ \
+-type \
+f \
+-name \
+"*.c*" \
+-not \
+-path \
+"../../../Classes/Platform/iOS/*" \
+-not \
+-name \
+"._*")
 #echo $FILE_LIST
 #LOCAL_SRC_FILES
 
@@ -33,7 +44,8 @@ LOCAL_WHOLE_STATIC_LIBRARIES := PluginAchievement \
 sdkbox \
 android_native_app_glue \
 PluginSdkboxPlay \
-PluginIAP
+PluginIAP \
+PluginGoogleAnalytics
 
 # _COCOS_HEADER_ANDROID_BEGIN
 # _COCOS_HEADER_ANDROID_END
@@ -51,6 +63,7 @@ $(call import-module, ./sdkbox)
 $(call import-module, ./pluginachievement)
 $(call import-module, ./pluginsdkboxplay)
 $(call import-module, ./pluginiap)
+$(call import-module, ./plugingoogleanalytics)
 
 # _COCOS_LIB_IMPORT_ANDROID_BEGIN
 # _COCOS_LIB_IMPORT_ANDROID_END

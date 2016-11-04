@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:ns1="http://schemas.android.com/tools" package="com.aeskreis.flik.android" android:installLocation="auto">
     <uses-feature android:glEsVersion="0x00020000" />
-    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="org.cocos2dx.cpp.MultiDexApplicationImpl" ns1:replace="android:allowBackup,android:label">
+    <application hardwareAccelerated="true" android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:name="org.cocos2dx.cpp.MultiDexApplicationImpl" ns1:replace="android:allowBackup,android:label">
         <meta-data android:name="android.app.lib_name" android:value="cocos2dcpp" />
         <activity android:launchMode="singleTop" android:name="org.cocos2dx.cpp.LaunchActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/AppTheme.LaunchActivity">
             <intent-filter>
@@ -15,9 +15,23 @@
         <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/app_id" />
         <meta-data android:name="io.fabric.ApiKey" android:value="33a28d043f8554c7745c26f1e17a68da562f1d09" />
         <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent" />
+        <meta-data android:name="com.google.android.gms.analytics.globalConfigResource" android:resource="@xml/global_tracker" />
+        <receiver android:enabled="true" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH" />
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService" />
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService" />
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 </manifest>

@@ -1,5 +1,4 @@
-LOCAL_PATH := $(call \
-my-dir)
+LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
@@ -24,7 +23,8 @@ LOCAL_WHOLE_STATIC_LIBRARIES := PluginAchievement \
 sdkbox \
 android_native_app_glue \
 PluginSdkboxPlay \
-PluginIAP
+PluginIAP \
+PluginGoogleAnalytics
 
 # _COCOS_HEADER_ANDROID_BEGIN
 # _COCOS_HEADER_ANDROID_END
@@ -42,6 +42,7 @@ $(call import-module, ./sdkbox)
 $(call import-module, ./pluginachievement)
 $(call import-module, ./pluginsdkboxplay)
 $(call import-module, ./pluginiap)
+$(call import-module, ./plugingoogleanalytics)
 
 # _COCOS_LIB_IMPORT_ANDROID_BEGIN
 # _COCOS_LIB_IMPORT_ANDROID_END

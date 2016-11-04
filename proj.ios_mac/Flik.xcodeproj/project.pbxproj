@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
@@ -17,7 +16,6 @@
 		503AE10517EB98FF00D1A890 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 503AE10317EB98FF00D1A890 /* main.cpp */; };
 		503AE11B17EB9C5A00D1A890 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503AE11A17EB9C5A00D1A890 /* IOKit.framework */; };
 		5087E76317EB910900C73F5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		5087E76717EB910900C73F5D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		5087E76817EB910900C73F5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
 		5087E76917EB910900C73F5D /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		5087E76A17EB910900C73F5D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
@@ -27,7 +25,6 @@
 		5087E78B17EB975400C73F5D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78A17EB975400C73F5D /* OpenGL.framework */; };
 		50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629217ECD46A001EB2F8 /* Icon-40.png */; };
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
-		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		5C05403BB2316A413887BF45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82184907863F3C226936A794 /* SystemConfiguration.framework */; };
 		6601BAFB1DCAA3120039CD7C /* Analytics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6601BAFA1DCAA3120039CD7C /* Analytics.cpp */; };
 		66050FA01DAE73BF00E039DB /* TransitionEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66050F9E1DAE73BF00E039DB /* TransitionEx.cpp */; };
@@ -40,6 +37,8 @@
 		661401781D5955FD005497BD /* LayerMultiGradient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 661401761D5955FD005497BD /* LayerMultiGradient.cpp */; };
 		6626819D1D65315000F9D0D3 /* LevelGameOverOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6626819B1D65315000F9D0D3 /* LevelGameOverOverlay.cpp */; };
 		662EB8741D9165380022B18B /* ChoosePowerupScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 662EB8721D9165380022B18B /* ChoosePowerupScene.cpp */; };
+		662F29161DCD17D90030754F /* libGoogleToolboxForMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 662F29151DCD17D90030754F /* libGoogleToolboxForMac.a */; };
+		662F29181DCD19220030754F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 662F29171DCD19220030754F /* GoogleService-Info.plist */; };
 		663459231D522F9F00F6E68F /* DialogMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663459211D522F9F00F6E68F /* DialogMessage.cpp */; };
 		6634592A1D5406A500F6E68F /* GoalLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663459281D5406A500F6E68F /* GoalLayer.cpp */; };
 		6634592C1D540EDC00F6E68F /* Behavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6634592B1D540EDC00F6E68F /* Behavior.cpp */; };
@@ -78,7 +77,6 @@
 		66442B391D0CC9E100AC5983 /* sdkbox_config.json in Resources */ = {isa = PBXBuildFile; fileRef = 66442B381D0CC9E100AC5983 /* sdkbox_config.json */; };
 		66442B3E1D0DD41900AC5983 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66442B3C1D0DD41900AC5983 /* AppDelegate.cpp */; };
 		66442B3F1D0DE7AF00AC5983 /* PluginSdkboxPlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 412342C0B9B05982BF6E2B64 /* PluginSdkboxPlay.framework */; };
-		66442B411D0DE7C800AC5983 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66442B401D0DE7C800AC5983 /* GameKit.framework */; };
 		66522F0C1D4ACC5300C6AF19 /* OneTimeSpawner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66522F0A1D4ACC5300C6AF19 /* OneTimeSpawner.cpp */; };
 		66522F111D4AD27F00C6AF19 /* PiecesClearedObjectiveTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66522F0F1D4AD27F00C6AF19 /* PiecesClearedObjectiveTracker.cpp */; };
 		66522F141D4AD52900C6AF19 /* MaxOnBoardObjectiveTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66522F121D4AD52900C6AF19 /* MaxOnBoardObjectiveTracker.cpp */; };
@@ -131,7 +129,6 @@
 		66D7CF791D24A2950000DE33 /* TutorialGameHUD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D7CF771D24A2950000DE33 /* TutorialGameHUD.cpp */; };
 		66D7CF851D270C0D0000DE33 /* Animations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D7CF831D270C0D0000DE33 /* Animations.cpp */; };
 		66D7CF8B1D29C2300000DE33 /* PluginIAP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF7B48E78461F0E96925226C /* PluginIAP.framework */; };
-		66D7CF8D1D29C2400000DE33 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66D7CF8C1D29C2400000DE33 /* StoreKit.framework */; };
 		66D7CF901D2BDD5A0000DE33 /* AchievementsScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D7CF8E1D2BDD5A0000DE33 /* AchievementsScene.cpp */; };
 		66D84BE51D2351EC00BA4D53 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D84BE31D2351EC00BA4D53 /* SceneManager.cpp */; };
 		66D97D2A1D9B30710001F546 /* BuyPowerupRowWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66D97D281D9B30710001F546 /* BuyPowerupRowWidget.cpp */; };
@@ -146,6 +143,13 @@
 		66E7E50E1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E50C1D158C58007DE4B9 /* DefaultGameOverOverlay.cpp */; };
 		66E7E5141D1591A5007DE4B9 /* ScoreWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E5121D1591A5007DE4B9 /* ScoreWidget.cpp */; };
 		66E7E5171D182910007DE4B9 /* GameSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E7E5151D182910007DE4B9 /* GameSelectScene.cpp */; };
+		66E7E96C1DCD08CF006EEF86 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E7E96B1DCD08CF006EEF86 /* CoreMotion.framework */; };
+		66E7E96E1DCD08E1006EEF86 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E7E96D1DCD08E1006EEF86 /* StoreKit.framework */; };
+		66E7E9701DCD08EA006EEF86 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E7E96F1DCD08EA006EEF86 /* libz.tbd */; };
+		66E7E9721DCD08F7006EEF86 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E7E9711DCD08F7006EEF86 /* libiconv.tbd */; };
+		66E7E9741DCD0906006EEF86 /* libPods-Flik-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E7E9731DCD0906006EEF86 /* libPods-Flik-mobile.a */; };
+		66E7E9761DCD097D006EEF86 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E7E9751DCD097D006EEF86 /* GameKit.framework */; };
+		66E7E9781DCD0999006EEF86 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E7E9771DCD0999006EEF86 /* MediaPlayer.framework */; };
 		66E802FB1D5CC0AB0039AFD3 /* SceneEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E802F91D5CC0AB0039AFD3 /* SceneEx.cpp */; };
 		66F247981D770E4D009BD1DF /* GLES-Render.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66F247961D770E4D009BD1DF /* GLES-Render.cpp */; };
 		66F885A01DC8007900D56F59 /* PercentBubbleLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66F8859E1DC8007900D56F59 /* PercentBubbleLayer.cpp */; };
@@ -153,16 +157,14 @@
 		66FBAEEA1D8B6BCB008891A4 /* libcocos2d iOS Simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FBAEE91D8B6BCB008891A4 /* libcocos2d iOS Simulator.a */; };
 		6E2B4283A69F3BC8F3DAFC4E /* sdkbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6142E7B2D12A44A021E034 /* sdkbox.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
-		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
-		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
+		9147B0B1215CAFAF0B8D5DAF /* libPods-Flik-androiddev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6CAC245338DCFCDC54BFB0 /* libPods-Flik-androiddev.a */; };
+		B19D77C1CB694778CE521115 /* libPods-Flik-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A17563F976494AA99D3CD81 /* libPods-Flik-mobile.a */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
+		CD11E4A943B9EDB5797948D2 /* libPods-Flik-desktop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 744D75C754D5E86B6DF464AA /* libPods-Flik-desktop.a */; };
 		D26F481FA774DEDE7C0E16F7 /* PluginAchievement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB24E7B8078788493A52B3B /* PluginAchievement.framework */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
-		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
-		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
-		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -180,14 +182,16 @@
 /* Begin PBXFileReference section */
 		00AD4E188182128A9468C42B /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/EventKitUI.framework; sourceTree = DEVELOPER_DIR; };
 		0B9B4430841AE332641B6E1A /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
-		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
+		153E45F68601C41A33C554DA /* PluginGoogleAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PluginGoogleAnalytics.framework; sourceTree = SOURCE_ROOT; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* Flik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DB24E7B8078788493A52B3B /* PluginAchievement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PluginAchievement.framework; sourceTree = SOURCE_ROOT; };
-		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		352DB3DC9A6D1F6E307AD5C1 /* Pods-Flik-androiddev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flik-androiddev.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flik-androiddev/Pods-Flik-androiddev.release.xcconfig"; sourceTree = "<group>"; };
+		383B4F76A5FA134AA52981E8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		3E0945E78D51649ABC8081D2 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreTelephony.framework; sourceTree = DEVELOPER_DIR; };
 		412342C0B9B05982BF6E2B64 /* PluginSdkboxPlay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PluginSdkboxPlay.framework; sourceTree = SOURCE_ROOT; };
+		4B4A17A51FDE0ECD2B48C655 /* Pods-Flik-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flik-mobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flik-mobile/Pods-Flik-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -198,7 +202,6 @@
 		503AE0FF17EB989F00D1A890 /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RootViewController.mm; path = ios/RootViewController.mm; sourceTree = SOURCE_ROOT; };
 		503AE10317EB98FF00D1A890 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = mac/main.cpp; sourceTree = "<group>"; };
 		503AE10417EB98FF00D1A890 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = mac/Prefix.pch; sourceTree = "<group>"; };
-		503AE11117EB99EE00D1A890 /* libcurl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurl.dylib; path = usr/lib/libcurl.dylib; sourceTree = SDKROOT; };
 		503AE11A17EB9C5A00D1A890 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		5087E76F17EB910900C73F5D /* Flik-desktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flik-desktop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5087E77217EB970100C73F5D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -222,7 +225,8 @@
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
-		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		550AD92E05B192637015398B /* Pods-Flik-desktop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flik-desktop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flik-desktop/Pods-Flik-desktop.debug.xcconfig"; sourceTree = "<group>"; };
+		5E37B0CA73E595B79091C1B5 /* Pods-Flik-desktop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flik-desktop.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flik-desktop/Pods-Flik-desktop.release.xcconfig"; sourceTree = "<group>"; };
 		5FFA4CFFB64615183C2B5DD7 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		60914756B5344F788670F9BD /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
 		653B48C1B5B985AED8C487F1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -247,6 +251,10 @@
 		6626819C1D65315000F9D0D3 /* LevelGameOverOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelGameOverOverlay.h; sourceTree = "<group>"; };
 		662EB8721D9165380022B18B /* ChoosePowerupScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChoosePowerupScene.cpp; sourceTree = "<group>"; };
 		662EB8731D9165380022B18B /* ChoosePowerupScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePowerupScene.h; sourceTree = "<group>"; };
+		662F290E1DCD0C260030754F /* FirebaseCore */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = FirebaseCore; path = Pods/FirebaseCore/Frameworks/frameworks/FirebaseCore.framework/FirebaseCore; sourceTree = "<group>"; };
+		662F29101DCD0C4C0030754F /* FirebaseAnalytics */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = FirebaseAnalytics; path = Pods/FirebaseAnalytics/Frameworks/frameworks/FirebaseAnalytics.framework/FirebaseAnalytics; sourceTree = "<group>"; };
+		662F29151DCD17D90030754F /* libGoogleToolboxForMac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleToolboxForMac.a; path = "../../../../../Users/adam/Library/Developer/Xcode/DerivedData/Flik-gikfbxfbkavkbxdqqjliyiwbzgus/Build/Products/Debug-iphonesimulator/GoogleToolboxForMac/libGoogleToolboxForMac.a"; sourceTree = "<group>"; };
+		662F29171DCD19220030754F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		663459211D522F9F00F6E68F /* DialogMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DialogMessage.cpp; sourceTree = "<group>"; };
 		663459221D522F9F00F6E68F /* DialogMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogMessage.h; sourceTree = "<group>"; };
 		663459271D537DBC00F6E68F /* Behavior.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Behavior.h; sourceTree = "<group>"; };
@@ -321,8 +329,6 @@
 		66442B381D0CC9E100AC5983 /* sdkbox_config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sdkbox_config.json; sourceTree = "<group>"; };
 		66442B3C1D0DD41900AC5983 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		66442B3D1D0DD41900AC5983 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
-		66442B401D0DE7C800AC5983 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
-		664F99301D352CAF007C9ED7 /* liblua.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblua.a; path = "../../../../../../Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/external/lua/lua/prebuilt/ios/liblua.a"; sourceTree = "<group>"; };
 		66522F0A1D4ACC5300C6AF19 /* OneTimeSpawner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OneTimeSpawner.cpp; sourceTree = "<group>"; };
 		66522F0B1D4ACC5300C6AF19 /* OneTimeSpawner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneTimeSpawner.h; sourceTree = "<group>"; };
 		66522F0E1D4AD1AC00C6AF19 /* ObjectiveTracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectiveTracker.h; sourceTree = "<group>"; };
@@ -391,7 +397,6 @@
 		66CC6CB21D3063EB00A60D8D /* Errors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Errors.h; sourceTree = "<group>"; };
 		66CC6CB61D30678800A60D8D /* format.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = format.cc; sourceTree = "<group>"; };
 		66CC6CB71D30678800A60D8D /* format.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = format.h; sourceTree = "<group>"; };
-		66CC6CB91D33DF0500A60D8D /* libluacocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libluacocos2d iOS.a"; path = "../../../../../../Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/prebuilt/ios/libluacocos2d iOS.a"; sourceTree = "<group>"; };
 		66D354481D74708C001859B2 /* B2PhysicsComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = B2PhysicsComponent.cpp; sourceTree = "<group>"; };
 		66D354491D74708C001859B2 /* B2PhysicsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B2PhysicsComponent.h; sourceTree = "<group>"; };
 		66D655AB1D10C73100F1B6E8 /* LevelsGameMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelsGameMode.cpp; sourceTree = "<group>"; };
@@ -410,8 +415,6 @@
 		66D7CF781D24A2950000DE33 /* TutorialGameHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialGameHUD.h; sourceTree = "<group>"; };
 		66D7CF831D270C0D0000DE33 /* Animations.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animations.cpp; sourceTree = "<group>"; };
 		66D7CF841D270C0D0000DE33 /* Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animations.h; sourceTree = "<group>"; };
-		66D7CF891D273C8C0000DE33 /* libcocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS.a"; path = "../../../../../../Applications/Cocos/Cocos2d-x/cocos2d-x-3.10/prebuilt/ios/libcocos2d iOS.a"; sourceTree = "<group>"; };
-		66D7CF8C1D29C2400000DE33 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		66D7CF8E1D2BDD5A0000DE33 /* AchievementsScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AchievementsScene.cpp; sourceTree = "<group>"; };
 		66D7CF8F1D2BDD5A0000DE33 /* AchievementsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchievementsScene.h; sourceTree = "<group>"; };
 		66D84BE31D2351EC00BA4D53 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneManager.cpp; sourceTree = "<group>"; };
@@ -433,16 +436,24 @@
 		66E7E5131D1591A5007DE4B9 /* ScoreWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreWidget.h; sourceTree = "<group>"; };
 		66E7E5151D182910007DE4B9 /* GameSelectScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameSelectScene.cpp; sourceTree = "<group>"; };
 		66E7E5161D182910007DE4B9 /* GameSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSelectScene.h; sourceTree = "<group>"; };
+		66E7E96B1DCD08CF006EEF86 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		66E7E96D1DCD08E1006EEF86 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		66E7E96F1DCD08EA006EEF86 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
+		66E7E9711DCD08F7006EEF86 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/usr/lib/libiconv.tbd; sourceTree = DEVELOPER_DIR; };
+		66E7E9731DCD0906006EEF86 /* libPods-Flik-mobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Flik-mobile.a"; path = "../../../../../Users/adam/Library/Developer/Xcode/DerivedData/Flik-gikfbxfbkavkbxdqqjliyiwbzgus/Build/Products/Debug-iphonesimulator/libPods-Flik-mobile.a"; sourceTree = "<group>"; };
+		66E7E9751DCD097D006EEF86 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
+		66E7E9771DCD0999006EEF86 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
 		66E802F91D5CC0AB0039AFD3 /* SceneEx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneEx.cpp; sourceTree = "<group>"; };
 		66E802FA1D5CC0AB0039AFD3 /* SceneEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneEx.h; sourceTree = "<group>"; };
 		66F247961D770E4D009BD1DF /* GLES-Render.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "GLES-Render.cpp"; sourceTree = "<group>"; };
 		66F247971D770E4D009BD1DF /* GLES-Render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
 		66F8859E1DC8007900D56F59 /* PercentBubbleLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PercentBubbleLayer.cpp; sourceTree = "<group>"; };
 		66F8859F1DC8007900D56F59 /* PercentBubbleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PercentBubbleLayer.h; sourceTree = "<group>"; };
-		66FBAEE11D8B65F4008891A4 /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "../../../../../Users/adam/Library/Developer/Xcode/DerivedData/cocos2d_libs-bjgnoggugtrnrkfkbovgugqmuptd/Build/Products/Debug/libcocos2d Mac.a"; sourceTree = "<group>"; };
 		66FBAEE31D8B663C008891A4 /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "../cocos2d/prebuilt/libcocos2d Mac.a"; sourceTree = "<group>"; };
 		66FBAEE71D8B6822008891A4 /* libcocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS.a"; path = "../cocos2d/prebuilt/libcocos2d iOS.a"; sourceTree = "<group>"; };
 		66FBAEE91D8B6BCB008891A4 /* libcocos2d iOS Simulator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS Simulator.a"; path = "../cocos2d/prebuilt/libcocos2d iOS Simulator.a"; sourceTree = "<group>"; };
+		744D75C754D5E86B6DF464AA /* libPods-Flik-desktop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Flik-desktop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A17563F976494AA99D3CD81 /* libPods-Flik-mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Flik-mobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		810B4AE3B28A43C3512A6E57 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/MessageUI.framework; sourceTree = DEVELOPER_DIR; };
 		81AC4D62869B4D7554A55D6A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
 		82184907863F3C226936A794 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
@@ -450,15 +461,14 @@
 		AE6142E7B2D12A44A021E034 /* sdkbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = sdkbox.framework; sourceTree = SOURCE_ROOT; };
 		AF7B48E78461F0E96925226C /* PluginIAP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PluginIAP.framework; sourceTree = SOURCE_ROOT; };
 		B06B46FF85927504D48D3C51 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = DEVELOPER_DIR; };
-		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
-		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		B6344AE5818D9DB6E5F05C20 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
+		BBE00E6C72620B518F76D4AA /* Pods-Flik-androiddev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flik-androiddev.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flik-androiddev/Pods-Flik-androiddev.debug.xcconfig"; sourceTree = "<group>"; };
+		BE6CAC245338DCFCDC54BFB0 /* libPods-Flik-androiddev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Flik-androiddev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
-		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
-		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		F24BAC440D4C9E47196198FC /* Pods-Flik-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flik-mobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flik-mobile/Pods-Flik-mobile.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -466,19 +476,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66D7CF8D1D29C2400000DE33 /* StoreKit.framework in Frameworks */,
-				66442B411D0DE7C800AC5983 /* GameKit.framework in Frameworks */,
-				ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */,
-				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
-				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
+				662F29161DCD17D90030754F /* libGoogleToolboxForMac.a in Frameworks */,
+				66E7E9781DCD0999006EEF86 /* MediaPlayer.framework in Frameworks */,
+				66E7E9761DCD097D006EEF86 /* GameKit.framework in Frameworks */,
+				66E7E9741DCD0906006EEF86 /* libPods-Flik-mobile.a in Frameworks */,
+				66E7E9721DCD08F7006EEF86 /* libiconv.tbd in Frameworks */,
+				66E7E9701DCD08EA006EEF86 /* libz.tbd in Frameworks */,
+				66E7E96E1DCD08E1006EEF86 /* StoreKit.framework in Frameworks */,
+				66E7E96C1DCD08CF006EEF86 /* CoreMotion.framework in Frameworks */,
 				66FBAEEA1D8B6BCB008891A4 /* libcocos2d iOS Simulator.a in Frameworks */,
 				66FBAEE81D8B6822008891A4 /* libcocos2d iOS.a in Frameworks */,
 				66442B3F1D0DE7AF00AC5983 /* PluginSdkboxPlay.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
-				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
-				BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */,
-				BF1712471292920000B8313A /* libz.dylib in Frameworks */,
 				BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */,
 				66442B371D0CBEBE00AC5983 /* Crashlytics.framework in Frameworks */,
 				D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */,
@@ -489,6 +499,7 @@
 				66D7CF8B1D29C2300000DE33 /* PluginIAP.framework in Frameworks */,
 				66442B361D0CBEBE00AC5983 /* Fabric.framework in Frameworks */,
 				5C05403BB2316A413887BF45 /* SystemConfiguration.framework in Frameworks */,
+				B19D77C1CB694778CE521115 /* libPods-Flik-mobile.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,8 +507,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */,
-				5087E76717EB910900C73F5D /* libz.dylib in Frameworks */,
 				8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */,
 				503AE11B17EB9C5A00D1A890 /* IOKit.framework in Frameworks */,
 				5087E78B17EB975400C73F5D /* OpenGL.framework in Frameworks */,
@@ -507,6 +516,7 @@
 				5087E76917EB910900C73F5D /* OpenAL.framework in Frameworks */,
 				5087E76A17EB910900C73F5D /* AVFoundation.framework in Frameworks */,
 				5087E76B17EB910900C73F5D /* AudioToolbox.framework in Frameworks */,
+				CD11E4A943B9EDB5797948D2 /* libPods-Flik-desktop.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +524,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9147B0B1215CAFAF0B8D5DAF /* libPods-Flik-androiddev.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +544,19 @@
 			);
 			name = ios;
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		183D131FC71ACE9D2F062BA5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BBE00E6C72620B518F76D4AA /* Pods-Flik-androiddev.debug.xcconfig */,
+				352DB3DC9A6D1F6E307AD5C1 /* Pods-Flik-androiddev.release.xcconfig */,
+				550AD92E05B192637015398B /* Pods-Flik-desktop.debug.xcconfig */,
+				5E37B0CA73E595B79091C1B5 /* Pods-Flik-desktop.release.xcconfig */,
+				4B4A17A51FDE0ECD2B48C655 /* Pods-Flik-mobile.debug.xcconfig */,
+				F24BAC440D4C9E47196198FC /* Pods-Flik-mobile.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -556,6 +580,7 @@
 				080E96DDFE201D6D7F000001 /* ios */,
 				503AE10617EB990700D1A890 /* mac */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				183D131FC71ACE9D2F062BA5 /* Pods */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -563,36 +588,31 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				662F29151DCD17D90030754F /* libGoogleToolboxForMac.a */,
+				662F29101DCD0C4C0030754F /* FirebaseAnalytics */,
+				662F290E1DCD0C260030754F /* FirebaseCore */,
+				66E7E9771DCD0999006EEF86 /* MediaPlayer.framework */,
+				66E7E9751DCD097D006EEF86 /* GameKit.framework */,
+				66E7E9731DCD0906006EEF86 /* libPods-Flik-mobile.a */,
+				66E7E9711DCD08F7006EEF86 /* libiconv.tbd */,
+				66E7E96F1DCD08EA006EEF86 /* libz.tbd */,
+				66E7E96D1DCD08E1006EEF86 /* StoreKit.framework */,
+				66E7E96B1DCD08CF006EEF86 /* CoreMotion.framework */,
 				66FBAEE91D8B6BCB008891A4 /* libcocos2d iOS Simulator.a */,
 				66FBAEE71D8B6822008891A4 /* libcocos2d iOS.a */,
 				66FBAEE31D8B663C008891A4 /* libcocos2d Mac.a */,
-				66FBAEE11D8B65F4008891A4 /* libcocos2d Mac.a */,
-				664F99301D352CAF007C9ED7 /* liblua.a */,
-				66CC6CB91D33DF0500A60D8D /* libluacocos2d iOS.a */,
-				66D7CF8C1D29C2400000DE33 /* StoreKit.framework */,
-				66D7CF891D273C8C0000DE33 /* libcocos2d iOS.a */,
-				66442B401D0DE7C800AC5983 /* GameKit.framework */,
 				66442B341D0CBEBE00AC5983 /* Fabric.framework */,
 				66442B351D0CBEBE00AC5983 /* Crashlytics.framework */,
-				ED545A7D1B68A1FA00C3958E /* libiconv.dylib */,
-				ED545A7B1B68A1F400C3958E /* libiconv.dylib */,
 				8262943D1AAF051F00CB7CF7 /* Security.framework */,
-				52B47A461A53D09B004E4C60 /* Security.framework */,
-				D6B0611A1803AB670077942B /* CoreMotion.framework */,
 				503AE11A17EB9C5A00D1A890 /* IOKit.framework */,
-				503AE11117EB99EE00D1A890 /* libcurl.dylib */,
 				5087E78A17EB975400C73F5D /* OpenGL.framework */,
 				5087E78817EB974C00C73F5D /* AppKit.framework */,
-				1ACB3243164770DE00914215 /* libcurl.a */,
-				BF170DB412928DE900B8313A /* libz.dylib */,
 				D44C620F132DFF4E0009C878 /* AudioToolbox.framework */,
 				D44C620D132DFF430009C878 /* AVFoundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				D44C620B132DFF330009C878 /* OpenAL.framework */,
-				BF170DB012928DE900B8313A /* OpenGLES.framework */,
 				BF1C47EA1293683800B63C5D /* QuartzCore.framework */,
-				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				AE6142E7B2D12A44A021E034 /* sdkbox.framework */,
 				1DB24E7B8078788493A52B3B /* PluginAchievement.framework */,
 				82184907863F3C226936A794 /* SystemConfiguration.framework */,
@@ -607,6 +627,12 @@
 				0B9B4430841AE332641B6E1A /* MediaPlayer.framework */,
 				5FFA4CFFB64615183C2B5DD7 /* GameKit.framework */,
 				AF7B48E78461F0E96925226C /* PluginIAP.framework */,
+				153E45F68601C41A33C554DA /* PluginGoogleAnalytics.framework */,
+				B6344AE5818D9DB6E5F05C20 /* AdSupport.framework */,
+				383B4F76A5FA134AA52981E8 /* CoreData.framework */,
+				BE6CAC245338DCFCDC54BFB0 /* libPods-Flik-androiddev.a */,
+				744D75C754D5E86B6DF464AA /* libPods-Flik-desktop.a */,
+				7A17563F976494AA99D3CD81 /* libPods-Flik-mobile.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -671,6 +697,7 @@
 		5087E77117EB970100C73F5D /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				662F29171DCD19220030754F /* GoogleService-Info.plist */,
 				521A8E6219F0C34300D177D7 /* Default-667h@2x.png */,
 				521A8E6319F0C34300D177D7 /* Default-736h@3x.png */,
 				5087E77217EB970100C73F5D /* Default-568h@2x.png */,
@@ -1036,10 +1063,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Flik-mobile" */;
 			buildPhases = (
+				4C09BF690796C1CFAB2421BF /* [CP] Check Pods Manifest.lock */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
 				66442B331D0CBEA700AC5983 /* ShellScript */,
+				E263170CF930E58AE8060C38 /* [CP] Embed Pods Frameworks */,
+				14833B669AFA4B6D1AA0A4C0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1054,9 +1084,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5087E76C17EB910900C73F5D /* Build configuration list for PBXNativeTarget "Flik-desktop" */;
 			buildPhases = (
+				315FFA86F1993E956A7885E3 /* [CP] Check Pods Manifest.lock */,
 				5087E74817EB910900C73F5D /* Resources */,
 				5087E75617EB910900C73F5D /* Sources */,
 				5087E75C17EB910900C73F5D /* Frameworks */,
+				79D7586ABD7139A637CD02BE /* [CP] Embed Pods Frameworks */,
+				8B243C2C95E52EDF9DF335AF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1071,9 +1104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 663CC17A1D22B0D600A423A1 /* Build configuration list for PBXNativeTarget "Flik-androiddev" */;
 			buildPhases = (
+				A50F0A718A9C0333E958877C /* [CP] Check Pods Manifest.lock */,
 				663CC1721D22B0D600A423A1 /* Sources */,
 				663CC1731D22B0D600A423A1 /* Frameworks */,
 				663CC1741D22B0D600A423A1 /* CopyFiles */,
+				C72630F9E4CE9E0154E2A31F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1113,6 +1148,7 @@
 				German,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -1140,6 +1176,7 @@
 				66442B391D0CC9E100AC5983 /* sdkbox_config.json in Resources */,
 				66442B291D0B83B100AC5983 /* string in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
+				662F29181DCD19220030754F /* GoogleService-Info.plist in Resources */,
 				666106FB1D0795A9004F6263 /* Images.xcassets in Resources */,
 				666EC0261D1A069500FE138F /* shaders in Resources */,
 				66E3457E1D1379120075CB46 /* levels.json in Resources */,
@@ -1162,6 +1199,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		14833B669AFA4B6D1AA0A4C0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flik-mobile/Pods-Flik-mobile-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		315FFA86F1993E956A7885E3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4C09BF690796C1CFAB2421BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		66442B331D0CBEA700AC5983 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1174,6 +1256,81 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 33a28d043f8554c7745c26f1e17a68da562f1d09 b717a88bf5fe2318e4ab24ae8ee8832cb6783f10629e7a64cd1d717731dc1940";
+		};
+		79D7586ABD7139A637CD02BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flik-desktop/Pods-Flik-desktop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B243C2C95E52EDF9DF335AF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flik-desktop/Pods-Flik-desktop-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A50F0A718A9C0333E958877C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C72630F9E4CE9E0154E2A31F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flik-androiddev/Pods-Flik-androiddev-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E263170CF930E58AE8060C38 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Flik-mobile/Pods-Flik-mobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1305,10 +1462,12 @@
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B4A17A51FDE0ECD2B48C655 /* Pods-Flik-mobile.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Adam Eskreis (83A8BQ45VY)";
@@ -1319,6 +1478,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(PROJECT_DIR)",
+					"$(inherited)",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -1346,9 +1506,12 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"\"sdkbox.framework\"",
-					"\"PluginAchievement.framework\"",
+					sdkbox.framework,
+					PluginAchievement.framework,
 					"$(SRCROOT)/../cocos2d/prebuilt",
+					"$(PROJECT_DIR)/Pods/FirebaseCore/Frameworks/frameworks/FirebaseCore.framework",
+					"$(PROJECT_DIR)/Pods/FirebaseAnalytics/Frameworks/frameworks/FirebaseAnalytics.framework",
+					"$(inherited)",
 				);
 				OTHER_CFLAGS = "-DSDKBOX_ENABLED";
 				OTHER_LDFLAGS = (
@@ -1358,6 +1521,8 @@
 					10000,
 					"-image_base",
 					100000000,
+					"-ObjC",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aeskreis.flik;
 				PRODUCT_NAME = Flik;
@@ -1373,10 +1538,12 @@
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F24BAC440D4C9E47196198FC /* Pods-Flik-mobile.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Adam Eskreis (YK656P6CH5)";
@@ -1387,6 +1554,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(PROJECT_DIR)",
+					"$(inherited)",
 				);
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1412,9 +1580,12 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"\"sdkbox.framework\"",
-					"\"PluginAchievement.framework\"",
+					sdkbox.framework,
+					PluginAchievement.framework,
 					"$(SRCROOT)/../cocos2d/prebuilt",
+					"$(PROJECT_DIR)/Pods/FirebaseCore/Frameworks/frameworks/FirebaseCore.framework",
+					"$(PROJECT_DIR)/Pods/FirebaseAnalytics/Frameworks/frameworks/FirebaseAnalytics.framework",
+					"$(inherited)",
 				);
 				OTHER_CFLAGS = "-DSDKBOX_ENABLED";
 				OTHER_LDFLAGS = (
@@ -1424,6 +1595,8 @@
 					10000,
 					"-image_base",
 					100000000,
+					"-ObjC",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aeskreis.flik;
 				PRODUCT_NAME = Flik;
@@ -1438,6 +1611,7 @@
 		};
 		5087E76D17EB910900C73F5D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 550AD92E05B192637015398B /* Pods-Flik-desktop.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -1471,6 +1645,7 @@
 		};
 		5087E76E17EB910900C73F5D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E37B0CA73E595B79091C1B5 /* Pods-Flik-desktop.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -1502,6 +1677,7 @@
 		};
 		663CC17B1D22B0D600A423A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBE00E6C72620B518F76D4AA /* Pods-Flik-androiddev.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1558,6 +1734,7 @@
 		};
 		663CC17C1D22B0D600A423A1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 352DB3DC9A6D1F6E307AD5C1 /* Pods-Flik-androiddev.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1611,8 +1788,10 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1643,8 +1822,10 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (

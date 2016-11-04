@@ -6,11 +6,12 @@
 //
 //
 
+#import "Firebase/Firebase.h"
+
 #include <stdio.h>
 #include "Analytics.h"
 
 #import <Foundation/Foundation.h>
-#import <Crashlytics/Answers.h>
 
 namespace flik
 {
@@ -37,7 +38,7 @@ namespace flik
         }
         
         NSString *eventNameObjC = [NSString stringWithUTF8String:eventName.c_str()];
-        [Answers logCustomEventWithName:eventNameObjC customAttributes:attributesDict];
+        [FIRAnalytics logEventWithName:eventNameObjC parameters:attributesDict];
         
 #if COCOS2D_DEBUG
         NSLog(@"Analytics Event: %@, attributes: %@", eventNameObjC, attributesDict);

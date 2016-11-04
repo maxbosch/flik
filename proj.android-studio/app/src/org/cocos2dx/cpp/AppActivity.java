@@ -35,6 +35,7 @@ import com.aeskreis.flik.android.R;
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.CustomEvent;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.sdkbox.plugin.SDKBox;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
@@ -50,16 +51,20 @@ import java.util.UUID;
 import io.fabric.sdk.android.Fabric;
 
 public class AppActivity extends Cocos2dxActivity {
+    private static FirebaseAnalytics mFirebaseAnalytics;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         // Load crashlytics
         Fabric fabric = new Fabric.Builder(this).appInstallIdentifier(getPackageName()).debuggable(true)
-                .kits(new Crashlytics(), new Answers())
+                .kits(new Crashlytics())
                 .build();
 
         Fabric.with(fabric);
+
+
 
         Log.d("Activity", "Fabric loaded");
     }
@@ -81,30 +86,34 @@ public class AppActivity extends Cocos2dxActivity {
 
     static void logEvent(String eventName, String attributesJson)
     {
-        CustomEvent event = new CustomEvent(eventName);
-
-        // OS Specific properties
-        event.putCustomAttribute("os", "android");
-        event.putCustomAttribute("os_version", String.valueOf(Build.VERSION.SDK_INT));
+        if (mFirebaseAnalytics == null) {
+            mFirebaseAnalytics = FirebaseAnalytics.getInstance(getContext());
+        }
 
         JSONTokener reader = new JSONTokener(attributesJson);
         try {
             JSONObject attributesObject = new JSONObject(reader);
             Iterator<String> keys = attributesObject.keys();
+
+            Bundle attributes = new Bundle();
+            // OS Specific properties
+            attributes.putString("os", "android");
+            attributes.putString("os_version", String.valueOf(Build.VERSION.SDK_INT));
+
             while (keys.hasNext()) {
                 String key = keys.next();
                 double number = attributesObject.optDouble(key, Double.NEGATIVE_INFINITY);
                 if (number != Double.NEGATIVE_INFINITY) {
-                    event.putCustomAttribute(key, number);
+                    attributes.putDouble(key, number);
                 } else {
                     String string = attributesObject.optString(key);
                     if (string != null) {
-                        event.putCustomAttribute(key, string);
+                        attributes.putString(key, string);
                     }
                 }
             }
 
-            Answers.getInstance().logCustom(event);
+            mFirebaseAnalytics.logEvent(eventName, attributes);
 
             Log.d(AppActivity.getAppPackageName(), String.format("Analytics Event: %s, attributes: %s", eventName, attributesJson));
         } catch (JSONException e) {
