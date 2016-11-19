@@ -126,7 +126,7 @@ namespace flik
         image->setLayoutParameter(imageLayout);
         mContentContainer->addChild(image);
         
-        auto newScoreCopy = Fonts::createLocalizedText(LocalizedString::getString("game_over_your_score"), 25.0_dp);
+        auto newScoreCopy = Fonts::createLocalizedText(LocalizedString::getString("game_over_try_again"), 25.0_dp);
         newScoreCopy->setColor(kPinkColor);
         auto newScoreCopyLayout = ui::LinearLayoutParameter::create();
         newScoreCopyLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
@@ -142,16 +142,16 @@ namespace flik
         newScoreValue->setLayoutParameter(newScoreValueLayout);
         mContentContainer->addChild(newScoreValue);
         
-        auto oldScoreCopy = Fonts::createLocalizedText(LocalizedString::getString("game_over_high_score"), 18.0_dp);
-        oldScoreCopy->setColor(kOrangeColor);
+        auto oldScoreCopy = Fonts::createLocalizedText(LocalizedString::getString("game_over_high_score"), 25.0_dp);
+        oldScoreCopy->setColor(kStarColor);
         auto oldScoreCopyLayout = ui::LinearLayoutParameter::create();
         oldScoreCopyLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
         oldScoreCopyLayout->setMargin(ui::Margin(0, 130.0_dp, 0, 0));
         oldScoreCopy->setLayoutParameter(oldScoreCopyLayout);
         mContentContainer->addChild(oldScoreCopy);
         
-        auto oldScoreValue = Fonts::createLocalizedText(boost::lexical_cast<std::string>(topScore), 25.0_dp);
-        oldScoreValue->setColor(kOrangeColor);
+        auto oldScoreValue = Fonts::createLocalizedText(boost::lexical_cast<std::string>(topScore), 36.0_dp);
+        oldScoreValue->setColor(kStarColor);
         auto oldScoreValueLayout = ui::LinearLayoutParameter::create();
         oldScoreValueLayout->setGravity(LinearGravity::CENTER_HORIZONTAL);
         oldScoreValueLayout->setMargin(ui::Margin(0, 8.0_dp, 0, 0));

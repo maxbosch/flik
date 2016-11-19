@@ -43,6 +43,12 @@ namespace flik
         
         //sdkbox::PluginSdkboxPlay::signin();
         
+        // Register IAP
+        sdkbox::IAP::init();
+        sdkbox::IAP::setDebug(true);
+        sdkbox::IAP::refresh();
+        sdkbox::IAP::setListener(this);
+        
         auto achievementJson = cocos2d::FileUtils::getInstance()->getStringFromFile("achievements.json");
         rapidjson::Document doc;
         doc.Parse<0>(achievementJson.c_str());
@@ -91,6 +97,13 @@ namespace flik
         std::string key = "achievement_percent_" + increment.name;
         int currentStatus = getAchievementStatus(increment.name);
         UserDefault::getInstance()->setIntegerForKey(key.c_str(), std::min(100, currentStatus + increment.amount));
+    }
+    
+    void GameServices::purchaseProduct(const std::string& name, TProductPurchaseCallback callback)
+    {
+        mProductCallback = callback;
+        
+        sdkbox::IAP::purchase(name);
     }
     
     /** SdkboxPlayListener */
@@ -191,5 +204,66 @@ namespace flik
                 mAchievementsCallback(mAchievements, RESULT_LOAD_FAILED);
             }
         }
+    }
+    
+    /**
+     * Called when IAP initialized
+     */
+    void GameServices::onInitialized(bool success)
+    {
+        
+    }
+    
+    /**
+     * Called when an IAP processed successfully
+     */
+    void GameServices::onSuccess(const sdkbox::Product& p)
+    {
+        mProductCallback(p, true, "");
+    }
+    
+    /**
+     * Called when an IAP fails
+     */
+    void GameServices::onFailure(const sdkbox::Product& p, const std::string& msg)
+    {
+        mProductCallback(p, false, msg);
+    }
+    
+    /**
+     * Called when user canceled the IAP
+     */
+    void GameServices::onCanceled(const sdkbox::Product& p)
+    {
+        mProductCallback(p, false, "");
+    }
+    
+    /**
+     * Called when server returns the IAP items user already purchased
+     * @note this callback will be called multiple times if there are multiple IAP
+     */
+    void GameServices::onRestored(const sdkbox::Product& p)
+    {
+    }
+    
+    /**
+     * Called the product request is successful, usually developers use product request to update the latest info(title, price) from IAP
+     */
+    void GameServices::onProductRequestSuccess(const std::vector<sdkbox::Product>& products)
+    {
+    }
+    
+    /**
+     * Called when the product request fails
+     */
+    void GameServices::onProductRequestFailure(const std::string& msg)
+    {
+    }
+    
+    /**
+     * Called when the restore completed
+     */
+    void GameServices::onRestoreComplete(bool ok, const std::string &msg)
+    {
     }
 }

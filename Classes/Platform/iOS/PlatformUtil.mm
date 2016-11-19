@@ -17,7 +17,7 @@
 
 namespace flik
 {
-    static const std::string kItunesBaseUrl = "https://itunes.apple.com/us/app/citymaps-discover-local-places/id%s";
+    static NSString *kItunesBaseUrl = @"https://itunes.apple.com/us/app/citymaps-discover-local-places/id%@";
     
     static inline NSString* toNSString(const std::string& str) {
         return [NSString stringWithUTF8String:str.c_str()];
@@ -30,8 +30,8 @@ namespace flik
     
     std::string PlatformUtil::getStoreUrl()
     {
-        NSString* appID = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
-        return fmt::format(kItunesBaseUrl, [appID UTF8String]);
+        NSString* appID = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"AppStoreId"];
+        return [[NSString stringWithFormat:kItunesBaseUrl, appID] UTF8String];
     }
     
     void PlatformUtil::presentEmailCompose(const std::string& toAddress, const std::string& subject, const std::string& body)

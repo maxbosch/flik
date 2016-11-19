@@ -20,11 +20,8 @@
 		5087E76917EB910900C73F5D /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		5087E76A17EB910900C73F5D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		5087E76B17EB910900C73F5D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
-		5087E78617EB970100C73F5D /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77B17EB970100C73F5D /* Icon-76.png */; };
 		5087E78917EB974C00C73F5D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78817EB974C00C73F5D /* AppKit.framework */; };
 		5087E78B17EB975400C73F5D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78A17EB975400C73F5D /* OpenGL.framework */; };
-		50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629217ECD46A001EB2F8 /* Icon-40.png */; };
-		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		5C05403BB2316A413887BF45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82184907863F3C226936A794 /* SystemConfiguration.framework */; };
 		6601BAFB1DCAA3120039CD7C /* Analytics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6601BAFA1DCAA3120039CD7C /* Analytics.cpp */; };
 		66050FA01DAE73BF00E039DB /* TransitionEx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66050F9E1DAE73BF00E039DB /* TransitionEx.cpp */; };
@@ -1170,17 +1167,14 @@
 				665D9A1F1D070D060051A9C9 /* 4x in Resources */,
 				66CC6CA01D2FDDD600A60D8D /* lua in Resources */,
 				668313F91D80E0BA00645341 /* achievements.json in Resources */,
-				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				665D9A1D1D070D060051A9C9 /* 3x in Resources */,
 				665D9A191D070D060051A9C9 /* 1x in Resources */,
 				66442B391D0CC9E100AC5983 /* sdkbox_config.json in Resources */,
 				66442B291D0B83B100AC5983 /* string in Resources */,
-				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				662F29181DCD19220030754F /* GoogleService-Info.plist in Resources */,
 				666106FB1D0795A9004F6263 /* Images.xcassets in Resources */,
 				666EC0261D1A069500FE138F /* shaders in Resources */,
 				66E3457E1D1379120075CB46 /* levels.json in Resources */,
-				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1530,7 +1524,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "Flik Dev";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
 				VALID_ARCHS = "arm64 armv7";
 			};
@@ -1600,10 +1594,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aeskreis.flik;
 				PRODUCT_NAME = Flik;
-				PROVISIONING_PROFILE = "738496e3-a003-4320-a149-8a0ffef5880c";
-				PROVISIONING_PROFILE_SPECIFIER = "Flik Ad Hoc";
+				PROVISIONING_PROFILE = "a09ae228-5949-4732-8968-4112542c6264";
+				PROVISIONING_PROFILE_SPECIFIER = "Flik App Store";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
 				VALID_ARCHS = "arm64 armv7";
 			};

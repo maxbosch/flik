@@ -15,8 +15,7 @@
 #include "Util.h"
 #include "Player.h"
 #include "LocalizedString.h"
-
-#include "PluginIAP/PluginIAP.h"
+#include "GameServices.h"
 
 #include "Analytics.h"
 
@@ -60,19 +59,22 @@ namespace flik
         
         purchaseButton->addTouchEventListener([this, pointsCount, cost, productName](Ref* sender, TouchEventType type) {
             if (type == TouchEventType::ENDED) {
-                // TODO: Add e-commerce code
-                
-                //sdkbox::IAP::purchase(productName);
-                
-                auto player = Player::getMainPlayer();
-                if (player->getCurrencyAmount() + pointsCount < kMaxCurrencyAmount) {
-                    player->addCurrency(pointsCount);
-                }
-                
-                PTree attributes;
-                attributes.add("quantity", pointsCount);
-                attributes.add("product_sku", "");
-                Analytics::logEvent("store_buy_points", attributes);
+                GameServices::getInstance()->purchaseProduct(productName, [pointsCount](const sdkbox::Product& p, bool success, const std::string& msg) {
+                    if (success) {
+                        auto player = Player::getMainPlayer();
+                        if (player->getCurrencyAmount() + pointsCount < kMaxCurrencyAmount) {
+                            player->addCurrency(pointsCount);
+                        }
+                    } else {
+                        // No-op for now
+                    }
+                    
+                    PTree attributes;
+                    attributes.add("quantity", pointsCount);
+                    attributes.add("product_sku", "");
+                    attributes.add("purchased", (int)success);
+                    Analytics::logEvent("store_buy_points", attributes);
+                }); 
             }
         });
         
