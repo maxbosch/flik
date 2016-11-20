@@ -1,0 +1,6 @@
+framework module Pods_Flik_mobile {
+  umbrella header "Pods-Flik-mobile-umbrella.h"
+
+  export *
+  module * { export * }
+}

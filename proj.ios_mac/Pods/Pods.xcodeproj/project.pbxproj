@@ -7,103 +7,110 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02AD8908DE875077151AFFB22DF09B5E /* Pods-Flik-androiddev-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7139DA3D6D47F43E10C0658D7BFA2744 /* Pods-Flik-androiddev-dummy.m */; };
-		13197774B1B412938996262FBF5A301C /* Pods-Flik-mobile-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B26FF681CC509903ADF978A2281D79FF /* Pods-Flik-mobile-dummy.m */; };
-		1B6053DB4F426B47C4A91E97990824D3 /* GoogleToolboxForMac-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C5D3999C742C7D9B69DEEA7C04AE49 /* GoogleToolboxForMac-dummy.m */; };
-		3D5A8358B3CE03D143C39C4BF52B34D3 /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = A0A44B96E65D03C57132FCFB65259DC6 /* GTMNSData+zlib.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		5130B1B7B235899CCAD7CEF3CB9CF65F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EEDD58EC35A4E9347CB06714F7040C /* Foundation.framework */; };
-		668C9B15BF1889B304C2B568C1D2DF5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EEDD58EC35A4E9347CB06714F7040C /* Foundation.framework */; };
-		6B02824B166AF4649072CAB930283EEA /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 80889BB9574E4C6D6AE4B8F10F7992DA /* GTMDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8F2604561277347014BB1735FA02B37E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDAA23DDA8E082FC77E38FA01601C8F /* Cocoa.framework */; };
-		9CDF966841C9EB7CD915A3B64CF3510A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDAA23DDA8E082FC77E38FA01601C8F /* Cocoa.framework */; };
-		CBC7548501161D689ACF033CA42AA1AB /* GTMNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = A5A7265C9291D8FE7F457CB81BF79C66 /* GTMNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D5ABF43C7FFA0937EDA8EE823FF0296B /* Pods-Flik-desktop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 032EB9CF062A3DD6F5DFAE64C99B92E2 /* Pods-Flik-desktop-dummy.m */; };
+		02AD8908DE875077151AFFB22DF09B5E /* Pods-Flik-androiddev-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DE58EA988BD4866D95DDF940B04EDD /* Pods-Flik-androiddev-dummy.m */; };
+		0D2816FBEE4AFFFCAE2722109A495C99 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		3159D7CAFD56B809F40CA3330DA10889 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		42A8B9581E8E852C24E3FA0403468D60 /* Pods-Flik-mobile-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BCACF195C05D7B2422A2197D8CD97F55 /* Pods-Flik-mobile-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		541C5362289CC44D4F067D097F231250 /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B272ECBC5206EB79C715670F53E3F18 /* GTMDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		61DDC4423E0BDA8F5C7A8D1C6EA2E406 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		81E4B6988FF26F9249B79C6C8CC667B4 /* GoogleToolboxForMac-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 39252B2E689B2B61AFE2AF50651B130C /* GoogleToolboxForMac-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5ABF43C7FFA0937EDA8EE823FF0296B /* Pods-Flik-desktop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 347B7BBC7432F8D70C2FBBF7BF91BC3A /* Pods-Flik-desktop-dummy.m */; };
+		DBFECCB0BBE3F11CC41A3C1A8C4879D3 /* GTMNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = 69D49FCFB1469996E9BF2795DC070ACD /* GTMNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9EDABD014A0B78B9FA46E6E98F93AC0 /* Pods-Flik-mobile-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 509D37378FEAB14A6823BFD22007F71B /* Pods-Flik-mobile-dummy.m */; };
+		EF377068D330BBB5CD87502BA844BDAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		F7D889906DECB078EAAECB9D4A320E9C /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = F4BA6DF1FE29A0E9BEA1803603149102 /* GTMNSData+zlib.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		FAC3F3CAABA60EF76069431C5BB5032A /* GoogleToolboxForMac-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 410D9B4178C76FA5EDF8160F6514C971 /* GoogleToolboxForMac-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C0DC1B47EC1BED551045BD24D16903E8 /* PBXContainerItemProxy */ = {
+		3DB78CCCA1DEBA2A53E5A468BA745204 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E1BBB76ADBF2EF4EF2CE5DF6BBC77296;
+			remoteGlobalIDString = 00103D6C821BE85971C563025527BA5D;
 			remoteInfo = GoogleToolboxForMac;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		032EB9CF062A3DD6F5DFAE64C99B92E2 /* Pods-Flik-desktop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Flik-desktop-dummy.m"; sourceTree = "<group>"; };
-		167B5B6C014E9554D371B037EF3BF0D5 /* Pods-Flik-desktop-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Flik-desktop-frameworks.sh"; sourceTree = "<group>"; };
-		20BF9480396E1C433CC7F4B4118E8FBB /* GoogleToolboxForMac-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-prefix.pch"; sourceTree = "<group>"; };
+		00D1CDDF771120776FDC8D96EA542EE6 /* GoogleToolboxForMac.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleToolboxForMac.xcconfig; sourceTree = "<group>"; };
+		0326CAF72A3907D0815FFB633CBBA91B /* Pods-Flik-androiddev-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Flik-androiddev-frameworks.sh"; sourceTree = "<group>"; };
+		05B4D1A77483F994BD9587F87F9BA0E9 /* Pods-Flik-mobile-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Flik-mobile-frameworks.sh"; sourceTree = "<group>"; };
+		0AE152B8871640E675D0F14511F6F159 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15D57D82523BDFE4F73737C1E439A8B6 /* Pods-Flik-mobile-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Flik-mobile-acknowledgements.plist"; sourceTree = "<group>"; };
+		1CA465F5D0A390B217CFE2413B77E077 /* Pods-Flik-mobile-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Flik-mobile-resources.sh"; sourceTree = "<group>"; };
+		25A037CFCC82BB50FD289C40B3F5C34E /* Pods-Flik-desktop-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Flik-desktop-frameworks.sh"; sourceTree = "<group>"; };
+		25A132F1869837E9A760EEB488B5D44B /* GoogleToolboxForMac.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = GoogleToolboxForMac.modulemap; sourceTree = "<group>"; };
 		2849118E66F8FB23260AFEB06402A6D0 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Core/Sources/Firebase.h; sourceTree = "<group>"; };
+		2A079EAD12E6EA670E10AD16D6182FF1 /* libPods-Flik-androiddev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Flik-androiddev.a"; path = "libPods-Flik-androiddev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		347B7BBC7432F8D70C2FBBF7BF91BC3A /* Pods-Flik-desktop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Flik-desktop-dummy.m"; sourceTree = "<group>"; };
+		39252B2E689B2B61AFE2AF50651B130C /* GoogleToolboxForMac-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-umbrella.h"; sourceTree = "<group>"; };
 		3C11B24327DCA859F51CF1668C211D68 /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Sources/FIRInstanceID.h; sourceTree = "<group>"; };
+		410D9B4178C76FA5EDF8160F6514C971 /* GoogleToolboxForMac-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GoogleToolboxForMac-dummy.m"; sourceTree = "<group>"; };
+		4C155ED0F9292D94007EBB7B810763B9 /* Pods-Flik-desktop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Flik-desktop.debug.xcconfig"; sourceTree = "<group>"; };
 		4D48B278ED3B1FAE2133F48FAC325F12 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
-		4F2C311DC15D6C6EC87AA332E580BFBC /* Pods-Flik-androiddev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Flik-androiddev.debug.xcconfig"; sourceTree = "<group>"; };
-		59FB347C85635D8CAC03D190BEE66D0D /* libGoogleToolboxForMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libGoogleToolboxForMac.a; path = libGoogleToolboxForMac.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BE1670007A669692EFF87AE7E1C647B /* Pods-Flik-desktop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Flik-desktop.release.xcconfig"; sourceTree = "<group>"; };
-		65EEDD58EC35A4E9347CB06714F7040C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		67F92F0A943EE7653AE2CFA8E3A1A078 /* Pods-Flik-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Flik-mobile.release.xcconfig"; sourceTree = "<group>"; };
-		68FECF8E2C5E6ABA079AE6A8C9408C3C /* Pods-Flik-androiddev-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Flik-androiddev-acknowledgements.plist"; sourceTree = "<group>"; };
-		6E302DF0CE690BC6A3A3B764DA267C9C /* GoogleToolboxForMac.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleToolboxForMac.xcconfig; sourceTree = "<group>"; };
-		7139DA3D6D47F43E10C0658D7BFA2744 /* Pods-Flik-androiddev-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Flik-androiddev-dummy.m"; sourceTree = "<group>"; };
-		76175EB744A91E88374DB100BDCD30D6 /* libPods-Flik-desktop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Flik-desktop.a"; path = "libPods-Flik-desktop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		78DC2CF52006912992A6E4446A36E409 /* Pods-Flik-mobile-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Flik-mobile-resources.sh"; sourceTree = "<group>"; };
-		80889BB9574E4C6D6AE4B8F10F7992DA /* GTMDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
-		89E38E66BDAB06B12B14BBE2B07A380E /* libPods-Flik-androiddev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Flik-androiddev.a"; path = "libPods-Flik-androiddev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D98481D8FF1B946F4B802EC31EEDDD9 /* Pods-Flik-desktop-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Flik-desktop-acknowledgements.markdown"; sourceTree = "<group>"; };
+		509D37378FEAB14A6823BFD22007F71B /* Pods-Flik-mobile-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Flik-mobile-dummy.m"; sourceTree = "<group>"; };
+		5B272ECBC5206EB79C715670F53E3F18 /* GTMDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		69D49FCFB1469996E9BF2795DC070ACD /* GTMNSData+zlib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSData+zlib.h"; path = "Foundation/GTMNSData+zlib.h"; sourceTree = "<group>"; };
+		7C2ADEB637E5DE5350E89D488B5CC0CB /* Pods-Flik-androiddev-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Flik-androiddev-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7D43160C154C3964BD9907A5D06169DD /* Pods-Flik-mobile.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Flik-mobile.modulemap"; sourceTree = "<group>"; };
+		88DE58EA988BD4866D95DDF940B04EDD /* Pods-Flik-androiddev-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Flik-androiddev-dummy.m"; sourceTree = "<group>"; };
+		8C30B9E92B19356F091F9BAF8CAB851A /* Pods-Flik-desktop-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Flik-desktop-resources.sh"; sourceTree = "<group>"; };
+		9075DB50D00E373B7B98BC99CAC80CEA /* Pods-Flik-androiddev-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Flik-androiddev-acknowledgements.plist"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		977C202D7939C1A9559C59158384D128 /* Pods-Flik-desktop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Flik-desktop.debug.xcconfig"; sourceTree = "<group>"; };
-		9EBFDA502F54738F1935AE1D500A52DC /* Pods-Flik-androiddev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Flik-androiddev.release.xcconfig"; sourceTree = "<group>"; };
-		A0231F55228D1D27D8079F10E723CF32 /* Pods-Flik-mobile-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Flik-mobile-frameworks.sh"; sourceTree = "<group>"; };
-		A0A44B96E65D03C57132FCFB65259DC6 /* GTMNSData+zlib.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GTMNSData+zlib.m"; path = "Foundation/GTMNSData+zlib.m"; sourceTree = "<group>"; };
-		A484CC4FCD1A0545DE865544BF85CE7E /* Pods-Flik-mobile-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Flik-mobile-acknowledgements.plist"; sourceTree = "<group>"; };
-		A4C5D3999C742C7D9B69DEEA7C04AE49 /* GoogleToolboxForMac-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GoogleToolboxForMac-dummy.m"; sourceTree = "<group>"; };
-		A5A7265C9291D8FE7F457CB81BF79C66 /* GTMNSData+zlib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSData+zlib.h"; path = "Foundation/GTMNSData+zlib.h"; sourceTree = "<group>"; };
-		AB8672453119052C5C4C3E7FAAB34F7B /* Pods-Flik-androiddev-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Flik-androiddev-resources.sh"; sourceTree = "<group>"; };
-		B26FF681CC509903ADF978A2281D79FF /* Pods-Flik-mobile-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Flik-mobile-dummy.m"; sourceTree = "<group>"; };
-		B73472E50D71BE53B49E02843174A54A /* Pods-Flik-androiddev-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Flik-androiddev-acknowledgements.markdown"; sourceTree = "<group>"; };
+		A3BC40AF72D9A5A380AC2C8EBCF0041D /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GoogleToolboxForMac.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A83A2EE604612DB37EFA728AE228812E /* Pods-Flik-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Flik-mobile.release.xcconfig"; sourceTree = "<group>"; };
+		AE84159982D999CE51926A3B0D16DD18 /* Pods-Flik-mobile-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Flik-mobile-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B26B5FA408B145C6D63FD6FB8361C199 /* Pods-Flik-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Flik-mobile.debug.xcconfig"; sourceTree = "<group>"; };
+		B9204D5EF8983FC989BEE757A4324FE7 /* Pods-Flik-androiddev-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Flik-androiddev-resources.sh"; sourceTree = "<group>"; };
+		BAA67652A233650833707C161E66AA3E /* Pods-Flik-desktop-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Flik-desktop-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BBEF9555ABDC5D6ACB9DCB58763B04B4 /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
-		C23FFCDF2CF85B403723E19B899951BE /* libPods-Flik-mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Flik-mobile.a"; path = "libPods-Flik-mobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCACF195C05D7B2422A2197D8CD97F55 /* Pods-Flik-mobile-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Flik-mobile-umbrella.h"; sourceTree = "<group>"; };
 		C513DE6CEE1AAD23EFE32FEA6B6B6B9C /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
-		C56B300C8344CFB529CFB2C5C66E3036 /* Pods-Flik-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Flik-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 		C88CEAD9913B6F15ACC765259A53796E /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
-		CDA8EE24488DEBDB2E40F2A55D70AECC /* Pods-Flik-desktop-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Flik-desktop-resources.sh"; sourceTree = "<group>"; };
-		CDDAA23DDA8E082FC77E38FA01601C8F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		D0CB88B5BBEF56D54419EC2E64D6AA45 /* Pods-Flik-desktop-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Flik-desktop-acknowledgements.plist"; sourceTree = "<group>"; };
+		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D2BA55CE41A84FA2BD91CF4F23D69C81 /* Pods-Flik-desktop-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Flik-desktop-acknowledgements.plist"; sourceTree = "<group>"; };
+		D7A757F6AAE1DA46680D7802B30857A4 /* GoogleToolboxForMac-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-prefix.pch"; sourceTree = "<group>"; };
 		D91606C437B9AE803833B8F44A5383CD /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
-		E58C4EF15B1A51A2705BF4CA8425AF93 /* Pods-Flik-mobile-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Flik-mobile-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F3A8A9E861EEF2D1E3476508AE936126 /* Pods-Flik-androiddev-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Flik-androiddev-frameworks.sh"; sourceTree = "<group>"; };
+		DDDC18CBD045A9A5E5C709ECD17BCCE6 /* Pods-Flik-desktop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Flik-desktop.release.xcconfig"; sourceTree = "<group>"; };
+		F0C8DE2F3AD532F9EA7A03E5D14F3E7D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4BA6DF1FE29A0E9BEA1803603149102 /* GTMNSData+zlib.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GTMNSData+zlib.m"; path = "Foundation/GTMNSData+zlib.m"; sourceTree = "<group>"; };
+		F746A6C7524BB0E7B45EC6D681F7D0B0 /* Pods_Flik_mobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Flik_mobile.framework; path = "Pods-Flik-mobile.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F75FFD219AE7519529D5CDF598059979 /* Pods-Flik-androiddev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Flik-androiddev.debug.xcconfig"; sourceTree = "<group>"; };
+		F7CCCB3D5EC68E067C1A52FCC874E450 /* libPods-Flik-desktop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Flik-desktop.a"; path = "libPods-Flik-desktop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB155F3461BECB9209365DD3A71B703C /* Pods-Flik-androiddev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Flik-androiddev.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1AC037FD012A6800014E48C520A8A16A /* Frameworks */ = {
+		37DE14D38779759A087792F2D2967936 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				668C9B15BF1889B304C2B568C1D2DF5E /* Foundation.framework in Frameworks */,
+				0D2816FBEE4AFFFCAE2722109A495C99 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		736872D0F6BFBDB3F36ED73405DE4E29 /* Frameworks */ = {
+		A11054CFEB5B22FE8FC23D7B69AE4575 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5130B1B7B235899CCAD7CEF3CB9CF65F /* Foundation.framework in Frameworks */,
+				EF377068D330BBB5CD87502BA844BDAF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F45024E2507DAB6BD50B5DF52BEDDA89 /* Frameworks */ = {
+		D1DABF9F761A8C6F6FA20991BDCFF304 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F2604561277347014BB1735FA02B37E /* Cocoa.framework in Frameworks */,
+				61DDC4423E0BDA8F5C7A8D1C6EA2E406 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FC76FEFBC0F024C922B099BE59ABA66F /* Frameworks */ = {
+		F9BC43EEAF05BCB201B3D28C244AA7E1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CDF966841C9EB7CD915A3B64CF3510A /* Cocoa.framework in Frameworks */,
+				3159D7CAFD56B809F40CA3330DA10889 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,21 +144,37 @@
 			path = FirebaseCore;
 			sourceTree = "<group>";
 		};
-		2EDFAB15A7E74F864EB353FCB5A57006 /* OS X */ = {
+		3442BDD8A045E6455DD06D9760C724A4 /* Defines */ = {
 			isa = PBXGroup;
 			children = (
-				CDDAA23DDA8E082FC77E38FA01601C8F /* Cocoa.framework */,
+				5B272ECBC5206EB79C715670F53E3F18 /* GTMDefines.h */,
 			);
-			name = "OS X";
+			name = Defines;
 			sourceTree = "<group>";
 		};
-		3AEF7D761E8EA8419BB4A7000AB770CB /* Frameworks */ = {
+		3B7E4499FCB4021B32AC811764CDB508 /* GoogleToolboxForMac */ = {
 			isa = PBXGroup;
 			children = (
-				95A165433BB896B7C2CAF2425A40BF8D /* iOS */,
-				2EDFAB15A7E74F864EB353FCB5A57006 /* OS X */,
+				3442BDD8A045E6455DD06D9760C724A4 /* Defines */,
+				61CF4BAAE013DF8B0007735CDAD7C659 /* NSData+zlib */,
+				4CFEB72FCD954675E0BF88DE27251392 /* Support Files */,
 			);
-			name = Frameworks;
+			name = GoogleToolboxForMac;
+			path = GoogleToolboxForMac;
+			sourceTree = "<group>";
+		};
+		4CFEB72FCD954675E0BF88DE27251392 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				25A132F1869837E9A760EEB488B5D44B /* GoogleToolboxForMac.modulemap */,
+				00D1CDDF771120776FDC8D96EA542EE6 /* GoogleToolboxForMac.xcconfig */,
+				410D9B4178C76FA5EDF8160F6514C971 /* GoogleToolboxForMac-dummy.m */,
+				D7A757F6AAE1DA46680D7802B30857A4 /* GoogleToolboxForMac-prefix.pch */,
+				39252B2E689B2B61AFE2AF50651B130C /* GoogleToolboxForMac-umbrella.h */,
+				F0C8DE2F3AD532F9EA7A03E5D14F3E7D /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GoogleToolboxForMac";
 			sourceTree = "<group>";
 		};
 		5852E0E12FD142FD5B46C5CD973C8C15 /* Frameworks */ = {
@@ -162,19 +185,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5EE12ED9487E8D02470024CED1328A33 /* Pods-Flik-androiddev */ = {
+		58FF28C5AB816BB258A3AF18027DABEC /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				B73472E50D71BE53B49E02843174A54A /* Pods-Flik-androiddev-acknowledgements.markdown */,
-				68FECF8E2C5E6ABA079AE6A8C9408C3C /* Pods-Flik-androiddev-acknowledgements.plist */,
-				7139DA3D6D47F43E10C0658D7BFA2744 /* Pods-Flik-androiddev-dummy.m */,
-				F3A8A9E861EEF2D1E3476508AE936126 /* Pods-Flik-androiddev-frameworks.sh */,
-				AB8672453119052C5C4C3E7FAAB34F7B /* Pods-Flik-androiddev-resources.sh */,
-				4F2C311DC15D6C6EC87AA332E580BFBC /* Pods-Flik-androiddev.debug.xcconfig */,
-				9EBFDA502F54738F1935AE1D500A52DC /* Pods-Flik-androiddev.release.xcconfig */,
+				DD59EABAE2CD654BE2904C3C01A0A28E /* Pods-Flik-androiddev */,
+				D1E59FA49CA1E16D9260CA188567C7C6 /* Pods-Flik-desktop */,
+				F66632CBAF657F333FEB2B15CE29DA42 /* Pods-Flik-mobile */,
 			);
-			name = "Pods-Flik-androiddev";
-			path = "Target Support Files/Pods-Flik-androiddev";
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		61CF4BAAE013DF8B0007735CDAD7C659 /* NSData+zlib */ = {
+			isa = PBXGroup;
+			children = (
+				69D49FCFB1469996E9BF2795DC070ACD /* GTMNSData+zlib.h */,
+				F4BA6DF1FE29A0E9BEA1803603149102 /* GTMNSData+zlib.m */,
+			);
+			name = "NSData+zlib";
 			sourceTree = "<group>";
 		};
 		6960BD0665A65D2B77A4EB34288B2D9F /* Frameworks */ = {
@@ -183,21 +210,6 @@
 				C88CEAD9913B6F15ACC765259A53796E /* GoogleSymbolUtilities.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		6C3C0BE29E39E78742B4C6924736BEB1 /* Pods-Flik-desktop */ = {
-			isa = PBXGroup;
-			children = (
-				8D98481D8FF1B946F4B802EC31EEDDD9 /* Pods-Flik-desktop-acknowledgements.markdown */,
-				D0CB88B5BBEF56D54419EC2E64D6AA45 /* Pods-Flik-desktop-acknowledgements.plist */,
-				032EB9CF062A3DD6F5DFAE64C99B92E2 /* Pods-Flik-desktop-dummy.m */,
-				167B5B6C014E9554D371B037EF3BF0D5 /* Pods-Flik-desktop-frameworks.sh */,
-				CDA8EE24488DEBDB2E40F2A55D70AECC /* Pods-Flik-desktop-resources.sh */,
-				977C202D7939C1A9559C59158384D128 /* Pods-Flik-desktop.debug.xcconfig */,
-				5BE1670007A669692EFF87AE7E1C647B /* Pods-Flik-desktop.release.xcconfig */,
-			);
-			name = "Pods-Flik-desktop";
-			path = "Target Support Files/Pods-Flik-desktop";
 			sourceTree = "<group>";
 		};
 		728F1DF19867C27C9AFBFBAB877C5075 /* Firebase */ = {
@@ -209,6 +221,14 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
+		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		77294A3095DD86741E1692D62E33E1BE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,52 +238,20 @@
 				12EAE32E2839BFBC415F7566CF95AFBB /* FirebaseInstanceID */,
 				CE09658FF71C2EDAEA4A95E0579F933C /* GoogleInterchangeUtilities */,
 				C3D8CF558B907F378D137FEBD6CC55C1 /* GoogleSymbolUtilities */,
-				D1CAAED0A59C35B636F7D44469D53359 /* GoogleToolboxForMac */,
+				3B7E4499FCB4021B32AC811764CDB508 /* GoogleToolboxForMac */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		7BF30D67F4F839155108CF316319F292 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				5EE12ED9487E8D02470024CED1328A33 /* Pods-Flik-androiddev */,
-				6C3C0BE29E39E78742B4C6924736BEB1 /* Pods-Flik-desktop */,
-				F1FA5713CC9DF01353D19F963D8D218E /* Pods-Flik-mobile */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		7BF744C40077ED7E21634613AFD6355C /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				6E302DF0CE690BC6A3A3B764DA267C9C /* GoogleToolboxForMac.xcconfig */,
-				A4C5D3999C742C7D9B69DEEA7C04AE49 /* GoogleToolboxForMac-dummy.m */,
-				20BF9480396E1C433CC7F4B4118E8FBB /* GoogleToolboxForMac-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/GoogleToolboxForMac";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				3AEF7D761E8EA8419BB4A7000AB770CB /* Frameworks */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				77294A3095DD86741E1692D62E33E1BE /* Pods */,
-				8BD3A5D779788AA4E5DD91A8322F42FC /* Products */,
-				7BF30D67F4F839155108CF316319F292 /* Targets Support Files */,
+				A6FE06BEBA205E7D27ED85276D82E79D /* Products */,
+				58FF28C5AB816BB258A3AF18027DABEC /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		8BD3A5D779788AA4E5DD91A8322F42FC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				59FB347C85635D8CAC03D190BEE66D0D /* libGoogleToolboxForMac.a */,
-				89E38E66BDAB06B12B14BBE2B07A380E /* libPods-Flik-androiddev.a */,
-				76175EB744A91E88374DB100BDCD30D6 /* libPods-Flik-desktop.a */,
-				C23FFCDF2CF85B403723E19B899951BE /* libPods-Flik-mobile.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		93616DDBC4CE13C5363E8B47C61FAB3C /* Frameworks */ = {
@@ -274,20 +262,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		95A165433BB896B7C2CAF2425A40BF8D /* iOS */ = {
+		A6FE06BEBA205E7D27ED85276D82E79D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				65EEDD58EC35A4E9347CB06714F7040C /* Foundation.framework */,
+				A3BC40AF72D9A5A380AC2C8EBCF0041D /* GoogleToolboxForMac.framework */,
+				2A079EAD12E6EA670E10AD16D6182FF1 /* libPods-Flik-androiddev.a */,
+				F7CCCB3D5EC68E067C1A52FCC874E450 /* libPods-Flik-desktop.a */,
+				F746A6C7524BB0E7B45EC6D681F7D0B0 /* Pods_Flik_mobile.framework */,
 			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		A5BCB01834FC3A9428AC08FD26AF719D /* Defines */ = {
-			isa = PBXGroup;
-			children = (
-				80889BB9574E4C6D6AE4B8F10F7992DA /* GTMDefines.h */,
-			);
-			name = Defines;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		BAC0B0732C703D4483E9E41179261975 /* Core */ = {
@@ -298,13 +281,12 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
-		BC6FE0428B81FB1F9B1FB9290DF96B12 /* NSData+zlib */ = {
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A5A7265C9291D8FE7F457CB81BF79C66 /* GTMNSData+zlib.h */,
-				A0A44B96E65D03C57132FCFB65259DC6 /* GTMNSData+zlib.m */,
+				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
 			);
-			name = "NSData+zlib";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C3D8CF558B907F378D137FEBD6CC55C1 /* GoogleSymbolUtilities */ = {
@@ -325,15 +307,34 @@
 			path = GoogleInterchangeUtilities;
 			sourceTree = "<group>";
 		};
-		D1CAAED0A59C35B636F7D44469D53359 /* GoogleToolboxForMac */ = {
+		D1E59FA49CA1E16D9260CA188567C7C6 /* Pods-Flik-desktop */ = {
 			isa = PBXGroup;
 			children = (
-				A5BCB01834FC3A9428AC08FD26AF719D /* Defines */,
-				BC6FE0428B81FB1F9B1FB9290DF96B12 /* NSData+zlib */,
-				7BF744C40077ED7E21634613AFD6355C /* Support Files */,
+				BAA67652A233650833707C161E66AA3E /* Pods-Flik-desktop-acknowledgements.markdown */,
+				D2BA55CE41A84FA2BD91CF4F23D69C81 /* Pods-Flik-desktop-acknowledgements.plist */,
+				347B7BBC7432F8D70C2FBBF7BF91BC3A /* Pods-Flik-desktop-dummy.m */,
+				25A037CFCC82BB50FD289C40B3F5C34E /* Pods-Flik-desktop-frameworks.sh */,
+				8C30B9E92B19356F091F9BAF8CAB851A /* Pods-Flik-desktop-resources.sh */,
+				4C155ED0F9292D94007EBB7B810763B9 /* Pods-Flik-desktop.debug.xcconfig */,
+				DDDC18CBD045A9A5E5C709ECD17BCCE6 /* Pods-Flik-desktop.release.xcconfig */,
 			);
-			name = GoogleToolboxForMac;
-			path = GoogleToolboxForMac;
+			name = "Pods-Flik-desktop";
+			path = "Target Support Files/Pods-Flik-desktop";
+			sourceTree = "<group>";
+		};
+		DD59EABAE2CD654BE2904C3C01A0A28E /* Pods-Flik-androiddev */ = {
+			isa = PBXGroup;
+			children = (
+				7C2ADEB637E5DE5350E89D488B5CC0CB /* Pods-Flik-androiddev-acknowledgements.markdown */,
+				9075DB50D00E373B7B98BC99CAC80CEA /* Pods-Flik-androiddev-acknowledgements.plist */,
+				88DE58EA988BD4866D95DDF940B04EDD /* Pods-Flik-androiddev-dummy.m */,
+				0326CAF72A3907D0815FFB633CBBA91B /* Pods-Flik-androiddev-frameworks.sh */,
+				B9204D5EF8983FC989BEE757A4324FE7 /* Pods-Flik-androiddev-resources.sh */,
+				F75FFD219AE7519529D5CDF598059979 /* Pods-Flik-androiddev.debug.xcconfig */,
+				FB155F3461BECB9209365DD3A71B703C /* Pods-Flik-androiddev.release.xcconfig */,
+			);
+			name = "Pods-Flik-androiddev";
+			path = "Target Support Files/Pods-Flik-androiddev";
 			sourceTree = "<group>";
 		};
 		E3A34E1D8982976A7CD926B0E2364D16 /* FirebaseAnalytics */ = {
@@ -345,16 +346,19 @@
 			path = FirebaseAnalytics;
 			sourceTree = "<group>";
 		};
-		F1FA5713CC9DF01353D19F963D8D218E /* Pods-Flik-mobile */ = {
+		F66632CBAF657F333FEB2B15CE29DA42 /* Pods-Flik-mobile */ = {
 			isa = PBXGroup;
 			children = (
-				E58C4EF15B1A51A2705BF4CA8425AF93 /* Pods-Flik-mobile-acknowledgements.markdown */,
-				A484CC4FCD1A0545DE865544BF85CE7E /* Pods-Flik-mobile-acknowledgements.plist */,
-				B26FF681CC509903ADF978A2281D79FF /* Pods-Flik-mobile-dummy.m */,
-				A0231F55228D1D27D8079F10E723CF32 /* Pods-Flik-mobile-frameworks.sh */,
-				78DC2CF52006912992A6E4446A36E409 /* Pods-Flik-mobile-resources.sh */,
-				C56B300C8344CFB529CFB2C5C66E3036 /* Pods-Flik-mobile.debug.xcconfig */,
-				67F92F0A943EE7653AE2CFA8E3A1A078 /* Pods-Flik-mobile.release.xcconfig */,
+				0AE152B8871640E675D0F14511F6F159 /* Info.plist */,
+				7D43160C154C3964BD9907A5D06169DD /* Pods-Flik-mobile.modulemap */,
+				AE84159982D999CE51926A3B0D16DD18 /* Pods-Flik-mobile-acknowledgements.markdown */,
+				15D57D82523BDFE4F73737C1E439A8B6 /* Pods-Flik-mobile-acknowledgements.plist */,
+				509D37378FEAB14A6823BFD22007F71B /* Pods-Flik-mobile-dummy.m */,
+				05B4D1A77483F994BD9587F87F9BA0E9 /* Pods-Flik-mobile-frameworks.sh */,
+				1CA465F5D0A390B217CFE2413B77E077 /* Pods-Flik-mobile-resources.sh */,
+				BCACF195C05D7B2422A2197D8CD97F55 /* Pods-Flik-mobile-umbrella.h */,
+				B26B5FA408B145C6D63FD6FB8361C199 /* Pods-Flik-mobile.debug.xcconfig */,
+				A83A2EE604612DB37EFA728AE228812E /* Pods-Flik-mobile.release.xcconfig */,
 			);
 			name = "Pods-Flik-mobile";
 			path = "Target Support Files/Pods-Flik-mobile";
@@ -371,74 +375,34 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		34476B01833D8F46D0CEB0D1A2BDEECD /* Headers */ = {
+		DCBA9492710619035A1C3B8C97D551CA /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B02824B166AF4649072CAB930283EEA /* GTMDefines.h in Headers */,
-				CBC7548501161D689ACF033CA42AA1AB /* GTMNSData+zlib.h in Headers */,
+				42A8B9581E8E852C24E3FA0403468D60 /* Pods-Flik-mobile-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDA600FDC48ED17BA03DA2D85D4EDA97 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81E4B6988FF26F9249B79C6C8CC667B4 /* GoogleToolboxForMac-umbrella.h in Headers */,
+				541C5362289CC44D4F067D097F231250 /* GTMDefines.h in Headers */,
+				DBFECCB0BBE3F11CC41A3C1A8C4879D3 /* GTMNSData+zlib.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0F9B7B7BABCCFC8C5F0FAB0A007F5FD6 /* Pods-Flik-mobile */ = {
+		00103D6C821BE85971C563025527BA5D /* GoogleToolboxForMac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 723A18603E429F7BAD1D6004DFDDF904 /* Build configuration list for PBXNativeTarget "Pods-Flik-mobile" */;
+			buildConfigurationList = C43D9CA5106C6CCEF973B7EDF833947B /* Build configuration list for PBXNativeTarget "GoogleToolboxForMac" */;
 			buildPhases = (
-				61179551438415AFF6CE489FD490490D /* Sources */,
-				1AC037FD012A6800014E48C520A8A16A /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				669B579D3CF15AC071F603042A4EF22D /* PBXTargetDependency */,
-			);
-			name = "Pods-Flik-mobile";
-			productName = "Pods-Flik-mobile";
-			productReference = C23FFCDF2CF85B403723E19B899951BE /* libPods-Flik-mobile.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		4B581101D77F15D1159E7032D55B38ED /* Pods-Flik-androiddev */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 51AD08AA9D9090FC78CE18CE22561884 /* Build configuration list for PBXNativeTarget "Pods-Flik-androiddev" */;
-			buildPhases = (
-				B6CD56A40475C8620EAE0B4D1466E334 /* Sources */,
-				FC76FEFBC0F024C922B099BE59ABA66F /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-Flik-androiddev";
-			productName = "Pods-Flik-androiddev";
-			productReference = 89E38E66BDAB06B12B14BBE2B07A380E /* libPods-Flik-androiddev.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		6A83B135DD77E1D696CC9174580C93A8 /* Pods-Flik-desktop */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 43BA11E2B027B3C04A094BA40086C187 /* Build configuration list for PBXNativeTarget "Pods-Flik-desktop" */;
-			buildPhases = (
-				E487DB952BE10DA640AFB87B5C7974CB /* Sources */,
-				F45024E2507DAB6BD50B5DF52BEDDA89 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-Flik-desktop";
-			productName = "Pods-Flik-desktop";
-			productReference = 76175EB744A91E88374DB100BDCD30D6 /* libPods-Flik-desktop.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		E1BBB76ADBF2EF4EF2CE5DF6BBC77296 /* GoogleToolboxForMac */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C8E910B89548204C9E82F8F7CCB1460E /* Build configuration list for PBXNativeTarget "GoogleToolboxForMac" */;
-			buildPhases = (
-				E039C8832DF36C6AA9B398412DBAA4B5 /* Sources */,
-				736872D0F6BFBDB3F36ED73405DE4E29 /* Frameworks */,
-				34476B01833D8F46D0CEB0D1A2BDEECD /* Headers */,
+				63D7DA997053F6B5D01DE8CB5817CB51 /* Sources */,
+				F9BC43EEAF05BCB201B3D28C244AA7E1 /* Frameworks */,
+				FDA600FDC48ED17BA03DA2D85D4EDA97 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -446,8 +410,58 @@
 			);
 			name = GoogleToolboxForMac;
 			productName = GoogleToolboxForMac;
-			productReference = 59FB347C85635D8CAC03D190BEE66D0D /* libGoogleToolboxForMac.a */;
+			productReference = A3BC40AF72D9A5A380AC2C8EBCF0041D /* GoogleToolboxForMac.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4B581101D77F15D1159E7032D55B38ED /* Pods-Flik-androiddev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 51AD08AA9D9090FC78CE18CE22561884 /* Build configuration list for PBXNativeTarget "Pods-Flik-androiddev" */;
+			buildPhases = (
+				B6CD56A40475C8620EAE0B4D1466E334 /* Sources */,
+				D1DABF9F761A8C6F6FA20991BDCFF304 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Flik-androiddev";
+			productName = "Pods-Flik-androiddev";
+			productReference = 2A079EAD12E6EA670E10AD16D6182FF1 /* libPods-Flik-androiddev.a */;
 			productType = "com.apple.product-type.library.static";
+		};
+		6A83B135DD77E1D696CC9174580C93A8 /* Pods-Flik-desktop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 43BA11E2B027B3C04A094BA40086C187 /* Build configuration list for PBXNativeTarget "Pods-Flik-desktop" */;
+			buildPhases = (
+				E487DB952BE10DA640AFB87B5C7974CB /* Sources */,
+				37DE14D38779759A087792F2D2967936 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Flik-desktop";
+			productName = "Pods-Flik-desktop";
+			productReference = F7CCCB3D5EC68E067C1A52FCC874E450 /* libPods-Flik-desktop.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		AE3F3BF3286B51601F2BB01AE08EC9CC /* Pods-Flik-mobile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB487C2FFBA14ED970C571EDF0AA3378 /* Build configuration list for PBXNativeTarget "Pods-Flik-mobile" */;
+			buildPhases = (
+				1E9C92329A8AD13C2A08035616427404 /* Sources */,
+				A11054CFEB5B22FE8FC23D7B69AE4575 /* Frameworks */,
+				DCBA9492710619035A1C3B8C97D551CA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFD994A6D7F5ABAFCE69A664C1A3F014 /* PBXTargetDependency */,
+			);
+			name = "Pods-Flik-mobile";
+			productName = "Pods-Flik-mobile";
+			productReference = F746A6C7524BB0E7B45EC6D681F7D0B0 /* Pods_Flik_mobile.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -466,24 +480,33 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 8BD3A5D779788AA4E5DD91A8322F42FC /* Products */;
+			productRefGroup = A6FE06BEBA205E7D27ED85276D82E79D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E1BBB76ADBF2EF4EF2CE5DF6BBC77296 /* GoogleToolboxForMac */,
+				00103D6C821BE85971C563025527BA5D /* GoogleToolboxForMac */,
 				4B581101D77F15D1159E7032D55B38ED /* Pods-Flik-androiddev */,
 				6A83B135DD77E1D696CC9174580C93A8 /* Pods-Flik-desktop */,
-				0F9B7B7BABCCFC8C5F0FAB0A007F5FD6 /* Pods-Flik-mobile */,
+				AE3F3BF3286B51601F2BB01AE08EC9CC /* Pods-Flik-mobile */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		61179551438415AFF6CE489FD490490D /* Sources */ = {
+		1E9C92329A8AD13C2A08035616427404 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13197774B1B412938996262FBF5A301C /* Pods-Flik-mobile-dummy.m in Sources */,
+				E9EDABD014A0B78B9FA46E6E98F93AC0 /* Pods-Flik-mobile-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63D7DA997053F6B5D01DE8CB5817CB51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAC3F3CAABA60EF76069431C5BB5032A /* GoogleToolboxForMac-dummy.m in Sources */,
+				F7D889906DECB078EAAECB9D4A320E9C /* GTMNSData+zlib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,15 +515,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				02AD8908DE875077151AFFB22DF09B5E /* Pods-Flik-androiddev-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E039C8832DF36C6AA9B398412DBAA4B5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1B6053DB4F426B47C4A91E97990824D3 /* GoogleToolboxForMac-dummy.m in Sources */,
-				3D5A8358B3CE03D143C39C4BF52B34D3 /* GTMNSData+zlib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,228 +529,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		669B579D3CF15AC071F603042A4EF22D /* PBXTargetDependency */ = {
+		EFD994A6D7F5ABAFCE69A664C1A3F014 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GoogleToolboxForMac;
-			target = E1BBB76ADBF2EF4EF2CE5DF6BBC77296 /* GoogleToolboxForMac */;
-			targetProxy = C0DC1B47EC1BED551045BD24D16903E8 /* PBXContainerItemProxy */;
+			target = 00103D6C821BE85971C563025527BA5D /* GoogleToolboxForMac */;
+			targetProxy = 3DB78CCCA1DEBA2A53E5A468BA745204 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1499EE6B8CBB6FD2FEA498D510D4FB5D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9EBFDA502F54738F1935AE1D500A52DC /* Pods-Flik-androiddev.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXECUTABLE_PREFIX = lib;
-				GCC_NO_COMMON_BLOCKS = YES;
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		53F22E96452C2F9076DBE728F0696323 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5BE1670007A669692EFF87AE7E1C647B /* Pods-Flik-desktop.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXECUTABLE_PREFIX = lib;
-				GCC_NO_COMMON_BLOCKS = YES;
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		69EA47D48A139B65FB8350131D6D99D9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E302DF0CE690BC6A3A3B764DA267C9C /* GoogleToolboxForMac.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		7DB7966F2AC9DF99D74D5AFE4973AABB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E302DF0CE690BC6A3A3B764DA267C9C /* GoogleToolboxForMac.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		8AFBD974BCDA66CDBD610973C7E8BA4E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 977C202D7939C1A9559C59158384D128 /* Pods-Flik-desktop.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXECUTABLE_PREFIX = lib;
-				GCC_NO_COMMON_BLOCKS = YES;
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		93DA3B98E114FD929BD61FFE55D04859 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		9A43AD3839CF181DB9516AD90DF7A011 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F2C311DC15D6C6EC87AA332E580BFBC /* Pods-Flik-androiddev.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXECUTABLE_PREFIX = lib;
-				GCC_NO_COMMON_BLOCKS = YES;
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		B1682B34B6B7BB547699FB5545DB1A49 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C56B300C8344CFB529CFB2C5C66E3036 /* Pods-Flik-mobile.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		D228AA9090A134226F6581079E2E918D /* Debug */ = {
+		015A368F878AC3E2CEAE21DDE8026304 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -773,7 +575,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
@@ -781,9 +582,158 @@
 			};
 			name = Debug;
 		};
-		F8DF65223BDFE41ED17145523526EB4F /* Release */ = {
+		03E8F1C92B16AF513A379144EE9D66C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 67F92F0A943EE7653AE2CFA8E3A1A078 /* Pods-Flik-mobile.release.xcconfig */;
+			baseConfigurationReference = F75FFD219AE7519529D5CDF598059979 /* Pods-Flik-androiddev.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		434C80268561258BD3C8D9DEDD965DA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDDC18CBD045A9A5E5C709ECD17BCCE6 /* Pods-Flik-desktop.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		44CDBB6D11DE06DB64D6268622BDC47E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		46C45EB343DC9096DC553E2B8FA0C552 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00D1CDDF771120776FDC8D96EA542EE6 /* GoogleToolboxForMac.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GoogleToolboxForMac/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = GoogleToolboxForMac;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4F322F0E5626600813A58E7BFA0ACDFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00D1CDDF771120776FDC8D96EA542EE6 /* GoogleToolboxForMac.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/GoogleToolboxForMac/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = GoogleToolboxForMac;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		74B44193439C72DD492C13069168EBBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB155F3461BECB9209365DD3A71B703C /* Pods-Flik-androiddev.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -804,14 +754,108 @@
 			};
 			name = Release;
 		};
+		BEF23E3E0D0B36BAF3812BE98E7E56F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A83A2EE604612DB37EFA728AE228812E /* Pods-Flik-mobile.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Flik-mobile/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Flik-mobile/Pods-Flik-mobile.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Flik_mobile;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FCCA9AD73863CD020B80D7C85AE97A91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B26B5FA408B145C6D63FD6FB8361C199 /* Pods-Flik-mobile.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Flik-mobile/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Flik-mobile/Pods-Flik-mobile.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Flik_mobile;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FEF02B3F040BB446F2E52B79708ED544 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C155ED0F9292D94007EBB7B810763B9 /* Pods-Flik-desktop.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D228AA9090A134226F6581079E2E918D /* Debug */,
-				93DA3B98E114FD929BD61FFE55D04859 /* Release */,
+				015A368F878AC3E2CEAE21DDE8026304 /* Debug */,
+				44CDBB6D11DE06DB64D6268622BDC47E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -819,8 +863,8 @@
 		43BA11E2B027B3C04A094BA40086C187 /* Build configuration list for PBXNativeTarget "Pods-Flik-desktop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8AFBD974BCDA66CDBD610973C7E8BA4E /* Debug */,
-				53F22E96452C2F9076DBE728F0696323 /* Release */,
+				FEF02B3F040BB446F2E52B79708ED544 /* Debug */,
+				434C80268561258BD3C8D9DEDD965DA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -828,26 +872,26 @@
 		51AD08AA9D9090FC78CE18CE22561884 /* Build configuration list for PBXNativeTarget "Pods-Flik-androiddev" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9A43AD3839CF181DB9516AD90DF7A011 /* Debug */,
-				1499EE6B8CBB6FD2FEA498D510D4FB5D /* Release */,
+				03E8F1C92B16AF513A379144EE9D66C9 /* Debug */,
+				74B44193439C72DD492C13069168EBBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		723A18603E429F7BAD1D6004DFDDF904 /* Build configuration list for PBXNativeTarget "Pods-Flik-mobile" */ = {
+		C43D9CA5106C6CCEF973B7EDF833947B /* Build configuration list for PBXNativeTarget "GoogleToolboxForMac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B1682B34B6B7BB547699FB5545DB1A49 /* Debug */,
-				F8DF65223BDFE41ED17145523526EB4F /* Release */,
+				46C45EB343DC9096DC553E2B8FA0C552 /* Debug */,
+				4F322F0E5626600813A58E7BFA0ACDFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C8E910B89548204C9E82F8F7CCB1460E /* Build configuration list for PBXNativeTarget "GoogleToolboxForMac" */ = {
+		CB487C2FFBA14ED970C571EDF0AA3378 /* Build configuration list for PBXNativeTarget "Pods-Flik-mobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				69EA47D48A139B65FB8350131D6D99D9 /* Debug */,
-				7DB7966F2AC9DF99D74D5AFE4973AABB /* Release */,
+				FCCA9AD73863CD020B80D7C85AE97A91 /* Debug */,
+				BEF23E3E0D0B36BAF3812BE98E7E56F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

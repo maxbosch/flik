@@ -113,6 +113,11 @@ namespace sdkbox
          * nothing will happen.
          */
         static void enableTracker( const std::string& trackerId );
+
+        /*!
+         * Enables or disables uncaught exception reporting for a given tracker.
+         */
+        static void enableExceptionReporting(bool enable);
     };
 
 }
