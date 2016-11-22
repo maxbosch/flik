@@ -249,6 +249,7 @@
     <orderEntry type="library" exported="" name="PluginGoogleAnalytics" level="project" />
     <orderEntry type="library" exported="" name="com.android.vending.expansion.zipfile" level="project" />
     <orderEntry type="library" exported="" name="PluginAchievement" level="project" />
+    <orderEntry type="library" exported="" name="android-support-v4" level="project" />
     <orderEntry type="library" exported="" name="httpclient-4.4.1.1" level="project" />
     <orderEntry type="library" exported="" name="PluginSdkboxPlay" level="project" />
     <orderEntry type="library" exported="" name="PluginGooglePlay" level="project" />

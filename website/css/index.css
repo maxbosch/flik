@@ -55,4 +55,313 @@ a {
 
 #pieces {
     position: absolute;
+    width: 100%;
+    height: 100%;
 }
+
+#piece1 {
+    margin-left: 265px;
+    margin-top: 280px;
+    background-image: url(/website/image/blue.png);
+    position: absolute;
+    width: 131px;
+    height: 113px;
+    background-size: 131px;
+}
+
+#piece2 {
+    margin-left: 495px;
+    margin-top: 88px;
+    background-image: url(/image/green.png);
+    position: absolute;
+    width: 28px;
+    height: 25px;
+    background-size: 28px;
+}
+
+#piece3 {
+    margin-left: 1073px;
+    margin-top: 865px;
+    background-image: url(/image/yellow.png);
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    background-size: 70px;
+}
+
+#piece4 {
+    margin-left: 330px;
+    margin-top: 868px;
+    background-image: url(/image/green.png);
+    position: absolute;
+    width: 70px;
+    height: 62px;
+    background-size: 70px;
+}
+
+#piece5 {
+    margin-left: 825px;
+    margin-top: 721px;
+    background-image: url(/image/red.png);
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
+}
+
+#piece6 {
+    margin-left: 93px;
+    margin-top: 643px;
+    background-image: url(/image/yellow.png);
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background-size: 35px;
+}
+
+#piece7 {
+    margin-left: 1311px;
+    margin-top: 427px;
+    background-image: url(/image/blue.png);
+    position: absolute;
+    width: 36px;
+    height: 30px;
+    background-size: 36px;
+}
+
+#piece8 {
+    margin-left: 1025px;
+    margin-top: 162px;
+    background-image: url(/image/red.png);
+    position: absolute;
+    width: 98px;
+    height: 98px;
+    background-size: 98px;
+}
+
+#contact-form {
+    font-size: 30px;
+    margin: 0 auto;
+}
+
+#contact-form td {
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.form-field {
+}
+
+.form-field label {
+    width: 150px;
+    display: inline-block;
+    text-align: left;
+    margin-top: 15px;
+    display: block;
+}
+
+#contact-form input {
+    width: 500px;
+    font-size: 20px;
+    height: 30px;
+}
+
+#contact-form textarea {
+    width: 500px;
+    height: 300px;
+    font-size: 20px;
+}
+
+#contact-page h1 {
+    font-size: 50px;
+}
+
+#contact-page {
+    overflow: auto;
+}
+
+#contact-form input[type=submit] {
+    width: 150px;
+    height: 50px;
+    margin-bottom: 100px;
+    font-size: 50px;
+}
+
+
+@media (max-width: 1200px) {
+    .content {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #piece1 {
+        margin-left: 55px;
+        margin-top: 270px;
+    }
+
+    #piece2 {
+        margin-left: 286px;
+        margin-top: 77px;
+    }
+
+    #piece3 {
+        margin-left: 864px;
+        margin-top: 754px;
+    }
+
+    #piece4 {
+        margin-left: 121px;
+        margin-top: 764px;
+    }
+
+    #piece5 {
+        margin-left: 617px;
+        margin-top: 710px;
+    }
+
+    #piece6, #piece7 {
+        display: none;
+    }
+
+    #piece8 {
+        margin-left: 815px;
+        margin-top: 151px;
+    }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+    #piece1 {
+        margin-left: 69px;
+        margin-top: 281px;
+    }
+
+    #piece2 {
+        margin-left: 158px;
+        margin-top: 77px;
+    }
+
+    #piece3 {
+        margin-left: 569px;
+        margin-top: 884px;
+    }
+
+    #piece4 {
+        margin-left: 40px;
+        margin-top: 851px;
+    }
+
+    #piece5 {
+        margin-left: 489px;
+        margin-top: 710px;
+    }
+
+    #piece6, #piece7 {
+        display: none;
+    }
+
+    #piece8 {
+        margin-left: 593px;
+        margin-top: 82px;
+    }
+
+    .logo {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+    }
+
+    .contact-wrapper {
+        position: absolute;
+        bottom: 50px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .tagline {
+        font-size: 31px;
+        margin-left: 200px;
+        margin-right: 200px;
+    }
+}
+
+@media (max-width: 640px) {
+    #contact-form label {
+        margin-right: 0;
+        font-size: 15px;
+    }
+
+    #contact-form input {
+        width: 300px;
+        font-size: 15px;
+        height: 15px;
+    }
+
+    #contact-form textarea {
+        width: 300px;
+        height: 100px;
+        font-size: 15px;
+    }
+
+    #contact-page h1 {
+        font-size: 30px;
+    }
+
+    #contact-form input[type=submit] {
+        width: 150px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) and (orientation: portrait) {
+    #piece1 {
+        margin-left: 42px;
+        margin-top: 401px;
+        background-image: url(/image/blue.png);
+        position: absolute;
+        width: 36px;
+        height: 30px;
+        background-size: 36px;
+    }
+
+    #piece2 {
+        margin-left: 42px;
+        margin-top: 119px;
+        background-image: url(/image/green.png);
+        position: absolute;
+        width: 28px;
+        height: 25px;
+        background-size: 28px;
+    }
+
+    #piece3 {
+        margin-left: 248px;
+        margin-top: 145px;
+        background-image: url(/image/yellow.png);
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        background-size: 35px;
+    }
+
+    #piece4 {
+        margin-left: 233px;
+        margin-top: 432px;
+        background-image: url(/image/red.png);
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-size: 50px;
+    }
+
+    #piece5, #piece6, #piece7, #piece8 {
+        display: none;
+    }
+
+    .tagline {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+

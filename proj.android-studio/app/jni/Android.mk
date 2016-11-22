@@ -38,7 +38,8 @@ find \
 $(LOCAL_PATH)/../../../Classes \
 -type \
 d}
-LOCAL_C_INCLUDES += /usr/local/include
+LOCAL_C_INCLUDES += /usr/local/include \
+/usr/local/include/freetype2
 
 LOCAL_WHOLE_STATIC_LIBRARIES := PluginAchievement \
 sdkbox \

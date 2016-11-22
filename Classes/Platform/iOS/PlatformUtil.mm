@@ -17,7 +17,7 @@
 
 namespace flik
 {
-    static NSString *kItunesBaseUrl = @"https://itunes.apple.com/us/app/citymaps-discover-local-places/id%@";
+    static NSString *kItunesBaseUrl = @"https://itunes.apple.com/us/app/id%@";
     
     static inline NSString* toNSString(const std::string& str) {
         return [NSString stringWithUTF8String:str.c_str()];
