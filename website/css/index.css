@@ -62,7 +62,7 @@ a {
 #piece1 {
     margin-left: 265px;
     margin-top: 280px;
-    background-image: url(/website/image/blue.png);
+    background-image: url(/image/blue.png);
     position: absolute;
     width: 131px;
     height: 113px;
@@ -105,7 +105,7 @@ a {
     background-image: url(/image/red.png);
     position: absolute;
     width: 50px;
-    height: 50px;
+    height: 49px;
     background-size: 50px;
 }
 
@@ -135,7 +135,7 @@ a {
     background-image: url(/image/red.png);
     position: absolute;
     width: 98px;
-    height: 98px;
+    height: 97px;
     background-size: 98px;
 }
 
@@ -351,7 +351,7 @@ a {
         background-image: url(/image/red.png);
         position: absolute;
         width: 50px;
-        height: 50px;
+        height: 49px;
         background-size: 50px;
     }
 
