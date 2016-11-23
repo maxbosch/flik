@@ -22,6 +22,9 @@
 		5087E78B17EB975400C73F5D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78A17EB975400C73F5D /* OpenGL.framework */; };
 		5C05403BB2316A413887BF45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82184907863F3C226936A794 /* SystemConfiguration.framework */; };
 		660DD9E61D6C8ADE00698B93 /* 2x in Resources */ = {isa = PBXBuildFile; fileRef = 660DD9E51D6C8ADE00698B93 /* 2x */; };
+		66218B7C1DE51357000CEC76 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66442B341D0CBEBE00AC5983 /* Fabric.framework */; };
+		66218B7D1DE5135A000CEC76 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66442B351D0CBEBE00AC5983 /* Crashlytics.framework */; };
+		66218B801DE51D29000CEC76 /* ErrorDialogWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66218B7E1DE51D29000CEC76 /* ErrorDialogWidget.cpp */; };
 		662F29181DCD19220030754F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 662F29171DCD19220030754F /* GoogleService-Info.plist */; };
 		663CC17D1D22B0FA00A423A1 /* PlatformUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663CC16C1D22048500A423A1 /* PlatformUtil.cpp */; };
 		66442B291D0B83B100AC5983 /* string in Resources */ = {isa = PBXBuildFile; fileRef = 66442B281D0B83B100AC5983 /* string */; };
@@ -222,6 +225,8 @@
 		661401741D594954005497BD /* RainbowBonusBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RainbowBonusBehavior.h; sourceTree = "<group>"; };
 		661401761D5955FD005497BD /* LayerMultiGradient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LayerMultiGradient.cpp; sourceTree = "<group>"; };
 		661401771D5955FD005497BD /* LayerMultiGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerMultiGradient.h; sourceTree = "<group>"; };
+		66218B7E1DE51D29000CEC76 /* ErrorDialogWidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ErrorDialogWidget.cpp; sourceTree = "<group>"; };
+		66218B7F1DE51D29000CEC76 /* ErrorDialogWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorDialogWidget.h; sourceTree = "<group>"; };
 		6626819B1D65315000F9D0D3 /* LevelGameOverOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelGameOverOverlay.cpp; sourceTree = "<group>"; };
 		6626819C1D65315000F9D0D3 /* LevelGameOverOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelGameOverOverlay.h; sourceTree = "<group>"; };
 		662EB8721D9165380022B18B /* ChoosePowerupScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChoosePowerupScene.cpp; sourceTree = "<group>"; };
@@ -463,6 +468,8 @@
 			files = (
 				66BDEBBA1DE217870079A50A /* libcocos2d.a in Frameworks */,
 				66BDED311DE2330C0079A50A /* libBox2D.a in Frameworks */,
+				66218B7C1DE51357000CEC76 /* Fabric.framework in Frameworks */,
+				66218B7D1DE5135A000CEC76 /* Crashlytics.framework in Frameworks */,
 				BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */,
 				66BDEB8E1DE1FFAA0079A50A /* MediaPlayer.framework in Frameworks */,
 				66BDEB891DE1FE730079A50A /* GameKit.framework in Frameworks */,
@@ -806,6 +813,8 @@
 				66C58D771DB833F500A86FA4 /* OverlayBackgroundWidget.h */,
 				66F8859E1DC8007900D56F59 /* PercentBubbleLayer.cpp */,
 				66F8859F1DC8007900D56F59 /* PercentBubbleLayer.h */,
+				66218B7E1DE51D29000CEC76 /* ErrorDialogWidget.cpp */,
+				66218B7F1DE51D29000CEC76 /* ErrorDialogWidget.h */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -1333,6 +1342,7 @@
 				66BDEB331DE1FE3A0079A50A /* DisableColorBehavior.cpp in Sources */,
 				66BDEB341DE1FE3A0079A50A /* ScoreMultiplierBonusBehavior.cpp in Sources */,
 				66BDEB351DE1FE3A0079A50A /* GravityBonusBehavior.cpp in Sources */,
+				66218B801DE51D29000CEC76 /* ErrorDialogWidget.cpp in Sources */,
 				66BDEB361DE1FE3A0079A50A /* PiecesClearedObjectiveTracker.cpp in Sources */,
 				66BDEB371DE1FE3A0079A50A /* MaxOnBoardObjectiveTracker.cpp in Sources */,
 				66BDEB381DE1FE3A0079A50A /* TimedSpawner.cpp in Sources */,
@@ -1564,8 +1574,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.aeskreis.flik;
 				PRODUCT_NAME = Flik;
-				PROVISIONING_PROFILE = "a09ae228-5949-4732-8968-4112542c6264";
-				PROVISIONING_PROFILE_SPECIFIER = "Flik App Store";
+				PROVISIONING_PROFILE = "e91e3740-29cb-475c-ba18-a61161013976";
+				PROVISIONING_PROFILE_SPECIFIER = "Flik Ad Hoc";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";

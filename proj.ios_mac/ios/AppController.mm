@@ -22,16 +22,22 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-//#import <Fabric/Fabric.h>
-//#import <Crashlytics/Crashlytics.h>
-//#import <Crashlytics/Answers.h>
-//#import "Firebase/Firebase.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+#import <Crashlytics/Answers.h>
+#import "Firebase/Firebase.h"
 
 #import "AppController.h"
 #import "platform/ios/CCEAGLView-ios.h"
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "RootViewController.h"
+
+#import "StoreKit/StoreKit.h"
+
+@interface AppController() <SKProductsRequestDelegate>
+
+@end
 
 @implementation AppController
 
@@ -43,8 +49,8 @@ static flik::AppDelegate es_sharedApplication;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    //[Fabric with:@[[Crashlytics class]]];
-    //[FIRApp configure];
+    [Fabric with:@[[Crashlytics class]]];
+    [FIRApp configure];
 
     cocos2d::Application *app = cocos2d::Application::getInstance();
     app->initGLContextAttrs();
@@ -93,10 +99,18 @@ static flik::AppDelegate es_sharedApplication;
     cocos2d::Director::getInstance()->setOpenGLView(glview);
 
     app->run();
+    
+    SKProductsRequest *request = [[SKProductsRequest alloc] initWithProductIdentifiers: [NSSet setWithObject:@"product.points.15000"]];
+    request.delegate = self;
+    [request start];
 
     return YES;
 }
 
+- (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
+{
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     /*

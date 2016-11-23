@@ -17,6 +17,8 @@
 #include "LocalizedString.h"
 #include "GameServices.h"
 
+#include "ErrorDialogWidget.h"
+
 #include "Analytics.h"
 
 USING_NS_CC;
@@ -66,7 +68,10 @@ namespace flik
                             player->addCurrency(pointsCount);
                         }
                     } else {
-                        // No-op for now
+                        CCLOG("Error purchasing product: %s", msg.c_str());
+                        
+                        auto dialog = ErrorDialogWidget::create(LocalizedString::getString("error_purchase_title"), LocalizedString::getString("error_purchase_description"));
+                        dialog->show();
                     }
                     
                     PTree attributes;

@@ -71,8 +71,8 @@ namespace flik
         
         auto exitButton = ui::Button::create("red_x_close.png");
         auto exitButtonLayout = ui::RelativeLayoutParameter::create();
-        exitButtonLayout->setAlign(RelativeAlign::PARENT_TOP_LEFT);
-        exitButtonLayout->setMargin(ui::Margin(20.0_dp, 20.0_dp, 0, 0));
+        exitButtonLayout->setAlign(RelativeAlign::PARENT_BOTTOM_CENTER_HORIZONTAL);
+        exitButtonLayout->setMargin(ui::Margin(0, 0, 0, 30.0_dp));
         exitButton->setLayoutParameter(exitButtonLayout);
         container->addChild(exitButton);
         exitButton->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {

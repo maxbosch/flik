@@ -9,6 +9,7 @@
 #include "GameServices.h"
 #include "LocalizedString.h"
 #include "Errors.h"
+#include "sdkbox/Sdkbox.h"
 #include <rapidjson/document.h>
 
 USING_NS_CC;
@@ -38,13 +39,20 @@ namespace flik
     
     void GameServices::initialize()
     {
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+        sdkbox::init("f3c8fed09ca10e38e27b888cb9fe7261", "78e4d540c0a089d6");
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+        sdkbox::init("d372d757b12f6fdfc4972504a8dbe5ab", "3618e189567712b3", "googleplay");
+#endif
+        
         //sdkbox::PluginSdkboxPlay::init();
         //sdkbox::PluginSdkboxPlay::setListener(this);
         
         //sdkbox::PluginSdkboxPlay::signin();
         
         // Register IAP
-        sdkbox::IAP::init();
+        std::string sdkboxConfig = FileUtils::getInstance()->getStringFromFile("sdkbox_config.json");
+        sdkbox::IAP::init(sdkboxConfig.c_str());
         sdkbox::IAP::setDebug(true);
         sdkbox::IAP::refresh();
         sdkbox::IAP::setListener(this);
