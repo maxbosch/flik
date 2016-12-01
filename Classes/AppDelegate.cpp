@@ -121,6 +121,7 @@ namespace flik
             Player::getMainPlayer()->addPowerUp(BonusType::Rainbow, 1);
             Player::getMainPlayer()->addPowerUp(BonusType::DoubleUp, 1);
             Player::getMainPlayer()->addPowerUp(BonusType::Ghost, 1);
+            Player::getMainPlayer()->addCurrency(1000);
         }
         
         // Set up back button

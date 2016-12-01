@@ -20,6 +20,8 @@
 #include "GameSelectScene.h"
 #include "SceneManager.h"
 #include "Analytics.h"
+#include "ErrorDialogWidget.h"
+#include "LocalizedString.h"
 
 USING_NS_CC;
 
@@ -83,5 +85,20 @@ namespace flik
     void MainMenuScene::onBackPressed()
     {
         Director::getInstance()->end();
+    }
+    
+    void MainMenuScene::onAppear()
+    {
+        static const char* keyFirstInstallPopup = "key_firstInstallPopup";
+        
+        bool popupShown = UserDefault::getInstance()->getBoolForKey(keyFirstInstallPopup, false);
+        if (!popupShown) {
+            UserDefault::getInstance()->setBoolForKey(keyFirstInstallPopup, true);
+            scheduleOnce([this](float t) {
+                auto dialog = ErrorDialogWidget::create(LocalizedString::getString("popup_gift_title"), LocalizedString::getString("popup_gift_description"));
+                dialog->show();
+            }, 0.7, "firstInstallPopupAnim");
+           
+        }
     }
 }

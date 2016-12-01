@@ -23,6 +23,7 @@ namespace flik
         bool init();
         
         void onBackPressed();
+        void onAppear();
         
     private:
         void onGameModeSelected(GameModeType type);

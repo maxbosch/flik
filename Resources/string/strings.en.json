@@ -107,5 +107,8 @@
     "achievement_score_unlimited_325": "Score 325 points in Unlimited mode",
     
     "error_purchase_title": "Uh oh",
-    "error_purchase_description": "Something went wrong with the purchase.  Please try again. Sorry!"
+    "error_purchase_description": "Something went wrong with the purchase.  Please try again. Sorry!",
+    
+    "popup_gift_title": "Thank you!",
+    "popup_gift_description": "We really appreciate you giving our game a try.  As a special gift to you, we have given you one of each powerup as well as 1000 bonus points to spend in our store.  We hope you enjoy the game."
 }
